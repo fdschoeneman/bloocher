@@ -1,52 +1,69 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'turnip/capybara'
-require 'email_spec'
-require 'rspec/autorun'
+require 'rubygems'
+require 'spork'
 
-# Requires supporting ruby files with custom matchers and macros, etc,
-# in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Spork.prefork do
 
-RSpec.configure do |config|
-  config.include(EmailSpec::Helpers)
-  config.include(EmailSpec::Matchers)
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
+  ENV["RAILS_ENV"] ||= 'test'
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
+  require 'rspec/autorun'
+  require 'rspec/given'
+  require 'capybara/rspec'
+  require 'capybara/rails'
+  require 'factory_girl_rails'
+  require 'shoulda-matchers'
+  require 'email_spec'
+  require 'turnip/capybara'
+  require 'turnip_helper'
 
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  Capybara.javascript_driver = :webkit
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-  # If true, the base class of anonymous controllers will be inferred
-  # automatically. This will be the default behavior in future versions of
-  # rspec-rails.
-  config.infer_base_class_for_anonymous_controllers = false
+  RSpec.configure do |config|
+    config.include Devise::TestHelpers, :type => :controller
+    config.include Warden::Test::Helpers
+    config.include EmailSpec::Helpers
+    config.include EmailSpec::Matchers
+    config.include FactoryGirl::Syntax::Methods
 
-  # Run specs in random order to surface order dependencies. If you find an
-  # order dependency and want to debug it, you can fix the order by providing
-  # the seed, which is printed after each run.
-  #     --seed 1234
-  config.order = "random"
+    config.mock_with :rspec
+    config.fixture_path = "#{::Rails.root}/spec/fixtures"
+    config.use_transactional_fixtures = true
+    config.infer_base_class_for_anonymous_controllers = true
+#   config.order = "random"
+    
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :truncation
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
+  end
+end
+
+Spork.each_run do
   
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+  FactoryGirl.reload
+
+  Dir["#{Rails.root}/app/controllers//*.rb"].each do |controller|
+    load controller
   end
-  config.before(:each) do
-    DatabaseCleaner.start
+  Dir["#{Rails.root}/app/models//*.rb"].each do |model|
+    load model
   end
-  config.after(:each) do
-    DatabaseCleaner.clean
+  Dir["#{Rails.root}/app/workers//*.rb"].each do |worker|
+    load worker
+  end
+  Dir["#{Rails.root}/app/mailers//*.rb"].each do |mailer|
+    load mailer
+  end
+  Dir["#{Rails.root}/lib//*.rb"].each do |lib|
+    load lib
   end
 end
