@@ -9,6 +9,11 @@
         = javascript_include_tag "application"
         = csrf_meta_tags
         = favicon_link_tag
+        / Le HTML5 shim, for IE6-8 support of HTML5 elements
+        /[if lt IE 9]
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        /[if IE 7] <link rel="stylesheet" href="/css/font-awesome-ie7.css">
+        / Le favicon
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
     %header.navbar.navbar-fixed-top
