@@ -1,25 +1,12 @@
 !!!
 %html{:lang => "en"}
   %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %meta{:content => "Review and promote wines and vineyards", :name => "description"}/
-    %meta{:content => "Fred Schoeneman (Fred.schoeneman@bloocher.com)", :name => "author"}/
-    
+    %meta{:content => "Tracking wines and vineyards since 2013", :name => "description"}/
+    %meta{:content => "Frederick D. Schoeneman (Fred.schoeneman@bloocher.com)", :name => "author"}/
   %body
-    / Le before-navbar info
     .before-navbar
       .container
-        .pull-right
-          = link_to 'help', root_url
-          %a{:href => "index.html"} Home
-          %a{:href => "#"}
-            %i.icon-twitter-sign.color-twitter
-          %a{:href => "#"}
-            %i.icon-facebook-sign.color-facebook
-          %a{:href => "#"}
-            %i.icon-linkedin-sign.color-linkedin
-    / Le TRIQ navigation
+        = link_to 'Need help?', root_url
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
