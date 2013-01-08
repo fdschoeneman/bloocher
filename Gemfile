@@ -11,6 +11,8 @@ gem "sendgrid", ">= 1.0.1"
 gem "devise", ">= 2.1.2"
 gem "simple_form", ">= 2.0.4"
 gem "figaro", ">= 0.5.0"
+gem 'font-awesome-rails'
+gem 'google-webfonts'
 
 group :assets do
   gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
