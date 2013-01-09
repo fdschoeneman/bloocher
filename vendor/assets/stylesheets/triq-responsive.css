@@ -24,7 +24,7 @@
 
   .carousel.add-shadow:after {
     margin-left: -478px;
-    background: url(../img/slider_shadow.png) no-repeat;
+    background: url(/assets/slider_shadow.png) no-repeat;
   }
 }
 /* Portrait tablet to landscape and desktop */

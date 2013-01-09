@@ -1,34 +1,61 @@
 !!!
 %html{:lang => "en"}
   %head
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-      %title= content_for?(:title) ? yield(:title) : "Bloocher"
-      %meta{:charset => "utf-8"}/
-      %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-
-      %meta{:content => content_for?(:description) ? yield(:description) : "Bloocher", :name => "description"}
-        = stylesheet_link_tag "application", :media => "all"
-        = javascript_include_tag "application"
-        = csrf_meta_tags
-        = favicon_link_tag
-        / Le HTML5 shim, for IE6-8 support of HTML5 elements
-        /[if lt IE 9]
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        /[if IE 7] <link rel="stylesheet" href="/css/font-awesome-ie7.css">
-        / Le favicon
-        = yield(:head)
+    %title= content_for?(:title) ? yield(:title) : "Bloocher"
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "Tracking wines and vineyards since 2013", :name => "description"}/
+    %meta{:content => "Frederick D. Schoeneman (Fred.schoeneman@bloocher.com)", :name => "author"}/    
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = favicon_link_tag
+    / Le HTML5 shim, for IE6-8 support of HTML5 elements
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    /[if IE 7] <link rel="stylesheet" href="/css/font-awesome-ie7.css">
+    / Le favicon
+    = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
-    #main{:role => "main"}
+    .before-navbar
       .container
-        .content
-          .row
-            .span12
-              = render 'layouts/messages'
-              = yield
-          %footer
-      / ! end of .container
-    / ! end of #main
+        .span3
+        .span3
+          = link_to 'Need help?', root_url
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to "Bloocher", root_path, :class => 'brand'
+          %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
+          %ul.nav.pull-right.hidden-phone
+            %li.active
+              %a{:href => "index.html"} Home
+            %li
+              %a{:href => "about.html"} About
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Portfolio
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
+                %li
+                  %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
+            %li
+              %a{:href => "blog.html"} Blog
+            %li
+              %a{:href => "contact.html"} Contact
+
+    = yield            
+    / %header.navbar.navbar-fixed-top
+    /   %nav.navbar-inner
+    /     .container
+    /       = render 'layouts/navigation'
+    / #main{:role => "main"}
+    /   .container
+    /     .content
+    /       .row
+    /         .span12
+    /           = render 'layouts/messages'
+    /           = yield
+    /       %footer

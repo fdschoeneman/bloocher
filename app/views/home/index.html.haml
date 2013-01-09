@@ -1,117 +1,9 @@
-!!!
-%html{:lang => "en"}
-  %head
-    %meta{:content => "Tracking wines and vineyards since 2013", :name => "description"}/
-    %meta{:content => "Frederick D. Schoeneman (Fred.schoeneman@bloocher.com)", :name => "author"}/
-  %body
-    .before-navbar
-      .container
-        = link_to 'Need help?', root_url
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = link_to "Bloocher", root_path, :class => 'brand'
-          %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
-          %ul.nav.pull-right.hidden-phone
-            %li.active
-              %a{:href => "index.html"} Home
-            %li
-              %a{:href => "about.html"} About
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Portfolio
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
-                %li
-                  %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
-            %li
-              %a{:href => "blog.html"} Blog
-            %li
-              %a{:href => "contact.html"} Contact
-    .background-light-grey
-      .container
-        .row-fluid
-          .featured
-            .span6
-              .excerpt
-                %h3 Home
-                - @users.each do |user|
-                  %p
-                    User: #{link_to user.name, user}
-                %h1 This is a featured post or something
-                %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                %a.btn.btn-arrow-right.btn-simple.btn-blue.btn-huge.pull-right{:href => "https://wrapbootstrap.com/theme/typica-WB062JJ83", :target => "_blank"} See template Typica
-            .span6
-              %img.pull-right{:alt => "Typica - Bootstrap template", :src => "demo_img/typica.jpg"}/
-    / signup strip
-    .background-grey.strip
-      .container
-        %p.pull-left This is the most awesome app you've ever seen! Why don't you sign up right now?
-        .pull-right
-          %a.btn.btn-info.btn-huge.btn-simple{"data-toggle" => "modal", :href => "#signup-modal"} Sign up now
-    / testimonials
+.navbar.navbar-fixed-top
+  .navbar-inner
     .container
-      .row.testimonials
-        .span3
-          %h3 Lorem ipsum
-          %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-          %button.btn.btn-inverse.btn-simple.btn-wide Read more
-        .span3
-          %h3 Lorem ipsum
-          %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-          %button.btn.btn-inverse.btn-simple.btn-wide Read more
-        .span3
-          %h3 Lorem ipsum
-          %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-          %button.btn.btn-inverse.btn-simple.btn-wide Read more
-        .span3
-          %h3 Lorem ipsum
-          %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-          %button.btn.btn-inverse.btn-simple.btn-wide Read more
-      / /.row
-      / slider
-      %h2.page-header CHECK OUT THIS AWESOME SLIDER
-      .row
-        #myCarousel.carousel.slide.add-shadow.span10.offset1
-          / Carousel items
-          .carousel-inner
-            .active.item
-              %img{:alt => "", :src => "demo_img/slider/1.png"}/
-            .item
-              %img{:alt => "", :src => "demo_img/slider/2.png"}/
-            .item
-              %img{:alt => "", :src => "demo_img/slider/3.png"}/
-          / Carousel nav
-          %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
-          %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
-      %hr/
-      / Where can you find us
-      .info-centered
-        %p Where can you find us?
-        %a.icon-squared.color-facebook{:href => "#"}
-          %article
-            %span
-              %i.icon-facebook
-        %a.icon-squared.color-twitter{:href => "#"}
-          %article
-            %span
-              %i.icon-twitter
-        %a.icon-squared.color-pinterest{:href => "#"}
-          %article
-            %span
-              %i.icon-pinterest
-    / /.container
-    / Le Footer
-    .background-white.footer
-      .container
-        %p.pull-left This was TRIQ - Awesome bootstrap template.
-        %p.pull-right
-          %a#toplink{:href => "#"} Back to top
-        %ul#footer-nav.nav.visible-phone
-        %hr/
-        %h3.centered Menu
+      = link_to "Bloocher", root_path, :class => 'brand'
+      %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
+      %ul.nav.pull-right.hidden-phone
         %li.active
           %a{:href => "index.html"} Home
         %li
@@ -129,34 +21,133 @@
           %a{:href => "blog.html"} Blog
         %li
           %a{:href => "contact.html"} Contact
-    / SignUp modal
-    #signup-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-        %h3#myModalLabel.centered Sign Up
-      .modal-body
-        %form.form-horizontal
-          .control-group
-            %label.control-label{:for => "inputUser"} Username
-            .controls
-              %input#inputUser{:placeholder => "Username", :type => "text"}/
-          .control-group
-            %label.control-label{:for => "inputEmail"} Email
-            .controls
-              %input#inputEmail{:placeholder => "Email", :type => "text"}/
-          .control-group
-            %label.control-label{:for => "inputPassword"} Password
-            .controls
-              %input#inputPassword{:placeholder => "Password", :type => "password"}/
-      .modal-footer
-        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-        %button.btn.btn-info{:type => "submit"} Register
-    /
-      Le javascript
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    %script{:src => "js/jquery.js"}
-    %script{:src => "js/bootstrap.js"}
-    %script{:src => "js/jquery.scrollto-1.4.3.1-min.js"}
-    %script{:src => "js/jquery.localscroll-1.2.7-min.js"}
-    %script{:src => "js/triq.js"}
+.background-light-grey
+  .container
+    .row-fluid
+      .featured
+        .span6
+          .excerpt
+            %h3 Home
+            - @users.each do |user|
+              %p
+                User: #{link_to user.name, user}
+            %h1 This is a featured post or something
+            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            %a.btn.btn-arrow-right.btn-simple.btn-blue.btn-huge.pull-right{:href => "https://wrapbootstrap.com/theme/typica-WB062JJ83", :target => "_blank"} See template Typica
+        .span6
+          %img.pull-right{:alt => "Typica - Bootstrap template", :src => "demo_img/typica.jpg"}/
+/ signup strip
+.background-grey.strip
+  .container
+    %p.pull-left This is the most awesome app you've ever seen! Why don't you sign up right now?
+    .pull-right
+      %a.btn.btn-info.btn-huge.btn-simple{"data-toggle" => "modal", :href => "#signup-modal"} Sign up now
+/ testimonials
+.container
+  .row.testimonials
+    .span3
+      %h3 Lorem ipsum
+      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+      %button.btn.btn-inverse.btn-simple.btn-wide Read more
+    .span3
+      %h3 Lorem ipsum
+      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+      %button.btn.btn-inverse.btn-simple.btn-wide Read more
+    .span3
+      %h3 Lorem ipsum
+      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+      %button.btn.btn-inverse.btn-simple.btn-wide Read more
+    .span3
+      %h3 Lorem ipsum
+      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+      %button.btn.btn-inverse.btn-simple.btn-wide Read more
+  / /.row
+  / slider
+  %h2.page-header CHECK OUT THIS AWESOME SLIDER
+  .row
+    #myCarousel.carousel.slide.add-shadow.span10.offset1
+      / Carousel items
+      .carousel-inner
+        .active.item
+          %img{:alt => "", :src => "demo_img/slider/1.png"}/
+        .item
+          %img{:alt => "", :src => "demo_img/slider/2.png"}/
+        .item
+          %img{:alt => "", :src => "demo_img/slider/3.png"}/
+      / Carousel nav
+      %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+      %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
+  %hr/
+  / Where can you find us
+  .info-centered
+    %p Where can you find us?
+    %a.icon-squared.color-facebook{:href => "#"}
+      %article
+        %span
+          %i.icon-facebook
+    %a.icon-squared.color-twitter{:href => "#"}
+      %article
+        %span
+          %i.icon-twitter
+    %a.icon-squared.color-pinterest{:href => "#"}
+      %article
+        %span
+          %i.icon-pinterest
+/ /.container
+/ Le Footer
+.background-white.footer
+  .container
+    %p.pull-left This was TRIQ - Awesome bootstrap template.
+    %p.pull-right
+      %a#toplink{:href => "#"} Back to top
+    %ul#footer-nav.nav.visible-phone
+    %hr/
+    %h3.centered Menu
+    %li.active
+      %a{:href => "index.html"} Home
+    %li
+      %a{:href => "about.html"} About
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        Portfolio
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
+        %li
+          %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
+    %li
+      %a{:href => "blog.html"} Blog
+    %li
+      %a{:href => "contact.html"} Contact
+/ SignUp modal
+#signup-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel.centered Sign Up
+  .modal-body
+    %form.form-horizontal
+      .control-group
+        %label.control-label{:for => "inputUser"} Username
+        .controls
+          %input#inputUser{:placeholder => "Username", :type => "text"}/
+      .control-group
+        %label.control-label{:for => "inputEmail"} Email
+        .controls
+          %input#inputEmail{:placeholder => "Email", :type => "text"}/
+      .control-group
+        %label.control-label{:for => "inputPassword"} Password
+        .controls
+          %input#inputPassword{:placeholder => "Password", :type => "password"}/
+  .modal-footer
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+    %button.btn.btn-info{:type => "submit"} Register
+/
+  Le javascript
+  \==================================================
+/ Placed at the end of the document so the pages load faster
+%script{:src => "js/jquery.js"}
+%script{:src => "js/bootstrap.js"}
+%script{:src => "js/jquery.scrollto-1.4.3.1-min.js"}
+%script{:src => "js/jquery.localscroll-1.2.7-min.js"}
+%script{:src => "js/triq.js"}
