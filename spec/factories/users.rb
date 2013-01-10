@@ -1,12 +1,22 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryGirl.define do 
+  
   factory :user do
-    name 'Test User'
-    email 'example@example.com'
-    password 'please'
-    password_confirmation 'please'
-    # required if the Devise Confirmable module is used
+    sequence(:name)       {|n| "username#{n}" }
+    sequence(:email)      {|n| "user#{n}@test.com" }
+    password              "password"
     confirmed_at Time.now
+  end
+
+  factory :thanker, parent: :user do
+  end
+
+  factory :welcomer, parent: :user do 
+  end
+
+  factory :dominant, parent: :user do
+  end  
+
+  factory :subordinate, parent: :user do 
   end
 end
