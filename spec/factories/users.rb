@@ -8,15 +8,15 @@ FactoryGirl.define do
     confirmed_at Time.now
   end
 
-  factory :thanker, parent: :user do
+  factory :unconfirmed_user, parent: :user do 
+    confirmed_at nil
   end
 
-  factory :welcomer, parent: :user do 
+  factory :confirmed_user, parent: :user do 
   end
 
-  factory :dominant, parent: :user do
-  end  
-
-  factory :subordinate, parent: :user do 
+  %w[winemaker, farmer, reviewer].each do |user_role|
+    factory user_role.to_sym, parent: :user do 
+    end
   end
 end

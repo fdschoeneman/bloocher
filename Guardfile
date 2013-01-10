@@ -33,7 +33,7 @@ guard 'rspec', :turnip => true, all_on_start: true, all_after_pass: true  do
 
   # test all factories whenever a factory is modified or added
 
-  watch(%r{^spec/factories/*}) { "spec/factories/factories_spec.rb" }
+  watch(%r{^spec/factories/*}) { "spec/factories_spec.rb" }
 
   watch(%r{^spec/acceptance/(.+)\.feature$})
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
