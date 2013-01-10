@@ -29,7 +29,7 @@ guard 'livereload' do
 end
 
 # Rspec
-guard 'rspec', :turnip => true, all_on_start: false, all_after_pass: false  do
+guard 'rspec', :turnip => true, all_on_start: true, all_after_pass: true  do
 
   watch(%r{^spec/acceptance/(.+)\.feature$})
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
