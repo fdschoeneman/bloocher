@@ -15,7 +15,7 @@ FactoryGirl.define do
   factory :confirmed_user, parent: :user do 
   end
 
-  %w[winemaker, farmer, reviewer].each do |user_role|
+  %w[winemaker, farmer, reviewer, owner].each do |user_role|
     factory user_role.to_sym, parent: :user do 
     end
   end
