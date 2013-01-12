@@ -32,7 +32,6 @@ end
 guard 'rspec', :turnip => true, all_on_start: true, all_after_pass: true  do
 
   # test all factories whenever a factory is modified or added
-
   watch(%r{^spec/factories/*}) { "spec/factories_spec.rb" }
 
   watch(%r{^spec/acceptance/(.+)\.feature$})
