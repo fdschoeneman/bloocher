@@ -46,5 +46,10 @@ describe Wine do
     %w[name vintage].each do |attribute|
       it { should validate_presence_of(attribute.to_sym) }
     end
+
+    %w[vintage cases_produced].each do |attribute|
+      it { should validate_numericality_of(attribute.to_sym) }
+    end
+
   end
 end
