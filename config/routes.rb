@@ -1,4 +1,7 @@
 Bloocher::Application.routes.draw do
+  resources :wines
+
+
   authenticated :user do
     root :to => 'home#index'
   end

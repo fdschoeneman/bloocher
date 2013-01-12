@@ -1,0 +1,23 @@
+%h1 Listing wines
+
+%table
+  %tr
+    %th Vintage
+    %th Cases produced
+    %th Winemaker notes
+    %th
+    %th
+    %th
+
+  - @wines.each do |wine|
+    %tr
+      %td= wine.vintage
+      %td= wine.cases_produced
+      %td= wine.winemaker_notes
+      %td= link_to 'Show', wine
+      %td= link_to 'Edit', edit_wine_path(wine)
+      %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Wine', new_wine_path

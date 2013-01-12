@@ -1,0 +1,10 @@
+= simple_form_for(@wine) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :vintage
+    = f.input :cases_produced
+    = f.input :winemaker_notes
+
+  .form-actions
+    = f.button :submit
