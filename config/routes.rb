@@ -1,11 +1,19 @@
 Bloocher::Application.routes.draw do
-  resources :wines
-
-
+  
   authenticated :user do
     root :to => 'home#index'
   end
-  root :to => "home#index"
+  
   devise_for :users
-  resources :users
+
+  resources :users do 
+    resources :reviews 
+  end
+
+  resources :reviews
+  resources :wines do 
+    resources :reviews
+  end
+
+  root :to => "home#index"
 end

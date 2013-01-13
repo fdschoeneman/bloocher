@@ -13,6 +13,7 @@ gem "simple_form", ">= 2.0.4"
 gem "figaro", ">= 0.5.0"
 gem 'font-awesome-rails'
 gem 'google-webfonts'
+gem 'sextant'
 
 group :assets do
   gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
@@ -60,6 +61,7 @@ group :test, :development do
   gem 'rspec-given', '2.2.0'
   gem 'factory_girl_rails', '4.1.0' 
   gem 'rb-inotify', '~> 0.8.8'
+  gem 'faker'
 end
 
 group :production do

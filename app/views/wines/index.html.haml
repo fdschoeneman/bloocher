@@ -1,23 +1,25 @@
-%h1 Listing wines
+.row
+  .span6
+    %h1 Listing wines
 
-%table
-  %tr
-    %th Vintage
-    %th Cases produced
-    %th Winemaker notes
-    %th
-    %th
-    %th
+    %table
+      %tr
+        %th Vintage
+        %th Cases produced
+        %th Winemaker notes
+        %th
+        %th
+        %th
 
-  - @wines.each do |wine|
-    %tr
-      %td= wine.vintage
-      %td= wine.cases_produced
-      %td= wine.winemaker_notes
-      %td= link_to 'Show', wine
-      %td= link_to 'Edit', edit_wine_path(wine)
-      %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
+      - @wines.each do |wine|
+        %tr
+          %td= wine.vintage
+          %td= wine.cases_produced
+          %td= wine.winemaker_notes
+          %td= link_to 'Show', wine
+          %td= link_to 'Edit', edit_wine_path(wine)
+          %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+    %br
 
-= link_to 'New Wine', new_wine_path
+    = link_to 'New Wine', new_wine_path
