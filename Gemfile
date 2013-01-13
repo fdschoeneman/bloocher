@@ -14,9 +14,10 @@ gem "figaro", ">= 0.5.0"
 gem 'font-awesome-rails'
 gem 'google-webfonts'
 gem 'sextant'
+gem 'libv8'
 
 group :assets do
-  gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
+  gem "therubyracer"#, ">= 0.11.0", :platform => :ruby, :require => "v8"
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
