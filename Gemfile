@@ -16,6 +16,7 @@ gem 'google-webfonts'
 gem 'sextant'
 gem 'libv8'
   gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
+  gem 'faker'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -62,7 +63,6 @@ group :test, :development do
   gem 'rspec-given', '2.2.0'
   gem 'factory_girl_rails', '4.1.0' 
   gem 'rb-inotify', '~> 0.8.8'
-  gem 'faker'
 end
 
 group :production do
