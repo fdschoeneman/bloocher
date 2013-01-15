@@ -15,7 +15,6 @@ gem 'font-awesome-rails'
 gem 'google-webfonts'
 gem 'sextant'
 gem 'libv8'
-  gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
   gem 'faker'
 
 group :assets do
@@ -59,6 +58,7 @@ group :test do
 end
 
 group :test, :development do 
+  gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
   gem 'rspec-rails', '2.12'
   gem 'rspec-given', '2.2.0'
   gem 'factory_girl_rails', '4.1.0' 

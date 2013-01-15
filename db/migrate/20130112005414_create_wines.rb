@@ -5,6 +5,7 @@ class CreateWines < ActiveRecord::Migration
       t.integer :cases_produced
       t.text :winemaker_notes
       t.string :name
+      t.integer :winery_id
 
       t.timestamps
     end

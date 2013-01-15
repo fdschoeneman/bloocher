@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20130112050055) do
     t.integer  "cases_produced"
     t.text     "winemaker_notes"
     t.string   "name"
+    t.integer  "winery_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

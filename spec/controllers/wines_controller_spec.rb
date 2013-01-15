@@ -8,7 +8,8 @@ describe WinesController do
   def valid_attributes
     { vintage: "1984",
       name: "methode ancien chardonnay",
-      cases_produced: "1" 
+      cases_produced: "1", 
+      winery_id: "1"
     }
   end
 
