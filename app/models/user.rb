@@ -17,9 +17,6 @@ class User < ActiveRecord::Base
   has_many :wines_made, through: :winemaker_oeuvres, source: :wines
   has_many :wineries_owned, through: :producers, source: :wineries
 
-  # def wineries_owned
-  #   self.producers.all.wineries
-  # end
 
   
 end

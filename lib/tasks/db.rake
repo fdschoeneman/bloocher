@@ -30,6 +30,13 @@ namespace :db do
     make_wines
     puts "#{green("==>")} Making reviews"
     make_reviews
+    puts "#{green("==>")} Making producres"
+    make_producers  
+    puts "#{green("==>")} Making ownerships"
+    make_ownerships
+    puts "#{green("==>")} Making winemaker oeuvres"
+    make_winemaker_oeuvres
+    
   end
 end
 
@@ -68,6 +75,18 @@ def make_wines
 end
 
 def make_reviews 
+end
+
+def make_producers
+
+end
+
+def make_ownerships
+
+end
+
+def make_winemaker_oeuvres
+
 end
 
 boonville_wineries = [
