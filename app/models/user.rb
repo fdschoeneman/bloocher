@@ -13,7 +13,13 @@ class User < ActiveRecord::Base
   # has_many :wineries, class_name: "Winery"
   has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
   has_many :producers, through: :ownerships
+  has_many :winemaker_oeuvres, foreign_key: :winemaker_id
+  has_many :wines_made, through: :winemaker_oeuvres, source: :wines
+  has_many :wineries_owned, through: :producers, source: :wineries
 
+  # def wineries_owned
+  #   self.producers.all.wineries
+  # end
 
   
 end

@@ -96,11 +96,16 @@ describe User do
 
   describe "associations" do
 
+    it { should have_many(:winemaker_oeuvres) }
+    it { should have_many(:wines_made).through(:winemaker_oeuvres) }
+
     describe "with producer model" do
 
       it { should have_many(:ownerships).dependent(:destroy) }
       it { should have_many(:producers).through(:ownerships) }
     end
+
+    it { should respond_to(:wineries_owned) }
 
   #     # [:welcomes, :thankyous
   #     # ].each do |model|
@@ -122,11 +127,9 @@ describe User do
   
   describe "methods" do 
 
-    # describe "on merciboku model" do 
-
-    #   it { should respond_to(:thanked) }
-    #   it { should respond_to(:welcomed) }
-    # end
+    it { should respond_to(:ownerships) }
+    it { should respond_to(:producers) }
+    it { should respond_to(:wines_made) }
 
     describe "on bond model" do 
 

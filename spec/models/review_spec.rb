@@ -22,18 +22,21 @@ describe Review do
     it { should have_db_index(:wine_id) }
   end
 
-  describe "mass assignable" do 
-    %w[content rating reviewer_id wine_id 
-    ].each do |attribute|
-      it {should allow_mass_assignment_of(attribute.to_sym) }
+  describe "security" do 
+
+    describe "mass assignable" do 
+      %w[content rating reviewer_id wine_id 
+      ].each do |attribute|
+        it {should allow_mass_assignment_of(attribute.to_sym) }
+      end
     end
-  end
 
-  describe "protected" do 
+    describe "protected" do 
 
-    %w[review_id created_at updated_at
-    ].each do |attribute|
-      it {should_not allow_mass_assignment_of(attribute.to_sym) }
+      %w[review_id created_at updated_at
+      ].each do |attribute|
+        it {should_not allow_mass_assignment_of(attribute.to_sym) }
+      end
     end
   end
 end

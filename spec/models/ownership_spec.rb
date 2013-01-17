@@ -28,5 +28,9 @@ describe Ownership do
     end
   end
 
+  describe "methods" do 
 
+    it { should respond_to(:owner) }
+    it { should respond_to(:producer) }
+  end
 end

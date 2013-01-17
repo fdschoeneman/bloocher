@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115233958) do
+ActiveRecord::Schema.define(:version => 20130117031959) do
 
   create_table "ownerships", :force => true do |t|
     t.integer  "owner_id"
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(:version => 20130115233958) do
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "winemaker_oeuvres", :force => true do |t|
+    t.integer  "winemaker_id"
+    t.integer  "wine_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "winemaker_oeuvres", ["wine_id"], :name => "index_winemaker_oeuvres_on_wine_id"
 
   create_table "wineries", :force => true do |t|
     t.string   "name"
