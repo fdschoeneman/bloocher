@@ -7,5 +7,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+
+  #associations
+
+  # has_many :wineries, class_name: "Winery"
+  has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
+  has_many :producers, through: :ownerships
+
+
   
 end

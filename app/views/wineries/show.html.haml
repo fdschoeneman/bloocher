@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @winery.name
+%p
+  %b Producer:
+  = @winery.producer_id
+%p
+  %b Public email:
+  = @winery.public_email
+%p
+  %b Phone:
+  = @winery.phone
+%p
+  %b Address 1:
+  = @winery.address_1
+%p
+  %b Address 2:
+  = @winery.address_2
+%p
+  %b City:
+  = @winery.city
+%p
+  %b State:
+  = @winery.state
+%p
+  %b Zip:
+  = @winery.zip
+%p
+  %b Web address:
+  = @winery.web_address
+%p
+  %b Subdomain:
+  = @winery.subdomain
+
+= link_to 'Edit', edit_winery_path(@winery)
+\|
+= link_to 'Back', wineries_path

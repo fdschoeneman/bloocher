@@ -1,0 +1,18 @@
+= simple_form_for(@winery) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :producer_id
+    = f.input :public_email
+    = f.input :phone
+    = f.input :address_1
+    = f.input :address_2
+    = f.input :city
+    = f.input :state
+    = f.input :zip
+    = f.input :web_address
+    = f.input :subdomain
+
+  .form-actions
+    = f.button :submit

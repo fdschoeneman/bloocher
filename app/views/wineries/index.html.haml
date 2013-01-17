@@ -1,0 +1,39 @@
+%h1 Listing wineries
+
+%table
+  %tr
+    %th Name
+    %th Producer
+    %th Public email
+    %th Phone
+    %th Address 1
+    %th Address 2
+    %th City
+    %th State
+    %th Zip
+    %th Web address
+    %th Subdomain
+    %th
+    %th
+    %th
+
+  - @wineries.each do |winery|
+    %tr
+      %td= winery.name
+      %td= winery.producer_id
+      %td= winery.public_email
+      %td= winery.phone
+      %td= winery.address_1
+      %td= winery.address_2
+      %td= winery.city
+      %td= winery.state
+      %td= winery.zip
+      %td= winery.web_address
+      %td= winery.subdomain
+      %td= link_to 'Show', winery
+      %td= link_to 'Edit', edit_winery_path(winery)
+      %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Winery', new_winery_path

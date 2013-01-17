@@ -1,0 +1,16 @@
+= simple_form_for(@producer) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :address_1
+    = f.input :address_2
+    = f.input :city
+    = f.input :state
+    = f.input :zip
+    = f.input :name
+    = f.input :subdomain
+    = f.input :web_address
+    = f.input :public_email
+
+  .form-actions
+    = f.button :submit

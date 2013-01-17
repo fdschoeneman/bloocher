@@ -96,7 +96,11 @@ describe User do
 
   describe "associations" do
 
-  #   describe "with merciboku model" do
+    describe "with producer model" do
+
+      it { should have_many(:ownerships).dependent(:destroy) }
+      it { should have_many(:producers).through(:ownerships) }
+    end
 
   #     # [:welcomes, :thankyous
   #     # ].each do |model|
