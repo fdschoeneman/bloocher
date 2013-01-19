@@ -4,7 +4,8 @@ describe Wine do
   
   describe "columns" do
     
-    %w[vintage cases_produced winery_id].each do |column|
+    %w[vintage cases_produced winery_id days_in_oak 
+      drink_before lay_down_until].each do |column|
       it { should have_db_column(column.to_sym).of_type(:integer) }
     end
 
@@ -12,14 +13,16 @@ describe Wine do
       it { should have_db_column(column.to_sym).of_type(:datetime) }
     end
 
-    %w[].each do |column|
+    %w[ph alcohol new_french_oak one_yr_old_french_oak two_yr_old_french_oak
+      three_yr_old_french_oak new_american_oak one_yr_old_american_oak
+      two_yr_old_american_oak three_yr_old_american_oak].each do |column|
       it { should have_db_column(column.to_sym).of_type(:decimal) }
     end
-
 
     it { should have_db_column(:name).of_type(:string) }
 
     it { should have_db_column(:winemaker_notes).of_type(:text) }
+    
     it { should have_db_column(:acid_added).of_type(:boolean) }
   end
 
@@ -32,8 +35,8 @@ describe Wine do
   describe "security" do
 
     describe "mass assignable" do 
-      %w[bottled_on released_on ph acid_added vintage name 
-        winemaker_notes cases_produced new_french_oak 
+      %w[bottled_on released_on lay_down_until drink_before ph acid_added 
+        vintage name winemaker_notes cases_produced new_french_oak 
         one_yr_old_french_oak two_yr_old_french_oak 
         three_yr_old_french_oak new_american_oak one_yr_old_american_oak
         two_yr_old_american_oak three_yr_old_american_oak

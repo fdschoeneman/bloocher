@@ -1,4 +1,3 @@
-
 require 'rubygems'
 require 'faker'
 
@@ -64,14 +63,106 @@ def make_users
 end
 
 def make_wineries
-  # 99.times do |n|
-    # name = boonville_wineries.sample
+  
+  boonville_wineries = [
+    "Angel Camp Vineyards", 
+    "Balo Vineyards",
+    "Baxter Winery",
+    "Bink Wines",
+    "Black Kite Cellars",
+    "Breggo Cellars",
+    "Brutocao Cellars",
+    "Champ de Reves Vineyards",
+    "Claudia Springs Winery",
+    "Copain Wines",
+    "Couloir Wines",
+    "Drew Family Cellars",
+    "Edmeades Winery",
+    "Elke Vineyards",
+    "Esterlina Vineyards",
+    "Expression Vineyards",
+    "Foursight Wines, Inc.",
+    "Frati Horn Wines",
+    "Fulcrum Wines",
+    "Goldeneye Winery",
+    "Greenwood Ridge Vineyards",
+    "Handley Cellars",
+    "Harmonique - Conzelman Vineyards",
+    "Husch Vineyards",
+    "Knez Winery",
+    "Lazy Creek Vineyards",
+    "Littorai Wines",
+    "Londer Vineyards",
+    "Lula Cellars",
+    "MacPhail Family Wines",
+    "Maggy Hawk Vineyard",
+    "Navarro Vineyards",
+    "Phillips Hill Winery",
+    "Philo Ridge Vineyards",
+    "Roederer Estate",
+    "Roessler Cellars",
+    "Scharffenberger Cellars",
+    "Toulouse Vineyards",
+    "Twomey Cellars",
+    "Waits-Mast Family Cellars",
+    "Zina Hyde Cunningham"
+  ]
+
+  boonville_wineries.each do |winery_name|
+    Winery.create(
+      name: winery_name, 
+      producer_id: "#{rand(1..20) }"
+    )
+  end
 
 end
 
 def make_wines
-  # 99.times do 
-    # boonville_wineries = { name 
+  
+  wine_types = ["pinot noir", "chardonnay", "sauvignon blanc", "zinfandel",
+    "muscat", "semillon", "pinot gris", "gewurztraminer" 
+  ]
+  vineyard_names = ["Donnelly Creek vineyard", "francis vineyard", 
+    "Eaglehearth Vineyard", "Ferrington Vineyard", "Hacienda Secoya Vineyards",
+    "Kiser Vineyard", "Knez Vineyard", "Leal Vineyard", "Nelson Hill Vineyard",
+    "Valley Foothills Vineyard", "Pennyroyal Vineyards", "Ridley Vineyard",
+    "Roma's Vineyard", "Roman Vineyard", "Romani Family Vineyard",
+    "Run Dog Vineyard", "Saintsbury", "Savoy Vineyard", "Stewart Vineyard",
+    "Weir Vineyard", "Wightman Vineyard", "Zicherman-Roemer Vineyard"]
+  differentiators = ["methode ancien", "deep end", "reserve"]
+  
+  99.times do |n|
+    vintage = rand(2002..2011)
+    bottled_on_year = vintage + 1
+    released_on_year = vintage + rand(1..2)
+    lay_down_until_year = vintage + rand(1..4)
+    drink_before_year = vintage + rand(10..20)
+    new_french_oak = (rand(0..100).to_f)/100
+    Wine.create!( 
+      vintage: vintage,
+      cases_produced: rand(2000..100000),
+      name: "#{wine_types.sample} \- #{vineyard_names.sample} \- #{differentiators.sample}",
+      winery_id: rand(1..40),   
+      acid_added: rand(0..1),
+      new_french_oak: rand(1..100),
+      days_in_oak: rand(90..180),
+      bottled_on: "#{bottled_on_year}-#{rand(1..12)}-#{rand(1..30)}",
+      released_on: "#{released_on_year}-#{rand(1..12)}-#{rand(1..30)}",
+      
+      winemaker_notes: "#{Faker::Lorem.paragraphs(5)}",
+      ph: "#{(rand(665..755).to_f)/100}",
+      residual_sugar: "#{(rand(1..5).to_f)/100}",
+      alcohol: "#{(rand(125..175).to_f)/1000}",
+      new_french_oak: new_french_oak,
+      one_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
+      two_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
+      three_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
+      new_american_oak: "#{(100 - new_french_oak)/7}",
+      one_yr_old_american_oak: "#{(100 - new_french_oak)/7}",
+      two_yr_old_american_oak: "#{(100 - new_french_oak)/7}",
+      three_yr_old_american_oak: "#{(100 - new_french_oak)/7}"
+    )
+  end
 end
 
 def make_reviews 
@@ -88,48 +179,4 @@ end
 def make_winemaker_oeuvres
 
 end
-
-boonville_wineries = [
-  "Angel Camp Vineyards", 
-  "Balo Vineyards",
-  "Baxter Winery",
-  "Bink Wines",
-  "Black Kite Cellars",
-  "Breggo Cellars",
-  "Brutocao Cellars",
-  "Champ de Reves Vineyards",
-  "Claudia Springs Winery",
-  "Copain Wines",
-  "Couloir Wines",
-  "Drew Family Cellars",
-  "Edmeades Winery",
-  "Elke Vineyards",
-  "Esterlina Vineyards",
-  "Expression Vineyards",
-  "Foursight Wines, Inc.",
-  "Frati Horn Wines",
-  "Fulcrum Wines",
-  "Goldeneye Winery",
-  "Greenwood Ridge Vineyards",
-  "Handley Cellars",
-  "Harmonique - Conzelman Vineyards",
-  "Husch Vineyards",
-  "Knez Winery",
-  "Lazy Creek Vineyards",
-  "Littorai Wines",
-  "Londer Vineyards",
-  "Lula Cellars",
-  "MacPhail Family Wines",
-  "Maggy Hawk Vineyard",
-  "Navarro Vineyards",
-  "Phillips Hill Winery",
-  "Philo Ridge Vineyards",
-  "Roederer Estate",
-  "Roessler Cellars",
-  "Scharffenberger Cellars",
-  "Toulouse Vineyards",
-  "Twomey Cellars",
-  "Waits-Mast Family Cellars",
-  "Zina Hyde Cunningham"
-]
 

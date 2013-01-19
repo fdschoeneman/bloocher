@@ -1,21 +1,31 @@
 .row
-  .span6
-    %h1 Listing wines
+  .span12
+    %h1 Bloochable wines
 
     %table
       %tr
+        %th Winery
         %th Vintage
+        %th Name
         %th Cases produced
-        %th Winemaker notes
-        %th
+        %th Alcohol
+        %th bottled on Date
+        %th Release Date
+        %th Days in Oak
+        %th 
         %th
         %th
 
       - @wines.each do |wine|
         %tr
+          %td= wine.winery.name
           %td= wine.vintage
+          %td= wine.name
           %td= wine.cases_produced
-          %td= wine.winemaker_notes
+          %td= wine.alcohol
+          %td= wine.bottled_on
+          %td= wine.released_on
+          %td= wine.days_in_oak
           %td= link_to 'Show', wine
           %td= link_to 'Edit', edit_wine_path(wine)
           %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
