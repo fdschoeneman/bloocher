@@ -1,6 +1,11 @@
 require 'rubygems'
 require 'faker'
 
+Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
+
+include WineData
+
+
 def colorize(text, color_code)
  "\e[#{color_code}m#{text}\e[0m"
 end
@@ -29,7 +34,7 @@ namespace :db do
     make_wines
     puts "#{green("==>")} Making reviews"
     make_reviews
-    puts "#{green("==>")} Making producres"
+    puts "#{green("==>")} Making producers"
     make_producers  
     puts "#{green("==>")} Making ownerships"
     make_ownerships
@@ -63,50 +68,7 @@ def make_users
 end
 
 def make_wineries
-  
-  boonville_wineries = [
-    "Angel Camp Vineyards", 
-    "Balo Vineyards",
-    "Baxter Winery",
-    "Bink Wines",
-    "Black Kite Cellars",
-    "Breggo Cellars",
-    "Brutocao Cellars",
-    "Champ de Reves Vineyards",
-    "Claudia Springs Winery",
-    "Copain Wines",
-    "Couloir Wines",
-    "Drew Family Cellars",
-    "Edmeades Winery",
-    "Elke Vineyards",
-    "Esterlina Vineyards",
-    "Expression Vineyards",
-    "Foursight Wines, Inc.",
-    "Frati Horn Wines",
-    "Fulcrum Wines",
-    "Goldeneye Winery",
-    "Greenwood Ridge Vineyards",
-    "Handley Cellars",
-    "Harmonique - Conzelman Vineyards",
-    "Husch Vineyards",
-    "Knez Winery",
-    "Lazy Creek Vineyards",
-    "Littorai Wines",
-    "Londer Vineyards",
-    "Lula Cellars",
-    "MacPhail Family Wines",
-    "Maggy Hawk Vineyard",
-    "Navarro Vineyards",
-    "Phillips Hill Winery",
-    "Philo Ridge Vineyards",
-    "Roederer Estate",
-    "Roessler Cellars",
-    "Scharffenberger Cellars",
-    "Toulouse Vineyards",
-    "Twomey Cellars",
-    "Waits-Mast Family Cellars",
-    "Zina Hyde Cunningham"
-  ]
+
 
   boonville_wineries.each do |winery_name|
     Winery.create(
@@ -118,18 +80,6 @@ def make_wineries
 end
 
 def make_wines
-  
-  wine_types = ["pinot noir", "chardonnay", "sauvignon blanc", "zinfandel",
-    "muscat", "semillon", "pinot gris", "gewurztraminer" 
-  ]
-  vineyard_names = ["Donnelly Creek vineyard", "francis vineyard", 
-    "Eaglehearth Vineyard", "Ferrington Vineyard", "Hacienda Secoya Vineyards",
-    "Kiser Vineyard", "Knez Vineyard", "Leal Vineyard", "Nelson Hill Vineyard",
-    "Valley Foothills Vineyard", "Pennyroyal Vineyards", "Ridley Vineyard",
-    "Roma's Vineyard", "Roman Vineyard", "Romani Family Vineyard",
-    "Run Dog Vineyard", "Saintsbury", "Savoy Vineyard", "Stewart Vineyard",
-    "Weir Vineyard", "Wightman Vineyard", "Zicherman-Roemer Vineyard"]
-  differentiators = ["methode ancien", "deep end", "reserve"]
   
   99.times do |n|
     vintage = rand(2002..2011)
@@ -169,7 +119,14 @@ def make_reviews
 end
 
 def make_producers
-
+  99.times do |n|
+    Producer.create(address_1: Faker::Address.street_address,
+      address_2: Faker::Address.secondary_address,
+      city: Faker::Address.city,
+      state: Faker::Address.state,
+      zip: Faker::Address.zip_code
+    )
+  end
 end
 
 def make_ownerships
@@ -179,4 +136,5 @@ end
 def make_winemaker_oeuvres
 
 end
+
 

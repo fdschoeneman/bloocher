@@ -18,13 +18,13 @@
 
       - @wines.each do |wine|
         %tr
-          %td= wine.winery.name
+          %td= link_to wine.winery.name, winery_path(wine.winery_id)
           %td= wine.vintage
           %td= wine.name
           %td= wine.cases_produced
           %td= wine.alcohol
-          %td= wine.bottled_on
-          %td= wine.released_on
+          %td= wine.bottled_on.to_date
+          %td= wine.released_on.to_date
           %td= wine.days_in_oak
           %td= link_to 'Show', wine
           %td= link_to 'Edit', edit_wine_path(wine)

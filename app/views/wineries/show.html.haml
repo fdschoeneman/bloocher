@@ -8,31 +8,31 @@
   = @winery.producer_id
 %p
   %b Public email:
-  = @winery.public_email
+  = @winery.producer.public_email
 %p
   %b Phone:
-  = @winery.phone
+  = @winery.producer.phone
 %p
   %b Address 1:
-  = @winery.address_1
+  = @winery.producer.address_1
 %p
   %b Address 2:
-  = @winery.address_2
+  = @winery.producer.address_2
 %p
   %b City:
-  = @winery.city
+  = @winery.producer.city
 %p
   %b State:
-  = @winery.state
+  = @winery.producer.state
 %p
   %b Zip:
-  = @winery.zip
+  = @winery.producer.zip
 %p
   %b Web address:
-  = @winery.web_address
+  = @winery.producer.web_address
 %p
   %b Subdomain:
-  = @winery.subdomain
+  = @winery.producer.subdomain
 
 = link_to 'Edit', edit_winery_path(@winery)
 \|
