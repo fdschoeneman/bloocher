@@ -15,7 +15,7 @@ gem 'font-awesome-rails'
 gem 'google-webfonts'
 gem 'sextant'
 gem 'libv8'
-  gem 'faker'
+gem 'faker'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -28,7 +28,7 @@ group :development do
   gem 'haml-rails', '0.3.5'
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
-  gem 'hub', '1.10.2', require: nil
+  # gem 'hub', '1.10.2', require: nil
 end
 
 group :test do 

@@ -1,45 +1,60 @@
 module WineData
 
-  def boonville_wineries
+  def boonville_producers
+    [
+      "Ferrari-Carano",
+      "Kendall Jackson",  
+      "Duckhorn",
+      "Lede Wines"
+
+    ]
+  end
+
+  def boonville_vineyards
     [
       "Angel Camp Vineyards", 
       "Balo Vineyards",
+      "Champ de Reves Vineyards",
+      "Elke Vineyards",
+      "Esterlina Vineyards",
+      "Expression Vineyards",
+      "Greenwood Ridge Vineyards",
+      "Husch Vineyards",
+      "Maggy Hawk Vineyard",
+      "Philo Ridge Vineyards",
+      "Lazy Creek Vineyards",
+      "Londer Vineyards",
+      "Toulouse Vineyards"
+    ]
+  end
+  
+  def boonville_wineries
+    [
       "Baxter Winery",
       "Bink Wines",
       "Black Kite Cellars",
       "Breggo Cellars",
       "Brutocao Cellars",
-      "Champ de Reves Vineyards",
       "Claudia Springs Winery",
       "Copain Wines",
       "Couloir Wines",
       "Drew Family Cellars",
       "Edmeades Winery",
-      "Elke Vineyards",
-      "Esterlina Vineyards",
-      "Expression Vineyards",
       "Foursight Wines, Inc.",
       "Frati Horn Wines",
       "Fulcrum Wines",
       "Goldeneye Winery",
-      "Greenwood Ridge Vineyards",
       "Handley Cellars",
       "Harmonique - Conzelman Vineyards",
-      "Husch Vineyards",
       "Knez Winery",
-      "Lazy Creek Vineyards",
       "Littorai Wines",
-      "Londer Vineyards",
       "Lula Cellars",
       "MacPhail Family Wines",
-      "Maggy Hawk Vineyard",
-      "Navarro Vineyards",
       "Phillips Hill Winery",
-      "Philo Ridge Vineyards",
+      "Navarro Vineyards",
       "Roederer Estate",
       "Roessler Cellars",
       "Scharffenberger Cellars",
-      "Toulouse Vineyards",
       "Twomey Cellars",
       "Waits-Mast Family Cellars",
       "Zina Hyde Cunningham"
@@ -54,8 +69,8 @@ module WineData
       "zinfandel",
       "muscat", 
       "semillon", 
-      "pinot gris", "
-      gewurztraminer" 
+      "pinot gris", 
+      "gewurztraminer" 
     ]
   end
 
@@ -90,7 +105,8 @@ module WineData
     [
       "methode ancien", 
       "deep end", 
-      "reserve"
+      "reserve",
+      "estate"
     ]
   end
 end

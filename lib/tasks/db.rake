@@ -4,6 +4,7 @@ require 'faker'
 Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
 
 include WineData
+include HipsterIpsum
 
 
 def colorize(text, color_code)
@@ -116,6 +117,16 @@ def make_wines
 end
 
 def make_reviews 
+  include 
+  99.times do |n|
+    Review.create(
+      rating: rand(70..95),
+      reviewer_id: rand(1..99),
+      wine_id: rand(1..99),
+      # content: Faker::Lorem.paragraphs
+      content: hipster_review
+    )
+  end
 end
 
 def make_producers

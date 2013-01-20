@@ -122,7 +122,6 @@ GEM
     headless (0.3.1)
     hike (1.2.1)
     hpricot (0.8.6)
-    hub (1.10.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
@@ -283,7 +282,6 @@ DEPENDENCIES
   haml-rails (= 0.3.5)
   headless (= 0.3.1)
   hpricot (= 0.8.6)
-  hub (= 1.10.2)
   jquery-rails
   launchy (= 2.1.2)
   libv8
