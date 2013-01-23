@@ -4,9 +4,8 @@ require 'faker'
 Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
 
 include WineData
-include HipsterIpsum
-
-
+include ReviewData
+ 
 def colorize(text, color_code)
  "\e[#{color_code}m#{text}\e[0m"
 end
@@ -51,6 +50,7 @@ def make_admin_user
     email: "fred.schoeneman@gmail.com", 
     password: "password",
     password_confirmation: "password")
+  admin_user.skip_confirmation!
   admin_user.save!
   admin_user.confirm!
 end
@@ -63,6 +63,7 @@ def make_users
     user = User.new(name: name,
                     :email => email,
                     :password => password)  
+    user.skip_confirmation!
     user.save!
     user.confirm!
   end

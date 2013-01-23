@@ -1,7 +1,6 @@
-module HipsterIpsum
+module ReviewData
 
   def hipster_review
-    # [intro, intmodifier, adjective, varietal, adverb, flavor, strength, end_date].join(" ")
     first = intro + " " + intmodifier + " " + adjective + " " + varietal + ". "
     second = adverb + " " + flavor + ", " + adjective + " " + flavor + ", " + strength + " " + flavor 
     third = ". Drink now through " + end_date + "."
@@ -62,9 +61,9 @@ module HipsterIpsum
   def adverb
     [ 
       "Contains","Shows","Detectable","Hints of","Forces","A mouthfull of",
-      "Strong","Spews","Resembles","Aromas of","Whispers of","Drops","Essenses of",
-      "Kicks you with","Throws out","Hits you with","Displays","Opens with",
-      "Reminecent of","Attacks with","Begins with","Starts with",
+      "Strong","Spews","Resembles","Aromas of","Whispers of","Drops",
+      "Essenses of","Kicks you with","Throws out","Hits you with","Displays",
+      "Opens with","Reminecent of","Attacks with","Begins with","Starts with",
       "Forcefully bites you with","Reminds one of","Evokes"
     ].sample
   end
@@ -103,9 +102,9 @@ module HipsterIpsum
 
   def end_date
     [
-      "2001","2002","2003","2004","2005","2006","2007","2008","2009",
-      "2010","2011","2012","eternity","never","April","May","June","graduation",
-      "Christmas","Tuesday","Friday","whenever the cows come home"
+      "2014","2015","2016","2017","2018","2019","2020","2021","2022",
+      "eternity","never","April","May","June","graduation",
+      "Christmas","Tuesday","Friday"
     ].sample
   end
 end
