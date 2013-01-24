@@ -39,4 +39,22 @@ describe Review do
       end
     end
   end
+
+  describe "validations" do 
+
+    it { should validate_presence_of(:content) }
+    it { should validate_presence_of(:rating) }
+    it { should validate_presence_of(:reviewer_id) }
+    it { should validate_presence_of(:wine_id) }
+  end
+
+  describe "associations" do 
+
+    it { should belong_to(:wine) }
+    it { should belong_to(:reviewer).class_name("User") }
+  end
+
+
+
+
 end

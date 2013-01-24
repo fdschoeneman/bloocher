@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe WinesController do
 
+  let(:wine) { factory.build(:wine) }
+
   # This should return the minimal set of attributes required to create a valid
   # Wine. As you add validations to Wine, be sure to
   # update the return value of this method accordingly.
@@ -29,10 +31,18 @@ describe WinesController do
   end
 
   describe "GET show" do
+    
     it "assigns the requested wine as @wine" do
       wine = Wine.create! valid_attributes
       get :show, {:id => wine.to_param}, valid_session
       assigns(:wine).should eq(wine)
+    end
+
+    it "assigns to the wine all of its reviews" do 
+      # wine = Wine.create! valid_attributes
+      # get :show, {id: wine.to_param}
+
+
     end
   end
 

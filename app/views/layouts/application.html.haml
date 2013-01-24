@@ -17,34 +17,7 @@
     / Le favicon
     = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    .before-navbar
-      .container
-        .span3
-        .span3
-          = link_to 'Need help?', root_url
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = link_to "Bloocher", root_path, :class => 'brand'
-          %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
-          %ul.nav.pull-right.hidden-phone
-            %li.active
-              %a{:href => "index.html"} Home
-            %li
-              %a{:href => "about.html"} About
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Portfolio
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
-                %li
-                  %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
-            %li
-              %a{:href => "blog.html"} Blog
-            %li
-              %a{:href => "contact.html"} Contact
+    = render 'layouts/navigation'
 
     .container
       = yield            

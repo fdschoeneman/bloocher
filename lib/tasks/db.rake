@@ -45,6 +45,7 @@ namespace :db do
 end
 
 def make_admin_user
+
   admin_user = User.new(
     name: "Fredzilla", 
     email: "fred.schoeneman@gmail.com", 
@@ -56,6 +57,7 @@ def make_admin_user
 end
 
 def make_users
+
   99.times do |n|
     name = Faker::Name.name 
     email = Faker::Internet.email
@@ -70,7 +72,6 @@ def make_users
 end
 
 def make_wineries
-
 
   boonville_wineries.each do |winery_name|
     Winery.create(
@@ -94,14 +95,14 @@ def make_wines
       vintage: vintage,
       cases_produced: rand(2000..100000),
       name: "#{wine_types.sample} \- #{vineyard_names.sample} \- #{differentiators.sample}",
-      winery_id: rand(1..40),   
+      winery_id: rand(1..28),   
       acid_added: rand(0..1),
       new_french_oak: rand(1..100),
       days_in_oak: rand(90..180),
       bottled_on: "#{bottled_on_year}-#{rand(1..12)}-#{rand(1..30)}",
       released_on: "#{released_on_year}-#{rand(1..12)}-#{rand(1..30)}",
       
-      winemaker_notes: "#{Faker::Lorem.paragraphs(5)}",
+      winemaker_notes: Faker::Lorem.paragraphs(5).to_s,
       ph: "#{(rand(665..755).to_f)/100}",
       residual_sugar: "#{(rand(1..5).to_f)/100}",
       alcohol: "#{(rand(125..175).to_f)/1000}",
@@ -118,7 +119,6 @@ def make_wines
 end
 
 def make_reviews 
-  include 
   99.times do |n|
     Review.create(
       rating: rand(70..95),
@@ -131,8 +131,9 @@ def make_reviews
 end
 
 def make_producers
-  99.times do |n|
-    Producer.create(address_1: Faker::Address.street_address,
+  20.times do |n|
+    Producer.create(
+      address_1: Faker::Address.street_address,
       address_2: Faker::Address.secondary_address,
       city: Faker::Address.city,
       state: Faker::Address.state,
@@ -143,9 +144,21 @@ end
 
 def make_ownerships
 
+  users = User.all
+  users.each do |owner|
+    Ownership.create(owner_id: owner.id, 
+      producer_id: rand(1..20)
+    )
+  end
 end
 
 def make_winemaker_oeuvres
+  # 99.times do |n|
+  #   Winemaker_oeuvre.create(
+  #     wine_id: rand(1..10),
+  #     producer_id: rand(1..20)
+  #   )
+  # end
 
 end
 

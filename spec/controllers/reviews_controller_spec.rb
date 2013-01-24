@@ -24,7 +24,10 @@ describe ReviewsController do
   # Review. As you add validations to Review, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "rating" => "1" }
+    { "rating" => "1",
+    content: "some string",
+    reviewer_id: "1",
+    wine_id: "1" }
   end
 
   # This should return the minimal set of values that should be in the session

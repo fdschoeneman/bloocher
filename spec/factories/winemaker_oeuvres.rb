@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :winemaker_oeuvre do
-    winemaker_id 1
-    wine_id 1
+    association :winemaker, factory: :user
+    wine
   end
 end

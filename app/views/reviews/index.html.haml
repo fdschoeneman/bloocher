@@ -2,6 +2,8 @@
 
 %table
   %tr
+    %th Wine name
+    %th vintage
     %th Rating
     %th Content
     %th
@@ -10,6 +12,8 @@
 
   - @reviews.each do |review|
     %tr
+      %td= link_to review.wine.name, wine_path(review.wine.id)
+      %td= review.wine.vintage
       %td= review.rating
       %td= review.content
       %td= link_to 'Show', review

@@ -1,6 +1,9 @@
 %p#notice= notice
 
 %p
+  %b Winery:
+  = link_to @wine.winery.name, winery_path(@wine.winery.id)
+%p
   %b Vintage:
   = @wine.vintage
 %p
@@ -16,3 +19,12 @@
 = link_to 'Edit', edit_wine_path(@wine)
 \|
 = link_to 'Back', wines_path
+
+%h1 Reviews
+
+%table
+  - @reviews.each do |review|
+    %tr 
+      %td
+        = link_to review.reviewer.name, user_path(review.reviewer.id)
+        = review.content

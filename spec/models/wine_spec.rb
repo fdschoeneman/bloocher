@@ -67,7 +67,14 @@ describe Wine do
   end
 
   describe "associations" do 
+    
     it { should belong_to(:winery) }
+    it { should have_many(:reviews) }
+  end
+
+  describe "methods" do 
+
+    it { should respond_to(:reviews) }
   end
 
 end

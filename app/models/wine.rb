@@ -15,4 +15,5 @@ class Wine < ActiveRecord::Base
             numericality: true, allow_nil: true
 
   belongs_to :winery
+  has_many :reviews
 end
