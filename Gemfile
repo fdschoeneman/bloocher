@@ -16,6 +16,7 @@ gem 'google-webfonts'
 gem 'sextant'
 gem 'libv8'
 gem 'faker'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

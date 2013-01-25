@@ -20,16 +20,15 @@
   - @wineries.each do |winery|
     %tr
       %td= winery.name
-      / %td= winery.producer_id
-      / %td= winery.producer.public_email
-      / %td= winery.phone
-      / %td= winery.address_1
-      / %td= winery.address_2
-      / %td= winery.city
-      / %td= winery.state
-      / %td= winery.zip
-      / %td= winery.web_address
-      / %td= winery.subdomain
+      %td= winery.producer.public_email
+      %td= winery.producer.phone
+      / %td= winery.producer.address_1
+      / %td= winery.producer.address_2
+      / %td= winery.producer.city
+      / %td= winery.producer.state
+      / %td= winery.producer.zip
+      / %td= winery.producer.web_address
+      / %td= winery.producer.subdomain
       / %td= link_to 'Show', winery
       %td= link_to 'Edit', edit_winery_path(winery)
       %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
