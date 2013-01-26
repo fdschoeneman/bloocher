@@ -17,6 +17,7 @@ Bloocher::Application.routes.draw do
   end
 
   resources :reviews
+  
   resources :wines do 
     resources :reviews
   end

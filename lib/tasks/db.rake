@@ -102,7 +102,7 @@ def make_wines
       bottled_on: "#{bottled_on_year}-#{rand(1..12)}-#{rand(1..30)}",
       released_on: "#{released_on_year}-#{rand(1..12)}-#{rand(1..30)}",
       
-      winemaker_notes: Faker::Lorem.paragraphs(5).to_s,
+      winemaker_notes: Faker::Lorem.paragraphs(5),
       ph: "#{(rand(665..755).to_f)/100}",
       residual_sugar: "#{(rand(1..5).to_f)/100}",
       alcohol: "#{(rand(125..175).to_f)/1000}",
@@ -132,12 +132,18 @@ end
 
 def make_producers
   20.times do |n|
+    name = boonville_producers.sample
+    subdomain = name.gsub(" ", "-")
+    web_address = "http://www." + subdomain + "." + Faker::Internet.domain_suffix
     Producer.create(
       address_1: Faker::Address.street_address,
       address_2: Faker::Address.secondary_address,
       city: Faker::Address.city,
       state: Faker::Address.state,
-      zip: Faker::Address.zip_code
+      zip: Faker::Address.zip_code,
+      name: name,
+      subdomain: subdomain,
+      web_address: web_address
     )
   end
 end

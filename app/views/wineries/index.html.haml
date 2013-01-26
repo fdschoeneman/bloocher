@@ -19,7 +19,7 @@
 
   - @wineries.each do |winery|
     %tr
-      %td= winery.name
+      %td= link_to winery.name, winery_path(winery.id)
       %td= winery.producer.public_email
       %td= winery.producer.phone
       / %td= winery.producer.address_1

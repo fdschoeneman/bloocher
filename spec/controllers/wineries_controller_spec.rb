@@ -2,21 +2,22 @@ require 'spec_helper'
 
 describe WineriesController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Winery. As you add validations to Winery, be sure to
-  # update the return value of this method accordingly.
   def valid_attributes
     { "name" => "MyString", "producer_id" => "1" }
   end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # WineriesController. Be sure to keep this updated too.
   def valid_session
     {}
   end
 
   describe "GET index" do
+  
+    describe "should respond with 200 code" do 
+
+      When { get :index }
+      Then { expect(response.code).to eq("200") }
+    end
+
     it "assigns all wineries as @wineries" do
       winery = Winery.create! valid_attributes
       get :index, {}, valid_session

@@ -2,30 +2,23 @@
   .container
     .span3
     .span3
-      = link_to 'Need help?', root_url
+      = link_to 'Would you like to review a wine?', root_url
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
       = link_to "Bloocher", root_path, :class => 'brand'
       %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
       %ul.nav.pull-right.hidden-phone
-        %li.active
-          %a{:href => "index.html"} Home
+        - if current_page?(root_path)
+          %li.active
+            = link_to "Home", root_path
+        - if current_page?(wines_path)
+          %li.active
+            = link_to "wines", wines_path
         %li
-          %a{:href => "about.html"} About
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            Portfolio
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
-            %li
-              %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
+          = link_to "Wineries", wineries_path
         %li
-          %a{:href => "blog.html"} Blog
-        %li
-          %a{:href => "contact.html"} Contact
+          = link_to "Wine Reviews", reviews_path
         - if user_signed_in?
           %li
             = link_to 'Logout', destroy_user_session_path, :method=>'delete'

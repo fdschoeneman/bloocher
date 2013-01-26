@@ -29,7 +29,7 @@
   = @winery.producer.zip
 %p
   %b Web address:
-  = @winery.producer.web_address
+  = link_to @winery.producer.web_address, url_for(@winery.producer.web_address) 
 %p
   %b Subdomain:
   = @winery.producer.subdomain
@@ -37,3 +37,6 @@
 = link_to 'Edit', edit_winery_path(@winery)
 \|
 = link_to 'Back', wineries_path
+
+- @wines.each do |wine|
+  = wine.name

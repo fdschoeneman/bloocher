@@ -1,11 +1,24 @@
 require 'spec_helper'
 
 describe "Wineries" do
+
+
   describe "GET /wineries" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get wineries_path
-      response.status.should be(200)
-    end
+    
+    When { get wineries_path }
+    Then { response.status.should be(200) }
+  end
+  
+  Given!(:winery) { FactoryGirl.create(:winery) }
+
+  describe "GET /wineries/:id" do 
+    # Given { FactoryGirl.create(:winery) }
+    When { get winery_path(winery.id) }
+    Then { response.status.should be(200) }
+
+
+
+
+
   end
 end

@@ -14,6 +14,7 @@ class WineriesController < ApplicationController
   # GET /wineries/1.json
   def show
     @winery = Winery.find(params[:id])
+    @wines = @winery.wines
 
     respond_to do |format|
       format.html # show.html.erb

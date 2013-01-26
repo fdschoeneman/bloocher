@@ -1,36 +1,9 @@
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container
-      = link_to "Bloocher", root_path, :class => 'brand'
-      %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
-      %ul.nav.pull-right.hidden-phone
-        %li.active
-          %a{:href => "index.html"} Home
-        %li
-          %a{:href => "about.html"} About
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            Portfolio
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
-            %li
-              %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
-        %li
-          %a{:href => "blog.html"} Blog
-        %li
-          %a{:href => "contact.html"} Contact
 .background-light-grey
   .container
     .row-fluid
       .featured
         .span6
           .excerpt
-            %h3 Home
-            - @users.each do |user|
-              %p
-                User: #{link_to user.name, user}
             %h1 This is a featured post or something
             %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
             %a.btn.btn-arrow-right.btn-simple.btn-blue.btn-huge.pull-right{:href => "https://wrapbootstrap.com/theme/typica-WB062JJ83", :target => "_blank"} See template Typica

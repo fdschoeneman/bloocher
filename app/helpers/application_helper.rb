@@ -12,4 +12,15 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def default_meta_tags
+    
+    {
+      title:       'Bloocher',
+      description: 'Tracking wines and vineyards since 2013.',
+      keywords:    'Wines, Wine Reviews, Wineries, Oenophiles',
+      separator:   "&mdash;".html_safe,
+    }
+  
+  end
+
 end

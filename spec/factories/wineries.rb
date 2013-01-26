@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :winery do
     name                "Ernest & Julio Gallo, Inc."
-    producer_id         { rand(1..20) }
+    association         :producer
 
   end
 end

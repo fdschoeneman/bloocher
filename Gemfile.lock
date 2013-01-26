@@ -54,8 +54,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    columnize (0.3.6)
     daemons (1.1.9)
     database_cleaner (0.9.1)
+    debugger (1.2.4)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.1.1)
+      debugger-ruby_core_source (~> 1.1.7)
+    debugger-linecache (1.1.2)
+      debugger-ruby_core_source (>= 1.1.1)
+    debugger-ruby_core_source (1.1.7)
     devise (2.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -143,6 +151,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.2.6)
+      actionpack
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.5.0)
@@ -267,6 +277,7 @@ DEPENDENCIES
   capybara-webkit (= 0.13.0)
   coffee-rails (~> 3.2.1)
   database_cleaner (= 0.9.1)
+  debugger
   devise (>= 2.1.2)
   email_spec (= 1.4.0)
   factory_girl_rails (= 4.1.0)
@@ -289,6 +300,7 @@ DEPENDENCIES
   kaminari
   launchy (= 2.1.2)
   libv8
+  meta-tags
   pg
   rails (= 3.2.10)
   rb-inotify (~> 0.8.8)
