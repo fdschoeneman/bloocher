@@ -3,8 +3,8 @@
 FactoryGirl.define do
   factory :review do
     rating              89
-    association   :reviewer, factory: :user
-    wine   
+    association         :reviewer, factory: :user
+    association         :wine   
     content             "MyText"
 
   end

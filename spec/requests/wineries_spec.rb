@@ -2,23 +2,49 @@ require 'spec_helper'
 
 describe "Wineries" do
 
+  Given!(:winery) { FactoryGirl.create(:winery) }
 
   describe "GET /wineries" do
     
     When { get wineries_path }
     Then { response.status.should be(200) }
+
+    describe "list all wineries" do 
+
+      When { visit wineries_path }
+      Then { page.should have_link(winery.name)}
+    end
   end
-  
-  Given!(:winery) { FactoryGirl.create(:winery) }
 
   describe "GET /wineries/:id" do 
-    # Given { FactoryGirl.create(:winery) }
+
     When { get winery_path(winery.id) }
     Then { response.status.should be(200) }
+  end
 
+  describe "winery page should" do
 
+    Given(:wine) { FactoryGirl.create(:wine) }
 
+    describe "provide a link to each of the winery's wines" do 
 
+      When { visit winery_path(wine.winery.id) }
+      Then { page.should have_link(wine.name) }
+    end
 
+    Given(:review) { FactoryGirl.create(:review) }
+
+    describe "publish reviews of the winery's wines" do 
+
+      When { visit winery_path(review.wine.winery.id) }
+      Then { page.should have_content(review.content) }
+    end
+
+    describe "should provide an average rating for all wines" do
+       
+    end
+
+    describe "should provide a list of vineyard partners" do
+    end
   end
 end

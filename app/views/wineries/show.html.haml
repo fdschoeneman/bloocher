@@ -1,11 +1,12 @@
 %p#notice= notice
 
 %p
-  %b Name:
-  = @winery.name
+  %h1= @winery.name
+  .badge 
+    = @winery.winery_rating.to_i
 %p
   %b Producer:
-  = @winery.producer_id
+  = @winery.producer.name
 %p
   %b Public email:
   = @winery.producer.public_email
@@ -38,5 +39,20 @@
 \|
 = link_to 'Back', wineries_path
 
+%p
+%h1 Wines
+
 - @wines.each do |wine|
-  = wine.name
+  %p
+    = link_to "#{wine.vintage} #{wine.name}", wine_path(wine.id)
+
+%p
+%h1 Reviews
+
+- @reviews.each do |review|
+  %p 
+    .badge= review.rating
+    = review.content
+    = link_to review.reviewer.name, user_path(review.reviewer.name)
+    
+

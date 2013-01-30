@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :wine do
     vintage           2009
-    name              "ancien chardonnay"  
+    sequence(:name)    { |n| "ancien chardonnay#{n}"  }
     cases_produced    1
     winemaker_notes   "MyText"
-    winery
+    association       :winery
   end
 end

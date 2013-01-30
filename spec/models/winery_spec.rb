@@ -49,12 +49,28 @@ describe Winery do
   describe "associations" do
 
     it { should have_many(:wines) } 
+    it { should have_many(:reviews).through(:wines) }
     it { should accept_nested_attributes_for(:producer)}
     it { should belong_to(:producer) } 
+  end
+
+  describe "methods" do 
+
+    it { should respond_to(:winery_rating) }
+
+
+    Given(:winery) { FactoryGirl.create(:winery) }
+    When(:two_reviews) { 
+      %w[25 75].each do |rating| 
+        FactoryGirl.create(:review, rating: rating, wine_id: review.wine.winery.id)
+      end 
+    }
+
+    # Then { winery.winery_rating.should eq 50 }
+
+    Then { winery.winery_rating.should eq 50}
+
 
 
   end
-
-
-
 end

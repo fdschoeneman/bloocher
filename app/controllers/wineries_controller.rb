@@ -15,6 +15,9 @@ class WineriesController < ApplicationController
   def show
     @winery = Winery.find(params[:id])
     @wines = @winery.wines
+    @reviews = @winery.reviews
+    # @winery_rating = @reviews.average(:rating)
+    @winery.winery_rating
 
     respond_to do |format|
       format.html # show.html.erb
@@ -81,4 +84,6 @@ class WineriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  
 end

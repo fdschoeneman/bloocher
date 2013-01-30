@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :winery do
-    name                "Ernest & Julio Gallo, Inc."
+    sequence :name do |n|
+      "Ernest & Julio #{n}Gallo, Inc."
+    end
+
     association         :producer
 
   end

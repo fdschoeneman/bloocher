@@ -34,11 +34,13 @@ Spork.prefork do
 #   config.order = "random"
     
     config.before(:suite) do
-      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.strategy = :deletion
+      # DatabaseCleaner.clean_with(:truncation)
     end
 
     config.before(:each) do
       DatabaseCleaner.start
+      DatabaseCleaner.clean
     end
 
     config.after(:each) do
