@@ -76,7 +76,7 @@ def make_wineries
   boonville_wineries.each do |winery_name|
     Winery.create(
       name: winery_name, 
-      producer_id: "#{rand(1..20) }"
+      producer_id: rand(1..20)
     )
   end
 
