@@ -111,10 +111,10 @@ ActiveRecord::Schema.define(:version => 20130117031959) do
     t.datetime "released_on"
     t.string   "name"
     t.text     "winemaker_notes"
-    t.decimal  "ph",                        :precision => 3, :scale => 2
-    t.decimal  "residual_sugar",            :precision => 3, :scale => 4
-    t.decimal  "alcohol",                   :precision => 3, :scale => 4
-    t.decimal  "new_french_oak",            :precision => 3, :scale => 3
+    t.decimal  "ph"
+    t.decimal  "residual_sugar"
+    t.decimal  "alcohol"
+    t.decimal  "new_french_oak"
     t.decimal  "one_yr_old_french_oak"
     t.decimal  "two_yr_old_french_oak"
     t.decimal  "three_yr_old_french_oak"
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(:version => 20130117031959) do
     t.decimal  "one_yr_old_american_oak"
     t.decimal  "two_yr_old_american_oak"
     t.decimal  "three_yr_old_american_oak"
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "wines", ["name"], :name => "index_wines_on_name"
