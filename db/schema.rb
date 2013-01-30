@@ -111,10 +111,10 @@ ActiveRecord::Schema.define(:version => 20130117031959) do
     t.datetime "released_on"
     t.string   "name"
     t.text     "winemaker_notes"
-    t.decimal  "ph",                        :precision => 5, :scale => 2
-    t.decimal  "residual_sugar",            :precision => 4, :scale => 4
-    t.decimal  "alcohol",                   :precision => 4, :scale => 4
-    t.decimal  "new_french_oak",            :precision => 2, :scale => 3
+    t.decimal  "ph",                        :precision => 3, :scale => 2
+    t.decimal  "residual_sugar",            :precision => 3, :scale => 4
+    t.decimal  "alcohol",                   :precision => 3, :scale => 4
+    t.decimal  "new_french_oak",            :precision => 3, :scale => 3
     t.decimal  "one_yr_old_french_oak"
     t.decimal  "two_yr_old_french_oak"
     t.decimal  "three_yr_old_french_oak"
