@@ -20,10 +20,10 @@ def cyan(text);     colorize(text, 36); end
 namespace :db do
   desc "Fill database with sample data" 
   task populate: :environment do
-    if Rails.env.development?
+    # if Rails.env.development?
       puts "#{red("==>")} Clearing Current Data"
       Rake::Task['db:reset'].invoke
-    end
+    # end
     puts "#{green("==>")} Making admin user"
     make_admin_user
     puts "#{green("==>")} Making sample users"
