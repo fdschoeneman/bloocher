@@ -2,15 +2,9 @@
 
 %table
   %tr
+    %th 
     %th Name
-    %th Producer
     %th Public email
-    %th Phone
-    %th Address 1
-    %th Address 2
-    %th City
-    %th State
-    %th Zip
     %th Web address
     %th Subdomain
     %th
@@ -19,17 +13,13 @@
 
   - @wineries.each do |winery|
     %tr
+      %td.badge= winery.winery_rating
       %td= link_to winery.name, winery_path(winery.id)
       %td= winery.producer.public_email
-      %td= winery.producer.phone
-      / %td= winery.producer.address_1
-      / %td= winery.producer.address_2
-      / %td= winery.producer.city
-      / %td= winery.producer.state
-      / %td= winery.producer.zip
-      / %td= winery.producer.web_address
-      / %td= winery.producer.subdomain
-      / %td= link_to 'Show', winery
+      
+      %td= link_to winery.producer.web_address, url_for(winery.producer.web_address)
+      %td= winery.producer.subdomain
+      %td= link_to 'Show', winery
       %td= link_to 'Edit', edit_winery_path(winery)
       %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
 

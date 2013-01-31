@@ -58,19 +58,30 @@ describe Winery do
 
     it { should respond_to(:winery_rating) }
 
-
     Given(:winery) { FactoryGirl.create(:winery) }
-    When(:two_reviews) { 
-      %w[25 75].each do |rating| 
-        FactoryGirl.create(:review, rating: rating, wine_id: review.wine.winery.id)
-      end 
-    }
+    Given(:wine) { FactoryGirl.create(:wine, winery_id: winery.id) }
+    Given(:second_wine) { FactoryGirl.create(:wine, winery_id: winery.id) }
 
-    # Then { winery.winery_rating.should eq 50 }
+    describe "winery rating when there are" do 
+  
+      When(:three_reviews) do 
+        
+        %w[85 90 95].each do |rating| 
+          FactoryGirl.create(:review, rating: rating, wine_id: wine.id)
+        end
 
-    Then { winery.winery_rating.should eq 50}
+        context "three reviews of a single wine" do
+        
+          Then { winery.winery_rating.should eq 90}
+        end
+      end
 
+      describe "three reviews of one and one review of another" do 
 
+        When(:fourth_review) { FactoryGirl.create(:review, rating: 50, wine_id: second_wine.id) }  
+        Then { winery.winery_rating.should eq 80 }
+      end
+    end
 
   end
 end

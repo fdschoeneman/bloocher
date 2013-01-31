@@ -1,5 +1,24 @@
-%p#notice= notice
+.row.span12
+  %p#notice= notice
 
+  #myCanvasContainer
+    %canvas#myCanvas{:height => "300", :width => "600"}
+      %p Anything in here will be replaced on browsers that support the canvas element
+  #tags
+    %ul
+      %li
+        %a{:href => "http://www.google.com", :target => "_blank"} Google
+      %li
+        %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} MerciboQ!
+      %li= link_to @winery.name
+      - @winery.wines.each do |wine|
+        = link_to wine.name
+      - @winery.winery_tags.each do |tag|
+        = link_to tag[0], html_options: { "data-weight" => tag[1] }
+      %li
+      %li
+      %li
+        %a{:href => "/vinegar"} Vinegar
 %p
   %h1= @winery.name
   .badge 
@@ -56,3 +75,19 @@
     = link_to review.reviewer.name, user_path(review.reviewer.name)
     
 
+:javascript
+  $(document).ready(function() {
+    if(!$('#myCanvas').tagcanvas({
+      textColour: 'grey',
+      textFont: 'Helvetica',
+      outlineColour: 'grey',
+      reverse: true,
+      depth: 0.8, 
+      maxSpeed: 0.05, 
+      weight: true,
+      weightMode: "size",
+    },'tags')) {
+      // something went wrong, hide the canvas container
+      $('#myCanvasContainer').hide();
+    }
+  });

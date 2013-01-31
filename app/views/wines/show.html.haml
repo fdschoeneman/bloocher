@@ -26,5 +26,7 @@
   - @reviews.each do |review|
     %tr 
       %td
+        .badge= review.rating
         = link_to review.reviewer.name, user_path(review.reviewer.id)
         = review.content
+
