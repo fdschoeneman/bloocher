@@ -2,22 +2,16 @@
 
 %table
   %tr
-    %th Producer
+    %th Vineyard
     %th Appellation
-    %th Topography
-    %th Soil composition
-    %th Climate
     %th
     %th
     %th
 
   - @vineyards.each do |vineyard|
     %tr
-      %td= vineyard.producer_id
+      %td= link_to vineyard.name, vineyards_path(vineyard.id)
       %td= vineyard.appellation
-      %td= vineyard.topography
-      %td= vineyard.soil_composition
-      %td= vineyard.climate
       %td= link_to 'Show', vineyard
       %td= link_to 'Edit', edit_vineyard_path(vineyard)
       %td= link_to 'Destroy', vineyard, method: :delete, data: { confirm: 'Are you sure?' }

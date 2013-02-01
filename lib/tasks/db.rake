@@ -40,6 +40,8 @@ namespace :db do
     make_ownerships
     puts "#{green("==>")} Making winemaker oeuvres"
     make_winemaker_oeuvres
+    puts "#{green("==>")} Making vineyards"
+    make_vineyards
     
   end
 end
@@ -79,7 +81,6 @@ def make_wineries
       producer_id: rand(1..20)
     )
   end
-
 end
 
 def make_wines
@@ -168,4 +169,24 @@ def make_winemaker_oeuvres
 
 end
 
+def make_vineyards
+
+  boonville_vineyards.each do |vineyard_name|
+    Vineyard.create(
+      name: vineyard_name, 
+      producer_id: rand(1..20),
+      appellation: appellations.sample,
+      topo_aspect: topo_aspects.sample,
+      topo_slope: rand(0..50)/1000.to_f,
+      topo_elevation: rand(10..8000),
+      soil_composition: soil_types.sample,
+      soil_drainage: soil_drainage_types.sample,
+      soil_depth: rand(18..40),
+      soil_fertility: rand(0..40)/1000.to_f,
+      soil_water_capacity: rand(6..8),
+      soil_ph: rand(38..80)/10.to_f,
+    )
+  end
+
+end
 

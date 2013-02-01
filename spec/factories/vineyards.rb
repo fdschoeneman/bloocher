@@ -4,8 +4,9 @@ FactoryGirl.define do
   factory :vineyard do
     producer_id 1
     appellation "Anderson Valley"
-    topography "1-2 percent slope"
+    topo_slope 1
     soil_composition "Boonville Loam"
     climate "cool"
+    name "ferrington"
   end
 end
