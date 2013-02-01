@@ -1,0 +1,27 @@
+%h1 Listing vineyards
+
+%table
+  %tr
+    %th Producer
+    %th Appellation
+    %th Topography
+    %th Soil composition
+    %th Climate
+    %th
+    %th
+    %th
+
+  - @vineyards.each do |vineyard|
+    %tr
+      %td= vineyard.producer_id
+      %td= vineyard.appellation
+      %td= vineyard.topography
+      %td= vineyard.soil_composition
+      %td= vineyard.climate
+      %td= link_to 'Show', vineyard
+      %td= link_to 'Edit', edit_vineyard_path(vineyard)
+      %td= link_to 'Destroy', vineyard, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Vineyard', new_vineyard_path

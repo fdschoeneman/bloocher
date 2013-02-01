@@ -1,0 +1,12 @@
+= simple_form_for(@vineyard) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :producer_id
+    = f.input :appellation
+    = f.input :topography
+    = f.input :soil_composition
+    = f.input :climate
+
+  .form-actions
+    = f.button :submit

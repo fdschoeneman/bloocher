@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Producer:
+  = @vineyard.producer_id
+%p
+  %b Appellation:
+  = @vineyard.appellation
+%p
+  %b Topography:
+  = @vineyard.topography
+%p
+  %b Soil composition:
+  = @vineyard.soil_composition
+%p
+  %b Climate:
+  = @vineyard.climate
+
+= link_to 'Edit', edit_vineyard_path(@vineyard)
+\|
+= link_to 'Back', vineyards_path

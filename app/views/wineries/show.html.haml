@@ -1,79 +1,78 @@
-.row.span12
-  %p#notice= notice
+.row
+  .span12
+    %h1= @winery.name
+    .span5
+      %p
+        .badge 
+          = @winery.winery_rating.to_i
+      %p
+        %b Producer:
+        = @winery.producer.name
+      %p
+        %b Public email:
+        = @winery.producer.public_email
+      %p
+        %b Phone:
+        = @winery.producer.phone
+      %p
+        %b Address 1:
+        = @winery.producer.address_1
+      %p
+        %b Address 2:
+        = @winery.producer.address_2
+      %p
+        %b City:
+        = @winery.producer.city
+      %p
+        %b State:
+        = @winery.producer.state
+      %p
+        %b Zip:
+        = @winery.producer.zip
+      %p
+        %b Web address:
+        = link_to @winery.producer.web_address, url_for(@winery.producer.web_address) 
+      %p
+        %b Subdomain:
+        = @winery.producer.subdomain
 
-  #myCanvasContainer
-    %canvas#myCanvas{:height => "300", :width => "600"}
-      %p Anything in here will be replaced on browsers that support the canvas element
-  #tags
-    %ul
-      %li
-        %a{:href => "http://www.google.com", :target => "_blank"} Google
-      %li
-        %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} MerciboQ!
-      %li= link_to @winery.name
-      - @winery.wines.each do |wine|
-        = link_to wine.name
-      - @winery.winery_tags.each do |tag|
-        = link_to tag[0], html_options: { "data-weight" => tag[1] }
-      %li
-      %li
-      %li
-        %a{:href => "/vinegar"} Vinegar
-%p
-  %h1= @winery.name
-  .badge 
-    = @winery.winery_rating.to_i
-%p
-  %b Producer:
-  = @winery.producer.name
-%p
-  %b Public email:
-  = @winery.producer.public_email
-%p
-  %b Phone:
-  = @winery.producer.phone
-%p
-  %b Address 1:
-  = @winery.producer.address_1
-%p
-  %b Address 2:
-  = @winery.producer.address_2
-%p
-  %b City:
-  = @winery.producer.city
-%p
-  %b State:
-  = @winery.producer.state
-%p
-  %b Zip:
-  = @winery.producer.zip
-%p
-  %b Web address:
-  = link_to @winery.producer.web_address, url_for(@winery.producer.web_address) 
-%p
-  %b Subdomain:
-  = @winery.producer.subdomain
+      = link_to 'Edit', edit_winery_path(@winery)
+      \|
+      = link_to 'Back', wineries_path
 
-= link_to 'Edit', edit_winery_path(@winery)
-\|
-= link_to 'Back', wineries_path
+    .span6
+      #myCanvasContainer
+        %canvas#myCanvas{:height => "400", :width => "500"}
+      #tags
+        %ul
+          %li
+            %a{:href => "http://www.google.com", :target => "_blank"} Google
+          %li
+            %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} Pinot noir
+          %li= link_to @winery.name
+          - @winery.wines.each do |wine|
+            = link_to wine.name
+          - @winery.winery_tags.each do |tag|
+            = link_to tag[0], html_options: { "data-weight" => tag[1] }
+  .span12
+    %h1 Wines
 
-%p
-%h1 Wines
-
-- @wines.each do |wine|
-  %p
-    = link_to "#{wine.vintage} #{wine.name}", wine_path(wine.id)
-
-%p
-%h1 Reviews
-
-- @reviews.each do |review|
-  %p 
-    .badge= review.rating
-    = review.content
-    = link_to review.reviewer.name, user_path(review.reviewer.name)
-    
+    #accordion2.accordion
+      - @wines.each do |wine|
+        .accordion-group
+          .accordion-heading
+            %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseOne"}
+              = "#{wine.vintage} #{wine.name}"
+          #collapseOne.accordion-body.collapse.in
+            .accordion-inner
+              %h4 Winemaker notes
+              = wine.winemaker_notes
+              %h4 Blooches
+              - @reviews.each do |review|
+                %p 
+                  .badge= review.rating
+                  = review.content
+                  = link_to review.reviewer.name, user_path(review.reviewer.name)
 
 :javascript
   $(document).ready(function() {
