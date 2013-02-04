@@ -10,7 +10,7 @@
 
   - @vineyards.each do |vineyard|
     %tr
-      %td= link_to vineyard.name, vineyards_path(vineyard.id)
+      %td= link_to vineyard.name, vineyard_path(vineyard.id)
       %td= vineyard.appellation
       %td= link_to 'Show', vineyard
       %td= link_to 'Edit', edit_vineyard_path(vineyard)

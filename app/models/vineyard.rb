@@ -4,6 +4,7 @@ class Vineyard < ActiveRecord::Base
   validates :name, :producer_id, presence: true
 
   has_many :wines, through: :fruit_lots
+  has_many :blocks, class_name: "Vineyard", foreign_key: :vineyard_parent_id
   has_many :fruit_lots
 
   belongs_to :producer

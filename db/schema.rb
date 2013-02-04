@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201122558) do
+ActiveRecord::Schema.define(:version => 20130201081842) do
 
   create_table "ownerships", :force => true do |t|
     t.integer  "owner_id"
@@ -81,19 +81,9 @@ ActiveRecord::Schema.define(:version => 20130201122558) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
-  create_table "vineyard_blocks", :force => true do |t|
-    t.integer  "vineyard_id"
-    t.integer  "block_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "vineyard_blocks", ["block_id"], :name => "index_vineyard_blocks_on_block_id"
-  add_index "vineyard_blocks", ["vineyard_id", "block_id"], :name => "index_vineyard_blocks_on_vineyard_id_and_block_id", :unique => true
-  add_index "vineyard_blocks", ["vineyard_id"], :name => "index_vineyard_blocks_on_vineyard_id"
-
   create_table "vineyards", :force => true do |t|
     t.integer  "producer_id"
+    t.integer  "vineyard_parent_id"
     t.string   "appellation"
     t.string   "topo_aspect"
     t.integer  "topo_slope"

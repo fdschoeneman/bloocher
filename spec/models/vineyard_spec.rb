@@ -66,6 +66,7 @@ describe Vineyard do
     xit { should have_many(:fruit_lots) } 
     it { should accept_nested_attributes_for(:producer)}
     it { should belong_to(:producer) } 
+    it { should have_many(:blocks).class_name("Vineyard") } 
   end
 
   describe "methods" do 

@@ -3,17 +3,11 @@ require 'spec_helper'
 
 describe VineyardsController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Vineyard. As you add validations to Vineyard, be sure to
-  # update the return value of this method accordingly.
   def valid_attributes
     { "producer_id" => "1",
     "name" => "random name" }
   end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # VineyardsController. Be sure to keep this updated too.
   def valid_session
     {}
   end

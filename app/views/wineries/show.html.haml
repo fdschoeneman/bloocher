@@ -55,20 +55,23 @@
           - @winery.winery_tags.each do |tag|
             = link_to tag[0], html_options: { "data-weight" => tag[1] }
   .span12
-    %h1 Wines
+    .span1
+      %h3
+        #popover{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", :href => "#", :rel => "popover"} Fratis
+  .span12
 
     #accordion2.accordion
       - @wines.each do |wine|
         .accordion-group
           .accordion-heading
-            %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseOne"}
-              = "#{wine.vintage} #{wine.name}"
-          #collapseOne.accordion-body.collapse.in
+            %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse#{wine.id}"}
+              %h3= "#{wine.vintage} #{wine.name}"
+          .accordion-body.collapse.in{id: "collapse#{wine.id}" }
             .accordion-inner
-              %h4 Winemaker notes
+              %h4 Winemaker notes #{link_to "read more about this frati", wine_path(wine.id), class: "pull-right" }
               = wine.winemaker_notes
               %h4 Blooches
-              - @reviews.each do |review|
+              - wine.reviews.each do |review|
                 %p 
                   .badge= review.rating
                   = review.content
@@ -89,4 +92,8 @@
       // something went wrong, hide the canvas container
       $('#myCanvasContainer').hide();
     }
+
+    $('#popover').popover( { trigger: 'hover' } )
+
   });
+

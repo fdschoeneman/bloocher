@@ -2,6 +2,7 @@ class CreateVineyards < ActiveRecord::Migration
   def change
     create_table :vineyards do |t|
       t.integer :producer_id
+      t.integer :vineyard_parent_id
       t.string :appellation
       t.string :topo_aspect
       t.integer :topo_slope
