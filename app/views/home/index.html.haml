@@ -1,126 +1,127 @@
-.background-light-grey
+.row
+  .background-light-grey
+    .container
+      .row-fluid
+        .featured
+          .span6
+            .excerpt
+              %h1 Ee-tah!  
+              %p The bahlest place for blooching about Anderson Valley Fratis.
+              %a.btn.btn-arrow-right.btn-simple.btn-blue.btn-huge.pull-right{:href => "https://wrapbootstrap.com/theme/typica-WB062JJ83", :target => "_blank"} See cool pictures of grapes.
+          .span6
+            %img.pull-right{:alt => "Typica - Bootstrap template", :src => "demo_img/typica.jpg"}/
+  / signup strip
+  .background-grey.strip
+    .container
+      %p.pull-left This is the most awesome wine review site you've ever seen! seriously, sign up and start blooching.  You big bloocher.
+      .pull-right
+        %a.btn.btn-info.btn-huge.btn-simple{"data-toggle" => "modal", :href => "#signup-modal"} Sign up now
+  / testimonials
   .container
-    .row-fluid
-      .featured
-        .span6
-          .excerpt
-            %h1 This is a featured post or something
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            %a.btn.btn-arrow-right.btn-simple.btn-blue.btn-huge.pull-right{:href => "https://wrapbootstrap.com/theme/typica-WB062JJ83", :target => "_blank"} See template Typica
-        .span6
-          %img.pull-right{:alt => "Typica - Bootstrap template", :src => "demo_img/typica.jpg"}/
-/ signup strip
-.background-grey.strip
-  .container
-    %p.pull-left This is the most awesome app you've ever seen! Why don't you sign up right now?
-    .pull-right
-      %a.btn.btn-info.btn-huge.btn-simple{"data-toggle" => "modal", :href => "#signup-modal"} Sign up now
-/ testimonials
-.container
-  .row.testimonials
-    .span3
-      %h3 Lorem ipsum
-      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-      %button.btn.btn-inverse.btn-simple.btn-wide Read more
-    .span3
-      %h3 Lorem ipsum
-      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-      %button.btn.btn-inverse.btn-simple.btn-wide Read more
-    .span3
-      %h3 Lorem ipsum
-      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-      %button.btn.btn-inverse.btn-simple.btn-wide Read more
-    .span3
-      %h3 Lorem ipsum
-      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-      %button.btn.btn-inverse.btn-simple.btn-wide Read more
-  / /.row
-  / slider
-  %h2.page-header CHECK OUT THIS AWESOME SLIDER
-  .row
-    #myCarousel.carousel.slide.add-shadow.span10.offset1
-      / Carousel items
-      .carousel-inner
-        .active.item
-          %img{:alt => "", :src => "demo_img/slider/1.png"}/
-        .item
-          %img{:alt => "", :src => "demo_img/slider/2.png"}/
-        .item
-          %img{:alt => "", :src => "demo_img/slider/3.png"}/
-      / Carousel nav
-      %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
-      %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
-  %hr/
-  / Where can you find us
-  .info-centered
-    %p Where can you find us?
-    %a.icon-squared.color-facebook{:href => "#"}
-      %article
-        %span
-          %i.icon-facebook
-    %a.icon-squared.color-twitter{:href => "#"}
-      %article
-        %span
-          %i.icon-twitter
-    %a.icon-squared.color-pinterest{:href => "#"}
-      %article
-        %span
-          %i.icon-pinterest
-/ /.container
-/ Le Footer
-.background-white.footer
-  .container
-    %p.pull-left This was TRIQ - Awesome bootstrap template.
-    %p.pull-right
-      %a#toplink{:href => "#"} Back to top
-    %ul#footer-nav.nav.visible-phone
+    .row.testimonials
+      .span3
+        %h3 High pockety frati drinkers
+        %p Learn about fratis and the fruit that goes into them.  Blooch about one or two of them, give them a rating even.  Don't be a Jenny Beck, though.
+        %button.btn.btn-inverse.btn-simple.btn-wide Read more
+      .span3
+        %h3 Farmers
+        %p See what other farmers have been doing.  Show them what you are doing.  See what the high pockety folk are saying about fratis made with your fruit.  Join the tidrick.  
+        %button.btn.btn-inverse.btn-simple.btn-wide Read more
+      .span3
+        %h3 Winemakers
+        %p See what the high pockety folk are blooching about your fratis, maybe even find a few who are somersetting about your work.  Give them the bahl info about where you source your fruit, which yeast you used, how long you left it in tanks, that sort of thing.  Be a bearman.
+        %button.btn.btn-inverse.btn-simple.btn-wide Read more
+      .span3
+        %h3 Oshtooks, Madges, Moldunes, Appleheads, Abaloneyites, and Shoveltooths 
+        %p 
+        %button.btn.btn-inverse.btn-simple.btn-wide Read more
+    / /.row
+    / slider
+    %h2.page-header CHECK OUT THIS AWESOME SLIDER
+    .row
+      #myCarousel.carousel.slide.add-shadow.span10.offset1
+        / Carousel items
+        .carousel-inner
+          .active.item
+            %img{:alt => "", :src => "demo_img/slider/1.png"}/
+          .item
+            %img{:alt => "", :src => "demo_img/slider/2.png"}/
+          .item
+            %img{:alt => "", :src => "demo_img/slider/3.png"}/
+        / Carousel nav
+        %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+        %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
     %hr/
-    %h3.centered Menu
-    %li.active
-      %a{:href => "index.html"} Home
-    %li
-      %a{:href => "about.html"} About
-    %li.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        Portfolio
-        %b.caret
-      %ul.dropdown-menu
-        %li
-          %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
-        %li
-          %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
-    %li
-      %a{:href => "blog.html"} Blog
-    %li
-      %a{:href => "contact.html"} Contact
-/ SignUp modal
-#signup-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3#myModalLabel.centered Sign Up
-  .modal-body
-    %form.form-horizontal
-      .control-group
-        %label.control-label{:for => "inputUser"} Username
-        .controls
-          %input#inputUser{:placeholder => "Username", :type => "text"}/
-      .control-group
-        %label.control-label{:for => "inputEmail"} Email
-        .controls
-          %input#inputEmail{:placeholder => "Email", :type => "text"}/
-      .control-group
-        %label.control-label{:for => "inputPassword"} Password
-        .controls
-          %input#inputPassword{:placeholder => "Password", :type => "password"}/
-  .modal-footer
-    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-    %button.btn.btn-info{:type => "submit"} Register
-/
-  Le javascript
-  \==================================================
-/ Placed at the end of the document so the pages load faster
-%script{:src => "js/jquery.js"}
-%script{:src => "js/bootstrap.js"}
-%script{:src => "js/jquery.scrollto-1.4.3.1-min.js"}
-%script{:src => "js/jquery.localscroll-1.2.7-min.js"}
-%script{:src => "js/triq.js"}
+    / Where can you find us
+    .info-centered
+      %p Where can you find us?
+      %a.icon-squared.color-facebook{:href => "#"}
+        %article
+          %span
+            %i.icon-facebook
+      %a.icon-squared.color-twitter{:href => "#"}
+        %article
+          %span
+            %i.icon-twitter
+      %a.icon-squared.color-pinterest{:href => "#"}
+        %article
+          %span
+            %i.icon-pinterest
+  / /.container
+  / Le Footer
+  .background-white.footer
+    .container
+      %p.pull-left This is Bloocher -- www.bloocher.com.  Get your blooch on.
+      %p.pull-right
+        %a#toplink{:href => "#"} Back to top
+      %ul#footer-nav.nav.visible-phone
+      %hr/
+      %h3.centered Menu
+      %li.active
+        %a{:href => "index.html"} Home
+      %li
+        %a{:href => "about.html"} About
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Portfolio
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
+          %li
+            %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
+      %li
+        %a{:href => "blog.html"} Blog
+      %li
+        %a{:href => "contact.html"} Contact
+  / SignUp modal
+  #signup-modal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3#myModalLabel.centered Sign Up
+    .modal-body
+      %form.form-horizontal
+        .control-group
+          %label.control-label{:for => "inputUser"} Username
+          .controls
+            %input#inputUser{:placeholder => "Username", :type => "text"}/
+        .control-group
+          %label.control-label{:for => "inputEmail"} Email
+          .controls
+            %input#inputEmail{:placeholder => "Email", :type => "text"}/
+        .control-group
+          %label.control-label{:for => "inputPassword"} Password
+          .controls
+            %input#inputPassword{:placeholder => "Password", :type => "password"}/
+    .modal-footer
+      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+      %button.btn.btn-info{:type => "submit"} Register
+  /
+    Le javascript
+    \==================================================
+  / Placed at the end of the document so the pages load faster
+  / %script{:src => "js/jquery.js"}
+  / %script{:src => "js/bootstrap.js"}
+  / %script{:src => "js/jquery.scrollto-1.4.3.1-min.js"}
+  / %script{:src => "js/jquery.localscroll-1.2.7-min.js"}
+  / %script{:src => "js/triq.js"}

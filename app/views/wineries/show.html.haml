@@ -57,20 +57,24 @@
   .span12
     .span1
       %h3
-        #popover{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", :href => "#", :rel => "popover"} Fratis
+        #popover{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", href: "#", rel: "popover"} Fratis 
+
   .span12
 
     #accordion2.accordion
       - @wines.each do |wine|
         .accordion-group
           .accordion-heading
-            %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse#{wine.id}"}
+            %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapse#{wine.id}"}
               %h3= "#{wine.vintage} #{wine.name}"
           .accordion-body.collapse.in{id: "collapse#{wine.id}" }
             .accordion-inner
               %h4 Winemaker notes #{link_to "read more about this frati", wine_path(wine.id), class: "pull-right" }
               = wine.winemaker_notes
-              %h4 Blooches
+              %br
+              %h4#popover2{"data-content" => "To prattle on, to talk aimlessly.", "data-original-title" => "definition: blooch", href: "#", rel: "popover2"} Blooches
+              %br
+
               - wine.reviews.each do |review|
                 %p 
                   .badge= review.rating
@@ -88,12 +92,15 @@
       maxSpeed: 0.05, 
       weight: true,
       weightMode: "size",
-    },'tags')) {
+    }
+    , 'tags')) {
       // something went wrong, hide the canvas container
       $('#myCanvasContainer').hide();
     }
 
     $('#popover').popover( { trigger: 'hover' } )
+    $('#popover2').popover( { trigger: 'hover',
+      position: 'left' } )
 
   });
 
