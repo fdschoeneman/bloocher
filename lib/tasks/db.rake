@@ -5,6 +5,7 @@ Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
 
 include WineData
 include ReviewData
+include MiscellaneousData
  
 def colorize(text, color_code)
  "\e[#{color_code}m#{text}\e[0m"
@@ -49,10 +50,11 @@ end
 def make_admin_user
 
   admin_user = User.new(
-    name: "Fredzilla", 
+    name: "Fred Schoeneman", 
     email: "fred.schoeneman@gmail.com", 
     password: "password",
-    password_confirmation: "password")
+    password_confirmation: "password", 
+    bio: hipster_bio)
   admin_user.skip_confirmation!
   admin_user.save!
   admin_user.confirm!
@@ -66,7 +68,8 @@ def make_users
     password  = "password"
     user = User.new(name: name,
                     :email => email,
-                    :password => password)  
+                    :password => password,
+                    bio: Faker::Company.bs)  
     user.skip_confirmation!
     user.save!
     user.confirm!
@@ -160,12 +163,12 @@ def make_ownerships
 end
 
 def make_winemaker_oeuvres
-  # 99.times do |n|
-  #   Winemaker_oeuvre.create(
-  #     wine_id: rand(1..10),
-  #     producer_id: rand(1..20)
-  #   )
-  # end
+  99.times do |n|
+    WinemakerOeuvre.create(
+      wine_id: rand(1..10),
+      winemaker_id: rand(1..20)
+    )
+  end
 
 end
 
@@ -177,12 +180,12 @@ def make_vineyards
       producer_id: rand(1..20),
       appellation: appellations.sample,
       topo_aspect: topo_aspects.sample,
-      topo_slope: rand(0..50)/1000.to_f,
+      topo_slope: rand(1..50)/1000.to_f,
       topo_elevation: rand(10..8000),
       soil_composition: soil_types.sample,
       soil_drainage: soil_drainage_types.sample,
       soil_depth: rand(18..40),
-      soil_fertility: rand(0..40)/1000.to_f,
+      soil_fertility: rand(1..40)/1000.to_f,
       soil_water_capacity: rand(6..8),
       soil_ph: rand(38..80)/10.to_f,
     )

@@ -75,6 +75,8 @@ describe Wine do
   describe "methods" do 
 
     it { should respond_to(:reviews) }
+    it { should respond_to(:rating) }
+    it { should respond_to(:winemaker_oeuvres) }
   end
 
 end

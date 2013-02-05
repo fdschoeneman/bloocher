@@ -15,5 +15,15 @@ class Wine < ActiveRecord::Base
             numericality: true, allow_nil: true
 
   belongs_to :winery
+
   has_many :reviews
+  has_many :winemaker_oeuvres
+
+  def rating
+    if self.reviews.count.zero?
+      "n/a"
+    else
+      self.reviews.average(:rating).to_i
+    end
+  end
 end

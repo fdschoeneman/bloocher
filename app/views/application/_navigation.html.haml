@@ -9,27 +9,18 @@
       = link_to "Bloocher", root_path, :class => 'brand'
       %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
       %ul.nav.pull-right.hidden-phone
-        - if current_page?(root_path)
-          %li.active
-            = link_to "Home", root_path
-        - if current_page?(wines_path)
-          %li.active
-            = link_to "wines", wines_path
-        %li
-          = link_to "Bloochers", users_path
-        %li
-          = link_to "Wineries", wineries_path
-        %li
-          = link_to "Vineyards", vineyards_path
-        %li
-          = link_to "Wine Reviews", reviews_path
+        / # - if current_page?(root_path)
+        = nav_link_to "home", root_path
+        = nav_link_to "Bloochers", users_path
+        = nav_link_to "wines", wines_path
+        = nav_link_to "Wineries", wineries_path
+        = nav_link_to "Vineyards", vineyards_path
+        = nav_link_to "Blooches", reviews_path
         - if user_signed_in?
           %li
             = link_to 'Logout', destroy_user_session_path, :method=>'delete'
           %li
             = link_to 'Edit account', edit_user_registration_path
         - else
-          %li
-            = link_to 'Login', new_user_session_path
-          %li
-            = link_to 'Sign up', new_user_registration_path
+          = nav_link_to 'Login', new_user_session_path
+          = nav_link_to 'Sign up', new_user_registration_path

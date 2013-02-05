@@ -1,8 +1,19 @@
-%h1 Bloochers
-%table 
-	%tr
-		%th Name
-		%th Rating
-- @users.each do |user|
-	%p User: #{link_to user.name, user}
-.pagination= paginate @users
+.row
+	.span12
+		%h1 Bloochers
+		%table 
+			%tr
+				%th Name
+				%th Bio
+				%th reviews
+				%th Wines made
+				%th Wineries owned
+			- @users.each do |user|
+				%tr
+					%td= user.name
+					%td= user.bio
+					%td= user.reviews.count
+					%td= user.winemaker_oeuvres.count
+					%td= user.ownerships.count
+
+		.pagination= paginate @users

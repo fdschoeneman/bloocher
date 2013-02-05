@@ -1,19 +1,33 @@
 %p#notice= notice
 
+%h3= @vineyard.name
 %p
   %b Producer:
   = @vineyard.producer.name
 %p
-  %b Appellation:
+  %h4 Appellation:
   = @vineyard.appellation
 %p
-  %b Topography:
-  %p aspect: #{@vineyard.topo_aspect}
-  %p slope: #{@vineyard.topo_slope}
-  %p elevation: #{@vineyard.topo_elevation}
+  %h4 Topography:
+%dl.dl-horizontal
+  %dt Aspect:
+  %dd= @vineyard.topo_aspect
+  %dt Slope: 
+  %dd= @vineyard.topo_slope
+  %dt Elevation: 
+  %dd= @vineyard.topo_elevation
 %p
-  %b Soil composition:
-  = @vineyard.soil_composition
+  %h4 Soil:
+%dl.dl-horizontal
+  %dt composition
+  %dd= @vineyard.soil_composition
+  %dt drainage
+  %dd= @vineyard.soil_drainage
+  %dt depth
+  %dd "#{@vineyard.soil_depth} cm"
+  %dt fertility
+  %dd "#{@vineyard.soil_fertility.to_f}"
+
 %p
   %b Climate:
   = @vineyard.climate

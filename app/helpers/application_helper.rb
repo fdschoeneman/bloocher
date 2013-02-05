@@ -23,4 +23,26 @@ module ApplicationHelper
   
   end
 
+  def nav_link_to(text, path)
+    class_name = current_page?(path) ? 'active' : ''
+
+    content_tag(:li, class: class_name) do
+      link_to text, path
+    end
+  end
+
+  # def nav_link(name, path)
+  #   if current_page?(path)
+  #     %li.active= link_to(name, path)
+
+
+  #   else
+  #     nav_class = "inactive"
+  #   end
+
+  #   link_to(name, path, class: nav_class)
+
+  # end
+    
+
 end

@@ -2,7 +2,7 @@ class WinesController < ApplicationController
   # GET /wines
   # GET /wines.json
   def index
-    @wines = Wine.all
+    @wines = Wine.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

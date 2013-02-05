@@ -21,6 +21,8 @@ describe User do
       end
 
       it { should have_db_column(:sign_in_count).of_type(:integer) }
+      
+      it { should have_db_column(:bio).of_type(:text) }
 
     end
 
@@ -38,7 +40,7 @@ describe User do
     describe "mass assignable" do 
 
       %w[name email password password_confirmation
-        remember_me
+        remember_me bio
       ].each do |attribute|
         it {should allow_mass_assignment_of(attribute.to_sym) }
       end
