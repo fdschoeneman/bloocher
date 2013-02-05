@@ -97,6 +97,7 @@ describe User do
   describe "associations" do
 
     it { should have_many(:winemaker_oeuvres) }
+    it { should have_many(:reviews) }
     it { should have_many(:wines_made).through(:winemaker_oeuvres) }
 
     describe "with producer model" do

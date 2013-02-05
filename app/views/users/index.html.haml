@@ -1,4 +1,8 @@
+%h1 Bloochers
+%table 
+	%tr
+		%th Name
+		%th Rating
 - @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+	%p User: #{link_to user.name, user}
 .pagination= paginate @users

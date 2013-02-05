@@ -57,7 +57,9 @@
   .span12
     .span1
       %h3
-        #popover{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", href: "#", rel: "popover"} Fratis 
+        #frati{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", href: "#", rel: "popover"} Fratis 
+      .badge= @wines.count
+
 
   .span12
 
@@ -72,35 +74,13 @@
               %h4 Winemaker notes #{link_to "read more about this frati", wine_path(wine.id), class: "pull-right" }
               = wine.winemaker_notes
               %br
-              %h4#popover2{"data-content" => "To prattle on, to talk aimlessly.", "data-original-title" => "definition: blooch", href: "#", rel: "popover2"} Blooches
-              %br
+
+              .row
+                %h4.span1.blooch Blooches
 
               - wine.reviews.each do |review|
                 %p 
                   .badge= review.rating
                   = review.content
                   = link_to review.reviewer.name, user_path(review.reviewer.name)
-
-:javascript
-  $(document).ready(function() {
-    if(!$('#myCanvas').tagcanvas({
-      textColour: 'grey',
-      textFont: 'Helvetica',
-      outlineColour: 'grey',
-      reverse: true,
-      depth: 0.8, 
-      maxSpeed: 0.05, 
-      weight: true,
-      weightMode: "size",
-    }
-    , 'tags')) {
-      // something went wrong, hide the canvas container
-      $('#myCanvasContainer').hide();
-    }
-
-    $('#popover').popover( { trigger: 'hover' } )
-    $('#popover2').popover( { trigger: 'hover',
-      position: 'left' } )
-
-  });
 

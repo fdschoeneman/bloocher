@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :winemaker_oeuvres, foreign_key: :winemaker_id
   has_many :wines_made, through: :winemaker_oeuvres, source: :wines
   has_many :wineries_owned, through: :producers, source: :wineries
+  has_many :reviews, foreign_key: :reviewer_id
 
 
   
