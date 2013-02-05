@@ -92,11 +92,11 @@ ActiveRecord::Schema.define(:version => 20130201081842) do
     t.string   "soil_composition"
     t.string   "soil_drainage"
     t.integer  "soil_depth"
-    t.integer  "soil_fertility"
+    t.decimal  "soil_fertility",      :precision => 3, :scale => 2
     t.integer  "soil_water_capacity"
     t.string   "climate"
     t.string   "name"
-    t.integer  "soil_ph"
+    t.decimal  "soil_ph",             :precision => 3, :scale => 2
     t.string   "rootstock"
     t.string   "clone"
     t.string   "nursery"
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(:version => 20130201081842) do
     t.string   "irrigation"
     t.date     "planted_on"
     t.date     "grafted_on"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
   add_index "vineyards", ["appellation"], :name => "index_vineyards_on_appellation"

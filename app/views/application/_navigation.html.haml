@@ -12,10 +12,10 @@
         / # - if current_page?(root_path)
         = nav_link_to "home", root_path
         = nav_link_to "Bloochers", users_path
-        = nav_link_to "wines", wines_path
-        = nav_link_to "Wineries", wineries_path
-        = nav_link_to "Vineyards", vineyards_path
         = nav_link_to "Blooches", reviews_path
+        = nav_link_to "Wineries", wineries_path
+        = nav_link_to "wines", wines_path
+        = nav_link_to "Vineyards", vineyards_path
         - if user_signed_in?
           %li
             = link_to 'Logout', destroy_user_session_path, :method=>'delete'

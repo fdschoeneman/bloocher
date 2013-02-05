@@ -8,6 +8,7 @@ class Vineyard < ActiveRecord::Base
   has_many :fruit_lots
 
   belongs_to :producer
+  belongs_to :vineyard_parent, class_name: "Vineyard"
 
   accepts_nested_attributes_for :producer
 

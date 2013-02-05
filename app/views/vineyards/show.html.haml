@@ -1,6 +1,10 @@
 %p#notice= notice
 
-%h3= @vineyard.name
+- if @vineyard.vineyard_parent_id.nil?
+  %h3= @vineyard.name
+- else
+  %h3= @vineyard.vineyard_parent.name
+  %h4= @vineyard.name
 %p
   %b Producer:
   = @vineyard.producer.name
@@ -19,14 +23,29 @@
 %p
   %h4 Soil:
 %dl.dl-horizontal
-  %dt composition
+  %dt composition:
   %dd= @vineyard.soil_composition
-  %dt drainage
+  %dt drainage:
   %dd= @vineyard.soil_drainage
-  %dt depth
-  %dd "#{@vineyard.soil_depth} cm"
-  %dt fertility
-  %dd "#{@vineyard.soil_fertility.to_f}"
+  %dt depth:
+  %dd #{@vineyard.soil_depth} cm
+  %dt fertility:
+  %dd #{number_to_percentage(@vineyard.soil_fertility, precision: 2) }
+  %dt soil_ph:
+  %dd= @vineyard.soil_ph
+%h4 Vines
+%dl.dl-horizontal
+  %dt rootstock:
+  %dd= @vineyard.rootstock
+  %dt varietal:
+  %dd= @vineyard.varietal
+  %dt clone:
+  %dd= @vineyard.clone
+%h4 Blocks
+- @vineyard.blocks.each do |block|
+  %p= link_to block.name, vineyard_path(block.id)
+
+
 
 %p
   %b Climate:

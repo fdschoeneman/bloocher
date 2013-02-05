@@ -193,8 +193,147 @@ module WineData
       "somewhat poorly drained",
       "poorly drained"
     ]
+  end
 
+  def rootstock
+    %w[3309c Gravesac 5c borner SO4 Binova 125AA 5BB 34EM 420A 161-49 333EM Fercal 
+      Riparia Gloire 196-17 101-14 R99 R110 1103P Schwarzmann Couderc3309 pinot
+    ]
+  end
 
+  def varietals
+    [
+      "barbera",
+      "brunello",
+      "cabernet franc",
+      "cabernet sauvignon",
+      "carignan",
+      "carmenere",
+      "charbono",
+      "chardonnay",
+      "chenin blanc",
+      "dolcetto",
+      "fume blanc",
+      "gamay",
+      "gewurztraminer",
+      "grenache",
+      "gruner veltliner",
+      "malbec",
+      "marsanne",
+      "merlog",
+      "mourvedre",
+      "muscat",
+      "nebbiolo",
+      "petite sirah",
+      "pinot blanc",
+      "pinot gris",
+      "tokay",
+      "rulander",
+      "pinot grigio",
+      "pinot noir",
+      "riesling",
+      "sangiovese",
+      "sauvignon blanc",
+      "semillon",
+      "syrah",
+      "shiraz",
+      "tempraniloo",
+      "trebbiano",
+      "viognier",
+      "zinfandel",
+    ]
+  end
+
+  def clones
+    [
+      "pommard",
+      "dijon 114",
+      "dijon 115",
+      "31 Roederer Selection",
+      "Old Wente",
+      "rochioli",
+      "Calera",
+      "Clone 113",
+      "Calera",
+      "UCD4",
+      "2A",
+    ]
+  end
+
+  def irrigation_types
+
+    %w[natural none sprinkler drip flood surface furrow]
+  end
+
+  def nurseries
+
+    [
+      "Advanced Vineyard Systems, Inc. (OR)",
+      "American Nursery (VA)",
+      "Bailey Nurseries, Inc. (MN)", 
+      "Bottom's Nursery (GA) ",
+      "Brigadoon Vineyards (OR)", 
+      "Broadacres Nursery (OR) ",
+      "CADE Vines (OR) ",
+      "Cal-Western Nurseries (CA)", 
+      "Casa Cristal Nursery, Inc. (CA)", 
+      "Casa Verde Grapevines (CA)", 
+      "Cloud Mountain Farm (WA)", 
+      "Concord Nurseries, Inc.- Foster Grapevines (NY)", 
+      "Cornerstone Certified Vineyard (CA)", 
+      "Dempel Grapevine Nursery (CA)", 
+      "DNE Nursery (CA)", 
+      "Double A Vineyards (NY)", 
+      "Dr. Konstantin Frank Nursery (NY)", 
+      "Duarte Nursery, Inc. (CA)", 
+      "Duplin Nursery (NC)", 
+      "Edible Landscaping (VA)", 
+      "Emerald Leaf U.S., Inc. (WA)", 
+      "Eusinus Vineyard (CA)", 
+      "Falconer Vineyards (MN)", 
+      "Flatwoods Fruit Farm (FLA)", 
+      "French Camp Vineyards (CA)", 
+      "Grafted Grapevine Nursery, LLC (NY)", 
+      "Great River Vineyard & Nursery (MN)", 
+      "Grey Creek Viticultural Services Inc. (CA)", 
+      "Guillaume Grapevine Nursery, Inc. (CA)", 
+      "Hart 2 Hart Vineyards (CA)", 
+      "Herrick Grapevines (CA)", 
+      "Inland Desert Nursery (WA. State) (WA)", 
+      "Jaguar Gardens (CA)", 
+      "KLM Ranches (CA)", 
+      "Kloer Vineyards (CA)", 
+      "L.E. Cooke Company (CA)", 
+      "Lake County Grapevine Nursery (CA)", 
+      "Lincoln Peak Vineyard LLC (VT)", 
+      "Lon Rombough (OR)", 
+      "Martinez Orchards, Inc. (CA)", 
+      "Mercier California, LLC (CA)", 
+      "Meyer Nursery & Orchards, Inc. (OR)", 
+      "Miller Nurseries (NY)", 
+      "Northeastern Vine Supply (VT)", 
+      "Northwoods Nursery, Inc. (OR)", 
+      "Novavine, Inc. (CA)", 
+      "Pense Nursery, Inc. (AR)", 
+      "Post Vineyards & Winery (AR)", 
+      "Quality Nursery - WA State Certified Grape Plants (WA)", 
+      "Richard's Grove & Saralee's Vyd. Inc. (CA)", 
+      "Ripley County Farms, LLC (Missouri)", 
+      "RSI Growers (Arizona)", 
+      "Satiety Foods (CA)", 
+      "St. Francois Vineyards & Nursery (MO)", 
+      "Sunridge Nurseries, Inc. (CA)", 
+      "Sutter Home Vineyards (CA)", 
+      "Tecuya Tree & Vine (CA)", 
+      "Turnbull Nursery, Inc. (NY)", 
+      "Vintage Nurseries, LLC (CA)", 
+      "Walla Walla Community College (WA)", 
+      "Westridge Vineyards (CA)",
+      "Winterhaven Vineyard & Nursery (MN)", 
+      "Witness Tree Vineyard (OR)", 
+      "Womack's Nursery (TX)",
+      "Zuckerman-Heritage, Inc. (CA)"
+    ]
   end
 
 end

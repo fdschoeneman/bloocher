@@ -22,9 +22,14 @@ describe Vineyard do
         it { should have_db_column(column.to_sym).of_type(:string) }
       end
 
+      it { should have_db_column(:soil_fertility).of_type(:decimal).
+        with_options(:precision => 3, :scale => 2)}
+      it { should have_db_column(:soil_ph).of_type(:decimal).
+        with_options(:precision => 3, :scale => 2)}
+
       %w[producer_id topo_slope topo_elevation seasonal_days_of_rain 
         avg_seasonal_humidity days_over_100 growing_deg_days 
-        growing_season_length winter_min_temp soil_ph]
+        growing_season_length winter_min_temp]
       it { should have_db_column(:producer_id).of_type(:integer) }
     end
 
@@ -63,10 +68,11 @@ describe Vineyard do
   describe "associations" do
 
     it { should have_many(:wines).through(:fruit_lots) } 
-    xit { should have_many(:fruit_lots) } 
-    it { should accept_nested_attributes_for(:producer)}
-    it { should belong_to(:producer) } 
     it { should have_many(:blocks).class_name("Vineyard") } 
+    xit { should have_many(:fruit_lots) } 
+    it { should belong_to(:producer) } 
+    it { should accept_nested_attributes_for(:producer)}
+    it { should belong_to(:vineyard_parent) } 
   end
 
   describe "methods" do 
