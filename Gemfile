@@ -27,6 +27,7 @@ group :assets do
 end
 
 group :development do 
+  gem 'travis-lint'
   gem 'sqlite3'
   gem 'haml-rails', '0.3.5'
   gem 'hpricot', '0.8.6'
