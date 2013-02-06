@@ -23,9 +23,9 @@ describe Vineyard do
       end
 
       it { should have_db_column(:soil_fertility).of_type(:decimal).
-        with_options(:precision => 3, :scale => 2)}
+        with_options(:scale => 2)}
       it { should have_db_column(:soil_ph).of_type(:decimal).
-        with_options(:precision => 3, :scale => 2)}
+        with_options(:scale => 2)}
 
       %w[producer_id topo_slope topo_elevation seasonal_days_of_rain 
         avg_seasonal_humidity days_over_100 growing_deg_days 
