@@ -18,6 +18,7 @@ gem 'libv8'
 gem 'faker'
 gem 'kaminari'
 gem 'meta-tags', :require => 'meta_tags'
+gem 'gmaps4rails'
 
 
 group :assets do

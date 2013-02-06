@@ -1,4 +1,6 @@
 class Vineyard < ActiveRecord::Base
+  # accessible :appellation, :climate, :producer_id, :soil_composition, :topo_aspect, :name
+  
   attr_protected :vineyard_id, :created_at, :updated_at
 
   validates :name, :producer_id, presence: true
@@ -12,9 +14,14 @@ class Vineyard < ActiveRecord::Base
 
   accepts_nested_attributes_for :producer
 
+  # acts_as_gmappable
+
 
   def vineyard_rating
 
   end
-  # accessible :appellation, :climate, :producer_id, :soil_composition, :topo_aspect, :name
+
+  # def gmaps4rails_address
+  #   "#{self.producer.address_1}, #{self.producer.city}, #{self.producer.zip}" 
+  # end
 end

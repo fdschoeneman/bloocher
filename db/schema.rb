@@ -104,6 +104,9 @@ ActiveRecord::Schema.define(:version => 20130201081842) do
     t.string   "irrigation"
     t.date     "planted_on"
     t.date     "grafted_on"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

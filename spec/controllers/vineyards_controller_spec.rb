@@ -4,7 +4,7 @@ require 'spec_helper'
 describe VineyardsController do
 
   def valid_attributes
-    { "producer_id" => "1",
+    { producer_id: "1",
     "name" => "random name" }
   end
 

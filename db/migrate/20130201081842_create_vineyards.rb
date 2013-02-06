@@ -10,11 +10,11 @@ class CreateVineyards < ActiveRecord::Migration
       t.string :soil_composition
       t.string :soil_drainage
       t.integer :soil_depth
-      t.decimal :soil_fertility
+      t.decimal :soil_fertility, scale: 2
       t.integer :soil_water_capacity
       t.string :climate
       t.string :name
-      t.decimal :soil_ph
+      t.decimal :soil_ph, scale: 2
       t.string :rootstock
       t.string :clone
       t.string :nursery
@@ -22,6 +22,10 @@ class CreateVineyards < ActiveRecord::Migration
       t.string :irrigation
       t.date :planted_on
       t.date :grafted_on
+      t.float :latitude
+      t.float :longitude
+      t.boolean :gmaps
+
 
       t.timestamps
     end

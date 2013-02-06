@@ -14,6 +14,7 @@ class VineyardsController < ApplicationController
   # GET /vineyards/1.json
   def show
     @vineyard = Vineyard.find(params[:id])
+    # @json = @vineyard.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb
