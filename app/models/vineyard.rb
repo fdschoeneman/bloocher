@@ -14,14 +14,14 @@ class Vineyard < ActiveRecord::Base
 
   accepts_nested_attributes_for :producer
 
-  # acts_as_gmappable
+  acts_as_gmappable
 
 
   def vineyard_rating
 
   end
 
-  # def gmaps4rails_address
-  #   "#{self.producer.address_1}, #{self.producer.city}, #{self.producer.zip}" 
-  # end
+  def gmaps4rails_address
+    "#{self.producer.address_1}, #{self.producer.city}, #{self.producer.zip}" 
+  end
 end

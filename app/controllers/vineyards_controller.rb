@@ -1,8 +1,10 @@
 class VineyardsController < ApplicationController
+  @json = Vineyard.all.to_gmaps4rails
+
   # GET /vineyards
   # GET /vineyards.json
   def index
-    @vineyards = Vineyard.all
+    @vineyards = Vineyard.where(vineyard_parent_id: nil)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +16,7 @@ class VineyardsController < ApplicationController
   # GET /vineyards/1.json
   def show
     @vineyard = Vineyard.find(params[:id])
-    # @json = @vineyard.to_gmaps4rails
+    @json = @vineyard.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb
