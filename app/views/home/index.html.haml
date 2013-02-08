@@ -5,8 +5,8 @@
         .featured
           .span6
             .excerpt
-              %h1 Ee-tah!  
-              %p The bahlest place for blooching about Anderson Valley Fratis.
+              %h1 Don't be a back-dated chuck.  
+              %p The bahlinest place for blooching about Anderson Valley Fratis.
               %a.btn.btn-arrow-right.btn-simple.btn-blue.btn-huge.pull-right{:href => "https://wrapbootstrap.com/theme/typica-WB062JJ83", :target => "_blank"} See cool pictures of grapes.
           .span6
             / %img.pull-right{:alt => "Typica - Bootstrap template", :src => "demo_img/typica.jpg"}/
@@ -31,7 +31,7 @@
         %button.btn.btn-inverse.btn-simple.btn-wide Read more
       .span3
         %h3 Winemakers
-        %p See what the high pockety folk are saying about your fratis, maybe even find a few who are <text id="somersetting">somersetting</text> about your work.  Give them the <text id="bahl">bahlest</text> info about where you source your fruit, which yeast you used, how long you left it in tanks, that sort of thing.  Be a <text id="bearman">bearman</text>. 
+        %p See what the high pockety folk are saying about your fratis, maybe even find a few who are <text id="somersetting">somersetting</text> about your work.  Give them the <text id="bahl">bahlinest</text> info about where you source your fruit, which yeast you used, how long you left it in tanks, that sort of thing.  Be a <text id="bearman">bearman</text>. 
 
         %button.btn.btn-inverse.btn-simple.btn-wide Read more
       .span3
@@ -41,20 +41,9 @@
         %button.btn.btn-inverse.btn-simple.btn-wide Read more
     / /.row
     / slider
-    %h2.page-header CHECK OUT THIS AWESOME SLIDER
+    %h2.page-header Bahlin vineyard pics!
     .row
-      #myCarousel.carousel.slide.add-shadow.span10.offset1
-        / Carousel items
-        .carousel-inner
-          .active.item
-            / %img{:alt => "", :src => "demo_img/slider/1.png"}/
-          .item
-            / %img{:alt => "", :src => "demo_img/slider/2.png"}/
-          .item
-            / %img{:alt => "", :src => "demo_img/slider/3.png"}/
-        / Carousel nav
-        %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
-        %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
+      = render "home_slider"
     %hr/
     / Where can you find us
     .info-centered
