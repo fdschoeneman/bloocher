@@ -6,7 +6,6 @@
           .span12
             .excerpt
               %h1 Don't be a back-dated chuck.  
-              %p The bahlinest place for blooching about Anderson Valley Fratis.
   / signup strip
   .background-grey.strip
     .container
@@ -85,25 +84,4 @@
       %li
         %a{:href => "contact.html"} Contact
   / SignUp modal
-  #signup-modal.modal.hide.fade{"aria-hidden" => "false", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-    .modal-header
-      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-      %h3#myModalLabel.centered Sign Up
-    .modal-body
-      %form.form-horizontal
-        .control-group
-          %label.control-label{:for => "inputUser"} Username
-          .controls
-            %input#inputUser{:placeholder => "Username", :type => "text"}/
-        .control-group
-          %label.control-label{:for => "inputEmail"} Email
-          .controls
-            %input#inputEmail{:placeholder => "Email", :type => "text"}/
-        .control-group
-          %label.control-label{:for => "inputPassword"} Password
-          .controls
-            %input#inputPassword{:placeholder => "Password", :type => "password"}/
-    .modal-footer
-      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-      %button.btn.btn-info{:type => "submit"} Register
-
+  = render 'signup'
