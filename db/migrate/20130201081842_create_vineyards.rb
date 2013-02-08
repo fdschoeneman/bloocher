@@ -10,11 +10,11 @@ class CreateVineyards < ActiveRecord::Migration
       t.string :soil_composition
       t.string :soil_drainage
       t.integer :soil_depth
-      t.decimal :soil_fertility, scale: 2
+      t.decimal :soil_fertility, precision: 3, scale: 2
       t.integer :soil_water_capacity
       t.string :climate
       t.string :name
-      t.decimal :soil_ph, scale: 2
+      t.decimal :soil_ph, precision: 3, scale: 2
       t.string :rootstock
       t.string :clone
       t.string :nursery

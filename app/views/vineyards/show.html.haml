@@ -12,6 +12,12 @@
       %p
         %h4 Appellation:
         = @vineyard.appellation
+      %p 
+        %h4 Climate
+      %dl.dl-horizontal
+        %dt Vineyardist's description
+        %dd 
+        %dt Average temperature
       %p
         %h4 Topography:
       %dl.dl-horizontal
@@ -36,12 +42,16 @@
         %dd= @vineyard.soil_ph
       %h4 Vines
       %dl.dl-horizontal
-        %dt rootstock:
-        %dd= @vineyard.rootstock
         %dt varietal:
         %dd= @vineyard.varietal
         %dt clone:
         %dd= @vineyard.clone
+        %dt rootstock:
+        %dd= @vineyard.rootstock
+        %dt planted:
+        %dd= @vineyard.planted_on
+        %dt grafted:
+        %dd= @vineyard.grafted_on
       %h4 Blocks
       - @vineyard.blocks.each do |block|
         %p= link_to block.name, vineyard_path(block.id)

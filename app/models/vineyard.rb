@@ -22,6 +22,6 @@ class Vineyard < ActiveRecord::Base
   end
 
   def gmaps4rails_address
-    "#{self.producer.address_1}, #{self.producer.city}, #{self.producer.zip}" 
+    "281 41st street, oakland, ca 94611"
   end
 end
