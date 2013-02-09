@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201081842) do
+ActiveRecord::Schema.define(:version => 20130208210900) do
+
+  create_table "fruit_lots", :force => true do |t|
+    t.decimal  "brix"
+    t.decimal  "weight"
+    t.date     "harvest_date"
+    t.integer  "wine_id"
+    t.integer  "vineyard_vintage_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "ownerships", :force => true do |t|
     t.integer  "owner_id"
@@ -81,6 +91,20 @@ ActiveRecord::Schema.define(:version => 20130201081842) do
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "vineyard_vintages", :force => true do |t|
+    t.integer  "vineyard_id"
+    t.integer  "growing_degree_days"
+    t.integer  "days_above_100"
+    t.date     "bud_break"
+    t.date     "bloom_date"
+    t.date     "veraison"
+    t.date     "last_frost"
+    t.integer  "days_of_frost"
+    t.decimal  "average_yearly_rel_hum"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
 
   create_table "vineyards", :force => true do |t|
     t.integer  "producer_id"

@@ -69,7 +69,8 @@ describe Vineyard do
 
     it { should have_many(:wines).through(:fruit_lots) } 
     it { should have_many(:blocks).class_name("Vineyard") } 
-    xit { should have_many(:fruit_lots) } 
+    it { should have_many(:fruit_lots).through(:vineyard_vintages) } 
+    it { should have_many(:vineyard_vintages) } 
     it { should belong_to(:producer) } 
     it { should accept_nested_attributes_for(:producer)}
     it { should belong_to(:vineyard_parent) } 

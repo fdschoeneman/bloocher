@@ -7,7 +7,8 @@ class Vineyard < ActiveRecord::Base
 
   has_many :wines, through: :fruit_lots
   has_many :blocks, class_name: "Vineyard", foreign_key: :vineyard_parent_id
-  has_many :fruit_lots
+  has_many :vineyard_vintages
+  has_many :fruit_lots, through: :vineyard_vintages
 
   belongs_to :producer
   belongs_to :vineyard_parent, class_name: "Vineyard"

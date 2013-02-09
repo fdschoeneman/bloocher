@@ -1,0 +1,17 @@
+= simple_form_for(@vineyard_vintage) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :vineyard_id
+    = f.input :growing_degree_days
+    = f.input :days_above_100
+    = f.input :bud_break
+    = f.input :bloom_date
+    = f.input :veraison
+    = f.input :last_frost
+    = f.input :days_of_frost
+    = f.input :days_above_100
+    = f.input :average_yearly_rel_hum
+
+  .form-actions
+    = f.button :submit

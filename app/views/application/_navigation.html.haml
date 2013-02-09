@@ -9,7 +9,6 @@
       = link_to "Bloocher", root_path, :class => 'brand'
       %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
       %ul.nav.pull-right.hidden-phone
-        / # - if current_page?(root_path)
         = nav_link_to "home", root_path
         = nav_link_to "Bloochers", users_path
         = nav_link_to "Blooches", reviews_path
@@ -23,6 +22,5 @@
             = link_to 'Edit account', edit_user_registration_path
         - else
           = nav_link_to 'Login', new_user_session_path
-          = nav_link_to 'Sign up', new_user_registration_path
           %li
-            %a{"data-toggle" => "modal", :href => "#signup-modal"} Be a bahler
+            %a{"data-toggle" => "modal", :href => "#signup-modal"} Sign up

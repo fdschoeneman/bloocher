@@ -1,0 +1,37 @@
+%h1 Listing vineyard_vintages
+
+%table
+  %tr
+    %th Vineyard
+    %th Growing degree days
+    %th Days above 100
+    %th Bud break
+    %th Bloom date
+    %th Veraison
+    %th Last frost
+    %th Days of frost
+    %th Days above 100
+    %th Average yearly rel hum
+    %th
+    %th
+    %th
+
+  - @vineyard_vintages.each do |vineyard_vintage|
+    %tr
+      %td= vineyard_vintage.vineyard_id
+      %td= vineyard_vintage.growing_degree_days
+      %td= vineyard_vintage.days_above_100
+      %td= vineyard_vintage.bud_break
+      %td= vineyard_vintage.bloom_date
+      %td= vineyard_vintage.veraison
+      %td= vineyard_vintage.last_frost
+      %td= vineyard_vintage.days_of_frost
+      %td= vineyard_vintage.days_above_100
+      %td= vineyard_vintage.average_yearly_rel_hum
+      %td= link_to 'Show', vineyard_vintage
+      %td= link_to 'Edit', edit_vineyard_vintage_path(vineyard_vintage)
+      %td= link_to 'Destroy', vineyard_vintage, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Vineyard vintage', new_vineyard_vintage_path

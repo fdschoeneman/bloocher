@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Vineyard:
+  = @vineyard_vintage.vineyard_id
+%p
+  %b Growing degree days:
+  = @vineyard_vintage.growing_degree_days
+%p
+  %b Days above 100:
+  = @vineyard_vintage.days_above_100
+%p
+  %b Bud break:
+  = @vineyard_vintage.bud_break
+%p
+  %b Bloom date:
+  = @vineyard_vintage.bloom_date
+%p
+  %b Veraison:
+  = @vineyard_vintage.veraison
+%p
+  %b Last frost:
+  = @vineyard_vintage.last_frost
+%p
+  %b Days of frost:
+  = @vineyard_vintage.days_of_frost
+%p
+  %b Days above 100:
+  = @vineyard_vintage.days_above_100
+%p
+  %b Average yearly rel hum:
+  = @vineyard_vintage.average_yearly_rel_hum
+
+= link_to 'Edit', edit_vineyard_vintage_path(@vineyard_vintage)
+\|
+= link_to 'Back', vineyard_vintages_path

@@ -6,13 +6,11 @@
           .span12
             .excerpt
               %h1 Don't be a back-dated chuck.  
-  / signup strip
   .background-grey.strip
     .container
       %p.pull-left This is the most awesome wine review site you've ever seen.  For reals, sign up and start blooching.  You big bloocher.
       .pull-right
         %a.btn.btn-info.btn-huge.btn-simple{"data-toggle" => "modal", :href => "#signup-modal"} Be a bahler
-  / testimonials
   .container
     .row.testimonials
       .span3
@@ -35,13 +33,10 @@
         %p <text id="oshtook">Oshtooks</text>, <text id="straight-neck">straight necks</text>, <text id="madge">Madges</text>, <text id="moldune">Moldunes</text>, <text id="applehead">Appleheads</text>, <text id="abaloneyite">Abaloneyites</text>, <text id="buck-inj">buck-inj's</text>, <text id="keishbook">keishbooks</text>, <text id="borch">borches</text>, <text id="skype">skypes</text>, and <text id="shoveltooth">Shoveltooths</text>, but no <text id="deeger">deegers</text>, <text id="deejy">deejy types</text>, <text id="tweed">tweeds</text>, or <text id="weese">weese</text>. 
         %p 
         %button.btn.btn-inverse.btn-simple.btn-wide Read more
-    / /.row
-    / slider
     %h2.page-header Bahlin vineyard pics!
     .row
       = render "home_slider"
     %hr/
-    / Where can you find us
     .info-centered
       %p Where can you find us?
       %a.icon-squared.color-facebook{:href => "#"}
@@ -56,32 +51,29 @@
         %article
           %span
             %i.icon-pinterest
-  / /.container
-  / Le Footer
   .background-white.footer
     .container
-      %p.pull-left This is Bloocher -- www.bloocher.com.  Get your blooch on.
       %p.pull-right
         %a#toplink{:href => "#"} Back to top
       %ul#footer-nav.nav.visible-phone
-      %hr/
-      %h3.centered Menu
-      %li.active
-        %a{:href => "index.html"} Home
-      %li
-        %a{:href => "about.html"} About
-      %li.dropdown
-        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-          Portfolio
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
-          %li
-            %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
-      %li
-        %a{:href => "blog.html"} Blog
-      %li
-        %a{:href => "contact.html"} Contact
+        %hr/
+        %h3.centered Menu
+        %li.active
+          %a{:href => "index.html"} Home
+        %li
+          %a{:href => "about.html"} About
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Portfolio
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "portfolio-full-width.html", :title => "Portfolio 1"} Full-width
+            %li
+              %a{:href => "portfolio-thumbnails.html", :title => "Portfolio 2"} Thumbnails
+        %li
+          %a{:href => "blog.html"} Blog
+        %li
+          %a{:href => "contact.html"} Contact
   / SignUp modal
   = render 'signup'
