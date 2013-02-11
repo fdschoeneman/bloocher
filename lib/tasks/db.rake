@@ -45,6 +45,11 @@ namespace :db do
     make_vineyard_parents
     puts "#{green("==>")} Making vineyard blocks"
     make_vineyard_blocks
+    puts "#{green("==>")} Making vineyard vintages"
+    make_vineyard_vintages
+    puts "#{green("==>")} Making fruit lots"
+    make_fruit_lots
+    
     
   end
 end
@@ -222,5 +227,43 @@ def make_vineyard_blocks
       vineyard_parent_id: rand(1..10)
     )
     @vineyard.save
+  end
+end
+
+def make_vineyard_vintages
+
+  10.times do |vintage|
+    day = rand(1..15)
+    month = [4,5].sample
+    year = rand(2009..2012)
+    last_frost = Time.new(year, month, day) 
+    bud_break = Time.new(year, month, day + 13)
+    bloom_date = Time.new(year, month + 1, day)
+    veraison = Time.new(year, month + 2, day)
+    VineyardVintage.create(
+      vineyard_id: 1,
+      growing_degree_days: rand(1800..2500),
+      days_above_100: rand(2..20),
+      last_frost: last_frost,
+      bud_break: bud_break,
+      bloom_date: bloom_date,
+      veraison: veraison,
+      average_yearly_rel_hum: rand(60..75)/100.to_f
+    )
+  end
+end
+
+def make_fruit_lots
+
+  30.times do |fruit_lot|
+    random_day = rand(1..28)
+    harvest_date = Date.new(2012, 8, random_day)
+    FruitLot.create(
+      brix: rand(150..250)/10.to_f,
+      weight: rand(25..250)/100.to_f,
+      harvest_date: harvest_date,
+      wine_id: rand(1..5),
+      vineyard_vintage_id: rand(1..5)
+    )
   end
 end

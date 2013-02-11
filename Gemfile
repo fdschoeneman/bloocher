@@ -33,7 +33,6 @@ group :development do
   gem 'haml-rails', '0.3.5'
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
-  gem 'debugger'
   # gem 'hub', '1.10.2', require: nil
 end
 
@@ -69,6 +68,7 @@ group :test, :development do
   gem 'rspec-given', '2.2.0'
   gem 'factory_girl_rails', '4.1.0' 
   gem 'rb-inotify', '~> 0.8.8'
+  gem 'debugger'
 end
 
 group :production do

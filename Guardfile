@@ -29,7 +29,7 @@ guard 'livereload' do
 end
 
 # Rspec
-guard 'rspec', turnip: true, all_on_start: true, all_after_pass: false  do
+guard 'rspec', turnip: true, all_on_start: false, all_after_pass: false  do
 
   # test all factories whenever a factory is modified or added
   watch(%r{^spec/factories/*}) { "spec/factories_spec.rb" }

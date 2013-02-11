@@ -33,5 +33,22 @@ describe VineyardVintage do
 		it { should have_many(:fruit_lots) }
 
 	end
+
+	describe "methods" do 
+
+		it { should respond_to(:vintage) }
+
+	  Given(:vineyard_vintage) { FactoryGirl.create(:vineyard_vintage) }
+
+		describe "it should have a vintage equal to the veraison year" do 
+
+			Then { vineyard_vintage.vintage.should eq vineyard_vintage.veraison.year }
+
+
+		end 
+	
+
+	end
+
 end
 
