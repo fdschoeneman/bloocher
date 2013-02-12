@@ -15,6 +15,8 @@ class WinesController < ApplicationController
   def show
     @wine = Wine.find(params[:id])
     @reviews = @wine.reviews
+    @fruit_lots = @wine.fruit_lots
+    # vineyards = @wine.
 
     respond_to do |format|
       format.html # show.html.erb

@@ -2,11 +2,8 @@ require 'spec_helper'
 
 describe WinesController do
 
-  let(:wine) { factory.build(:wine) }
+  let(:wine) { FactoryGirl.build(:wine) }
 
-  # This should return the minimal set of attributes required to create a valid
-  # Wine. As you add validations to Wine, be sure to
-  # update the return value of this method accordingly.
   def valid_attributes
     { vintage: "1984",
       name: "methode ancien chardonnay",
@@ -15,16 +12,14 @@ describe WinesController do
     }
   end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # WinesController. Be sure to keep this updated too.
   def valid_session
     {}
   end
 
   describe "GET index" do
     it "assigns all wines as @wines" do
-      wine = Wine.create! valid_attributes
+      wine = Wine.create! wine.attributes
+      # valid_attributes
       get :index, {}, valid_session
       assigns(:wines).should eq([wine])
     end
@@ -41,7 +36,12 @@ describe WinesController do
     it "assigns to the wine all of its reviews" do 
       # wine = Wine.create! valid_attributes
       # get :show, {id: wine.to_param}
+    end
 
+    # Given(:fruit_lot) {FactoryGirl.create(:fruit_lot, wine_id: wine.id) }
+
+    context "has access to a wine's fruit lots" do 
+      # Then { assigns(:fruit_lots).should eq(:fruit_lot) }
 
     end
   end
