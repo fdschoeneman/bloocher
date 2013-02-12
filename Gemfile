@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.12'
 
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
@@ -38,10 +38,8 @@ end
 
 group :test do 
   
-  # test server
-  gem 'spork', '0.9.2'
-  
-  # acceptance tests
+  gem 'spork', '>= 1.0.0rc3'
+  gem 'spork-rails'
   gem 'turnip', '1.1.0'
   gem 'email_spec', '1.4.0'
   gem 'shoulda-matchers', '1.4.1'
@@ -53,13 +51,13 @@ group :test do
   gem 'headless', '0.3.1'
 
  # Guards
-  gem 'guard', '1.5.4'
-  gem 'guard-spork', '1.2.3'
-  gem 'guard-rspec', '2.1.1'
-  gem 'guard-bundler', '1.0.0'
-  gem 'guard-livereload', '1.1.0'
-  gem 'guard-rails', '0.1.1'
-  gem 'guard-sass', '1.0.1', require: false
+  gem 'guard'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'guard-rails'
+  gem 'guard-sass', require: false
 end
 
 group :test, :development do 
@@ -69,6 +67,7 @@ group :test, :development do
   gem 'factory_girl_rails', '4.1.0' 
   gem 'rb-inotify', '~> 0.8.8'
   gem 'debugger'
+  gem 'pry'
 end
 
 group :production do

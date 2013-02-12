@@ -5,6 +5,8 @@ Bloocher::Application.routes.draw do
 
   resources :vineyards do
     resources :blocks 
+    resources :vineyard_vintages
+    resources :fruit_lots
   end
 
   resources :blocks
