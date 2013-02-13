@@ -49,6 +49,8 @@ namespace :db do
     make_vineyard_vintages
     puts "#{green("==>")} Making fruit lots"
     make_fruit_lots
+    puts "#{green("==>")} Making wine fruit lots"
+    make_wine_fruit_lots
     
     
   end
@@ -173,8 +175,8 @@ def make_winemaker_oeuvres
  
   99.times do |n|
     WinemakerOeuvre.create(
-      wine_id: rand(1..10),
-      winemaker_id: rand(1..20)
+      wine_id: rand(1..100),
+      winemaker_id: rand(1..10)
     )
   end
 end
@@ -262,8 +264,17 @@ def make_fruit_lots
       brix: rand(150..250)/10.to_f,
       weight: rand(25..250)/100.to_f,
       harvest_date: harvest_date,
-      wine_id: rand(1..5),
       vineyard_vintage_id: rand(1..5)
+    )
+  end
+end
+
+def make_wine_fruit_lots
+
+  40.times do |wine_fruit_lot|
+    WineFruitLot.create(
+      wine_id: rand(1..20),
+      fruit_lot_id: rand(1..20)
     )
   end
 end

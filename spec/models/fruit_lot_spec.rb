@@ -25,5 +25,7 @@ describe FruitLot do
 	describe "associations" do 
 
     it { should belong_to(:vineyard_vintage) }
+    it { should have_many(:wine_fruit_lots) }
+    it { should have_many(:wines).through(:wine_fruit_lots) }
 	end
 end

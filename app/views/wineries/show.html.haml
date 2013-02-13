@@ -3,7 +3,7 @@
     %h1= @winery.name
     .span5
       %p
-        .badge 
+        .badge.info
           = @winery.winery_rating.to_i
       %p
         %b Producer:
@@ -57,8 +57,8 @@
   .span12
     .span1
       %h3
-        #frati{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", href: "#", rel: "popover"} Fratis 
-      .badge= @wines.count
+        #frati{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", href: "#", rel: "popover"}
+          = "#{@wines.count} Fratis" 
 
 
   .span12
@@ -68,7 +68,9 @@
         .accordion-group
           .accordion-heading
             %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapse#{wine.id}"}
-              %h3= "#{wine.vintage} #{wine.name}"
+              %h3
+                .badge= wine.rating
+                = "#{wine.vintage} #{wine.name}"
           .accordion-body.collapse.in{id: "collapse#{wine.id}" }
             .accordion-inner
               %h4 Winemaker notes #{link_to "read more about this frati", wine_path(wine.id), class: "pull-right" }

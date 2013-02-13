@@ -18,6 +18,11 @@ class Wine < ActiveRecord::Base
 
   has_many :reviews
   has_many :winemaker_oeuvres
+  has_many :winemakers, class_name: "User", through: :winemaker_oeuvres
+  has_many :wine_fruit_lots
+  has_many :fruit_lots, through: :wine_fruit_lots
+  has_many :vineyard_vintages, through: :fruit_lots
+  has_many :vineyards, through: :vineyard_vintages
 
   def rating
     if self.reviews.count.zero?
@@ -26,4 +31,5 @@ class Wine < ActiveRecord::Base
       self.reviews.average(:rating).to_i
     end
   end
-end
+  end
+

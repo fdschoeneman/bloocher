@@ -70,6 +70,11 @@ describe Wine do
     
     it { should belong_to(:winery) }
     it { should have_many(:reviews) }
+    it { should have_many(:winemaker_oeuvres) }
+    it { should have_many(:winemakers).class_name("User").through(:winemaker_oeuvres) }
+    it { should have_many(:fruit_lots) }
+    it { should have_many(:vineyard_vintages).through(:fruit_lots) }
+    it { should have_many(:vineyards).through(:vineyard_vintages) }
   end
 
   describe "methods" do 
@@ -77,6 +82,35 @@ describe Wine do
     it { should respond_to(:reviews) }
     it { should respond_to(:rating) }
     it { should respond_to(:winemaker_oeuvres) }
+    it { should respond_to(:fruit_lots) }
+    it { should respond_to(:vineyards) }
   end
 
+  describe "vineyards method" do 
+
+    Given(:wine) { FactoryGirl.create(:wine) }
+    Given(:vineyard) { FactoryGirl.create(:vineyard) }
+
+    context "should show a wine's contributing vineyards" do
+
+      When(:vineyard_vintage) do 
+        FactoryGirl.create(:vineyard_vintage, vineyard_id: vineyard.id) 
+      end
+
+      When(:fruit_lot) do 
+        FactoryGirl.create(:fruit_lot, 
+          vineyard_vintage_id: vineyard_vintage.id
+        ) 
+      end
+      
+      When(:wine_fruit_lot) do 
+        FactoryGirl.create(:wine_fruit_lot,
+          fruit_lot_id: fruit_lot.id,
+          wine_id: wine.id
+        )
+      end
+
+      Then { wine.vineyards.should include(vineyard) } 
+    end
+  end
 end

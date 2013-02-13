@@ -1,18 +1,26 @@
-%p#notice= notice
-
-%p
-  %b Winery:
-  = link_to @wine.winery.name, winery_path(@wine.winery.id)
-%p
-  %b Vintage:
+%h2
+  .badge= @wine.rating
   = @wine.vintage
+  = @wine.name.titleize
+%h4
+  .badge= @wine.winery.winery_rating
+  = link_to @wine.winery.name, winery_path(@wine.winery.id)
+%dl.dl-horizontal
+  %dt Winery:
+  %dd
+  %dt Vintage:
+  %dd= @wine.vintage
 %p
   %b Name:
   = @wine.name
 %p
   %b Cases produced:
   = @wine.cases_produced
-%p Winemakers
+%p 
+  %b Winemakers:
+- @winemakers.each do |winemaker|
+  %p
+    = link_to winemaker.name, user_path(winemaker.id)
   
 
 %p
