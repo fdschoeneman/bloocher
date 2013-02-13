@@ -20,8 +20,8 @@ class CreateVineyards < ActiveRecord::Migration
       t.string :nursery
       t.string :varietal
       t.string :irrigation
-      t.date :planted_on
-      t.date :grafted_on
+      t.integer :planted_on
+      t.integer :grafted_on
       t.float :latitude
       t.float :longitude
       t.boolean :gmaps

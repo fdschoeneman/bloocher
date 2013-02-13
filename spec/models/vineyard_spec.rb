@@ -11,11 +11,6 @@ describe Vineyard do
         it { should have_db_column(column.to_sym).of_type(:datetime) }
       end
 
-      %w[planted_on grafted_on
-        ].each do |column|
-        it { should have_db_column(column.to_sym).of_type(:date) }
-      end
-
       %w[appellation name soil_composition topo_aspect soil_composition 
         soil_drainage climate varietal clone rootstock irrigation
         ].each do |column|
@@ -29,7 +24,7 @@ describe Vineyard do
 
       %w[producer_id topo_slope topo_elevation seasonal_days_of_rain 
         avg_seasonal_humidity days_over_100 growing_deg_days 
-        growing_season_length winter_min_temp]
+        growing_season_length winter_min_temp planted_on grafted_on]
       it { should have_db_column(:producer_id).of_type(:integer) }
     end
 
