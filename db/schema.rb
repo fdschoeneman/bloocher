@@ -141,8 +141,9 @@ ActiveRecord::Schema.define(:version => 20130212103055) do
   create_table "wine_fruit_lots", :force => true do |t|
     t.integer  "wine_id"
     t.integer  "fruit_lot_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "percent_of_wine"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "winemaker_oeuvres", :force => true do |t|

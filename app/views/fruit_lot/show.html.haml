@@ -1,0 +1,72 @@
+.row
+  .span12
+    .span6
+    /   - if @vineyard.vineyard_parent_id.nil?
+    /     %h3= @vineyard.name
+    /   - else
+    /     %h3= @vineyard.vineyard_parent.name
+    /     %h4= @vineyard.name
+    /   %p
+    /     %b Producer:
+    /     = @vineyard.producer.name
+    /   %p
+    /     %h4 Appellation:
+    /     = @vineyard.appellation
+    /   %p 
+    /     %h4 Climate
+    /   %dl.dl-horizontal
+    /     %dt Vineyardist's description
+    /     %dd 
+    /     %dt Average temperature
+    /   %p
+    /     %h4 Topography:
+    /   %dl.dl-horizontal
+    /     %dt Aspect:
+    /     %dd= @vineyard.topo_aspect
+    /     %dt Slope: 
+    /     %dd= @vineyard.topo_slope
+    /     %dt Elevation: 
+    /     %dd= @vineyard.topo_elevation
+    /   %p
+    /     %h4 Soil:
+    /   %dl.dl-horizontal
+    /     %dt composition:
+    /     %dd= @vineyard.soil_composition
+    /     %dt drainage:
+    /     %dd= @vineyard.soil_drainage
+    /     %dt depth:
+    /     %dd #{@vineyard.soil_depth} cm
+    /     %dt fertility:
+    /     %dd #{number_to_percentage(@vineyard.soil_fertility, precision: 2) }
+    /     %dt soil_ph:
+    /     %dd= @vineyard.soil_ph
+    /   %h4 Vines
+    /   %dl.dl-horizontal
+    /     %dt varietal:
+    /     %dd= @vineyard.varietal
+    /     %dt clone:
+    /     %dd= @vineyard.clone
+    /     %dt rootstock:
+    /     %dd= @vineyard.rootstock
+    /     %dt planted:
+    /     %dd= @vineyard.planted_on
+    /     %dt grafted:
+    /     %dd= @vineyard.grafted_on
+    /   %h4 Blocks
+    /   - @vineyard.blocks.each do |block|
+    /     %p= link_to block.name, vineyard_path(block.id)
+
+
+
+    /   %p
+    /     %b Climate:
+    /     = @vineyard.climate
+
+    /   = link_to 'Edit', edit_vineyard_path(@vineyard)
+    /   \|
+    /   = link_to 'Back', vineyards_path
+    
+    / .span4
+    /   <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=209830372763990602299.0004d50b9cd4a0af9ec48&amp;ie=UTF8&amp;ll=39.018466,-123.363279&amp;spn=0.007835,0.010557&amp;t=h&amp;output=embed"></iframe><br />
+
+    /   / <small>View <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=209830372763990602299.0004d50b9cd4a0af9ec48&amp;ie=UTF8&amp;ll=39.018466,-123.363279&amp;spn=0.007835,0.010557&amp;t=h&amp;source=embed" style="color:#0000FF;text-align:left">Ferrington Vineyard</a> in a larger map</small>

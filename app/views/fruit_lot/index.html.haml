@@ -1,0 +1,21 @@
+%h1 Listing fruit lots
+
+%table
+  %tr
+    %th fruit_lots
+/     %th Appellation
+/     %th
+/     %th
+/     %th
+
+/   - @fruit_lots.each do |fl|
+/     %tr
+/       %td= link_to fl.name, fruit_lot_path(fl.id)
+/       %td= fl.appellation
+/       %td= link_to 'Show', vineyard
+/       %td= link_to 'Edit', edit_vineyard_path(vineyard)
+/       %td= link_to 'Destroy', vineyard, method: :delete, data: { confirm: 'Are you sure?' }
+
+/ %br
+
+/ = link_to 'New Vineyard', new_vineyard_path

@@ -18,7 +18,7 @@ class Wine < ActiveRecord::Base
 
   has_many :reviews
   has_many :winemaker_oeuvres
-  has_many :winemakers, class_name: "User", through: :winemaker_oeuvres
+  has_many :winemakers, through: :winemaker_oeuvres, class_name: "User"
   has_many :wine_fruit_lots
   has_many :fruit_lots, through: :wine_fruit_lots
   has_many :vineyard_vintages, through: :fruit_lots

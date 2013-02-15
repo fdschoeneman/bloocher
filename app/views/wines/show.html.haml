@@ -1,33 +1,27 @@
+%h4
+  .badge= @wine.winery.winery_rating
+  = link_to @wine.winery.name, winery_path(@wine.winery.id)
 %h2
   .badge= @wine.rating
   = @wine.vintage
   = @wine.name.titleize
-%h4
-  .badge= @wine.winery.winery_rating
-  = link_to @wine.winery.name, winery_path(@wine.winery.id)
 %dl.dl-horizontal
-  %dt Winery:
-  %dd
-  %dt Vintage:
+  %dt cases produced
+  %dd= @wine.cases_produced
+  %dt Vintage
   %dd= @wine.vintage
-%p
-  %b Name:
-  = @wine.name
-%p
-  %b Cases produced:
-  = @wine.cases_produced
-%p 
-  %b Winemakers:
-- @winemakers.each do |winemaker|
-  %p
-    = link_to winemaker.name, user_path(winemaker.id)
-  
+  %dt= @wine.winemakers.count > 1 ? "Winemakers" : "Winemaker" 
+  - @winemakers.each do |winemaker|
+    %dd= link_to winemaker.name, user_path(winemaker.id)
+  %dt Winemaker notes:
+  %dd= @wine.winemaker_notes
+  / %dt= @vineyards.count > 1 ? "Vineyards" : "Vineyard"
+  %dt Fruit
+  - @wine.fruit_lots.each do |fl|
+    %dd= link_to("#{fl.varietal.titleize} #{fl.vineyard.name}", fl.vineyard)         
 
-%p
-  %b Winemaker notes:
-  = @wine.winemaker_notes
 
-= link_to 'Edit', edit_wine_path(@wine)
+= link_to 'Edit', edit_wine_path(@wine)                                        
 \|
 = link_to 'Back', wines_path
 

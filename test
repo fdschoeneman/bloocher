@@ -1,0 +1,3 @@
+def iterate
+[1] pry(main)*   (1..100).each do |n|  
+[1] pry(main)*     n.modulo(3).zero? && n.modulo(5).zero? ? puts "foobar"

@@ -234,7 +234,7 @@ end
 
 def make_vineyard_vintages
 
-  10.times do |vintage|
+  40.times do |vintage|
     day = rand(1..15)
     month = [4,5].sample
     year = rand(2009..2012)
@@ -264,7 +264,7 @@ def make_fruit_lots
       brix: rand(150..250)/10.to_f,
       weight: rand(25..250)/100.to_f,
       harvest_date: harvest_date,
-      vineyard_vintage_id: rand(1..5)
+      vineyard_vintage_id: rand(1..10)
     )
   end
 end
