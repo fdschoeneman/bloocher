@@ -81,13 +81,11 @@ describe VineyardsController do
   end
 
   describe "PUT update" do
+
     describe "with valid params" do
+      
       it "updates the requested vineyard" do
         vineyard = Vineyard.create! valid_attributes
-        # Assuming there are no other vineyards in the database, this
-        # specifies that the Vineyard created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
         Vineyard.any_instance.should_receive(:update_attributes).with({ "producer_id" => "1" })
         put :update, {:id => vineyard.to_param, :vineyard => { "producer_id" => "1" }}, valid_session
       end
@@ -108,7 +106,6 @@ describe VineyardsController do
     describe "with invalid params" do
       it "assigns the vineyard as @vineyard" do
         vineyard = Vineyard.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
         Vineyard.any_instance.stub(:save).and_return(false)
         put :update, {:id => vineyard.to_param, :vineyard => { "producer_id" => "invalid value" }}, valid_session
         assigns(:vineyard).should eq(vineyard)
@@ -116,7 +113,6 @@ describe VineyardsController do
 
       it "re-renders the 'edit' template" do
         vineyard = Vineyard.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
         Vineyard.any_instance.stub(:save).and_return(false)
         put :update, {:id => vineyard.to_param, :vineyard => { "producer_id" => "invalid value" }}, valid_session
         response.should render_template("edit")

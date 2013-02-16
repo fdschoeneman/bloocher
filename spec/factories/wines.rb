@@ -29,11 +29,5 @@ FactoryGirl.define do
         )
       end
     end
-
-
-    # association :winemaker, factory: :user
-    # vineyard_vintage
-    # vineyard
-    # fruit_lot
   end
 end

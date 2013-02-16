@@ -31,6 +31,11 @@ module ApplicationHelper
     end
   end
 
+  def pipe_links_to(users)
+
+  end
+
+
   def resource_name
     :user
   end

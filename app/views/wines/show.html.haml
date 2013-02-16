@@ -11,8 +11,11 @@
   %dt Vintage
   %dd= @wine.vintage
   %dt= @wine.winemakers.count > 1 ? "Winemakers" : "Winemaker" 
-  - @winemakers.each do |winemaker|
-    %dd= link_to winemaker.name, user_path(winemaker.id)
+  %dd
+    %ul.inline
+      - @wine.winemakers.each do |winemaker|
+        %li= link_to winemaker.name, user_path(winemaker.id)
+
   %dt Winemaker notes:
   %dd= @wine.winemaker_notes
   / %dt= @vineyards.count > 1 ? "Vineyards" : "Vineyard"

@@ -1,0 +1,36 @@
+%body
+  #wrap
+    .container
+      .page-header
+        %h1 Sticky footer
+      %p.lead Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.
+      %p
+        Use
+        %a{:href => "./sticky-footer-navbar.html"} the sticky footer
+        with a fixed navbar if need be, too.
+    #push
+  #footer
+    .container
+      %p.muted.credit
+        Example courtesy
+        %a{:href => "http://martinbean.co.uk"} Martin Bean
+        and
+        = succeed "." do
+          %a{:href => "http://ryanfait.com/sticky-footer/"} Ryan Fait
+  /
+    Le javascript
+    \==================================================
+  / Placed at the end of the document so the pages load faster
+  %script{:src => "../assets/js/jquery.js"}
+  %script{:src => "../assets/js/bootstrap-transition.js"}
+  %script{:src => "../assets/js/bootstrap-alert.js"}
+  %script{:src => "../assets/js/bootstrap-modal.js"}
+  %script{:src => "../assets/js/bootstrap-dropdown.js"}
+  %script{:src => "../assets/js/bootstrap-scrollspy.js"}
+  %script{:src => "../assets/js/bootstrap-tab.js"}
+  %script{:src => "../assets/js/bootstrap-tooltip.js"}
+  %script{:src => "../assets/js/bootstrap-popover.js"}
+  %script{:src => "../assets/js/bootstrap-button.js"}
+  %script{:src => "../assets/js/bootstrap-collapse.js"}
+  %script{:src => "../assets/js/bootstrap-carousel.js"}
+  %script{:src => "../assets/js/bootstrap-typeahead.js"}

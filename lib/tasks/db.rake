@@ -243,7 +243,7 @@ def make_vineyard_vintages
     bloom_date = Time.new(year, month + 1, day)
     veraison = Time.new(year, month + 2, day)
     VineyardVintage.create(
-      vineyard_id: 1,
+      vineyard_id: rand(1..40),
       growing_degree_days: rand(1800..2500),
       days_above_100: rand(2..20),
       last_frost: last_frost,
@@ -264,7 +264,7 @@ def make_fruit_lots
       brix: rand(150..250)/10.to_f,
       weight: rand(25..250)/100.to_f,
       harvest_date: harvest_date,
-      vineyard_vintage_id: rand(1..10)
+      vineyard_vintage_id: rand(1..40)
     )
   end
 end

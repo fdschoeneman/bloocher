@@ -3,8 +3,6 @@
 %table
   %tr
     %th Wine name
-    %th vintage
-    %th Rating
     %th Content
     %th
     %th
@@ -12,13 +10,8 @@
 
   - @reviews.each do |review|
     %tr
-      %td= link_to review.wine.name.titleize, wine_path(review.wine.id)
-      %td= review.wine.vintage
-      %td= review.rating
+      %td= link_to "#{review.wine.vintage} #{review.wine.name.titleize}", wine_path(review.wine.id) 
       %td= review.content
-      %td= link_to 'Show', review
-      %td= link_to 'Edit', edit_review_path(review)
-      %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

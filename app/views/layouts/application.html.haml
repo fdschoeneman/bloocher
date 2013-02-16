@@ -3,23 +3,10 @@
   %head
     = render 'head'
   %body{:class => "#{controller_name} #{action_name}"}
-    = render 'navigation'
-
     .container
-      = yield            
+      = render 'navigation'
+    .container
+      = yield 
     = render 'footer'
-    / %header.navbar.navbar-fixed-top
-    /   %nav.navbar-inner
-    /     .container
-    /       = render 'layouts/navigation'
-    / #main{:role => "main"}
-    /   .container
-    /     .content
-    /       .row
-    /         .span12
-    /           = render 'layouts/messages'
-    /           = yield
-    /       %footer
 
-
-= debug(params) if Rails.env.development?
+    = debug(params) if Rails.env.development?

@@ -73,6 +73,6 @@ describe Vineyard do
 
   describe "methods" do 
 
-    xit { should respond_to(:vineyard_rating) }
+    # xit { should respond_to(:vineyard_rating) }
   end
 end
