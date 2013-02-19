@@ -14,4 +14,9 @@ describe WineFruitLot do
 		it { should belong_to(:fruit_lot) }
 		it { should belong_to(:wine) }
 	end
+
+	describe "secutiry" do 
+
+    it {should allow_mass_assignment_of(:percent_of_wine) }
+	end
 end

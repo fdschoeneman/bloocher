@@ -2,10 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :rating
+    = f.input :rating, collection: 70..100, prompt: "if you would rate the wine below 70, don't rate it."
     = f.input :content
-    = f.input :reviewer_id
-    = f.input :wine_id
+    = f.input :wine, collection: @wines
 
   .form-actions
     = f.button :submit

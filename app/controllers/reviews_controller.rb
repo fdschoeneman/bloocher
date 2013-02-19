@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new.json
   def new
     @review = Review.new
+    @wines = Wine.all
 
     respond_to do |format|
       format.html # new.html.erb

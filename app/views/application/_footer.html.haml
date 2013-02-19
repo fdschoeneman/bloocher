@@ -11,8 +11,6 @@
       = nav_link_to "help", help_path
       = nav_link_to "privacy", privacy_path
       = nav_link_to "terms", terms_path
-    - unless user_signed_in?
-      = render 'signup'
 .navbar.navbar-fixed-bottom.hidden-phone
   .navbar-inner
     .container
@@ -23,3 +21,5 @@
         = nav_link_to "help", help_path
         = nav_link_to "privacy", privacy_path
         = nav_link_to "terms", terms_path
+- unless user_signed_in?
+  = render 'signup'

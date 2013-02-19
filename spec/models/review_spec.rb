@@ -43,7 +43,6 @@ describe Review do
   describe "validations" do 
 
     it { should validate_presence_of(:content) }
-    it { should validate_presence_of(:rating) }
     it { should validate_presence_of(:reviewer_id) }
     it { should validate_presence_of(:wine_id) }
   end
