@@ -3,7 +3,7 @@ Bloocher::Application.routes.draw do
   devise_for :users
 
   resources :users do 
-    resources :reviews, :wines_made, :wineries_owned, :vineyards_owned
+    resources :wines_made, :wineries_owned, :vineyards_owned
   end
     
   resources :fruit_lots

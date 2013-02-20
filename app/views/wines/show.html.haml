@@ -45,18 +45,13 @@
                 %dd= link_to fl.fruit_lot.vineyard.rootstock, vineyard_path(fl.fruit_lot.vineyard.id)
                 %dt planted:
                 %dd= link_to fl.fruit_lot.vineyard.planted_on, vineyard_path(fl.fruit_lot.vineyard.id)
-              / = link_to("#{fl.vineyard.varietal.titleize} #{fl.vineyard.name}", fl.vineyard) 
-
-  / %dt Fruit
-  / - @wine.fruit_lots.each do |fl|
-  /   %dd= link_to("#{fl.varietal.titleize} #{fl.vineyard.name}", fl.vineyard)         
-
 
 = link_to 'Edit', edit_wine_path(@wine)                                        
 \|
 = link_to 'Back', wines_path
 
 %h1 Reviews
+%a.btn.btn-info.btn-huge{ "data-toggle" => "modal", href: "#review-modal" } blooch about this wine
 
 %table
   - @reviews.each do |review|
@@ -65,4 +60,6 @@
         .badge= review.rating
         = link_to review.reviewer.name, user_path(review.reviewer.id)
         = review.content
+
+= render 'review-modal'
 

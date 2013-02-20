@@ -5,6 +5,19 @@
     %ul#footer-nav.nav.visible-phone
       %hr/
       %h3.centered Menu
+      = nav_link_to "home", root_path
+      = nav_link_to "Bloochers", users_path
+      = nav_link_to "Blooches", reviews_path
+      = nav_link_to "Wineries", wineries_path
+      = nav_link_to "wines", wines_path
+      = nav_link_to "Vineyards", vineyards_path
+      - if user_signed_in?
+        %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+        %li= link_to 'Edit account', edit_user_registration_path
+      - else
+        = nav_link_to 'Login', new_user_session_path
+        %li
+          %a{"data-toggle" => "modal", :href => "#signup-modal"} Sign up
       = nav_link_to "home", root_url
       = nav_link_to "about", about_path
       = nav_link_to "contact", contact_path
@@ -22,4 +35,4 @@
         = nav_link_to "privacy", privacy_path
         = nav_link_to "terms", terms_path
 - unless user_signed_in?
-  = render 'signup'
+  = render 'signup-modal'

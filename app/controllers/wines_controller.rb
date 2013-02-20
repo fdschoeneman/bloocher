@@ -19,6 +19,7 @@ class WinesController < ApplicationController
     @wine_fruit_lots = @wine.wine_fruit_lots.order("percent_of_wine")
     @vineyards = @wine.vineyards
     @winemakers = @wine.winemakers
+    @review = Review.new
 
     respond_to do |format|
       format.html # show.html.erb

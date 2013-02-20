@@ -51,7 +51,6 @@ $(document).ready ->
 		, content: "Good, great."
 	} )			
 
-
 	$('#oshtook').popover( {
 		trigger: 'hover'
 		, placement: 'top'
