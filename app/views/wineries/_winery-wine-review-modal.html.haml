@@ -1,0 +1,21 @@
+#winery-wine-review-modal.modal.hide.fade{"aria-hidden" => "false", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    #myModalLabel.centered
+
+
+      %h3= @winery.name.titleize
+      %h2= params
+      / #@wine.name.titleize
+      / #@wine.name.titleize
+
+
+    
+  / .modal-body.form-horizontal
+  /   = simple_form_for([wine, @review])  do |f|
+  /     = f.error_notification 
+  /     = f.input :content, as: :text, label: "notes about this wine", input_html: { rows: 7 }
+  /     = f.input :rating, collection: 70..100, label: "points"
+  /     .modal-footer
+  /       %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+  /       = f.button :submit, 'Publish this blooch', :class => 'btn-primary'

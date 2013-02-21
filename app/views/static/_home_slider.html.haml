@@ -3,9 +3,10 @@
   .carousel-inner
     .active.item
       = image_tag("slide-1.jpg")
-    - 9.times do |n|
-      .item
-        = image_tag("slide-#{2 + n}.jpg")
+    .item= image_tag("slide-2.jpg")
+    / - 9.times do |n|
+    /   .item
+    /     = image_tag("slide-#{2 + n}.jpg")
  
 
     %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;

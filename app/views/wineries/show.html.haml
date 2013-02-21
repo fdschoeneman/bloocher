@@ -1,12 +1,9 @@
 .row
   .span6
     %h1= @winery.name
-    %p
-      .badge.badge-info
-        = @winery.winery_rating.to_i
-    %p
-      %b Producer:
-      = @winery.producer.name
+    %dl
+      %dt producer
+      %dd= @winery.producer.name
     %p
       %b Public email:
       = @winery.producer.public_email
@@ -47,7 +44,8 @@
         %li
           %a{:href => "http://www.google.com", :target => "_blank"} Google
         %li
-          %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} Pinot noir
+          %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} Pinot noir 
+
         %li= link_to @winery.name
         - @winery.wines.each do |wine|
           = link_to wine.name
@@ -56,19 +54,32 @@
 .row
   .span12
     %h3
-      / #frati{"data-content" => "A wine.  Mr. Frati was a local vineyardist.", "data-original-title" => "definition: frati", href: "#", rel: "popover"} Fratis <text id="frati">Frati
       = "#{@wines.count} Wines" 
 .row
-
   .span12
     #accordion.accordion
       - @wines.each do |wine|
         .accordion-group
           .accordion-heading
-            %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapse#{wine.id}"}
-              %h3
-                .badge= wine.rating
-                = "#{wine.vintage} #{wine.name}"
+            .row
+              .span8
+                %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapse#{wine.id}"}
+                  %h4
+                    .badge= wine.rating
+                    = "#{wine.vintage} #{wine.name}"
+              .span3
+                = bootstrap_button "Show Modal", "#wine#{wine.id}", :html_options => {:"data-toggle" => "modal"}
+                = bootstrap_modal(dom_id: "wine#{wine.id}", fade: true, header_title: "#{@winery.name.titleize}") do |modal|
+                  -modal.body do |c|
+                    -c.content_tag :div do
+                      %p="some text"
+                      %div.a_class="another_text"
+                      %p= @winery.wines.find_by_id(wine.id).name.titleize
+                      =link_to "link", "#"
+                  -modal.footer do |f|
+                    -f.bootstrap_button "Save", "url", :type => 'btn-primary'
+                    -f.bootstrap_button "Cancel", "url"
+
           .accordion-body.collapse.in{id: "collapse#{wine.id}" }
             .accordion-inner
               %h4 Winemaker notes #{link_to "read more about this frati", wine_path(wine.id), class: "pull-right" }
@@ -84,3 +95,4 @@
                   = review.content
                   = link_to review.reviewer.name, user_path(review.reviewer.name)
 
+/ = render 'winery-wine-review-modal'

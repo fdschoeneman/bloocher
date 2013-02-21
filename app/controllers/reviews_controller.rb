@@ -1,31 +1,26 @@
 class ReviewsController < ApplicationController
-  # GET /reviews
-  # GET /reviews.json
+
   def index
     @reviews = Review.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @reviews }
     end
   end
 
-  # GET /reviews/1
-  # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @review }
     end
   end
 
-  # GET /reviews/new
-  # GET /reviews/new.json
   def new
     @review = Review.new
-    @wines = Wine.all
+    @wine = Wine.find( params[:wine] )
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,13 +28,10 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # GET /reviews/1/edit
   def edit
     @review = Review.find(params[:id])
   end
 
-  # POST /reviews
-  # POST /reviews.json
   def create
     
     @review = Review.new(params[:review])
@@ -59,8 +51,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # PUT /reviews/1
-  # PUT /reviews/1.json
   def update
     @review = Review.find(params[:id])
 
@@ -75,8 +65,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # DELETE /reviews/1
-  # DELETE /reviews/1.json
   def destroy
     @review = Review.find(params[:id])
     @review.destroy

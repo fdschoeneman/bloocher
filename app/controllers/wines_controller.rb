@@ -1,17 +1,14 @@
 class WinesController < ApplicationController
-  # GET /wines
-  # GET /wines.json
+
   def index
     @wines = Wine.order(:created_at).page params[:page]
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @wines }
     end
   end
 
-  # GET /wines/1
-  # GET /wines/1.json
   def show
     @wine = Wine.find(params[:id])
     @reviews = @wine.reviews
@@ -22,13 +19,11 @@ class WinesController < ApplicationController
     @review = Review.new
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @wine }
     end
   end
 
-  # GET /wines/new
-  # GET /wines/new.json
   def new
     @wine = Wine.new
 
@@ -38,13 +33,10 @@ class WinesController < ApplicationController
     end
   end
 
-  # GET /wines/1/edit
   def edit
     @wine = Wine.find(params[:id])
   end
 
-  # POST /wines
-  # POST /wines.json
   def create
     @wine = Wine.new(params[:wine])
 
@@ -59,8 +51,6 @@ class WinesController < ApplicationController
     end
   end
 
-  # PUT /wines/1
-  # PUT /wines/1.json
   def update
     @wine = Wine.find(params[:id])
 
@@ -75,8 +65,6 @@ class WinesController < ApplicationController
     end
   end
 
-  # DELETE /wines/1
-  # DELETE /wines/1.json
   def destroy
     @wine = Wine.find(params[:id])
     @wine.destroy

@@ -7,19 +7,9 @@
   .navbar-inner
     .container
       = link_to "Bloocher", root_path, :class => 'brand'
-      %a.btn.btn-simple.visible-phone.pull-right{:href => "#footer-nav"} Menu
+      %a.visible-phone.btn.btn-simple.pull-right{:href => "#footer-nav"}
+        %i.icon-th-list
+        %b Menu
       %ul.nav.pull-right.hidden-phone
-        = nav_link_to "home", root_path
-        = nav_link_to "Bloochers", users_path
-        = nav_link_to "Blooches", reviews_path
-        = nav_link_to "Wineries", wineries_path
-        = nav_link_to "wines", wines_path
-        = nav_link_to "Vineyards", vineyards_path
-        - if user_signed_in?
-          %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
-          %li= link_to 'Edit account', edit_user_registration_path
-        - else
-          = nav_link_to 'Login', new_user_session_path
-          %li
-            %a{"data-toggle" => "modal", :href => "#signup-modal"} Sign up
+        = render 'nav-links'
             

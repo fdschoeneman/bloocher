@@ -1,49 +1,45 @@
 class WineriesController < ApplicationController
-  # GET /wineries
-  # GET /wineries.json
+
   def index
+
     @wineries = Winery.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @wineries }
     end
   end
 
-  # GET /wineries/1
-  # GET /wineries/1.json
   def show
+
     @winery = Winery.find(params[:id])
     @wines = @winery.wines
     @reviews = @winery.reviews
-    # @winery_rating = @reviews.average(:rating)
     @winery.winery_rating
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @winery }
     end
   end
 
-  # GET /wineries/new
-  # GET /wineries/new.json
   def new
+
     @winery = Winery.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @winery }
     end
   end
 
-  # GET /wineries/1/edit
   def edit
+
     @winery = Winery.find(params[:id])
   end
 
-  # POST /wineries
-  # POST /wineries.json
   def create
+
     @winery = Winery.new(params[:winery])
 
     respond_to do |format|
@@ -57,9 +53,8 @@ class WineriesController < ApplicationController
     end
   end
 
-  # PUT /wineries/1
-  # PUT /wineries/1.json
   def update
+
     @winery = Winery.find(params[:id])
 
     respond_to do |format|
@@ -73,8 +68,6 @@ class WineriesController < ApplicationController
     end
   end
 
-  # DELETE /wineries/1
-  # DELETE /wineries/1.json
   def destroy
     @winery = Winery.find(params[:id])
     @winery.destroy
@@ -84,6 +77,4 @@ class WineriesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  
 end

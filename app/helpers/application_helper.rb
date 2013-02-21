@@ -31,10 +31,18 @@ module ApplicationHelper
     end
   end
 
-  def pipe_links_to(users)
+  # def winery_wine_review_modal
 
-  end
-
+  #   bootstrap_modal(dom_id: 'a_dom_id', fade: true, header_title: "I'm a bootstrap modal popup") do |modal|
+  #     modal.body do |c|
+  #      c."some content"
+  #     end
+  #     modal.footer do |f|
+  #       f.bootstrap_button "Save", "url", :type => 'btn-primary'
+  #       f.bootstrap_button "Cancel", "url"
+  #     end
+  #   end
+  # end
 
   def resource_name
     :user

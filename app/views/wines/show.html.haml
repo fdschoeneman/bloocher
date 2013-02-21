@@ -46,12 +46,17 @@
                 %dt planted:
                 %dd= link_to fl.fruit_lot.vineyard.planted_on, vineyard_path(fl.fruit_lot.vineyard.id)
 
-= link_to 'Edit', edit_wine_path(@wine)                                        
-\|
-= link_to 'Back', wines_path
+- if @wine.winemakers.include? current_user
+  = link_to 'Edit', edit_wine_path(@wine)                                        
 
-%h1 Reviews
-%a.btn.btn-info.btn-huge{ "data-toggle" => "modal", href: "#review-modal" } blooch about this wine
+.row
+  .span6
+    %a.btn.btn-simple{ "data-toggle" => "modal", href: "#review-modal" }
+      %i.icon-th-list
+      blooch about this wine
+  .span6
+    %h1 Reviews
+
 
 %table
   - @reviews.each do |review|

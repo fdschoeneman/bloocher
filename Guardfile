@@ -19,14 +19,18 @@ guard 'spork', bundler: true, rspec_env: { 'RAILS_ENV' => 'test' }, wait: 200 do
   watch(%r{^lib/turnip/.+\.rb$})
 end
 
-guard 'livereload' do
-  watch(%r{app/.+\.(erb|haml)})
-  watch(%r{app/views/.+\.(erb|haml|slim)$})
-  watch(%r{app/helpers/.+\.rb})
-  watch(%r{(public/|app/assets).+\.(css|js|html)})
-  watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
-  watch(%r{config/locales/.+\.yml})
+group 'livereload' do
+
+  guard 'livereload' do
+    watch(%r{app/.+\.(erb|haml)})
+    watch(%r{app/views/.+\.(erb|haml|slim)$})
+    watch(%r{app/helpers/.+\.rb})
+    watch(%r{(public/|app/assets).+\.(css|js|html)})
+    watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
+    watch(%r{config/locales/.+\.yml})
+  end
 end
+
 
 # Rspec
 guard 'rspec', turnip: true, all_on_start: false, all_after_pass: false  do
