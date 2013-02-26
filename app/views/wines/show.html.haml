@@ -1,20 +1,34 @@
-%h4
-  .badge= @wine.winery.winery_rating
-  = link_to @wine.winery.name, winery_path(@wine.winery.id)
-%h2
-  .badge= @wine.rating
-  = @wine.vintage
-  = @wine.name.titleize
-%dl.dl-horizontal
-  %dt cases produced
-  %dd= @wine.cases_produced
-  %dt Vintage
-  %dd= @wine.vintage
-  %dt= @wine.winemakers.count > 1 ? "Winemakers" : "Winemaker" 
-  %dd
-    %ul.inline
-      - @wine.winemakers.each do |winemaker|
-        %li= link_to winemaker.name, user_path(winemaker.id)
+.row
+  .span6
+    %h4
+      .badge= @wine.winery.winery_rating
+      = link_to @wine.winery.name, winery_path(@wine.winery.id)
+    %h2
+      .badge= @wine.rating
+      = @wine.vintage
+      = @wine.name.titleize
+    %dl.dl-horizontal
+      %dt cases produced
+      %dd= @wine.cases_produced
+      %dt Vintage
+      %dd= @wine.vintage
+      %dt= @wine.winemakers.count > 1 ? "Winemakers" : "Winemaker" 
+      %dd
+        %ul.inline
+          - @wine.winemakers.each do |winemaker|
+            %li= link_to winemaker.name, user_path(winemaker.id)
+  .span6  
+    #myCanvasContainer
+      %canvas#myCanvas{:height => "400", :width => "500"}
+    #tags
+      %ul
+        %li
+          %a{:href => "http://www.google.com", :target => "_blank"} Google
+        %li
+          %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} Pinot noir 
+
+        %li= link_to @wine.name
+
 
   %dt Winemaker notes:
   %dd= @wine.winemaker_notes

@@ -16,6 +16,9 @@
       %td= link_to 'Edit', edit_vineyard_path(vineyard)
       %td= link_to 'Destroy', vineyard, method: :delete, data: { confirm: 'Are you sure?' }
 
+.pagination= paginate @vineyards
 %br
+
+
 
 = link_to 'New Vineyard', new_vineyard_path

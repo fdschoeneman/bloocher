@@ -331,6 +331,6 @@ DEPENDENCIES
   therubyracer (>= 0.11.0)
   thin (>= 1.5.0)
   travis-lint
-  turnip (= 1.1.0)
+  turnip
   twitter-bootstrap-markup-rails (= 0.3.2.2)
   uglifier (>= 1.0.3)

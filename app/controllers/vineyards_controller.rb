@@ -1,47 +1,41 @@
 class VineyardsController < ApplicationController
+  
   @json = Vineyard.all.to_gmaps4rails
 
-  # GET /vineyards
-  # GET /vineyards.json
   def index
-    @vineyards = Vineyard.where(vineyard_parent_id: nil)
+
+    @vineyard_parents = Vineyard.where(vineyard_parent_id: nil)
+    @vineyards = Kaminari.paginate_array(@vineyard_parents).page(params[:page]).per(10)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @vineyards }
     end
   end
 
-  # GET /vineyards/1
-  # GET /vineyards/1.json
   def show
     @vineyard = Vineyard.find(params[:id])
     @json = @vineyard.to_gmaps4rails
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @vineyard }
     end
   end
 
-  # GET /vineyards/new
-  # GET /vineyards/new.json
   def new
     @vineyard = Vineyard.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.json { render json: @vineyard }
     end
   end
 
-  # GET /vineyards/1/edit
   def edit
     @vineyard = Vineyard.find(params[:id])
   end
 
-  # POST /vineyards
-  # POST /vineyards.json
   def create
     @vineyard = Vineyard.new(params[:vineyard])
 
@@ -56,8 +50,6 @@ class VineyardsController < ApplicationController
     end
   end
 
-  # PUT /vineyards/1
-  # PUT /vineyards/1.json
   def update
     @vineyard = Vineyard.find(params[:id])
 
@@ -72,8 +64,6 @@ class VineyardsController < ApplicationController
     end
   end
 
-  # DELETE /vineyards/1
-  # DELETE /vineyards/1.json
   def destroy
     @vineyard = Vineyard.find(params[:id])
     @vineyard.destroy

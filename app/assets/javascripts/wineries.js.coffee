@@ -10,6 +10,8 @@ $(document).ready ->
     , reverse: true
     , depth: 0.8
     , maxSpeed: 0.05
+    , wheelZoom: false
+    , freezeActive: true
   	, "tags")
 
 	$('#frati').popover( { 

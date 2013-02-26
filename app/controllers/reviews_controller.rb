@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all
+    @reviews = Review.order(:rating).page params[:page]
 
     respond_to do |format|
       format.html 
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @wine = Wine.find( params[:wine] )
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @review }
@@ -35,10 +35,10 @@ class ReviewsController < ApplicationController
   def create
     
     @review = Review.new(params[:review])
+
     if current_user
       @review.reviewer = current_user
     end
-    @review.wine = Wine.find(params[:wine_id])
 
     respond_to do |format|
       if @review.save

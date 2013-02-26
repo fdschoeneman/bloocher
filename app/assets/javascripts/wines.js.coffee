@@ -4,4 +4,21 @@
 
 $(document).ready ->
 
+	$("#myCanvasContainer").hide() unless $("#myCanvas").tagcanvas(
+    textColour: "grey"
+    , outlineColour: "grey"
+    , reverse: true
+    , depth: 0.8
+    , maxSpeed: 0.05
+    , wheelZoom: false
+    , freezeActive: true
+  	, "tags")
+
+	$('#frati').popover( { 
+		trigger: 'hover'
+		, placement: 'right' } )
+
+	$('.blooch').popover( { trigger: 'hover', placement: 'left'
+		, title: "definition: blooch"
+		, content: "To prattle on, to talk aimlessly."} )
 	

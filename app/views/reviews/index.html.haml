@@ -1,18 +1,25 @@
-%h1 Listing reviews
+.row
+  .span12
 
-%table
-  %tr
-    %th Wine name
-    %th Content
-    %th
-    %th
-    %th
 
-  - @reviews.each do |review|
-    %tr
-      %td= link_to "#{review.wine.vintage} #{review.wine.name.titleize}", wine_path(review.wine.id) 
-      %td= review.content
+    %h1 Listing reviews
 
-%br
+    %table
+      %tr
+        %th Wine name
+        %th Content
+        %th
+        %th
+        %th
 
-= link_to 'New Review', new_review_path
+      - @reviews.each do |review|
+        %tr
+          %td= link_to "#{review.wine.vintage} #{review.wine.name.titleize}", wine_path(review.wine.id) 
+          %td= review.content
+
+    .pagination
+      = paginate @reviews
+
+    %br
+
+    = link_to 'New Review', new_review_path

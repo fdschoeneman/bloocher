@@ -2,7 +2,7 @@ class WineriesController < ApplicationController
 
   def index
 
-    @wineries = Winery.all
+    @wineries = Winery.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html 
@@ -13,7 +13,9 @@ class WineriesController < ApplicationController
   def show
 
     @winery = Winery.find(params[:id])
-    @wines = @winery.wines
+    @winery_wines = @winery.wines
+    @wines = Kaminari.paginate_array(@winery_wines).page(params[:page]).per(4)
+    @review = Review.new
     @reviews = @winery.reviews
     @winery.winery_rating
 

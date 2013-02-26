@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe ReviewsController do
 
+  Given!(:wine) { FactoryGirl.create(:wine) }
+  # Given!(:reviewer) { FactoryGirl.create(:reviewer) }
+
   def valid_attributes
     { "rating" => "1",
     content: "some string",
@@ -10,13 +13,13 @@ describe ReviewsController do
   end
 
   def valid_session
-    {}
+    { }
   end
 
   describe "GET index" do
     it "assigns all reviews as @reviews" do
       review = Review.create! valid_attributes
-      get :index, {}, valid_session
+      get :index, { }, valid_session
       assigns(:reviews).should eq([review])
     end
   end
@@ -31,7 +34,7 @@ describe ReviewsController do
 
   describe "GET new" do
     it "assigns a new review as @review" do
-      get :new, {}, valid_session
+      get :new, { :wine => wine.to_param }, valid_session
       assigns(:review).should be_a_new(Review)
     end
   end
@@ -45,7 +48,9 @@ describe ReviewsController do
   end
 
   describe "POST create" do
+
     describe "with valid params" do
+    
       it "creates a new Review" do
         expect {
           post :create, {:review => valid_attributes}, valid_session
@@ -58,15 +63,10 @@ describe ReviewsController do
         assigns(:review).should be_persisted
       end
 
-      it "redirects to the created review" do
-        post :create, {:review => valid_attributes}, valid_session
-        response.should redirect_to(Review.last)
-      end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved review as @review" do
-        # Trigger the behavior that occurs when invalid params are submitted
         Review.any_instance.stub(:save).and_return(false)
         post :create, {:review => { "rating" => "invalid value" }}, valid_session
         assigns(:review).should be_a_new(Review)

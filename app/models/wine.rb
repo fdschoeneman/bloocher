@@ -31,5 +31,12 @@ class Wine < ActiveRecord::Base
       self.reviews.average(:rating).to_i
     end
   end
+
+  def wine_tags
+    result = Hash.new(0)
+    words = self.reviews.all.map(&:content).join.delete(".,").split(" ").map
+    words.each { |word| result[word] += 1 }
+    result.sort_by { |k,v| v}.reverse[0..20]
   end
+end
 

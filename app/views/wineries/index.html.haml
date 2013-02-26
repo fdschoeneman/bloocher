@@ -23,6 +23,8 @@
       %td= link_to 'Edit', edit_winery_path(winery)
       %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
 
+
+.paginate= paginate @wineries
 %br
 
 = link_to 'New Winery', new_winery_path

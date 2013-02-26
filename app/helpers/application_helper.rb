@@ -26,23 +26,10 @@ module ApplicationHelper
   def nav_link_to(text, path)
     class_name = current_page?(path) ? 'active' : ''
 
-    content_tag(:li, class: class_name) do
+    content_tag(:li, class: "#{class_name}") do
       link_to text, path
     end
   end
-
-  # def winery_wine_review_modal
-
-  #   bootstrap_modal(dom_id: 'a_dom_id', fade: true, header_title: "I'm a bootstrap modal popup") do |modal|
-  #     modal.body do |c|
-  #      c."some content"
-  #     end
-  #     modal.footer do |f|
-  #       f.bootstrap_button "Save", "url", :type => 'btn-primary'
-  #       f.bootstrap_button "Cancel", "url"
-  #     end
-  #   end
-  # end
 
   def resource_name
     :user
