@@ -36,6 +36,7 @@ Bloocher::Application.routes.draw do
   match '/help',    to: 'static#help'
   match '/privacy', to: 'static#privacy'
   match '/terms',   to: 'static#terms'
+  match '/triq',    to: 'static#triq'
 
   authenticated :user do
     root :to => 'static#home'
