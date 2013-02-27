@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'spork'
 
+
 Spork.prefork do
 
   ENV["RAILS_ENV"] ||= 'test'
@@ -17,6 +18,7 @@ Spork.prefork do
   require 'turnip_helper'
 
   Capybara.javascript_driver = :webkit
+  Turnip.type = :request
 
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 

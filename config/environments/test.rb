@@ -38,4 +38,11 @@ Bloocher::Application.configure do
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'example.com' }
 
+  # for turnip acceptance tests.  
+
+  Turnip.type = :request
+
+
+
+
 end

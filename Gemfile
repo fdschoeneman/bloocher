@@ -41,7 +41,7 @@ group :test do
   
   gem 'spork', '>= 1.0.0rc3'
   gem 'spork-rails'
-  gem 'turnip'
+  gem 'turnip', '1.0.0'
   gem 'email_spec', '1.4.0'
   gem 'shoulda-matchers', '1.4.1'
   gem 'capybara', '1.1.3'
