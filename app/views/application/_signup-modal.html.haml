@@ -1,23 +1,21 @@
-#signup-modal.modal.hide.fade{"aria-hidden" => "false", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+#signup-modal.modal.hide.fade{"aria-hidden" => "false", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
   .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
     %h3#myModalLabel.centered Sign up
   .modal-body
     = simple_form_for( resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' } ) do |f|
       = f.error_notification
       = display_base_errors resource
-      = f.input :name, :autofocus => true
-      = f.input :email, :required => true
-      = f.input :password, :required => true
-      = f.input :password_confirmation, :required => true
+      = f.input :email, required: true
       .modal-footer
         .navbar
-          %ul.nav= nav_link_to "Sign in instead", new_session_path(resource_name)
-        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-        = f.button :submit, 'Sign up', :class => 'btn-primary'
-      .navbar
-        %ul.nav.vertical
-          = nav_link_to "Forgot your password?", new_password_path(resource_name)
-          = nav_link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
+          .centered
+            %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+            = f.button :submit, "Sign up and we'll confirm your email", class: 'btn-primary'
+      .navbar.centered
+        %ul.nav
+          = nav_link_to "Sign in instead", new_session_path( resource_name )
+          = nav_link_to "Forgot your password?", new_password_path( resource_name )
+          = nav_link_to "Didn't receive confirmation instructions?", new_confirmation_path( resource_name )
 
 

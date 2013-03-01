@@ -26,4 +26,9 @@ module EmailHandlingSteps
   step 'I open the email to :email_addressee' do |email_addressee|
     open_email(email_addressee)
   end
+
+  step 'show me the email' do 
+    EmailSpec::EmailViewer::save_and_open_email(current_email)
+  end
+
 end

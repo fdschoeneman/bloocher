@@ -1,10 +1,17 @@
 module AuthenticationSteps
 
+  Warden.test_mode!
+  
   step 'I am not logged in' do 
     Warden.test_mode!
     logout
   end
 
+  step 'I am logged in as a :user_type' do  |factory|
+    user = FactoryGirl.create(factory.to_sym)
+    login_as(user)
+  end
+  
   step 'no user exists with an email of :email' do |email|
     User.find_by_email(email).should be nil
   end

@@ -12,6 +12,10 @@ module UtilitySteps
     save_and_open_page
   end
 
+  step 'there should be an email' do 
+    debugger
+
+  end
   step 'show me the email' do 
     EmailSpec::EmailViewer::save_and_open_email(Mail::TestMailer.deliveries.last)
   end
