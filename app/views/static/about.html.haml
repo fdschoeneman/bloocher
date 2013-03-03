@@ -1,11 +1,72 @@
-.row
-	.span12
-		.span6.offset3
-			%h1
-				About
-			%h1
-				Team
-			%h3
-				Fred Schoeneman
-			%blockquote
-				I built Bloocher because I really enjoy programming stuff.  In January of 2013, I was hanging out with my dog Sam, in the middle of a gorgous vineyard, and thinking about how the wine industry broken.  And so I decided to fix it, by building this website, which you are on right now. Obviously. Duh. Anyways, Bloocher is the single most powerful wine website in the world.  It will change your fucking life.  Join the tidrick.   	
+.container
+  %h1.page-header
+    About
+    %span.color-twitter Bloocher
+  .row
+    %ul.ca-menu.unstyled
+      %li.span3
+        %a{:href => "#well-coded"}
+          %span#heart.ca-icon
+            %i.icon-heart
+        .ca-content
+          %h2.ca-main Wine lovers
+          %h3.ca-sub Blooch about the bahlinest fratis
+      %li.span3
+        %a{:href => "#docs"}
+          %span#heart.ca-icon 
+            %i.icon-heart-empty
+        .ca-content
+          %h2.ca-main Winemakers
+          %h3.ca-sub Deek about your fratis
+      %li.span3
+        %a{:href => "#future"}
+          %span#heart.ca-icon
+            %i.icon-leaf
+        .ca-content
+          %h2.ca-main Vineyardists
+          %h3.ca-sub Deek about your fruit
+      %li.span3
+        %a{:href => "#purchase"}
+          %span.ca-icon
+            %i.icon-wrench
+        .ca-content
+          %h2.ca-main Team
+          %h3.ca-sub Don't hump my leg
+.showcase-container.demo
+  #well-coded.text-wraper
+    .text.demo-1
+      %h1 Well coded
+      %p TRIQ code passed test by W3C Validator Service. Smart class names and properly used tags, withour unnecessary markup makes TRIQ easy to edit. Code is also very well commented.
+  %img#code-editor.pull-right{:src => "demo_img/code-editor.png"}/
+.clearfix
+.container
+  %hr/
+  #docs.row.demo-2
+    .span6
+      %img{:alt => "Markdown", :src => "markdown.png"}/
+    .span6
+      %h1 Fully documented
+      %p TRIQ is fully documented (Markdown used for creating documentation). That means you will find HTML, PDF and READ.md files in purchased package. Documentation contains code examples, resources added, proper markup and more. Don't ever get confused again!
+  %hr/
+  %h1#future.centered Future in your browser
+  %p.centered Combining HTML5, jQuery plugins and CSS3 techniques, TRIQ brings future to this day.
+  %br/
+  .ul-centered
+    %ul.unstyled.pagination-centered.thumbnails.browsers
+      %li
+        %img{:alt => "Opera", :src => "demo_img/browser/opera.png"}/
+      %li
+        %img{:alt => "firefox", :src => "demo_img/browser/firefox.png"}/
+      %li
+        %img{:alt => "ie", :src => "demo_img/browser/ie.png"}/
+      %li
+        %img{:alt => "safari", :src => "demo_img/browser/safari.png"}/
+      %li
+        %img{:alt => "chrome", :src => "demo_img/browser/chrome.png"}/
+  %hr/
+  #purchase.row.demo-4
+    .span4
+      = image_tag("fred.jpg", class: "img-rounded")
+    .span8
+      %h1 Founder  
+      %p I built Bloocher because I really enjoy programming stuff.  In January of 2013, I was hanging out with my dog Sam, in the middle of a gorgeous vineyard, and thinking about how the wine industry broken.  And so I decided to fix it, by building this website, which you are on right now. Obviously. Duh. Anyways, Bloocher is the single most powerful wine website in the world.  It will change your fucking life.  Join the tidrick.       
