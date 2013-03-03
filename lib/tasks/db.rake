@@ -27,6 +27,10 @@ namespace :db do
     # end
     puts "#{green("==>")} Making admin user"
     make_admin_user
+    ["hola.nicole@gmail.com"].each do |email|
+      puts "#{green("==>")} Making #{email}"
+      make_user(email)
+    end
     puts "#{green("==>")} Making sample users"
     make_users
     puts "#{green("==>")} Making wineries"
@@ -51,9 +55,19 @@ namespace :db do
     make_fruit_lots
     puts "#{green("==>")} Making wine fruit lots"
     make_wine_fruit_lots
-    
-    
   end
+end
+
+def make_user(email)
+  
+  user = User.new(
+    email: email, 
+    password: "password",
+    password_confirmation: "password", 
+    bio: hipster_bio)
+  user.skip_confirmation!
+  user.save!
+  user.confirm!
 end
 
 def make_admin_user

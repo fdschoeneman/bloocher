@@ -32,7 +32,7 @@ Spork.prefork do
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.use_transactional_fixtures = true
     config.infer_base_class_for_anonymous_controllers = true
-    config.order = "random"
+    # config.order = "random"
     
     # config.before(:suite) do
     #   DatabaseCleaner.strategy = :deletion

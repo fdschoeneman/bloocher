@@ -1,7 +1,8 @@
 
 FactoryGirl.define do 
   
-  factory :user do
+  factory :user, aliases: [:confirmed_user, :winemaker, :farmer, :reviewer, :owner] do
+ 
     sequence(:name)       {|n| "username#{n}" }
     sequence(:email)      {|n| "user#{n}@test.com" }
     password              "password"
@@ -10,13 +11,5 @@ FactoryGirl.define do
 
   factory :unconfirmed_user, parent: :user do 
     confirmed_at nil
-  end
-
-  factory :confirmed_user, parent: :user do 
-  end
-
-  %w[winemaker, farmer, reviewer, owner].each do |user_role|
-    factory user_role.to_sym, parent: :user do 
-    end
   end
 end

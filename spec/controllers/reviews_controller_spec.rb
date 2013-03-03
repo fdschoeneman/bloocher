@@ -2,142 +2,208 @@ require 'spec_helper'
 
 describe ReviewsController do
 
-  Given!(:wine) { FactoryGirl.create(:wine) }
-  # Given!(:reviewer) { FactoryGirl.create(:reviewer) }
-
-  def valid_attributes
-    { "rating" => "1",
-    content: "some string",
-    reviewer_id: "1",
-    wine_id: "1" }
-  end
-
-  def valid_session
-    { }
-  end
-
+  Given(:review) { FactoryGirl.create(:review) }
+  Given(:valid_session) { }
+  
   describe "GET index" do
+    
     it "assigns all reviews as @reviews" do
-      review = Review.create! valid_attributes
-      get :index, { }, valid_session
+
+      get :index, valid_session
       assigns(:reviews).should eq([review])
     end
   end
 
   describe "GET show" do
+    
     it "assigns the requested review as @review" do
-      review = Review.create! valid_attributes
-      get :show, {:id => review.to_param}, valid_session
+      
+      get :show, { id: review.to_param }, valid_session
       assigns(:review).should eq(review)
     end
   end
 
   describe "GET new" do
-    it "assigns a new review as @review" do
-      get :new, { :wine => wine.to_param }, valid_session
-      assigns(:review).should be_a_new(Review)
+
+    context "with logged in user" do 
+      
+      When { sign_in review.reviewer }
+
+      describe "assigns a new review as @review" do
+        
+        When { get :new, { wine: review.wine.to_param }, valid_session }
+        Then { assigns(:review).should be_a_new(Review) }
+      end
+    end
+
+    context "without logged in user" do 
+
+      When { logout } 
+
+      describe "redirects to login" do
+        
+        When { get :new, { wine: review.wine.to_param }, valid_session }
+        Then { response.should redirect_to(new_user_session_path) }
+      end
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested review as @review" do
-      review = Review.create! valid_attributes
-      get :edit, {:id => review.to_param}, valid_session
-      assigns(:review).should eq(review)
+
+    context "with logged in user" do 
+
+      When { sign_in review.reviewer }
+
+      describe "assigns the requested review as @review" do
+
+        When { get :edit, { id: review.to_param}, valid_session }
+        Then { assigns(:review).should eq(review) }
+      end
     end
   end
 
   describe "POST create" do
 
-    describe "with valid params" do
-    
-      it "creates a new Review" do
-        expect {
-          post :create, {:review => valid_attributes}, valid_session
-        }.to change(Review, :count).by(1)
+    # Given(:wine) { FactoryGirl.create(:wine) }
+    # Given(:reviewer) { FactoryGirl.create(:user) }
+    # Given(:valid_attributes) { 
+    #   FactoryGirl.attributes_for(
+    #     :review, content: "new content" #, wine_id: wine.id, reviewer_id: reviewer.id
+    #   )
+    # }
+
+    describe "with logged in user" do
+
+      When { sign_in review.reviewer }
+      
+      describe "and valid attributes" do
+
+        Then { 
+          expect { 
+            post :create, { 
+              review: FactoryGirl.attributes_for(:review) 
+            }
+          }.to change(Review, :count).by(1) 
+        }
       end
 
-      it "assigns a newly created review as @review" do
-        post :create, {:review => valid_attributes}, valid_session
-        assigns(:review).should be_a(Review)
-        assigns(:review).should be_persisted
+      describe "assigns a newly created review as @review" do
+        
+        When { post :create, { review: FactoryGirl.attributes_for(:review) } }
+        Then { assigns(:review).should be_a(Review) }
+        
+        describe "and the new review should be persisted" do 
+
+          Then { assigns(:review).should be_persisted }
+
+          describe "and redirects to the review's associated wine" do 
+
+            Then { response.should redirect_to(review.wine) }
+          end
+        end
       end
 
+      describe "invalid attributes re-renders the 'new' template" do
+        
+        When { post :create, { review: { "wine_id" => "invalid value" }}, valid_session }
+        Then { response.should render_template("new") }
+      end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved review as @review" do
-        Review.any_instance.stub(:save).and_return(false)
-        post :create, {:review => { "rating" => "invalid value" }}, valid_session
-        assigns(:review).should be_a_new(Review)
-      end
+    describe "without logged in user" do
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Review.any_instance.stub(:save).and_return(false)
-        post :create, {:review => { "rating" => "invalid value" }}, valid_session
-        response.should render_template("new")
+      When { logout }
+      
+      describe "rejects create and redirects to login" do
+        
+        # When { post :create, { review: valid_attributes } }
+        # Then { response.should redirect_to(new_user_session_path) }
       end
     end
   end
 
   describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested review" do
-        review = Review.create! valid_attributes
-        # Assuming there are no other reviews in the database, this
-        # specifies that the Review created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Review.any_instance.should_receive(:update_attributes).with({ "rating" => "1" })
-        put :update, {:id => review.to_param, :review => { "rating" => "1" }}, valid_session
+
+    describe "with logged in user" do
+      
+      When { sign_in review.reviewer }
+      
+      describe "finds the correct review for updating" do
+        
+        When { put :update, id: review, 
+          review: FactoryGirl.attributes_for(:review) } 
+        Then { assigns(:review).should eq (review) }
       end
 
-      it "assigns the requested review as @review" do
-        review = Review.create! valid_attributes
-        put :update, {:id => review.to_param, :review => valid_attributes}, valid_session
-        assigns(:review).should eq(review)
+      describe "changes the review's attributes" do 
+
+        When { put :update, id: review, 
+          review: FactoryGirl.attributes_for(:review, content: "updated content") }
+        When { review.reload }
+        Then { review.content.should eq "updated content" }
+
+
+        describe "redirects to the review" do
+          
+          Then { response.should redirect_to(review.wine.winery) }
+        end
       end
 
-      it "redirects to the review" do
-        review = Review.create! valid_attributes
-        put :update, {:id => review.to_param, :review => valid_attributes}, valid_session
-        response.should redirect_to(review)
+      Given(:invalid_review) { FactoryGirl.attributes_for(:review, content: nil) }
+
+      describe "with invalid attributes" do 
+
+        When { put :update, id: review, 
+          review: invalid_review } 
+        
+        describe "locates the requested review" do 
+
+          Then { assigns(:review).should eq(review) } 
+        
+          describe "does not change review's attributes" do 
+
+            When { put :update, id: review, review: invalid_review }
+            When { review.reload }
+            Then { review.content.should_not be_nil }
+
+            describe "re-renders the edit method" do 
+              
+              Then { response.should render_template :edit }
+            end
+          end
+        end
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the review as @review" do
-        review = Review.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Review.any_instance.stub(:save).and_return(false)
-        put :update, {:id => review.to_param, :review => { "rating" => "invalid value" }}, valid_session
-        assigns(:review).should eq(review)
-      end
+    describe "without logged in user" do 
 
-      it "re-renders the 'edit' template" do
-        review = Review.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Review.any_instance.stub(:save).and_return(false)
-        put :update, {:id => review.to_param, :review => { "rating" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+      When { logout }
+
+      describe "redirects to login" do 
+
+        When { put :update, id: review, review: FactoryGirl.attributes_for(
+          :review, content: "updated content") }
+        Then { response.should redirect_to(new_user_session_path) }
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested review" do
-      review = Review.create! valid_attributes
-      expect {
-        delete :destroy, {:id => review.to_param}, valid_session
-      }.to change(Review, :count).by(-1)
-    end
 
-    it "redirects to the reviews list" do
-      review = Review.create! valid_attributes
-      delete :destroy, {:id => review.to_param}, valid_session
-      response.should redirect_to(reviews_url)
+    Given { review }
+
+    describe "with logged in user" do 
+
+      When { sign_in review.reviewer }
+      Then { 
+        expect { delete :destroy, id: review }.to change(Review, :count).by(-1) 
+      }
+
+      describe "redirects to root" do 
+
+        When { delete :destroy, id: review }
+        Then { response.should redirect_to reviews_path }
+      end
     end
   end
-
 end

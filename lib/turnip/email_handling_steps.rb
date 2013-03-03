@@ -4,31 +4,34 @@ module EmailHandlingSteps
     reset_mailer
   end
 
-  step 'I follow the :link_name link in the email' do |link_name| 
-    visit_in_email(link_name)
+  step 'I follow the :link link in the email' do |link| 
+    visit_in_email(link)
   end
 
-  step ':email_addressee should not have an email with :email_subject' do |email_addressee, email_subject|
-    find_email(email_addressee, with_subject: email_subject).should be nil
+  step ':email should not have an email with :subject' do |email, subject|
+    find_email(email, with_subject: subject).should be nil
   end
 
-  step ':email_addressee should have :count email with subject :email_subject' do |email_addressee, count, email_subject|
-    unread_emails_for(email_addressee).select { |m| 
-      m.subject =~ Regexp.new(Regexp.escape(email_subject)) 
+  step ':email should have :count email(s) with subject :subject' do |email, count, subject|
+    unread_emails_for(email).select { |m| 
+      m.subject =~ Regexp.new(Regexp.escape(subject)) 
       }.size.should == parse_email_count(count)
   end
 
-  step ':email_addressee should have an email' do |email_addressee|
-    email = find_email(email_addressee)
-    email.subject.should eq "Welcome to MerciboQ! -- Please confirm your account for us."
+  step ':email should have an email' do |email|
+    email = find_email(email)
+    email.should_not be_nil
   end
 
-  step 'I open the email to :email_addressee' do |email_addressee|
-    open_email(email_addressee)
+  step 'I open the email to :email' do |email|
+    open_email(email)
+  end
+  
+  step 'I open the email to :email with subject :subject' do |email, subject|
+    open_email(email, with_subject: subject)
   end
 
   step 'show me the email' do 
-    EmailSpec::EmailViewer::save_and_open_email(current_email)
+    EmailSpec::EmailViewer::save_and_open_email(Mail::TestMailer.deliveries.last)
   end
-
 end

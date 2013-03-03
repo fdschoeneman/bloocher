@@ -7,7 +7,7 @@
       = f.error_notification
       = display_base_errors resource
       = f.input :email, required: true, input_html: { id: "email-login"}
-      = f.input :password, required: true
+      = f.input :password, required: true, input_html: { id: "password-login" }
       = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
       .modal-footer
         .navbar.centered

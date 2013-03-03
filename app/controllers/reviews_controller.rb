@@ -1,6 +1,9 @@
 class ReviewsController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:create, :index, :show]  
+
   def index
+    
     @reviews = Review.order(:rating).page params[:page]
 
     respond_to do |format|
@@ -10,6 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+
     @review = Review.find(params[:id])
 
     respond_to do |format|
@@ -19,11 +23,12 @@ class ReviewsController < ApplicationController
   end
 
   def new
+
     @review = Review.new
     @wine = Wine.find( params[:wine] )
     
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.json { render json: @review }
     end
   end
@@ -33,7 +38,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    
+
     @review = Review.new(params[:review])
 
     if current_user
@@ -52,11 +57,12 @@ class ReviewsController < ApplicationController
   end
 
   def update
+
     @review = Review.find(params[:id])
 
     respond_to do |format|
       if @review.update_attributes(params[:review])
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to @review.wine.winery, notice: 'Review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

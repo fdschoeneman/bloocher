@@ -3,49 +3,29 @@ module AuthenticationSteps
   Warden.test_mode!
   
   step 'I am not logged in' do 
-    Warden.test_mode!
+
     logout
   end
 
-  step 'I am logged in as a :user_type' do  |factory|
-    user = FactoryGirl.create(factory.to_sym)
+  step 'I am logged in as a :user_type' do  |user_type|
+
+    user = FactoryGirl.create( user_type.to_sym )
     login_as(user)
   end
   
-  step 'no user exists with an email of :email' do |email|
+  step 'I am logged in as a :user_type with email :email and password :password' do  |user_type, email, password|
+
+    user = FactoryGirl.create( user_type.to_sym, email: email, password: password )
+    login_as(user)
+  end
+
+  step 'a :user_type with email :email and password :password' do |user_type, email, password|
+
+    FactoryGirl.create( user_type.to_sym, email: email, password: password )
+  end
+
+  step 'no user exists with an email :email' do |email|
+    
     User.find_by_email(email).should be nil
-  end
-  
-  step 'a user does exist with an email :registered_email' do |registered_email|
-    User.create(email: registered_email)
-    User.find_by_email(registered_email).should_not be nil
-    reset_mailer
-  end
-
-  step 'no user exists with an email :unregistered_email' do |unregistered_email|
-    User.find_by_email(unregistered_email).should be nil
-  end
-  
-  step 'a user does exist with an email :registered_email' do |registered_email|
-    user = User.create(email: registered_email, password: "password")
-    user.confirm!
-    User.find_by_email(registered_email).should_not eq nil
-    reset_mailer
-  end
-  
-  step 'I am registered and logged in as a/an :user_type' do |user_type|
-    @actor = FactoryGirl.create(user_type.to_sym)
-    @actor.confirm!
-    login_as(@actor)
-  end
-
-  step 'I am registered, confirmed and logged in as a/an :user_type' do |user_type|
-    @actor = FactoryGirl.create(user_type.to_sym).confirm!
-    @actor.confirm!
-    login_as(@actor)
-  end
-
-  step 'I open the password reset email' do 
-    open_email(@actor.email)
   end
 end

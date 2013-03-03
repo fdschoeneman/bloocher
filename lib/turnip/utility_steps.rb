@@ -12,14 +12,6 @@ module UtilitySteps
     save_and_open_page
   end
 
-  step 'there should be an email' do 
-    debugger
-
-  end
-  step 'show me the email' do 
-    EmailSpec::EmailViewer::save_and_open_email(Mail::TestMailer.deliveries.last)
-  end
-
   step 'I follow the :link link' do |link|
     click_link(link)
   end
@@ -37,7 +29,7 @@ module UtilitySteps
   end
 
   step 'I press :button' do |button|
-    click_button(button)
+    click_link_or_button(button)
   end
 
   step 'I should see a notice with :text' do |text|

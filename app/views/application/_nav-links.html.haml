@@ -1,11 +1,9 @@
-= nav_link_to "bloochers", users_path
-= nav_link_to "blooches", reviews_path
 = nav_link_to "wineries", wineries_path
 = nav_link_to "wines", wines_path
 = nav_link_to "vineyards", vineyards_path
 - if user_signed_in?
-  %li= link_to 'Account', edit_user_registration_path
-  %li= link_to "Itch Neem'r", destroy_user_session_path, method: 'delete'
+  %li= link_to "Blooching as #{current_user.name}", edit_user_registration_path
+  %li= link_to "itch neem'r", destroy_user_session_path, method: 'delete'
 - else
   %li
     %a{ "data-toggle" => "modal", href: "#login-modal" } login
