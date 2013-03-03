@@ -19,10 +19,7 @@
       .span3
         %h3 Wine drinkers
         %p Don't be a <text id="back-dated-chuck">back dated chuck</text>. Learn about fratis and the fruit that goes into them.  <text id="blooch">Blooch</text> about one or two or twenty of them, give them a rating even.  
-      
-       
-        / %button.btn.btn-inverse.btn-simple.btn-wide
-        = button_to "Read more", about_path, html_options = { class: "btn btn-inverse btn-simple btn-block"}
+        = button_to "Read more", about_path(anchor: "well-coded"), html_options = { class: "btn btn-inverse btn-simple btn-block"}
       .span3
         %h3 Vineyardists
         %p <text id="deek">Deek</text> what other farmers have been doing in their vineyards.  Let them deek what you're doing in yours.  See what the <text id="high-pockety">high pockety</text> folk are saying about fratis made with your fruit.  Join the <text id="tidrick">tidrick</text>.  
