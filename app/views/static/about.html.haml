@@ -2,73 +2,77 @@
   %h1.page-header
     About
     %span.color-twitter Bloocher
-  .row
+.container
+  .row#about-menu
     %ul.ca-menu.unstyled
       %li.span3
-        %a{:href => "#well-coded"}
-          %span#heart.ca-icon
+        %a{:href => "#wine-lovers"}
+          %span#icon-heart.ca-icon
             %i.icon-heart
         .ca-content
           %h2.ca-main Wine lovers
           %h3.ca-sub Blooch about the bahlinest fratis
       %li.span3
-        %a{:href => "#docs"}
-          %span#winemakers.ca-icon 
+        %a{:href => "#winemakers"}
+          %span#icon-beaker.ca-icon 
             %i.icon-beaker
         .ca-content
           %h2.ca-main Winemakers
           %h3.ca-sub Deek about your fratis
       %li.span3
-        %a{:href => "#future"}
-          %span#vineyardists.ca-icon
+        %a{:href => "#vineyardists"}
+          %span#icon-leaf.ca-icon
             %i.icon-leaf
         .ca-content
           %h2.ca-main Vineyardists
           %h3.ca-sub Deek about your fruit
       %li.span3
         %a{:href => "#artists"}
-          %span#picture.ca-icon
+          %span#icon-picture.ca-icon
             %i.icon-picture 
         .ca-content
           %h2.ca-main Artists & Writers
-          %h3.ca-sub Because stories are good
-.row
-  .showcase-container.demo
-    #well-coded.text-wraper
-      .text.demo-1
-        %h1 Wine lovers
-        %p TRIQ code passed test by W3C Validator Service. Smart class names and properly used tags, withour unnecessary markup makes TRIQ easy to edit. Code is also very well commented.
-      = image_tag("glass_and_cork.jpg", class: "img-rounded pull-right") 
+          %h3.ca-sub Tell us a story
   .clearfix
+#wine-lovers
+%hr/
 .row
-  .container
-    %hr/
-    #docs.row.demo-2
-      .span6
-        = image_tag("corks.jpg", class: "img-rounded")
-      .span6
-        %h1 Winemakers
-        %p TRIQ is fully documented (Markdown used for creating documentation). That means cyou will find HTML, PDF and READ.md files in purchased package. Documentation contains code examples, resources added, proper markup and more. Don't ever get confused again!
-    %hr/
-    %h1#future.centered Future in your browser
-    %p.centered Combining HTML5, jQuery plugins and CSS3 techniques, TRIQ brings future to this day.
-    %br/
-    .ul-centered
-      %ul.unstyled.pagination-centered.thumbnails.browsers
-        %li
-          %img{:alt => "Opera", :src => "demo_img/browser/opera.png"}/
-        %li
-          %img{:alt => "firefox", :src => "demo_img/browser/firefox.png"}/
-        %li
-          %img{:alt => "ie", :src => "browser/ie.png"}/
-        %li
-          %img{:alt => "safari", :src => "demo_img/browser/safari.png"}/
-        %li
-          %img{:alt => "chrome", :src => "demo_img/browser/chrome.png"}/
-    %hr/
-    #artists.row.demo-4
-      .span4.offset1
-        = image_tag("doggy.jpg", class: "img-rounded")
-      .span6.offset1.testimonials
-        %h1 Artists & writers  
-        %p If you're an artist or writer with a connection to the Anderson Valley, and maybe even if you're a brightlighter, I'd like to use Bloocher to showcase a few of your photos on the home page, with links to your gallery. If you're a writer I can publish excerpts of your work and link someplace people can go if they're thirsty for more. Hit us up at art
+  .span6 
+    .testimonials
+      %h1 Wine lovers
+      %p There's a place for point ratings in the wine industry, and on this site, but fundamentally Bloocher is about the wisdom of crowds. Are you tasting pear in your gewurztraminer? Look it up to see if other bloochers tasted pear too. If you decide you like gewurztraminers that show pear, click around some, and maybe we can find a few more. You can sign up to follow your favorite wineries, winemakers, and vineyards, create your own list of recommended wines so other people can follow you. Our #{link_to "privacy policy", privacy_path} respects your privacy the way we would want ours to be respected.   
+      = link_to "back to top", id: "about-menu"
+  .span6
+    = image_tag("glass_and_cork.jpg", class: "img-rounded pull-right") 
+  .clearfix
+#winemakers
+%hr/
+.row
+  .span6
+    .span6
+    = image_tag("corks.jpg", class: "img-rounded")
+  .span6.testimonials
+    %h1 Winemakers
+    %p For real deal, non-bullshit winemakers, Bloocher is is an effective tool for differentiating your work from that of others.  It also affords you an opportunity to get out of the winery, and into the heads of wine lovers. By sharing information about your process -- where you source your fruit, your wine logs -- you will be putting back into your industry as well as building up your own credibility.
+    = link_to "back to top", id: "about-menu"  
+#vineyardists
+%hr/
+.row
+  .span6 
+    .testimonials
+      %h1 Vineyardists
+      %p Your reputation as a farmer is only as good as the reputation of wines made with your fruit. Help your winery and winemaker partners by providing up-to-the date information on your vineyard, blocks, and growing season. Make it easy for people who are interested in wines made from your fruit to find them. Share best practices with other vineyardists, and help wine lovers realize that 80% of what they like about a wine is determined by what you do with your dirt.
+      = link_to "back to top", id: "about-menu"
+  .span6
+    = image_tag("glass_and_cork.jpg", class: "img-rounded pull-right") 
+  .clearfix
+#artists
+%hr/
+.row
+  .span6
+    = image_tag("doggy.jpg", class: "img-rounded")
+  .span6
+    .testimonials
+      %h1 Artists & writers  
+      %p If you're an artist or writer with a connection to the Anderson Valley, and maybe even if you're just a really talented brightlighter, I'd like to use Bloocher to showcase your work. If you're an artist we can put a few of your photos on the home page, with links to your gallery; and if you're a writer we can publish excerpts of your work and link someplace people can go if they're thirsty for more. Hit us up at #{mail_to "art@bloocher.com", "art@bloocher.com", encode: "javascript"}.
+      = link_to "back to top", id: "about-menu"
