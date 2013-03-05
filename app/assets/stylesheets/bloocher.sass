@@ -219,6 +219,16 @@ body
   -o-transition: all 200ms linear
   transition: all 200ms linear
 
+.ca-main-tablet
+  text-align: center
+  font-size: 20px
+  opacity: 0.8
+  -webkit-transition: all 200ms linear
+  -moz-transition: all 200ms linear
+  -ms-transition: all 200ms linear
+  -o-transition: all 200ms linear
+  transition: all 200ms linear
+
 .ca-sub
   position: absolute
   bottom: 0px
@@ -257,13 +267,13 @@ body
     -moz-animation: none
     -ms-animation: none
     animation: none
-  &:hover .ca-main
+  &:hover .ca-main .ca-main-tablet
     color: #FFF
     -webkit-animation: smallToBig 300ms ease
     -moz-animation: smallToBig 300ms ease
     -ms-animation: smallToBig 300ms ease
     animation: smallToBig 300ms ease
-  &.active .ca-main
+  &.active .ca-main .ca-main-tablet
     color: #FFF
     transform: scale(1)
     -webkit-animation: none
