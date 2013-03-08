@@ -11,5 +11,9 @@ Feature: Review wines
     And I press "Publish this blooch"
     Then I should see a notice with ""
 
+  Scenario: unregistered user reviews a wine from its page
+    Given I am on a wine's page 
+
+  Scenario: registered user reviews a wine from its page 
 
   
