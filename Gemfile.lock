@@ -106,6 +106,11 @@ GEM
     guard-bundler (1.0.0)
       bundler (~> 1.0)
       guard (~> 1.1)
+    guard-jasmine (1.13.0)
+      childprocess
+      guard (>= 1.1.0)
+      multi_json
+      thor
     guard-livereload (1.1.0)
       em-websocket (>= 0.2.0)
       guard (>= 1.5.0)
@@ -134,6 +139,9 @@ GEM
     hpricot (0.8.6)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
+    jasminerice (0.0.10)
+      coffee-rails
+      haml
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
@@ -298,6 +306,7 @@ DEPENDENCIES
   google-webfonts
   guard
   guard-bundler
+  guard-jasmine
   guard-livereload
   guard-rails
   guard-rspec
@@ -307,6 +316,7 @@ DEPENDENCIES
   haml-rails (= 0.3.5)
   headless (= 0.3.1)
   hpricot (= 0.8.6)
+  jasminerice
   jquery-rails
   kaminari
   launchy (= 2.1.2)

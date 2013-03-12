@@ -64,32 +64,23 @@ describe ReviewsController do
 
   describe "POST create" do
 
-    # Given(:wine) { FactoryGirl.create(:wine) }
-    # Given(:reviewer) { FactoryGirl.create(:user) }
-    # Given(:valid_attributes) { 
-    #   FactoryGirl.attributes_for(
-    #     :review, content: "new content" #, wine_id: wine.id, reviewer_id: reviewer.id
-    #   )
-    # }
+    Given(:reviewer) { FactoryGirl.create(:user) }
+    Given(:wine) { FactoryGirl.create(:wine) }
 
     describe "with logged in user" do
 
-      When { sign_in review.reviewer }
+      When { sign_in reviewer }
       
       describe "and valid attributes" do
 
-        Then { 
-          expect { 
-            post :create, { 
-              review: FactoryGirl.attributes_for(:review) 
-            }
-          }.to change(Review, :count).by(1) 
-        }
+        Then { expect { post :create, { 
+              review: FactoryGirl.attributes_for(:review), wine_id: wine.id 
+        } }.to change(Review, :count).by(1) }
       end
 
       describe "assigns a newly created review as @review" do
         
-        When { post :create, { review: FactoryGirl.attributes_for(:review) } }
+        When { post :create, { review: FactoryGirl.attributes_for(:review), wine_id: wine.id } }
         Then { assigns(:review).should be_a(Review) }
         
         describe "and the new review should be persisted" do 
@@ -98,26 +89,47 @@ describe ReviewsController do
 
           describe "and redirects to the review's associated wine" do 
 
-            Then { response.should redirect_to(review.wine) }
+            Then { response.should redirect_to(wine) }
           end
         end
       end
 
       describe "invalid attributes re-renders the 'new' template" do
         
-        When { post :create, { review: { "wine_id" => "invalid value" }}, valid_session }
+        When { post :create, { review: { "wine_id" => "invalid value" } }, valid_session }
         Then { response.should render_template("new") }
       end
     end
 
     describe "without logged in user" do
 
-      When { logout }
+      Given { logout }
       
-      describe "rejects create and redirects to login" do
+      describe "without new user email for simultaneous signup" do
         
-        # When { post :create, { review: valid_attributes } }
-        # Then { response.should redirect_to(new_user_session_path) }
+        When(:review) { FactoryGirl.attributes_for(:review, user: {email: ""}) }
+
+        describe "Does not save a review" do
+
+          Then { expect { post :create, review: review  
+            }.to_not change(Review, :count).by(1) 
+          }
+        end
+      end
+
+      describe "with new user email for simultaneous signup" do
+
+        When(:review) { FactoryGirl.attributes_for(
+          :review, user: { email: "some@email.com" } )
+        }
+
+        describe "Saves a review" do
+
+          Then { expect {
+            post  :create, { review: review} 
+            }.to change(Review, :count).by(1) 
+          }
+        end
       end
     end
   end

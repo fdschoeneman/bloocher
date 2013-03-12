@@ -1,15 +1,20 @@
-#review-modal.modal.hide.fade{"aria-hidden" => "false", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+.modal.hide.fade{ id: "reviewModal#{wine.id}", "aria-hidden" => "false", "aria-labelledby" => "#{wine.name}", role: "dialog", tabindex: "-1"}
   .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
     #myModalLabel.centered
-      %h3= @wine.winery.name.titleize
-      %h2= @wine.name.titleize
-    
+      %h3= wine.winery.name.titleize
+      %h2= wine.name.titleize
+
   .modal-body.form-horizontal
-    = simple_form_for([@wine, @review])  do |f|
+    = simple_form_for([wine, @review])  do |f|
       = f.error_notification 
       = f.input :content, as: :text, label: "notes about this wine", input_html: { rows: 7 }
-      = f.input :rating, collection: 70..100, label: "points"
+      = f.input :wine_id, as: :hidden, input_html: { value: wine.id }
+      - if user_signed_in?
+        Reviewing as #{current_user.name}
+      - else
+        = f.simple_fields_for :user do |fu|
+          = fu.input :email
       .modal-footer
         %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-        = f.button :submit, 'Publish this blooch', :class => 'btn-primary'
+        = f.button :submit, 'Publish this blooch', class: 'btn-primary'

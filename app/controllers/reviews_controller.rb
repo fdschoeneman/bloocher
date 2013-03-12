@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:create, :index, :show]  
+  before_filter :authenticate_or_create!, only: :create
 
   def index
     
@@ -39,15 +40,13 @@ class ReviewsController < ApplicationController
 
   def create
 
-    @review = Review.new(params[:review])
-
-    if current_user
-      @review.reviewer = current_user
-    end
-
+    @review = Review.create(wine_id: params[:review][:wine_id], 
+                            content: params[:review][:content], 
+                            reviewer_id: @user.id)
     respond_to do |format|
+
       if @review.save
-        format.html { redirect_to @review.wine, notice: 'Review was successfully created.' }
+        format.html { redirect_to wine_path(@review.wine_id), notice: 'Review was successfully created.' }
         format.json { render json: @review.wine, status: :created, location: @review.wine }
       else
         format.html { render action: "new" }
@@ -72,6 +71,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+
     @review = Review.find(params[:id])
     @review.destroy
 
@@ -79,5 +79,19 @@ class ReviewsController < ApplicationController
       format.html { redirect_to reviews_url }
       format.json { head :no_content }
     end
+  end
+
+private
+
+  def authenticate_or_create!
+
+    if current_user.nil? && params[:review][:user][:email].blank?
+      redirect_to :new_user_session, notice: "Please login"
+      return
+    elsif current_user
+      @user = current_user
+    elsif params[:review][:user]
+      @user = User.find_or_create_by_email(params[:review][:user][:email])
+    end   
   end
 end

@@ -62,16 +62,13 @@
 
 - if @wine.winemakers.include? current_user
   = link_to 'Edit', edit_wine_path(@wine)                                        
-
 .row
   .span6
-    %a.btn.btn-simple{ "data-toggle" => "modal", href: "#review-modal" }
+    %a.btn.btn-simple{ "data-toggle" => "modal", href: "#reviewModal#{@wine.id}" }
       %i.icon-th-list
       blooch about this wine
   .span6
     %h1 Reviews
-
-
 %table
   - @reviews.each do |review|
     %tr 
@@ -79,6 +76,4 @@
         .badge= review.rating
         = link_to review.reviewer.name, user_path(review.reviewer.id)
         = review.content
-
-= render 'review-modal'
-
+= render partial: 'review-modal', object: @wine, as: 'wine'

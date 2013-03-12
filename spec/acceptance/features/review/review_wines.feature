@@ -9,11 +9,24 @@ Feature: Review wines
     And I press "blooch about this wine"
     And I fill in "early pear, late harvest" for "review_content"
     And I press "Publish this blooch"
-    Then I should see a notice with ""
-
+    Then I should see a notice with "successfully created"
+  
   Scenario: unregistered user reviews a wine from its page
-    Given I am on a wine's page 
+    Given I am not logged in 
+    And I am on a wine's page
+    And I press "blooch about this wine"
+    And I fill in "review_content" with "awesome stuff get some!"
+    And I fill in "ken.zinns@gmail.com" for "review_user_email"
+    And I press "Publish this blooch"
+    Then I should see a notice with "successfully created"
 
-  Scenario: registered user reviews a wine from its page 
+  Scenario: unregistered user reviews a wine from its page without also signing up
+    Given I am not logged in 
+    And I am on a wine's page
+    And I press "blooch about this wine"
+    And I fill in "review_content" with "awesome stuff get some!"
+    And I press "Publish this blooch"
+    Then I should see a notice with "Please login"
+
 
   

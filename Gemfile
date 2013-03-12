@@ -50,18 +50,11 @@ group :test do
   gem 'database_cleaner', '0.9.1'
   gem 'launchy', '2.1.2'
   gem 'headless', '0.3.1'
-
- # Guards
-  gem 'guard'
-  gem 'guard-spork'
-  gem 'guard-rspec'
-  gem 'guard-bundler'
-  gem 'guard-livereload'
-  gem 'guard-rails'
-  gem 'guard-sass', require: false
 end
 
-group :test, :development do 
+group :test, :development do
+  
+  gem "jasminerice" #, :git => 'https://github.com/bradphelan/jasminerice.git' 
   gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
   gem 'rspec-rails', '2.12'
   gem 'rspec-given', '2.2.0'
@@ -69,6 +62,16 @@ group :test, :development do
   gem 'rb-inotify', '~> 0.8.8'
   gem 'debugger'
   gem 'pry'
+
+  # Guards
+  gem 'guard'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'guard-rails'
+  gem 'guard-sass', require: false
+  gem 'guard-jasmine'
 end
 
 group :production do

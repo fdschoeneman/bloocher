@@ -18,10 +18,7 @@ FactoryGirl.define do
   			FactoryGirl.create_list(
   				:wine, evaluator.wines_count, winery: winery
   			)
-  		end
-  	
+  		end  	
   	end
-
-
   end
 end
