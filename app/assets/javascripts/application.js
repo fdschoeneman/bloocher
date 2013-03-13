@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require reviews
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require_tree .
 
 

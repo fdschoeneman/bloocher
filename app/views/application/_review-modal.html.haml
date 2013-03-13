@@ -6,8 +6,8 @@
       %h2= wine.name.titleize
 
   .modal-body.form-horizontal
-    = simple_form_for([wine, @review])  do |f|
-      = f.error_notification 
+    = simple_form_for([wine, @review], validate: true)  do |f|
+      / = f.error_notification 
       = f.input :content, as: :text, label: "notes about this wine", input_html: { rows: 7 }
       = f.input :wine_id, as: :hidden, input_html: { value: wine.id }
       - if user_signed_in?
@@ -18,3 +18,8 @@
       .modal-footer
         %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
         = f.button :submit, 'Publish this blooch', class: 'btn-primary'
+
+
+/ $('#reviewModal#{wine.id}').on('shown', function () {
+/   $(ClientSideValidations.selectors.forms).validate();
+/ });

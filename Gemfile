@@ -10,6 +10,8 @@ gem "bootstrap-sass", ">= 2.2.2.0"
 gem "sendgrid", ">= 1.0.1"
 gem "devise", ">= 2.1.2"
 gem "simple_form", ">= 2.0.4"
+gem "client_side_validations"
+gem "client_side_validations-simple_form"
 gem "figaro", ">= 0.5.0"
 gem 'font-awesome-rails'
 gem 'google-webfonts'
@@ -17,6 +19,7 @@ gem 'sextant'
 gem 'libv8'
 gem 'faker'
 gem 'kaminari'
+
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gmaps4rails'
 gem 'twitter-bootstrap-markup-rails', '0.3.2.2'
