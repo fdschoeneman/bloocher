@@ -9,6 +9,8 @@
 #
 SENDGRID_USERNAME: Your_Username
 SENDGRID_PASSWORD: Your_Password
-ADMIN_NAME: First User
-ADMIN_EMAIL: user@example.com
-ADMIN_PASSWORD: please
+ADMIN_NAME: HMFIC
+ADMIN_EMAIL: fred.schoeneman@gmail.com
+ADMIN_PASSWORD: password 
+ROLES: [admin, bloocher, VIP]
+

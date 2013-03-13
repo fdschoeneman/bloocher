@@ -6,4 +6,6 @@ class Review < ActiveRecord::Base
   belongs_to :reviewer, class_name: "User"
 
   validates :content, :reviewer_id, :wine_id, presence: true
+  validates :content, length: { minimum: 6}
+
 end

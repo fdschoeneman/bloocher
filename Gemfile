@@ -8,7 +8,11 @@ gem "thin", ">= 1.5.0"
 gem "haml", ">= 3.1.7"
 gem "bootstrap-sass", ">= 2.2.2.0"
 gem "sendgrid", ">= 1.0.1"
+
+# authentication
 gem "devise", ">= 2.1.2"
+gem "cancan"
+gem "rolify"
 gem "simple_form", ">= 2.0.4"
 gem "client_side_validations"
 gem "client_side_validations-simple_form"

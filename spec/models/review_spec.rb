@@ -43,6 +43,7 @@ describe Review do
   describe "validations" do 
 
     it { should validate_presence_of(:content) }
+    it { should ensure_length_of(:content).is_at_least(6) }
     it { should validate_presence_of(:reviewer_id) }
     it { should validate_presence_of(:wine_id) }
   end
