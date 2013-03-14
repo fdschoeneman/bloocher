@@ -25,14 +25,16 @@ namespace :db do
       puts "#{red("==>")} Clearing Current Data"
       Rake::Task['db:reset'].invoke
     # end
+    puts "#{green("==>")} Making sample users"
+    make_users
+    puts "#{green("==>")} Making user roles"
+    make_user_roles
     puts "#{green("==>")} Making admin user"
     make_admin_user
     ["hola.nicole@gmail.com"].each do |email|
       puts "#{green("==>")} Making #{email}"
       make_user(email)
     end
-    puts "#{green("==>")} Making sample users"
-    make_users
     puts "#{green("==>")} Making wineries"
     make_wineries    
     puts "#{green("==>")} Making wines"
@@ -58,6 +60,14 @@ namespace :db do
   end
 end
 
+def make_user_roles
+  
+  YAML.load(ENV['ROLES']).each do |role|
+    Role.find_or_create_by_name({ :name => role }, :without_protection => true)
+    puts "#{green("==>")} Making role: " << role
+  end
+end
+
 def make_user(email)
   
   user = User.new(
@@ -68,19 +78,21 @@ def make_user(email)
   user.skip_confirmation!
   user.save!
   user.confirm!
+  user.add_role :VIP
 end
 
 def make_admin_user
 
-  admin_user = User.new(
+  user = User.new(
     name: "Fred Schoeneman", 
     email: "fred.schoeneman@gmail.com", 
     password: "password",
     password_confirmation: "password", 
     bio: hipster_bio)
-  admin_user.skip_confirmation!
-  admin_user.save!
-  admin_user.confirm!
+  user.skip_confirmation!
+  user.save!
+  user.confirm!
+  user.add_role :admin
 end
 
 def make_users

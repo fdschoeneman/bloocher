@@ -1,19 +1,22 @@
 .row
-	.span12
-		%h1 Bloochers
-		%table 
-			%tr
-				%th Name
-				%th Bio
-				%th reviews
-				%th Wines made
-				%th Wineries owned
-			- @users.each do |user|
-				%tr
-					%td= link_to user.name, user_path(user.id)
-					%td= user.bio
-					%td= user.reviews.count
-					%td= user.winemaker_oeuvres.count
-					%td= user.ownerships.count
-
-		.pagination= paginate @users
+  .span12
+    %h1 Bloochers
+    %table 
+      %tr
+        %th Name
+        %th Email
+        %th Signed up
+        %th Confirmed?
+        %th Role
+      - @users.each do |user|
+        %tr
+          %td= link_to user.name, user_path(user.id)
+          %td= link_to user.email, user_path(user.id)
+          %td= user.created_at.to_date
+          %td= user.confirmed?
+          %td= user.roles.first.name.titleize unless user.roles.first.nil?
+          %td
+            %a.btn.btn-mini.btn-inverse{"data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change role
+            = render user
+          %td= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user
+    .pagination= paginate @users
