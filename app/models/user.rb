@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  rolify
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
   has_many :wineries_owned, through: :producers, source: :wineries
   has_many :reviews, foreign_key: :reviewer_id
 
+  rolify
+
+  has_settings do |setting|
+    setting.key :email,   defaults: { share_on_review: 'true', share_on_follow: 'false' }
+    setting.key :name,    defaults: { share_on_review: 'true', share_on_follow: 'false' }
+    setting.key :address, defaults: { share_on_review: 'true', share_on_follow: 'false' }
+  end
 
   def password_required?
     super if confirmed?

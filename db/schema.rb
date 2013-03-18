@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313082416) do
+ActiveRecord::Schema.define(:version => 20130317010540) do
 
   create_table "fruit_lots", :force => true do |t|
     t.decimal  "brix"
@@ -78,6 +78,17 @@ ActiveRecord::Schema.define(:version => 20130313082416) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "settings", :force => true do |t|
+    t.string   "var",         :null => false
+    t.text     "value",       :null => false
+    t.integer  "target_id",   :null => false
+    t.string   "target_type", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "settings", ["target_type", "target_id", "var"], :name => "index_settings_on_target_type_and_target_id_and_var", :unique => true
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -97,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20130313082416) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.text     "bio"
+    t.text     "preferences"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

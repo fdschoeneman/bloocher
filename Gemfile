@@ -23,7 +23,7 @@ gem 'sextant'
 gem 'libv8'
 gem 'faker'
 gem 'kaminari'
-
+gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gmaps4rails'
 gem 'twitter-bootstrap-markup-rails', '0.3.2.2'

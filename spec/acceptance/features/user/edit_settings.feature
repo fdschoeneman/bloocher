@@ -43,3 +43,6 @@ Feature: Edit settings
     And I press "Update"
     Then I should see a notice with "updated your account successfully" 
 
+  Scenario: Logged in user changes share on review setting
+    When I select the share on review checkbox
+

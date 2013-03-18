@@ -109,23 +109,6 @@ describe User do
     end
 
     it { should respond_to(:wineries_owned) }
-
-  #     # [:welcomes, :thankyous
-  #     # ].each do |model|
-  #     #   it { should have_many(model).class_name("Merciboku") }
-  #     # end
-
-  #     # it { should have_many(:thanked).through(:thankyous) }
-  #     # it { should have_many(:welcomed).through(:welcomes) }
-  #   end
-
-  #   describe "with bond model" do 
-
-  #   #   it { should have_many(:subordinate_bonds).dependent(:destroy) }
-  #   #   it { should have_many(:dominants).through(:subordinate_bonds) }
-  #   #   it { should have_many(:dominant_bonds).dependent(:destroy) }
-  #   #   it { should have_many(:subordinates).through(:dominant_bonds) }
-  #   # end
   end
   
   describe "methods" do 
@@ -133,28 +116,6 @@ describe User do
     it { should respond_to(:ownerships) }
     it { should respond_to(:producers) }
     it { should respond_to(:wines_made) }
-
-    describe "on bond model" do 
-
-      # it { should respond_to(:subordinates) }
-      # it { should respond_to(:dominants) }
-      # it { should respond_to(:subordinate_to?) }
-      # it { should respond_to(:submit!) }      
-      
-      # Given(:subordinate_user) { FactoryGirl.create(:subordinate) }
-      # Given(:dominant_user) { FactoryGirl.create(:dominant) }
-
-      describe "creating a bond" do
-        
-        # When { subordinate_user.submit!(dominant_user) }
-        # Then { subordinate_user.should be_subordinate_to(dominant_user) }
-        # Then { subordinate_user.dominants.should include(dominant_user)}
-        
-        # describe "and then destroying the same bond" do
-        #   When  { subordinate_user.emancipate!(dominant_user) }
-        #   Then  { dominant_user.subordinates.should_not include(subordinate_user) }
-        # end
-      end
-    end
+    it { should respond_to(:settings) }
   end
 end

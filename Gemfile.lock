@@ -157,6 +157,8 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.1.2)
       addressable (~> 2.3)
+    ledermann-rails-settings (2.0.1)
+      activerecord (~> 3.1)
     libv8 (3.11.8.13)
     libwebsocket (0.1.7.1)
       addressable
@@ -329,6 +331,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy (= 2.1.2)
+  ledermann-rails-settings
   libv8
   meta-tags
   pg

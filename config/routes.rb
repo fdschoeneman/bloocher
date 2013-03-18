@@ -1,12 +1,14 @@
 Bloocher::Application.routes.draw do
-  
+
   devise_for :users, controllers: { confirmations: 'confirmations'}
+
   devise_scope :user do 
     put "/confirm" => "confirmations#confirm"
+    get "/profile" => "profiles#show"
   end
 
   resources :users do 
-    resources :wines_made, :wineries_owned, :vineyards_owned
+    resources :wines_made, :wineries_owned, :vineyards_owned, :reviews
   end
     
   resources :fruit_lots
@@ -34,12 +36,13 @@ Bloocher::Application.routes.draw do
     resources :wines
   end
 
-  match '/about',   to: 'static#about'
-  match '/contact', to: 'static#contact'
-  match '/help',    to: 'static#help'
-  match '/privacy', to: 'static#privacy'
-  match '/terms',   to: 'static#terms'
-  match '/triq',    to: 'static#triq'
+  match '/about',     to: 'static#about'
+  match '/contact',   to: 'static#contact'
+  match '/help',      to: 'static#help'
+  match '/privacy',   to: 'static#privacy'
+  match '/terms',     to: 'static#terms'
+  match '/triq',      to: 'static#triq'
+  match '/settings',  to: 'users#settings'
 
   authenticated :user do
     root :to => 'static#home'
