@@ -27,6 +27,7 @@ gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gmaps4rails'
 gem 'twitter-bootstrap-markup-rails', '0.3.2.2'
+gem 'best_in_place'
 
 
 group :assets do
@@ -69,7 +70,6 @@ group :test, :development do
   gem 'rb-inotify', '~> 0.8.8'
   gem 'debugger'
   gem 'pry'
-  gem 'best_in_place'
 
   # Guards
   gem 'guard'
