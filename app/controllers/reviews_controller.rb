@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+  
   before_filter :authenticate_user!, except: [:create, :index, :show]  
   before_filter :authenticate_or_create!, only: :create
 
@@ -39,6 +39,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+
 
     @review = Review.create(wine_id: params[:review][:wine_id], 
                             content: params[:review][:content], 

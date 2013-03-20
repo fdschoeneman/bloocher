@@ -18,27 +18,14 @@
               %br
 
               .row
-                %h4.span1.blooch Blooches
+                %h4.span1#blooch Blooches
 
               - wine.reviews.each do |review|
                 %p 
                   .badge= review.rating
                   = review.content
                   = link_to review.reviewer.name, user_path(review.reviewer.name)
-                  / = link_to "read more about this frati", wine_path(wine.id), class: "pull-right"
             .span3
               = render partial: 'winery-wine-notes-modal', object: wine, as: 'wine'
             .span3
               = render partial: 'winery-wine-blooch-modal', object: wine, as: 'wine'
-              / %ul.ca-menu.unstyled
-              /   %li
-              /     %a{ "data-toggle" => "modal", :href => "#bloochModal#{wine.id}", :role => "button"}
-              /       %span.ca-icon
-              /         %i.icon-cloud
-              /       / %span.ca-icon Booch about this frati
-              /       .ca-content
-              /         %h2.ca-main Bloochinator
-              /         %h3.ca-sub Blooch on the cloud
-
-              /   = render partial: 'blooch-modal', object: wine, as: 'wine'
-              /   
