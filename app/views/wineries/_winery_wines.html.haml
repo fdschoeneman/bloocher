@@ -12,7 +12,7 @@
       .accordion-inner
         .row
           .span12
-            .span6
+            .span5
               %h4 Winemaker notes 
               = wine.winemaker_notes
               %br
@@ -27,15 +27,18 @@
                   = link_to review.reviewer.name, user_path(review.reviewer.name)
                   / = link_to "read more about this frati", wine_path(wine.id), class: "pull-right"
             .span3
-              %ul.ca-menu.unstyled
-                %li
-                  %a{ "data-toggle" => "modal", :href => "#reviewModal#{wine.id}", :role => "button"}
-                    %span.ca-icon
-                      %i.icon-glass
-                    / %span.ca-icon Booch about this frati
-                    .ca-content
-                      %h2.ca-main Leave your blooch
-                      %h3.ca-sub Add them to the cloud
+              = render partial: 'winery-wine-notes-modal', object: wine, as: 'wine'
+            .span3
+              = render partial: 'winery-wine-blooch-modal', object: wine, as: 'wine'
+              / %ul.ca-menu.unstyled
+              /   %li
+              /     %a{ "data-toggle" => "modal", :href => "#bloochModal#{wine.id}", :role => "button"}
+              /       %span.ca-icon
+              /         %i.icon-cloud
+              /       / %span.ca-icon Booch about this frati
+              /       .ca-content
+              /         %h2.ca-main Bloochinator
+              /         %h3.ca-sub Blooch on the cloud
 
-                = render partial: 'review-modal', object: wine, as: 'wine'
-                
+              /   = render partial: 'blooch-modal', object: wine, as: 'wine'
+              /   

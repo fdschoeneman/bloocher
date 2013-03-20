@@ -1,43 +1,66 @@
-.row
-  .span12
-    .row
-      %h2
-        = @user.name + "'s profile"
-    .row
-      .form-horizontal
-        = simple_form_for(@user, url: profile_path(@user), method: "put") do |f|
-          .span5
-            = f.error_notification
-            = display_base_errors resource
-            = f.input :name
-            = f.input :bio
-          .span6
-            .row
-            %legend
-              Account
-            .row
-              .span3
-                .pull-right
-                  #{@user.email}:
-              .span3
-                .pull-left
-                = link_to "change email", edit_user_registration_path
-                %br
-                = link_to "change password", edit_user_registration_path  
-            .row
-              .span3
-                .pull-right Role:
-              .span2
-                .pull-left
-                  = @user.roles.first.name
-            %legend
-              Privacy
-            = f.simple_fields_for :settings do |fs|
-              %legendd
-                Email
-                = fs.input :share_email, as: :boolean
-            = f.button :submit, :class => 'btn-primary'
-            %h3 Cancel my account
-            %p
-              Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.
-            = link_to "Back", :back
+.span12
+  .row
+    .span6
+      %legend About:
+      = profile_bip(:bio, :textarea, "Blooch about you'self, bloocher!")
+    .span6
+      %legend
+        Address
+      %dl.dl-horizontal
+        %dt Name:
+        %dd= profile_bip(:name, :input, "Your name") 
+        %dt Address:
+        %dd= profile_bip(:address_1, :input, "")
+        %dd= profile_bip(:address_2, :input, "")
+        %dd
+          = profile_bip(:city, :input, "") + ", "
+          = best_in_place @user, :state, path: profile_path(@user), type: :select, collection: us_states
+          = profile_bip(:zip, :input, "")
+        %dt
+          %abbr{title: "Phone"} P: 
+        %dd= profile_bip(:phone, :input, "your dijits")
+        %dt Website:
+        %dd= profile_bip(:website, :input, "")
+        %dt Email:
+        %dd= @user.email
+
+
+
+      %legend
+        .center
+          Account
+      %dl.dl-horizontal
+        %dd= link_to "change email", edit_user_registration_path
+        %dd= link_to "change password", edit_user_registration_path  
+      %legend
+        .center
+          Privacy settings
+    / .row
+    /   .form-horizontal
+    /     = simple_form_for(@user, url: profile_path(@user), method: "put") do |f|
+    /       .span5
+    /         = f.error_notification
+    /         = display_base_errors resource
+    /         = f.input :name
+    /         = f.input :bio
+    /       .span6
+    /         .row
+    /         %legend
+    /         .row
+    /           .span
+    /             .pull-right Role:
+    /           .span2
+    /             = @user.roles.first.name
+    /           %br
+    /           = button_to "edit email or password", edit_user_registration_path
+    /         %legend
+    /           Privacy
+    /         = f.simple_fields_for :settings do |fs|
+    /           %legendd
+    /             Email
+    /             = fs.input :share_email, as: :boolean
+    /         = f.button :submit, :class => 'btn-primary'
+    /         %h3 Cancel my account
+    /         %p
+    /           Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.
+    /         = link_to "Back", :back

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317010540) do
+ActiveRecord::Schema.define(:version => 20130319031057) do
 
   create_table "fruit_lots", :force => true do |t|
     t.decimal  "brix"
@@ -109,6 +109,13 @@ ActiveRecord::Schema.define(:version => 20130317010540) do
     t.string   "name"
     t.text     "bio"
     t.text     "preferences"
+    t.string   "phone"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "website"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

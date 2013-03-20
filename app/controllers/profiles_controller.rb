@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   
+  respond_to :json, :html
+
   def show
 
   	@user = current_user

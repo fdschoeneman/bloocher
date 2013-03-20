@@ -1,0 +1,10 @@
+%ul.ca-menu.unstyled
+  %li
+    %a{ :href => "#bloochModal#{wine.id}", :role => "button"}
+      %span.ca-icon
+        %i.icon-cloud
+      .ca-content
+        %h2.ca-main Bloochinator
+        %h3.ca-sub Blooch on the cloud
+
+  = render partial: 'blooch-modal', object: wine, as: 'wine'

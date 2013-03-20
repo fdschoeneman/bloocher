@@ -1,0 +1,11 @@
+%ul.ca-menu.unstyled
+  %li
+    %a{ "data-toggle" => "modal", :href => "#reviewModal#{wine.id}", :role => "button"}
+      %span.ca-icon
+        %i.icon-pencil
+      / %span.ca-icon Booch about this frati
+      .ca-content
+        %h2.ca-main Leave your pro notes
+        %h3.ca-sub Class up the cloud
+
+  = render partial: 'review-modal', object: wine, as: 'wine'

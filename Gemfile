@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
@@ -69,6 +69,7 @@ group :test, :development do
   gem 'rb-inotify', '~> 0.8.8'
   gem 'debugger'
   gem 'pry'
+  gem 'best_in_place'
 
   # Guards
   gem 'guard'

@@ -15,7 +15,8 @@ describe User do
       
       %w[email encrypted_password 
         reset_password_token current_sign_in_ip last_sign_in_ip
-        confirmation_token unconfirmed_email name
+        confirmation_token unconfirmed_email name phone address_1
+        address_2 city state zip website
         ].each do |column|
         it { should have_db_column(column.to_sym).of_type(:string) }
       end
@@ -23,7 +24,6 @@ describe User do
       it { should have_db_column(:sign_in_count).of_type(:integer) }
       
       it { should have_db_column(:bio).of_type(:text) }
-
     end
 
     describe 'indexes' do 
@@ -40,7 +40,7 @@ describe User do
     describe "mass assignable" do 
 
       %w[name email password password_confirmation
-        remember_me bio
+        remember_me bio phone address_1 address_2 city state zip phone website
       ].each do |attribute|
         it {should allow_mass_assignment_of(attribute.to_sym) }
       end
@@ -54,7 +54,7 @@ describe User do
         confirmation_token confirmed_at confirmation_sent_at 
         unconfirmed_email
       ].each do |attribute|
-        it {should_not allow_mass_assignment_of(attribute.to_sym) }
+        it { should_not allow_mass_assignment_of(attribute.to_sym) }
       end
     end
   end

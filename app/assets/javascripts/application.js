@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require best_in_place
 //= require bootstrap
 //= require reviews
 //= require rails.validations
 //= require rails.validations.simple_form
+
 //= require_tree .
 
 

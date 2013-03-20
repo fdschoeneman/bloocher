@@ -4,7 +4,7 @@ Bloocher::Application.routes.draw do
 
   devise_scope :user do 
     put "/confirm" => "confirmations#confirm"
-    get "/profile" => "profiles#show"
+    resource :profile
   end
 
   resources :users do 
