@@ -12,7 +12,7 @@
       = ", "
       = intmodifier
       = text_field_tag 'review[content][adjective]', "another adjective"
-      = text_field_tag 'review[content][varietal]', "varietal"
+      = text_field_tag 'review[content][varietal]', "varietal", options: { size: "4" }
       = ".  "
       = adverb
       = text_field_tag 'review[content][flavor]', "flavor"
@@ -22,9 +22,9 @@
       = ".  Pair with "
       = text_field_tag 'review[content][food]', "food or dessert item"
       = ".  Drink between "
-      / = text_field_tag('review[content][drink_after]', options: { min: 2013 } )
+      = number_field_tag 'drink_after', nil, in: 1..10, html_options: { maxlength: 4 }
       = " and "
-      = number_field_tag 'drink_by', nil, in: 2013..2033
+      = number_field_tag 'drink_by', nil, in: 2013..2033, options: { size: "4" }
       = "."
 
 
