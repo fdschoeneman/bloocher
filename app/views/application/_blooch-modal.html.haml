@@ -22,9 +22,9 @@
       = ".  Pair with "
       = text_field_tag 'review[content][food]', "food or dessert item"
       = ".  Drink between "
-      = text_field_tag 'review[content][drink_after]'
+      / = text_field_tag('review[content][drink_after]', options: { min: 2013 } )
       = " and "
-      = number_field_tag 'review[content][drink_before]'
+      = number_field_tag 'drink_by', nil, in: 2013..2033
       = "."
 
 
