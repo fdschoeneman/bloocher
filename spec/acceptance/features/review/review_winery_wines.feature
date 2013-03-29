@@ -27,3 +27,4 @@ Feature: Review wines
     And I fill in "late harvest, early pear" for "review_content"
     And I press "Publish this blooch"
     Then I should see a notice with "Please login"
+

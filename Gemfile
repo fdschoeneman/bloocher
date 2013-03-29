@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'rails', '3.2.13'
+gem 'pg'
 
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
@@ -38,7 +39,7 @@ end
 
 group :development do 
   gem 'travis-lint'
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'haml-rails', '0.3.5'
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
@@ -83,5 +84,5 @@ group :test, :development do
 end
 
 group :production do
-  gem 'pg'
+  # gem 'pg'
 end

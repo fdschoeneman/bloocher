@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319031057) do
+ActiveRecord::Schema.define(:version => 20130322074047) do
 
   create_table "fruit_lots", :force => true do |t|
     t.decimal  "brix"
@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(:version => 20130319031057) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.text     "bio"
-    t.text     "preferences"
     t.string   "phone"
     t.string   "address_1"
     t.string   "address_2"
@@ -226,6 +225,7 @@ ActiveRecord::Schema.define(:version => 20130319031057) do
     t.decimal  "three_yr_old_american_oak"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.string   "category"
   end
 
   add_index "wines", ["name"], :name => "index_wines_on_name"

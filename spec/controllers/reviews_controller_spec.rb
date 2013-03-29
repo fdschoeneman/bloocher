@@ -3,8 +3,9 @@ require 'spec_helper'
 describe ReviewsController do
 
   Given(:review) { FactoryGirl.create(:review) }
+  Given(:reviewer) { FactoryGirl.create(:user) }
   Given(:valid_session) { }
-  
+
   describe "GET index" do
     
     it "assigns all reviews as @reviews" do
@@ -62,35 +63,29 @@ describe ReviewsController do
     end
   end
 
+
   describe "POST create" do
-
-    Given(:reviewer) { FactoryGirl.create(:user) }
-    Given(:wine) { FactoryGirl.create(:wine) }
-
+    
     describe "with logged in user" do
 
-      When { sign_in reviewer }
+      Given { sign_in reviewer }
       
       describe "and valid attributes" do
+        
 
         Then { expect { post :create, { 
-              review: FactoryGirl.attributes_for(:review), wine_id: wine.id 
+              review: FactoryGirl.attributes_for(:review)
         } }.to change(Review, :count).by(1) }
       end
 
       describe "assigns a newly created review as @review" do
         
-        When { post :create, { review: FactoryGirl.attributes_for(:review), wine_id: wine.id } }
+        When { post :create, { review: FactoryGirl.attributes_for(:review) } }
         Then { assigns(:review).should be_a(Review) }
         
         describe "and the new review should be persisted" do 
 
           Then { assigns(:review).should be_persisted }
-
-          describe "and redirects to the review's associated wine" do 
-
-            Then { response.should redirect_to(wine) }
-          end
         end
       end
 
@@ -116,20 +111,20 @@ describe ReviewsController do
           }
         end
       end
+    end
 
-      describe "with new user email for simultaneous signup" do
+    describe "with new user email for simultaneous signup" do
 
-        When(:review) { FactoryGirl.attributes_for(
-          :review, user: { email: "some@email.com" } )
+      When(:review) { FactoryGirl.attributes_for(
+        :review, user: { email: "some@email.com" } )
+      }
+
+      describe "Saves a review" do
+
+        Then { expect {
+          post  :create, { review: review} 
+          }.to change(Review, :count).by(1) 
         }
-
-        describe "Saves a review" do
-
-          Then { expect {
-            post  :create, { review: review} 
-            }.to change(Review, :count).by(1) 
-          }
-        end
       end
     end
   end
@@ -138,12 +133,13 @@ describe ReviewsController do
 
     describe "with logged in user" do
       
-      When { sign_in review.reviewer }
-      
+      Given { sign_in reviewer }
+
       describe "finds the correct review for updating" do
         
         When { put :update, id: review, 
           review: FactoryGirl.attributes_for(:review) } 
+
         Then { assigns(:review).should eq (review) }
       end
 
@@ -154,10 +150,9 @@ describe ReviewsController do
         When { review.reload }
         Then { review.content.should eq "updated content" }
 
-
         describe "redirects to the review" do
           
-          Then { response.should redirect_to(review.wine.winery) }
+          Then { response.should redirect_to(wine_path(review.wine_id)) }
         end
       end
 

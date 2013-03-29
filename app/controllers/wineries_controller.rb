@@ -1,6 +1,7 @@
 class WineriesController < ApplicationController
 
   def index
+    @page_title = "Wineries"
 
     @wineries = Winery.order(:created_at).page params[:page]
 

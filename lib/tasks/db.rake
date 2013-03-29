@@ -140,7 +140,7 @@ def make_wines
       days_in_oak: rand(90..180),
       bottled_on: "#{bottled_on_year}-#{rand(1..12)}-#{rand(1..30)}",
       released_on: "#{released_on_year}-#{rand(1..12)}-#{rand(1..30)}",
-      
+      category: wine_types.sample,
       winemaker_notes: Faker::Lorem.paragraphs(5),
       ph: "#{(rand(665..755).to_f)/100}",
       residual_sugar: "#{(rand(1..5).to_f)/100}",

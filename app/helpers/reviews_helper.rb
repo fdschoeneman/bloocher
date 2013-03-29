@@ -1,5 +1,11 @@
 module ReviewsHelper
 
+  def hidden_review_item(item) 
+    item
+    hidden_field_tag '#{item}', "#{item}"
+
+  end
+
   def hipster_review
     first = intro + " " + intmodifier + " " + adjective + " " + varietal + ". "
     second = adverb + " " + flavor + ", " + adjective + " " + flavor + ", " + strength + " " + flavor 
@@ -95,7 +101,7 @@ module ReviewsHelper
     [
       "lingering","forward","strong","weak","bashful","corpulent","insipid","banal",
       "light","aggressive","hopeful","semi-weak","traces of","forceful",
-      "total absence of","perceptable","dainty","strong-willed","atomic traces of",
+      "total absence of","perceptible","dainty","strong-willed","atomic traces of",
       "scant","a modicum of"
     ].sample
   end

@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
   before_filter :authenticate_or_create!, only: :create
 
   def index
-    
+
+    @page_title = "Blooches"
     @reviews = Review.order(:rating).page params[:page]
 
     respond_to do |format|
@@ -39,16 +40,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
-
+    
     @review = Review.create(wine_id: params[:review][:wine_id], 
                             content: params[:review][:content], 
                             reviewer_id: @user.id)
+
     respond_to do |format|
 
       if @review.save
         format.html { redirect_to wine_path(@review.wine_id), notice: 'Review was successfully created.' }
-        format.json { render json: @review.wine, status: :created, location: @review.wine }
+        format.json { render json: @review.wine_id, status: :created, location: @review.wine }
       else
         format.html { render action: "new" }
         format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -62,7 +63,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.update_attributes(params[:review])
-        format.html { redirect_to @review.wine.winery, notice: 'Review was successfully updated.' }
+        format.html { redirect_to wine_path(@review.wine_id), notice: 'Review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,6 +84,10 @@ class ReviewsController < ApplicationController
   end
 
 private
+
+  def bloochinate
+  
+  end
 
   def authenticate_or_create!
 
