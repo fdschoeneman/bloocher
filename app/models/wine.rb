@@ -9,10 +9,8 @@ class Wine < ActiveRecord::Base
   attr_protected :wine_id, :created_at, :updated_at
 
 
-  validates :name, :vintage, :winery_id,
-            presence: true
-  validates :vintage, :cases_produced, 
-            numericality: true, allow_nil: true
+  validates :name, :vintage, :winery_id, presence: true
+  validates :vintage, :cases_produced, numericality: true, allow_nil: true
 
   belongs_to :winery
 

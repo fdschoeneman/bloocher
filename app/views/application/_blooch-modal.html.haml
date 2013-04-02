@@ -1,32 +1,37 @@
-.modal.hide.fade{ id: "bloochModal#{wine.id}", "aria-hidden" => "false", "aria-labelledby" => "#{wine.name}", role: "dialog", tabindex: "-1"}
+.modal.hide.fade{ id: "bloochModal#{wine.id}", "aria-hidden" => "false", "aria-labelledby" => "#{wine.name}", role: "dialog", tabindex: "-1" }
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
     #myModalLabel.centered
       %h3= wine.winery.name.titleize
       %h2= wine.name.titleize
   .modal-body
-    = simple_form_for([wine, @review])  do |f|
-      = f.input :wine_id, as: :hidden, input_html: { value: wine.id }
-      = text_field_tag 'adjective_1', nil, validate: { presence: true }, placeholder: "An adjective"
-      = ", "
-      = hidden_review_item(intmodifier)
-      = intmodifier
-      = text_field_tag 'adjective_2', nil, placeholder: "another adjective"
-      - if wine.category
-        = wine.category + "."
-      - else
-        #{text_field_tag :varietal}
-      = adverb
-      = text_field_tag :flavor_1, nil, placeholder: "a flavor"
-      = ", " + strength
-      = text_field_tag :flavor_2, nil, placeholder: "another flavor"
-      = ".  Pair with "
-      = text_field_tag :food, nil, placeholder: "a food or dessert"      
-      = ".  Drink between "
-      = number_field_tag :drink_after, nil, in: Date.today.year...2033, placeholder: "today"
-      = " and "
-      = number_field_tag :drink_before, nil, in: Date.today.year...2033, placeholder: "never"
-      = "."
+    = simple_form_for @review do |f|
+      / # = f.input :wine_id, as: :hidden, input_html: { value: wine.id }
+      = f.simple_fields_for :blooch do |fb|
+        = fb.text_field 'adjective_1', placeholder: "Pick an adjective"
+        = ", "
+        = fb.hidden_field('intmodifier', value: intmodifier)
+        = hidden_review_item(intmodifier)
+        = fb.text_field 'adjective_2', placeholder: "another adjective"
+        - if wine.category
+          = wine.category + "."
+          = fb.hidden_field('wine_category', value: wine.category)
+        - else
+          = fb.text_field 'wine_category', placeholder: "varietal or type"
+          = ".  "
+        = adverb
+        = fb.text_field 'flavor_1', placeholder: "Pick a flavor"
+        = ", " + strength
+        = fb.hidden_field('strength', value: strength)
+        = fb.text_field 'flavor_2', placeholder: "another flavor"
+        = ".  Pair with "
+        = fb.hidden_field('pair_setup', value: pair_setup)
+        = fb.text_field 'food', placeholder: "a food or dessert"      
+        = ".  Drink between "
+        = fb.number_field :drink_after, in: Date.today.year...2033, placeholder: "today"
+        = " and "
+        = fb.number_field :drink_before, in: Date.today.year...2033, placeholder: "never"
+        = "."
       .modal-footer
         .pull-left
           - if user_signed_in?

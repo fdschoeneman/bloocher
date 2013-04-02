@@ -46,6 +46,7 @@ describe Review do
     it { should ensure_length_of(:content).is_at_least(6) }
     it { should validate_presence_of(:reviewer_id) }
     it { should validate_presence_of(:wine_id) }
+    it { should validate_numericality_of(:wine_id) }
   end
 
   describe "associations" do 

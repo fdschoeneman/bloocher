@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe ReviewsController do
 
-  Given(:review) { FactoryGirl.create(:review) }
-  Given(:reviewer) { FactoryGirl.create(:user) }
+  Given(:review)    { FactoryGirl.create(:review) }
+  Given(:reviewer)  { FactoryGirl.create(:user) }
+  Given(:wine)      { FactoryGirl.create(:wine) }
   Given(:valid_session) { }
 
   describe "GET index" do
@@ -71,11 +72,22 @@ describe ReviewsController do
       Given { sign_in reviewer }
       
       describe "and valid attributes" do
-        
 
-        Then { expect { post :create, { 
-              review: FactoryGirl.attributes_for(:review)
-        } }.to change(Review, :count).by(1) }
+        describe "via pro-notes" do 
+
+          Then { expect { post :create, { 
+                review: FactoryGirl.attributes_for(:review), wine_id: wine.id
+          } }.to change(Review, :count).by(1) }
+        end
+
+        describe "via bloochinator" do 
+
+          Then { expect { post :create, { 
+                review: FactoryGirl.attributes_for(:blooch, content: nil), wine_id: wine.id
+          } }.to change(Review, :count).by(1) }
+        end
+
+
       end
 
       describe "assigns a newly created review as @review" do
@@ -90,8 +102,9 @@ describe ReviewsController do
       end
 
       describe "invalid attributes re-renders the 'new' template" do
-        
-        When { post :create, { review: { "wine_id" => "invalid value" } }, valid_session }
+
+        When { post :create, { 
+          review: FactoryGirl.attributes_for(:review, wine_id: "invalid") }, valid_session }
         Then { response.should render_template("new") }
       end
     end

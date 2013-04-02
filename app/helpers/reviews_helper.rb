@@ -1,10 +1,13 @@
 module ReviewsHelper
 
   def hidden_review_item(item) 
-    item
-    hidden_field_tag '#{item}', "#{item}"
+    item_instance ||= item
+    hidden_field_tag '#{item_instance}', "#{item_instance}"
+    "#{item_instance}"
 
   end
+
+
 
   def hipster_review
     first = intro + " " + intmodifier + " " + adjective + " " + varietal + ". "

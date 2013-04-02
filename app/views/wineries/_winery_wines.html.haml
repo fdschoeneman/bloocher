@@ -24,7 +24,10 @@
                 %p 
                   .badge= review.rating
                   = review.content
-                  = link_to review.reviewer.name, user_path(review.reviewer.name)
+                  - unless review.reviewer.name.nil?
+                    = link_to review.reviewer.name, user_path(review.reviewer.name)
+                  - else
+                    anonymous
             .span3
               = render partial: 'winery-wine-notes-modal', object: wine, as: 'wine'
             .span3

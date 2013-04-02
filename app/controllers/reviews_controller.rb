@@ -40,10 +40,19 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    
+
+    if params[:review][:content]
+      
+      content = params[:review][:content]
+    else
+      
+      content = bloochinate(params[:review][:blooch])
+    end
+  
     @review = Review.create(wine_id: params[:review][:wine_id], 
-                            content: params[:review][:content], 
+                            content: content, 
                             reviewer_id: @user.id)
+
 
     respond_to do |format|
 
@@ -85,8 +94,26 @@ class ReviewsController < ApplicationController
 
 private
 
-  def bloochinate
-  
+  def bloochinate(params)
+     
+    adjective_1 = params[:adjective_1].titleize
+    intmodifier = params[:intmodifier]
+    adjective_2 = params[:adjective_2]
+    wine_category = params[:wine_category]
+    flavor_1 = params[:flavor_1]
+    strength = params[:strength]
+    flavor_2 = params[:flavor_2]
+    pair_setup = params[:pair_setup]
+    food = params [:food]
+    drink_after = params[:drink_after]
+    drink_before = params[:drink_before]
+    
+    intro = adjective_1 + ", " + intmodifier + " " + adjective_2 + " " 
+    wine_category = wine_category + ".  "
+    flavors = flavor_1 + " " + strength + ", " + flavor_2 + ".  "
+    pairing = pair_setup + " " + food + ".  "
+    laydown = "Drink between " + drink_after + " and " + drink_before + "."
+    intro + wine_category + flavors + pairing + laydown
   end
 
   def authenticate_or_create!
