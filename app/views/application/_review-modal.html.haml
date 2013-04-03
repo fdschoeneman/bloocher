@@ -6,8 +6,8 @@
       %h2= wine.name.titleize
 
   .modal-body.form-horizontal
-    = simple_form_for([wine, @review], validate: true)  do |f|
-      = f.input :content, as: :text, validate: true, label: "notes about this wine", input_html: { rows: 7 }
+    = simple_form_for([wine, @review])  do |f|
+      = f.input :content, as: :text, validate: { presence: true }, label: "notes about this wine", input_html: { rows: 7 }
       = f.input :wine_id, as: :hidden, input_html: { value: wine.id }
       - if user_signed_in?
         Reviewing as #{current_user.name}

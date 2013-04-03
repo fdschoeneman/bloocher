@@ -13,7 +13,7 @@
         .row
           .span12
             .span5
-              %h4 Winemaker notes 
+              %h4 Winemaker notes | #{link_to "details", wine_path(wine.id)}
               = wine.winemaker_notes
               %br
 

@@ -1,5 +1,5 @@
 .row
-  .span3.offset1
+  .span3.offset1#signin
     .well
       %legend
         Sign in
@@ -9,7 +9,7 @@
         = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
         = f.button :submit, "Sign in", :class => 'btn-primary'
 
-  .span3.offset1
+  .span3.offset1#signup
     %legend
       Sign up
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f|

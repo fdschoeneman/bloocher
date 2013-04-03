@@ -108,10 +108,10 @@ private
     drink_after = params[:drink_after]
     drink_before = params[:drink_before]
     
-    intro = adjective_1 + ", " + intmodifier + " " + adjective_2 + " " 
+    intro = adjective_1.capitalize + ", " + intmodifier + " " + adjective_2 + " " 
     wine_category = wine_category + ".  "
-    flavors = flavor_1 + " " + strength + ", " + flavor_2 + ".  "
-    pairing = pair_setup + " " + food + ".  "
+    flavors = flavor_1.capitalize + ", " + strength + " " + flavor_2 + ".  "
+    pairing = pair_setup.capitalize + " " + food + ".  "
     laydown = "Drink between " + drink_after + " and " + drink_before + "."
     intro + wine_category + flavors + pairing + laydown
   end

@@ -14,6 +14,7 @@ class WineriesController < ApplicationController
   def show
 
     @winery = Winery.find(params[:id])
+    @page_title = @winery.name
     @winery_wines = @winery.wines
     @wines = Kaminari.paginate_array(@winery_wines).page(params[:page]).per(4)
     @review = Review.new
@@ -24,10 +25,11 @@ class WineriesController < ApplicationController
       format.html 
       format.json { render json: @winery }
     end
+
   end
 
   def new
-
+    
     @winery = Winery.new
 
     respond_to do |format|
