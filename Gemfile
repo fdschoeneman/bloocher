@@ -15,8 +15,10 @@ gem "devise", ">= 2.1.2"
 gem "cancan"
 gem "rolify"
 gem "simple_form", ">= 2.0.4"
-gem "client_side_validations"
-gem "client_side_validations-simple_form"
+# gem "jquery-validation-rails"
+
+# gem "client_side_validations"
+# gem "client_side_validations-simple_form"
 gem "figaro", ">= 0.5.0"
 gem 'font-awesome-rails'
 gem 'google-webfonts'

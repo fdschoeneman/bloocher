@@ -15,8 +15,8 @@
 //= require best_in_place
 //= require bootstrap
 //= require reviews
-//= require rails.validations
-//= require rails.validations.simple_form
+//= require jquery.validate
+//= require jquery.validate.functions
 
 //= require_tree .
 

@@ -40,7 +40,7 @@ describe "Reviews" do
               click_button('Sign in') 
             } }
             
-            Then { save_and_open_page } 
+            # Then { save_and_open_page } 
           end
     
 
