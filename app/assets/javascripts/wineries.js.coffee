@@ -30,6 +30,4 @@ $(document).ready ->
     expression: "if(VAL != '') return true; else return false;"
     message: "We need your email.  Bloocher will never spam you, but we do share it with the winery as a courtesy."
     
-  $("#car_year").validate
-    expression: "if(VAL.match(/^\\d\\d\\d\\d$/)) return true; else return false;"
-    message: "Invalid format."
+

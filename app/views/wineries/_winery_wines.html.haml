@@ -28,7 +28,7 @@
                     = link_to review.reviewer.name, user_path(review.reviewer.name)
                   - else
                     anonymous
-            .span3
+            .span3.offset3
               = render partial: 'winery-wine-notes-modal', object: wine, as: 'wine'
-            .span3
-              = render partial: 'winery-wine-blooch-modal', object: wine, as: 'wine'
+            / / .span3
+            /   = render partial: 'winery-wine-blooch-modal', object: wine, as: 'wine'
