@@ -1,29 +1,30 @@
-= simple_form_for(@wine) do |f|
-  = f.error_notification
+.form-horizontal
+  = simple_form_for([@winery, @wine]) do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.input :vintage
-    = f.input :name
-    = f.input :cases_produced
-    = f.input :winery_id
-    = f.input :acid_added
-    = f.input :days_in_oak
-    = f.input :ph
-    = f.input :alcohol
-    = f.input :winemaker_notes
-    = f.input :new_french_oak
-    = f.input :new_french_oak
-    = f.input :new_french_oak
-    = f.input :new_french_oak
-    = f.input :new_french_oak
-    = f.input :new_french_oak
-    = f.input :bottled_on
-    = f.input :released_on
+    .form-inputs
+      = f.input :vintage
+      = f.input :name
+      = f.input :cases_produced
+      / = f.input :winery_id
+      = f.input :acid_added
+      = f.input :days_in_oak
+      = f.input :ph
+      = f.input :alcohol
+      = f.input :winemaker_notes
+      = f.input :new_french_oak
+      = f.input :new_french_oak
+      = f.input :new_french_oak
+      = f.input :new_french_oak
+      = f.input :new_french_oak
+      = f.input :new_french_oak
+      = f.input :bottled_on
+      = f.input :released_on
 
-    
-
-
+      
 
 
-  .form-actions
-    = f.button :submit
+
+
+    .form-actions
+      = f.button :submit

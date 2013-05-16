@@ -1,33 +1,46 @@
-%p#notice= notice
+.row
+  .span6
+    %p#notice= notice
+    %p
+      %b Producer name:
+      = @producer.name
 
-%p
-  %b Address 1:
-  = @producer.address_1
-%p
-  %b Address 2:
-  = @producer.address_2
-%p
-  %b City:
-  = @producer.city
-%p
-  %b State:
-  = @producer.state
-%p
-  %b Zip:
-  = @producer.zip
-%p
-  %b Name:
-  = @producer.name
-%p
-  %b Subdomain:
-  = @producer.subdomain
-%p
-  %b Web address:
-  = @producer.web_address
-%p
-  %b Public email:
-  = @producer.public_email
+    %p
+      %b Address 1:
+      = @producer.address_1
+    %p
+      %b Address 2:
+      = @producer.address_2
+    %p
+      %b City:
+      = @producer.city
+    %p
+      %b State:
+      = @producer.state
+    %p
+      %b Zip:
+      = @producer.zip
+    %p
+      %b Name:
+      = @producer.name
+    %p
+      %b Subdomain:
+      = @producer.subdomain
+    %p
+      %b Web address:
+      = @producer.web_address
+    %p
+      %b Public email:
+      = @producer.public_email
 
-= link_to 'Edit', edit_producer_path(@producer)
-\|
-= link_to 'Back', producers_path
+    = link_to 'Edit', edit_producer_path(@producer)
+    \|
+    = link_to 'Back', producers_path
+  .span6
+    - if @wineries.empty?
+      %p 
+      No wineries
+    = link_to "Create winery for this producer", new_producer_winery_path(@producer)
+    - @wineries.each do |winery|
+      %p
+        = link_to winery.name, winery_path(winery)  

@@ -3,7 +3,7 @@
     %h1= @winery.name
     %dl
       %dt producer
-      %dd= @winery.producer.name
+      %dd= link_to @winery.producer.name, producer_path(@winery.producer)
     %p
       %b Public email:
       = @winery.producer.public_email
@@ -55,6 +55,8 @@
   .span12
     %h3
       = "#{@winery_wines.count} Wines" 
+      - if current_user && current_user.has_role(:admin?)
+        = link_to "Add a new wine", new_winery_wine_path(@winery)
 .row
   .span12
     #accordion.accordion

@@ -41,7 +41,7 @@ describe Winery do
 
   describe "validations" do
 
-    %w[name producer_id].each do |attribute|
+    %w[name].each do |attribute|
       it { should validate_presence_of(attribute.to_sym) }
     end
   end

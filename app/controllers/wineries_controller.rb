@@ -30,7 +30,8 @@ class WineriesController < ApplicationController
 
   def new
     
-    @winery = Winery.new
+    @producer = Producer.find(params[:producer_id])
+    @winery = @producer.wineries.build
 
     respond_to do |format|
       format.html
@@ -44,8 +45,10 @@ class WineriesController < ApplicationController
   end
 
   def create
+    
 
-    @winery = Winery.new(params[:winery])
+    @winery = Winery.new(name: params[:winery][:name], producer_id: params[:producer_id])
+
 
     respond_to do |format|
       if @winery.save

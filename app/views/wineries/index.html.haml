@@ -2,29 +2,31 @@
 
 %table
   %tr
-    %th 
-    %th Name
-    %th Public email
-    %th Web address
-    %th Subdomain
-    %th
-    %th
-    %th
+    / %th 
+    / %th Name
+    / %th Public email
+    / %th Web address
+    / %th Subdomain
+    / %th
+    / %th
+    / %th
 
   - @wineries.each do |winery|
     %tr
-      %td.badge= winery.winery_rating
+      / winery.name
+      /%td.badge= winery.winery_rating
       %td= link_to winery.name, winery_path(winery.id)
-      %td= winery.producer.public_email
+      / %td= winery.producer.public_email
       
-      %td= link_to winery.producer.web_address, url_for(winery.producer.web_address)
-      %td= winery.producer.subdomain
-      %td= link_to 'Show', winery
-      %td= link_to 'Edit', edit_winery_path(winery)
-      %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
+      / %td= link_to winery.producer.web_address, url_for(winery.producer.web_address)
+      / %td= winery.producer.subdomain
+      / %td= link_to 'Show', winery
+      / %td= link_to 'Edit', edit_winery_path(winery)
+      / %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
 
 
 .paginate= paginate @wineries
 %br
 
 = link_to 'New Winery', new_winery_path
+

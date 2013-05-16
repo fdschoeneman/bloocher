@@ -1,7 +1,7 @@
 class Winery < ActiveRecord::Base
   attr_accessible :producer_id, :name
 
-  validates :name, :producer_id, presence: true
+  validates :name, presence: true, uniqueness: true
 
   has_many :wines
   has_many :reviews, through: :wines

@@ -25,7 +25,7 @@ describe Producer do
     describe 'mass assignable' do 
 
       %w[address_1 address_2 city name public_email state subdomain 
-        web_address zip wineries_attributes].each do |attribute|
+        web_address zip].each do |attribute|
         it {should allow_mass_assignment_of(attribute.to_sym) }
       end
     end

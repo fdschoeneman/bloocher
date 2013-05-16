@@ -14,6 +14,8 @@ class ProducersController < ApplicationController
   # GET /producers/1.json
   def show
     @producer = Producer.find(params[:id])
+    @wineries = @producer.wineries
+    @vineyards = @producer.vineyards
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class ProducersController < ApplicationController
   # GET /producers/new.json
   def new
     @producer = Producer.new
+    @producer.wineries.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,9 @@ class ProducersController < ApplicationController
   # POST /producers
   # POST /producers.json
   def create
-    @producer = Producer.new(params[:producer])
+    @producer = Producer.new(params[:producer][:winery])
+  
+    @winery = @producer.wineries.build(params[:producer][:winery])
 
     respond_to do |format|
       if @producer.save

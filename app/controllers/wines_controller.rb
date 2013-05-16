@@ -25,7 +25,9 @@ class WinesController < ApplicationController
   end
 
   def new
-    @wine = Wine.new
+    @winery = Winery.find(params[:winery_id])
+    @wine = @winery.wines.build
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,7 +40,9 @@ class WinesController < ApplicationController
   end
 
   def create
+
     @wine = Wine.new(params[:wine])
+    @wine.winery_id = params[:winery_id]
 
     respond_to do |format|
       if @wine.save

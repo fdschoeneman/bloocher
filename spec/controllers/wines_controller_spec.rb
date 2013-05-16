@@ -69,7 +69,7 @@ describe WinesController do
 
   describe "GET new" do
 
-    it "assigns a new wine as @wine" do
+    xit "assigns a new wine as @wine" do
       get :new, {}, valid_session
       assigns(:wine).should be_a_new(Wine)
     end
