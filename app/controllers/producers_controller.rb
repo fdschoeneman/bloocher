@@ -43,6 +43,7 @@ class ProducersController < ApplicationController
   # POST /producers
   # POST /producers.json
   def create
+
     @producer = Producer.new(params[:producer][:winery])
   
     @winery = @producer.wineries.build(params[:producer][:winery])
@@ -61,8 +62,8 @@ class ProducersController < ApplicationController
   # PUT /producers/1
   # PUT /producers/1.json
   def update
-    @producer = Producer.find(params[:id])
 
+    @producer = Producer.find(params[:id])
     respond_to do |format|
       if @producer.update_attributes(params[:producer])
         format.html { redirect_to @producer, notice: 'Producer was successfully updated.' }

@@ -26,4 +26,6 @@
 
     %br
 
-    = link_to 'New Wine', new_wine_path
+- if current_user && current_user.has_role?(:admin)
+
+  = link_to 'New Wine', new_wine_path

@@ -1,9 +1,11 @@
 .form-horizontal
-  = simple_form_for(@producer, class: "form-horizontal") do |f|
+  = simple_form_for([@producer], class: "form-horizontal") do |f|
     = f.error_notification
 
     .form-inputs
-      = f.input :name
+      = f.input :name, label: "Producer name"
+      / = f.simple_fields_for :wineries do |winery|
+      /  / = winery.input :name, label: "Winery name or label"
       = f.input :address_1
       = f.input :address_2
       = f.input :city

@@ -40,7 +40,7 @@
     - if @wineries.empty?
       %p 
       No wineries
-    = link_to "Create winery for this producer", new_producer_winery_path(@producer)
+    = link_to "Add winery name", new_producer_winery_path(@producer)
     - @wineries.each do |winery|
       %p
         = link_to winery.name, winery_path(winery)  
