@@ -44,9 +44,10 @@ class ProducersController < ApplicationController
   # POST /producers.json
   def create
 
-    @producer = Producer.new(params[:producer][:winery])
+    @producer = Producer.new(params[:producer])
   
-    @winery = @producer.wineries.build(params[:producer][:winery])
+    # @winery = @producer.wineries.build(params[:producer][:winery])
+
 
     respond_to do |format|
       if @producer.save

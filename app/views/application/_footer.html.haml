@@ -10,9 +10,10 @@
 .navbar.navbar-fixed-bottom.hidden-phone
   .navbar-inner
     .container
-      %ul.nav.pull-right
-        = nav_link_to "home", root_url
-        = render "boilerplate_links"
+      .span6.offset3
+        %ul.nav
+          = nav_link_to "home", root_url
+          = render "boilerplate_links"
 - unless user_signed_in?
   = render 'signup_modal'
   = render 'login_modal'
