@@ -41,14 +41,15 @@ class ReviewsController < ApplicationController
 
   def create
 
-    if params[:review][:content]
+    if params[:review][:content].present?
       
       content = params[:review][:content]
     else
       
       content = bloochinate(params[:review][:blooch])
     end
-  
+    
+
     @review = Review.create(wine_id: params[:review][:wine_id], 
                             content: content, 
                             reviewer_id: @user.id)

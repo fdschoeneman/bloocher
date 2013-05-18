@@ -22,9 +22,6 @@ $(document).ready ->
 		, title: "definition: blooch"
 		, content: "To prattle on, to talk aimlessly."} )
 
-  $("#review_content").validate
-    expression: "if(VAL != '') return true; else return false;"
-    message: "We need you to write something."
     
   $("#review_user_email").validate
     expression: "if(VAL != '') return true; else return false;"
