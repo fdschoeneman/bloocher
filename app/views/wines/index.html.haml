@@ -19,8 +19,9 @@
           %td= link_to wine.winery.name, winery_path(wine.winery.id)
           %td= wine.cases_produced
           %td= link_to 'Show', wine
-          %td= link_to 'Edit', edit_wine_path(wine)
-          %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
+          - if current_user && current_user.has_role?(:admin)
+            %td= link_to 'Edit', edit_wine_path(wine)
+            %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
     
     .paginate= paginate @wines
 

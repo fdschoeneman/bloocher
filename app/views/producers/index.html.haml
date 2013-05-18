@@ -27,9 +27,12 @@
       %td= producer.web_address
       %td= producer.public_email
       %td= link_to 'Show', producer
-      %td= link_to 'Edit', edit_producer_path(producer)
-      %td= link_to 'Destroy', producer, method: :delete, data: { confirm: 'Are you sure?' }
+      - if current_user && current_user.has_role?(:admin)
+
+        %td= link_to 'Edit', edit_producer_path(producer)
+        %td= link_to 'Destroy', producer, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
+- if current_user && current_user.has_role?(:admin)
 
-= link_to 'New Producer', new_producer_path
+  = link_to 'New Producer', new_producer_path
