@@ -25,7 +25,7 @@ $(document).ready ->
     
   $("#review_user_email").validate
     expression: "if(VAL != '') return true; else return false;"
-    message: "We need your email.  Bloocher will never spam you, but we do share it with the winery as a courtesy."
+    message: "Bloocher will never spam you."
     
   $(".accordion-toggle").on "shown", ->
     $(this).addClass "active"
