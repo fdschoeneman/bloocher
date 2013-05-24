@@ -43,19 +43,19 @@ describe ProducersController do
 
   describe "POST create" do
     describe "with valid params" do
-      xit "creates a new Producer" do
+      it "creates a new Producer" do
         expect {
           post :create, {:producer => valid_attributes}, valid_session
         }.to change(Producer, :count).by(1)
       end
 
-      xit "assigns a newly created producer as @producer" do
+      it "assigns a newly created producer as @producer" do
         post :create, {:producer => valid_attributes}, valid_session
         assigns(:producer).should be_a(Producer)
         assigns(:producer).should be_persisted
       end
 
-      xit "redirects to the created producer" do
+      it "redirects to the created producer" do
         post :create, {:producer => valid_attributes}, valid_session
         response.should redirect_to(Producer.last)
       end

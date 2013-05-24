@@ -1,4 +1,6 @@
 class Winery < ActiveRecord::Base
+  resourcify
+  
   attr_accessible :producer_id, :name
 
   validates :name, presence: true, uniqueness: true

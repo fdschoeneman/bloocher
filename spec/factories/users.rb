@@ -7,6 +7,10 @@ FactoryGirl.define do
     sequence(:email)      {|n| "user#{n}@test.com" }
     password              "password"
     confirmed_at Time.now
+
+    factory :admin do 
+      after(:create) { |user| user.add_role(:admin) } 
+    end
   end
 
   factory :unconfirmed_user, parent: :user do 

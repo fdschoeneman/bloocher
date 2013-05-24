@@ -1,4 +1,5 @@
 class Wine < ActiveRecord::Base
+  resourcify
   # attr_accessible :cases_produced, :vintage, :winemaker_notes, :name, :ph,
   #   :winery_id, :new_french_oak, :one_yr_old_french_oak, :acid_added,  
   #   :two_yr_old_french_oak, :three_yr_old_french_oak, 

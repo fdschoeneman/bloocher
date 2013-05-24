@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe WineriesController do
 
+  Given(:producer) { FactoryGirl.create(:producer) }
+
   def valid_attributes
     { "name" => "MyString", "producer_id" => "1" }
   end
@@ -34,8 +36,8 @@ describe WineriesController do
   end
 
   describe "GET new" do
-    xit "assigns a new winery as @winery" do
-      get :new, {}, valid_session
+    it "assigns a new winery as @winery" do
+      get :new, { producer_id: producer.id }, valid_session
       assigns(:winery).should be_a_new(Winery)
     end
   end

@@ -21,7 +21,7 @@ describe "Reviews" do
       
       describe "leave pro notes" do 
 
-        When { within("#collapse#{wine.id}") { click_on "Leave your pro notes" } }
+        When { within("#collapse#{wine.id}") { click_on "Blooch" } }
 
         describe "without email redirects to signin" do 
 

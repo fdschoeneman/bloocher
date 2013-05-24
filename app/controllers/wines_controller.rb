@@ -25,6 +25,8 @@ class WinesController < ApplicationController
   end
 
   def new
+    
+    
     @winery = Winery.find(params[:winery_id])
     @wine = @winery.wines.build
 

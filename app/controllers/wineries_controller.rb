@@ -29,6 +29,7 @@ class WineriesController < ApplicationController
   end
 
   def new
+
     @producer = Producer.find_by_id(params[:producer_id])
     @winery = @producer.wineries.build
 

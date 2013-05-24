@@ -1,4 +1,5 @@
 class Vineyard < ActiveRecord::Base
+  resourcify
   # accessible :appellation, :climate, :producer_id, :soil_composition, :topo_aspect, :name
   
   attr_protected :vineyard_id, :created_at, :updated_at

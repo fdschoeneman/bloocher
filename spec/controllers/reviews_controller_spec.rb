@@ -173,8 +173,7 @@ describe ReviewsController do
 
       describe "with invalid attributes" do 
 
-        When { put :update, id: review, 
-          review: invalid_review } 
+        When { put :update, id: review, review: invalid_review } 
         
         describe "locates the requested review" do 
 

@@ -3,6 +3,7 @@ require 'spec_helper'
 describe WinesController do
 
   Given(:wine) { FactoryGirl.create(:wine) }# , winery_id: winery.id)}
+  Given(:winery) { FactoryGirl.create(:winery) }
   Given(:wine_with_reviews) { FactoryGirl.create(:wine_with_reviews)}
   Given(:wine_with_fruit_lots) { FactoryGirl.create(:wine_with_fruit_lots) }
   # Given(:wine_with_vineyards) { FactoryGirl.create(:wine_with_fruit_lots) }
@@ -69,8 +70,8 @@ describe WinesController do
 
   describe "GET new" do
 
-    xit "assigns a new wine as @wine" do
-      get :new, {}, valid_session
+    it "assigns a new wine as @wine" do
+      get :new, { winery_id: winery.id } , valid_session
       assigns(:wine).should be_a_new(Wine)
     end
   end

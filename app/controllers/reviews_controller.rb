@@ -68,7 +68,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-
+    
     @review = Review.find(params[:id])
 
     respond_to do |format|

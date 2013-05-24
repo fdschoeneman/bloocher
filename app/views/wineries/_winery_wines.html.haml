@@ -25,7 +25,7 @@
                   .badge= review.rating
                   = review.content
                   - unless review.reviewer.name.nil?
-                    = link_to review.reviewer.name, user_path(review.reviewer.name)
+                    = link_to review.reviewer.name, user_path(review.reviewer)
                   - else
                     anonymous
             .span3.offset3

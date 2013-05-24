@@ -2,19 +2,58 @@ require 'spec_helper'
 
 describe "Wineries" do
 
-  Given (:winery) { FactoryGirl.create(:winery) }
+  Given!(:winery) { FactoryGirl.create(:winery) }
   
-  describe "GET /wineries" do
+  describe "for logged out user" do 
     
-    When { get wineries_path }
-    Then { response.status.should be(200) }
+    When { logout }
 
-    describe "list all wineries" do 
-
-      Given { winery }
+    describe "should show existing winery" do 
 
       When { visit wineries_path }
+
+      describe "but not link to new winery" do 
+
+        Then { page.should_not have_link("New Winery") }
+      end
+    end
+  end
+
+  describe "for logged in user" do 
+    
+    Given { login_as FactoryGirl.create(:user) }
+    
+    describe "should show existing winery" do 
+      
+      When { visit wineries_path }
       Then { page.should have_link(winery.name)}
+
+      describe "but not link to new winery" do 
+
+        Then { page.should_not have_link("New Winery") }
+      end
+    end
+
+    describe "request for new winery path should redirect to login" do
+
+      xit
+
+    end
+  end
+
+  describe "for logged in admin" do 
+    
+    Given { login_as FactoryGirl.create(:admin) } 
+
+    describe "should show existing winery" do 
+      
+      When { visit wineries_path }
+      Then { page.should have_link(winery.name)}
+      
+      describe "and link to new winery" do 
+
+        Then { page.should have_link("New Winery") }
+      end
     end
   end
 
@@ -44,11 +83,11 @@ describe "Wineries" do
       }}
     end
 
-    describe "should provide an average rating for all wines" do
+  #   describe "should provide an average rating for all wines" do
        
-    end
+  #   end
 
-    describe "should provide a list of vineyard partners" do
-    end
+  #   describe "should provide a list of vineyard partners" do
+  #   end
   end
 end

@@ -11,11 +11,19 @@ Feature: Review wines
     And I press "Publish this blooch"
     Then I should see a notice with "successfully created"
 
+  Scenario: Logged in user blooches from a winery's page 
+    Given I am logged in as a user
+    And I am on a winery's page
+    And I press the review button for the first wine
+    And I fill in "early pear, late harvest" for "review_blooch_adjective_1"
+    And I press "Publish this blooch"
+    Then I should see a notice with "successfully created"
+
   Scenario: Unregistered user reviews a wine and signs up from a winery's page   
     Given I am not logged in
     And I am on a winery's page
     And I press the review button for the first wine
-    And I fill in "early pear, late harvest" for "review_content"
+    And I fill in "early pear, late harvest" for "review_blooch_adjective_1"
     And I fill in "unregistered@test.com" for "review_user_email"
     And I press "Publish this blooch"
     Then I should see a notice with "successfully created"
@@ -28,3 +36,11 @@ Feature: Review wines
     And I press "Publish this blooch"
     Then I should see a notice with "Please login"
 
+  Scenario: Unregistered user reviews a wine and signs up from a winery's page   
+    Given I am not logged in
+    And I am on a winery's page
+    And I press the review button for the first wine
+    And I fill in "early pear, late harvest" for "review_content"
+    And I fill in "unregistered@test.com" for "review_user_email"
+    And I press "Publish this blooch"
+    Then I should see a notice with "successfully created"
