@@ -16,7 +16,6 @@ Spork.prefork do
   require 'email_spec'
   require 'turnip/capybara'
   require 'turnip_helper'
-  require 'database_cleaner'
 
   Capybara.javascript_driver = :webkit
 
@@ -32,22 +31,7 @@ Spork.prefork do
     config.mock_with :rspec
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.use_transactional_fixtures = false
-    config.infer_base_class_for_anonymous_controllers = true
-    # config.order = "random"
-    
-    # config.before(:suite) do
-    #   DatabaseCleaner.strategy = :transaction
-    #   DatabaseCleaner.clean_with(:truncation)
-    # end
-
-    # config.before(:each) do
-    #   DatabaseCleaner.start
-    #   # DatabaseCleaner.clean
-    # end
-
-    # config.after(:each) do
-    #   DatabaseCleaner.clean
-    # end
+    config.infer_base_class_for_anonymous_controllers = true    
   end
 end
 
