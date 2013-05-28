@@ -12,6 +12,7 @@ gem "sendgrid", ">= 1.0.1"
 
 # authentication
 gem "devise", ">= 2.1.2"
+gem 'devise_invitable', '~> 1.1.0'
 gem "cancan"
 gem "rolify"
 gem "simple_form", ">= 2.0.4"
