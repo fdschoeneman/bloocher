@@ -32,6 +32,7 @@ Spork.prefork do
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.use_transactional_fixtures = false
     config.infer_base_class_for_anonymous_controllers = true    
+    # config.order = "random"
   end
 end
 

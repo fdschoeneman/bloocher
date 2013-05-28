@@ -1,10 +1,11 @@
 require 'spec_helper'
 
-
 describe VineyardsController do
 
+  Given(:producer) { FactoryGirl.create(:producer) }
+
   def valid_attributes
-    { producer_id: "1",
+    { producer_id: producer.id,
     "name" => "random name" }
   end
 
@@ -13,6 +14,7 @@ describe VineyardsController do
   end
 
   describe "GET index" do
+    
     it "assigns all vineyards as @vineyards" do
       vineyard = Vineyard.create! valid_attributes
       get :index, {}, valid_session
@@ -30,7 +32,7 @@ describe VineyardsController do
 
   describe "GET new" do
     it "assigns a new vineyard as @vineyard" do
-      get :new, {}, valid_session
+      get :new, { producer_id: producer.id }, valid_session
       assigns(:vineyard).should be_a_new(Vineyard)
     end
   end
@@ -47,18 +49,18 @@ describe VineyardsController do
     describe "with valid params" do
       it "creates a new Vineyard" do
         expect {
-          post :create, {:vineyard => valid_attributes}, valid_session
+          post :create, { :vineyard => valid_attributes, producer_id: producer.id }, valid_session
         }.to change(Vineyard, :count).by(1)
       end
 
       it "assigns a newly created vineyard as @vineyard" do
-        post :create, {:vineyard => valid_attributes}, valid_session
+        post :create, {:vineyard => valid_attributes, producer_id: producer.id }, valid_session
         assigns(:vineyard).should be_a(Vineyard)
         assigns(:vineyard).should be_persisted
       end
 
       it "redirects to the created vineyard" do
-        post :create, {:vineyard => valid_attributes}, valid_session
+        post :create, {:vineyard => valid_attributes, producer_id: producer.id }, valid_session
         response.should redirect_to(Vineyard.last)
       end
     end

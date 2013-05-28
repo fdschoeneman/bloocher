@@ -1,11 +1,9 @@
-= simple_form_for(@vineyard) do |f|
+= simple_form_for( [@producer, @vineyard] ) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :producer_id
-    = f.input :appellation
-    = f.input :soil_composition
-    = f.input :climate
+    = f.input :name
+
 
   .form-actions
     = f.button :submit

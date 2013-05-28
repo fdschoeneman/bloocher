@@ -24,7 +24,9 @@ class VineyardsController < ApplicationController
   end
 
   def new
-    @vineyard = Vineyard.new
+
+    @producer = Producer.find_by_id(params[:producer_id])
+    @vineyard = @producer.vineyards.build
 
     respond_to do |format|
       format.html 
@@ -37,7 +39,8 @@ class VineyardsController < ApplicationController
   end
 
   def create
-    @vineyard = Vineyard.new(params[:vineyard])
+
+    @vineyard = Vineyard.new(name: params[:vineyard][:name], producer_id: params[:producer_id])
 
     respond_to do |format|
       if @vineyard.save

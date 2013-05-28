@@ -27,7 +27,6 @@
 
 .paginate= paginate @wineries
 %br
-
-- if current_user && current_user.has_role?(:admin)
+- if can? :create, @producer
   = link_to 'New Winery', new_producer_path
 

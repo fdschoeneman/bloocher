@@ -21,6 +21,6 @@
 %br
 
 
-- if current_user && current_user.has_role?(:admin)
+- if can? :create, @producer
 
-  = link_to 'New Vineyard', new_vineyard_path
+  = link_to 'New Vineyard', new_producer_path
