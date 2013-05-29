@@ -1,6 +1,8 @@
 Bloocher::Application.routes.draw do
 
-  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations'}
+  devise_for :users, controllers: { confirmations: 'confirmations', 
+                                    registrations: 'registrations',
+                                    invitations: 'users/invitations'}
 
   devise_scope :user do 
     put "/confirm" => "confirmations#confirm"
