@@ -58,7 +58,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'capybara-webkit'
-  # gem 'selenium-webdriver'
+  gem 'selenium-webdriver'
   gem 'database_cleaner', '0.9.1'
   gem 'launchy', '2.1.2'
   gem 'headless', '0.3.1'
