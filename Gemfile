@@ -6,8 +6,8 @@ gem 'pg'
 
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
-gem "haml", ">= 3.1.7"
-gem "bootstrap-sass", ">= 2.2.2.0"
+gem "haml"
+gem "bootstrap-sass"
 gem "sendgrid", ">= 1.0.1"
 
 # authentication
@@ -35,9 +35,9 @@ gem 'best_in_place'
 
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 group :development do 
@@ -54,11 +54,11 @@ group :test do
   gem 'spork', '>= 1.0.0rc3'
   gem 'spork-rails'
   gem 'turnip', '1.0.0'
-  gem 'email_spec', '1.4.0'
-  gem 'shoulda-matchers', '1.4.1'
-  gem 'capybara', '1.1.3'
-  gem 'capybara-webkit', '0.13.0'
-  gem 'selenium-webdriver', '2.26.0'
+  gem 'email_spec'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  # gem 'selenium-webdriver'
   gem 'database_cleaner', '0.9.1'
   gem 'launchy', '2.1.2'
   gem 'headless', '0.3.1'
@@ -71,7 +71,7 @@ group :test, :development do
   gem 'rspec-rails', '2.12'
   gem 'rspec-given', '2.2.0'
   gem 'factory_girl_rails', '4.1.0' 
-  gem 'rb-inotify', '~> 0.8.8'
+  gem 'rb-inotify', '~> 0.9'
   gem 'debugger'
   gem 'pry'
 
