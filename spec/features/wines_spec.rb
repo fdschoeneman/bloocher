@@ -7,14 +7,14 @@ describe "Wines" do
 
   describe "index" do 
 
-    When { get wines_path }
-    Then { response.status.should be(200) }
+    When { visit wines_path }
+    Then { page.title.should =~ /Wines/ }
   end
 
   describe "show" do 
 
-    When { get wine_path(review.wine_id) }
-    Then { response.status.should be(200) }
+    When { visit wine_path(review.wine_id) }
+    Then { page.title.should include "#{review.wine.name}" }
   end
 
   describe "wine page" do 

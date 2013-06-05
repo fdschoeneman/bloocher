@@ -1,7 +1,7 @@
 module UtilitySteps 
 
   step 'I am on the home page' do
-    visit root_url
+    visit "/"
   end
 
   step 'I am on the :path path' do |path|
@@ -13,10 +13,12 @@ module UtilitySteps
   end
 
   step 'I follow the :link link' do |link|
+    Capybara.match = :first
     click_link(link)
   end
 
   step 'I fill in :value for :key' do |value, key|
+    Capybara.match = :first
     fill_in key, with: value
   end
 

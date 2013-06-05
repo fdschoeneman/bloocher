@@ -1,7 +1,7 @@
 class ProducersController < ApplicationController
-  # GET /producers
-  # GET /producers.json
+
   def index
+    @page_title = "Producers"
     @producers = Producer.all
 
     respond_to do |format|
@@ -10,8 +10,6 @@ class ProducersController < ApplicationController
     end
   end
 
-  # GET /producers/1
-  # GET /producers/1.json
   def show
     @producer = Producer.find(params[:id])
     @wineries = @producer.wineries

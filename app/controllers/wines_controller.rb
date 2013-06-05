@@ -1,6 +1,7 @@
 class WinesController < ApplicationController
 
   def index
+    @page_title = "Wines"
     @wines = Wine.order(:created_at).page params[:page]
 
     respond_to do |format|
@@ -11,6 +12,7 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
+    @page_title = @wine.name
     @reviews = @wine.reviews
     @fruit_lots = @wine.fruit_lots
     @wine_fruit_lots = @wine.wine_fruit_lots.order("percent_of_wine")

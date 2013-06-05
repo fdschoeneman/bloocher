@@ -4,6 +4,7 @@ class VineyardsController < ApplicationController
 
   def index
 
+    @page_title = "Vineyards"
     @vineyard_parents = Vineyard.where(vineyard_parent_id: nil)
     @vineyards = Kaminari.paginate_array(@vineyard_parents).page(params[:page]).per(10)
 

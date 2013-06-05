@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe InvitationsController do
+describe Users::InvitationsController do
 
 end

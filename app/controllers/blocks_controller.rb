@@ -2,6 +2,8 @@ class BlocksController < ApplicationController
   # GET /blocks
   # GET /blocks.json
   def index
+
+    @page_title = "Blocks"
     @blocks = Vineyard.all
 
     respond_to do |format|

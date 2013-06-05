@@ -2,6 +2,7 @@ class VineyardVintagesController < ApplicationController
   # GET /vineyard_vintages
   # GET /vineyard_vintages.json
   def index
+    @page_title = "Vineyard vintages"
     @vineyard_vintages = VineyardVintage.all
 
     respond_to do |format|

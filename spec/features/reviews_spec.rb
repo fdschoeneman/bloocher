@@ -9,9 +9,10 @@ describe "Reviews" do
 
   describe "GET /reviews" do
 
-    it "should be successful" do 
-      get reviews_path
-      response.status.should be(200)
+    describe "success" do 
+
+      When { visit reviews_path }
+      Then { page.title.should =~ /Blooches/ }
     end
 
     describe "should list the name of the wine" do 
@@ -21,7 +22,10 @@ describe "Reviews" do
       
       describe "leave pro notes" do 
 
-        When { within("#collapse#{wine.id}") { click_on "Blooch" } }
+        When { within("#collapse#{wine.id}") do   
+            click_on "Blooch"
+          end  
+        }
 
         describe "without email redirects to signin" do 
 

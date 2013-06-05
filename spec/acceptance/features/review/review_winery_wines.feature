@@ -7,7 +7,7 @@ Feature: Review wines
     Given I am logged in as a user
     And I am on a winery's page
     And I press the review button for the first wine
-    And I fill in "early pear, late harvest" for "review_content"
+    And I fill in "early pear, late harvest" for "review_content" 
     And I press "Publish this blooch"
     Then I should see a notice with "successfully created"
 
