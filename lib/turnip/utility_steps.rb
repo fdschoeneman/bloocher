@@ -17,6 +17,11 @@ module UtilitySteps
     click_link(link)
   end
 
+  step 'I follow the :link link within the :selector selector' do |link, selector|
+    Capybara.match = :first
+    click_link(link)
+  end
+
   step 'I fill in :value for :key' do |value, key|
     Capybara.match = :first
     fill_in key, with: value
