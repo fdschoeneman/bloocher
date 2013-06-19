@@ -16,7 +16,7 @@ describe User do
       %w[email encrypted_password 
         reset_password_token current_sign_in_ip last_sign_in_ip
         confirmation_token unconfirmed_email name phone address_1
-        address_2 city state zip website
+        address_2 city state zip website  
         ].each do |column|
         it { should have_db_column(column.to_sym).of_type(:string) }
       end

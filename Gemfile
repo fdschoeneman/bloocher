@@ -35,6 +35,8 @@ gem 'best_in_place'
 
 
 group :assets do
+  gem 'parallel_tests'
+  gem 'zeus-parallel_tests'  
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'

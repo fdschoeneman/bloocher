@@ -3,7 +3,7 @@ class CreateVineyards < ActiveRecord::Migration
     create_table :vineyards do |t|
       t.integer :producer_id
       t.integer :vineyard_parent_id
-      t.string :appellation
+      t.integer :appellation_id
       t.string :topo_aspect
       t.integer :topo_slope
       t.integer :topo_elevation
@@ -31,6 +31,6 @@ class CreateVineyards < ActiveRecord::Migration
     end
 
     add_index :vineyards, :name
-    add_index :vineyards, :appellation
+    add_index :vineyards, :appellation_id
   end
 end

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @appellation.name
+%p
+  %b Type:
+  = @appellation.type
+%p
+  %b Description:
+  = @appellation.description
+%p
+  %b Map:
+  = @appellation.map
+
+= link_to 'Edit', edit_appellation_path(@appellation)
+\|
+= link_to 'Back', appellations_path

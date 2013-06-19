@@ -33,7 +33,7 @@ end
 
 group 'tests' do 
 
-  guard 'rspec', turnip: true, all_on_start: false, all_after_pass: false  do
+  guard 'rspec', turnip: true, parallel: true, zeus: true, bundler: false, all_on_start: false, all_after_pass: false  do
 
     # factories
     watch(%r{^spec/factories/*}) { "spec/factories_spec.rb" }

@@ -1,0 +1,25 @@
+%h1 Listing appellations
+
+%table
+  %tr
+    %th Name
+    %th Type
+    %th Description
+    %th Map
+    %th
+    %th
+    %th
+
+  - @appellations.each do |appellation|
+    %tr
+      %td= appellation.name
+      %td= appellation.type
+      %td= appellation.description
+      %td= appellation.map
+      %td= link_to 'Show', appellation
+      %td= link_to 'Edit', edit_appellation_path(appellation)
+      %td= link_to 'Destroy', appellation, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Appellation', new_appellation_path

@@ -11,7 +11,7 @@ describe Vineyard do
         it { should have_db_column(column.to_sym).of_type(:datetime) }
       end
 
-      %w[appellation name soil_composition topo_aspect soil_composition 
+      %w[name soil_composition topo_aspect soil_composition 
         soil_drainage climate varietal clone rootstock irrigation
         ].each do |column|
         it { should have_db_column(column.to_sym).of_type(:string) }
@@ -22,7 +22,7 @@ describe Vineyard do
       it { should have_db_column(:soil_ph).of_type(:decimal).
         with_options(:scale => 2)}
 
-      %w[producer_id topo_slope topo_elevation seasonal_days_of_rain 
+      %w[appellation_id producer_id topo_slope topo_elevation seasonal_days_of_rain 
         avg_seasonal_humidity days_over_100 growing_deg_days 
         growing_season_length winter_min_temp planted_on grafted_on]
       it { should have_db_column(:producer_id).of_type(:integer) }
@@ -31,7 +31,7 @@ describe Vineyard do
     describe 'indexes' do 
 
       it { should have_db_index(:name)}
-      it { should have_db_index(:appellation) }
+      it { should have_db_index(:appellation_id) }
     end
   end
 

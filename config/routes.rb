@@ -1,5 +1,8 @@
 Bloocher::Application.routes.draw do
 
+  resources :appellations
+
+
   devise_for :users, controllers: { confirmations: 'confirmations', 
                                     registrations: 'registrations',
                                     invitations: 'users/invitations'}

@@ -3,8 +3,7 @@
 FactoryGirl.define do
   factory :vineyard do
 		association :producer
-		    # vineyard_parent_id 1
-    appellation "Anderson Valley"
+    appellation_id 1
     topo_slope 1
     soil_composition "Boonville Loam"
     climate "cool"

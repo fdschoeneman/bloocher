@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528205734) do
+ActiveRecord::Schema.define(:version => 20130619191043) do
+
+  create_table "appellations", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.text     "description"
+    t.string   "map"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "fruit_lots", :force => true do |t|
     t.decimal  "brix"
@@ -153,7 +162,7 @@ ActiveRecord::Schema.define(:version => 20130528205734) do
   create_table "vineyards", :force => true do |t|
     t.integer  "producer_id"
     t.integer  "vineyard_parent_id"
-    t.string   "appellation"
+    t.integer  "appellation_id"
     t.string   "topo_aspect"
     t.integer  "topo_slope"
     t.integer  "topo_elevation"
@@ -179,7 +188,7 @@ ActiveRecord::Schema.define(:version => 20130528205734) do
     t.datetime "updated_at",                                        :null => false
   end
 
-  add_index "vineyards", ["appellation"], :name => "index_vineyards_on_appellation"
+  add_index "vineyards", ["appellation_id"], :name => "index_vineyards_on_appellation_id"
   add_index "vineyards", ["name"], :name => "index_vineyards_on_name"
 
   create_table "wine_fruit_lots", :force => true do |t|
