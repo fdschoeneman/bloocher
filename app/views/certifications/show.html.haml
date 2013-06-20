@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @certification.name
+%p
+  %b Description:
+  = @certification.description
+%p
+  %b Url:
+  = @certification.url
+
+= link_to 'Edit', edit_certification_path(@certification)
+\|
+= link_to 'Back', certifications_path

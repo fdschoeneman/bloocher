@@ -16,7 +16,7 @@ class VineyardsController < ApplicationController
 
   def show
     @vineyard = Vineyard.find(params[:id])
-    @json = @vineyard.to_gmaps4rails
+    # @json = @vineyard.to_gmaps4rails
 
     respond_to do |format|
       format.html 

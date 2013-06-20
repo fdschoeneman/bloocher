@@ -1,5 +1,12 @@
 Bloocher::Application.routes.draw do
 
+
+
+  resources :certifications do 
+    resources :vineyards
+    resources :wineries 
+  end
+
   resources :appellations
 
 
@@ -13,13 +20,14 @@ Bloocher::Application.routes.draw do
   end
 
   resources :users do 
-    resources :wines_made, :wineries_owned, :vineyards_owned, :reviews
+    resources :wines, :wineries, :vineyards, :reviews
   end
     
   resources :fruit_lots
   resources :vineyard_vintages
   resources :blocks
   resources :reviews
+  
   resources :producers do 
     resources :wineries
     resources :vineyards

@@ -7,18 +7,6 @@ guard 'bundler' do
   watch('Gemfile')
 end
 
-guard 'spork', bundler: true, rspec_env: { 'RAILS_ENV' => 'test' }, wait: 200 do
-  watch('Gemfile.lock')
-  watch('config/application.rb')
-  watch('config/environment.rb')
-  watch('config/environments/test.rb')
-  watch(%r{^config/initializers/.+\.rb$})
-  watch('spec/spec_helper.rb') { :rspec }
-  watch('spec/turnip_helper.rb')
-  watch(%r{^spec/acceptance/steps/.+\.rb$})
-  watch(%r{^lib/turnip/.+\.rb$})
-end
-
 group 'livereload' do
 
   guard 'livereload' do

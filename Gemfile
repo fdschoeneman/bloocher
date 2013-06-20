@@ -70,10 +70,10 @@ group :test, :development do
   
   gem "jasminerice" #, :git => 'https://github.com/bradphelan/jasminerice.git' 
   gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
-  gem 'rspec-rails', '2.12'
+  gem 'rspec-rails'
   gem 'rspec-given', '2.2.0'
-  gem 'factory_girl_rails', '4.1.0' 
-  gem 'rb-inotify', '~> 0.9'
+  gem 'factory_girl_rails'
+  gem 'rb-inotify'
   gem 'debugger'
   gem 'pry'
 
