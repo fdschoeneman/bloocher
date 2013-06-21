@@ -10,6 +10,7 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'shoulda-matchers'
 require 'database_cleaner'
+require 'turnip/capybara'
 require 'turnip_helper'
 
 Capybara.javascript_driver = :webkit

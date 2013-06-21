@@ -1,6 +1,6 @@
 %h1 Listing certifications
 
-%table
+%table.table.table-hover
   %tr
     %th Name
     %th Description
@@ -11,9 +11,9 @@
 
   - @certifications.each do |certification|
     %tr
-      %td= certification.name
+      %td= link_to certification.name, certification_path(certification)
       %td= certification.description
-      %td= certification.url
+      %td= link_to certification.url, certification.url, confirm: "You sure about leaving the harpin' tidrick?"
       %td= link_to 'Show', certification
       %td= link_to 'Edit', edit_certification_path(certification)
       %td= link_to 'Destroy', certification, method: :delete, data: { confirm: 'Are you sure?' }

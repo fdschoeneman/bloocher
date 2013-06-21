@@ -57,6 +57,9 @@ namespace :db do
     make_fruit_lots
     puts "#{green("==>")} Making wine fruit lots"
     make_wine_fruit_lots
+    puts "#{green("==>")} Making certifications"
+    make_certifications
+
   end
 end
 
@@ -302,6 +305,23 @@ def make_wine_fruit_lots
       wine_id: rand(1..20),
       percent_of_wine: rand(20..100),
       fruit_lot_id: rand(1..20)
+    )
+  end
+end
+
+def make_certifications
+  %w[organic usda biodynamic].each do |certification|
+    Certification.create!(
+      name: certification, 
+      description: Faker::Lorem.paragraphs,
+      url: Faker::Internet.domain_name
+    )
+  end
+
+  10.times do |cp|
+    CertificationsProducer.create(
+      certification_id: rand(1..10), 
+      producer_id: rand(1..10)
     )
   end
 end

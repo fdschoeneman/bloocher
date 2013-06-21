@@ -33,6 +33,8 @@ gem 'gmaps4rails'
 gem 'twitter-bootstrap-markup-rails', '0.3.2.2'
 gem 'best_in_place'
 
+gem 'carrierwave'
+
 
 group :assets do
   gem 'parallel_tests'

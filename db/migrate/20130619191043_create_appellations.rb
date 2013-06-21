@@ -8,5 +8,7 @@ class CreateAppellations < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :appellations, [:name, :type], unique: true
   end
 end

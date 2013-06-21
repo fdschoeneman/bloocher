@@ -47,15 +47,13 @@ describe Producer do
 
   describe "associations" do
 
-    describe "with ownership model" do
 
-      it { should have_many(:ownerships).dependent(:destroy) }
-      it { should have_many(:owners).through(:ownerships).class_name("User") }
-      it { should have_many(:wineries) }
-      # it { should have_many(:vineyards) }
-
-      it { should accept_nested_attributes_for(:wineries) }
-
-    end
+    it { should have_many(:ownerships).dependent(:destroy) }
+    it { should have_many(:owners).through(:ownerships).class_name("User") }
+    it { should have_many(:wineries) }
+    it { should have_many(:vineyards) }
+    it { should have_many(:certifications_producers) }
+    it { should have_many(:certifications).through(:certifications_producers) }
+    it { should accept_nested_attributes_for(:wineries) }
   end
 end

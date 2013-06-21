@@ -1,7 +1,5 @@
 Bloocher::Application.routes.draw do
 
-
-
   resources :certifications do 
     resources :vineyards
     resources :wineries 
@@ -37,6 +35,7 @@ Bloocher::Application.routes.draw do
     resources :blocks 
     resources :vineyard_vintages
     resources :fruit_lots
+    resources :certifications
   end
 
   resources :wines do 
