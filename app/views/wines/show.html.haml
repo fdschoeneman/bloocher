@@ -1,7 +1,8 @@
 .row
   .span6
     %h4
-      .badge= @wine.winery.winery_rating
+      - if @wine.winery.reviews
+        .badge= @wine.winery.reviews.count
       = link_to @wine.winery.name, winery_path(@wine.winery.id)
     %h2
       .badge= @wine.rating

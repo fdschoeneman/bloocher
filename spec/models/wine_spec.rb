@@ -56,9 +56,14 @@ describe Wine do
 
   describe "validations" do
 
-    %w[name vintage].each do |attribute|
-      it { should validate_presence_of(attribute.to_sym) }
-    end
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:vintage) }
+    it { should validate_numericality_of(:vintage) }
+    it { should ensure_inclusion_of(:vintage).in_array(["1972", "2013"]) }
+    it { should ensure_exclusion_of(:vintage).in_array([
+      "sixty-two", "99999", "2", "last year", "20153"]).with_message(
+      /should be a year/
+    ) }
 
     %w[vintage cases_produced].each do |attribute|
       it { should validate_numericality_of(attribute.to_sym) }

@@ -15,7 +15,11 @@ describe Appellation do
 		describe "indexes" do 
 
 			it { should have_db_index([:name, :type]).unique(true) }
-
 		end
+	end
+
+	describe "associations" do
+
+		it { should have_many(:appellations_vineyards) }
 	end
 end

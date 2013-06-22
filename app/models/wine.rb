@@ -11,7 +11,8 @@ class Wine < ActiveRecord::Base
 
 
   validates :name, :vintage, presence: true
-  validates :vintage, :cases_produced, numericality: true, allow_nil: true
+  validates :vintage, :cases_produced, numericality: true
+  validates :vintage, length: { is: 4 }
 
   belongs_to :winery
 

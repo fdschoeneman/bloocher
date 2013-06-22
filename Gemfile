@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "thin", ">= 1.5.0"
 gem "haml"
 gem "bootstrap-sass"

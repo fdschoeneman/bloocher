@@ -21,4 +21,9 @@ $(document).ready ->
 	$('.blooch').popover( { trigger: 'hover', placement: 'left'
 		, title: "definition: blooch"
 		, content: "To prattle on, to talk aimlessly."} )
-	
+
+  $('#wine_bottled_on').datepicker 
+    dateformat: 'yy-mm-dd'
+
+  $('#wine_released_on').datepicker
+    dateformat: 'yy-mm-dd'  

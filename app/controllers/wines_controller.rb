@@ -28,6 +28,7 @@ class WinesController < ApplicationController
 
   def new
     
+    debugger
     
     @winery = Winery.find(params[:winery_id])
     @wine = @winery.wines.build
@@ -44,6 +45,7 @@ class WinesController < ApplicationController
   end
 
   def create
+
 
     @wine = Wine.new(params[:wine])
     @wine.winery_id = params[:winery_id]

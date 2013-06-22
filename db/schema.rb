@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620052059) do
+ActiveRecord::Schema.define(:version => 20130621194113) do
 
   create_table "appellations", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20130620052059) do
   end
 
   add_index "appellations", ["name", "type"], :name => "index_appellations_on_name_and_type", :unique => true
+
+  create_table "appellations_vineyards", :force => true do |t|
+    t.integer  "vineyard_id"
+    t.integer  "appellation_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "appellations_vineyards", ["vineyard_id", "appellation_id"], :name => "index_appellations_vineyards_on_vineyard_id_and_appellation_id", :unique => true
 
   create_table "certifications", :force => true do |t|
     t.string   "name"
