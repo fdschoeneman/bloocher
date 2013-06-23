@@ -10,7 +10,7 @@
       .modal-footer
         .navbar
           .centered
-            %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+            %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal", tabindex: "-1"} Close
             = f.button :submit, "Sign up and we'll confirm your email", class: 'btn-primary'
       .navbar.centered
         %ul.nav
