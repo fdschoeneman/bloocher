@@ -11,7 +11,8 @@
   - @vineyards.each do |vineyard|
     %tr
       %td= link_to vineyard.name, vineyard_path(vineyard.id)
-      %td= vineyard.appellation
+      - vineyard.appellations_vineyards.each do |av|
+        %td= av.appellation.name
       %td= link_to 'Show', vineyard
       - if current_user && current_user.has_role?(:admin)
         %td= link_to 'Edit', edit_vineyard_path(vineyard)

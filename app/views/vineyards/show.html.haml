@@ -11,7 +11,8 @@
         = @vineyard.producer.name
       %p
         %h4 Appellation:
-        = @vineyard.appellation
+        - @vineyard.appellations_vineyards.each do |av|
+          = av.appellation.name
       %p 
         %h4 Climate
       %dl.dl-horizontal

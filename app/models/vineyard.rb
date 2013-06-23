@@ -19,7 +19,7 @@ class Vineyard < ActiveRecord::Base
 
   accepts_nested_attributes_for :producer
 
-  # acts_as_gmappable
+  acts_as_gmappable
 
   def gmaps4rails_address
     # "281 41st street, oakland, ca 94611"

@@ -12,4 +12,11 @@ describe AppellationsVineyard do
 
 		it { should have_db_index([:vineyard_id, :appellation_id]).unique(true) }
 	end
+
+  describe "associations" do
+
+    it { should belong_to(:appellation) } 
+    it { should belong_to(:vineyard) } 
+
+  end
 end
