@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621194113) do
+ActiveRecord::Schema.define(:version => 20130624063532) do
 
   create_table "appellations", :force => true do |t|
     t.string   "name"
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(:version => 20130621194113) do
   add_index "ownerships", ["owner_id", "producer_id"], :name => "index_ownerships_on_owner_id_and_producer_id", :unique => true
   add_index "ownerships", ["owner_id"], :name => "index_ownerships_on_owner_id"
   add_index "ownerships", ["producer_id"], :name => "index_ownerships_on_producer_id"
+
+  create_table "positions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "positionable_id"
+    t.string   "positionable_type"
+    t.string   "title"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "positions", ["title", "user_id"], :name => "index_positions_on_title_and_user_id"
 
   create_table "producers", :force => true do |t|
     t.string   "address_1"

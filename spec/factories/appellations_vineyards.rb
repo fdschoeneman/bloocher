@@ -4,5 +4,8 @@ FactoryGirl.define do
   factory :appellations_vineyard do
     vineyard_id 1
     appellation_id 1
+
+    vineyard
+    appellation
   end
 end

@@ -17,6 +17,5 @@ describe AppellationsVineyard do
 
     it { should belong_to(:appellation) } 
     it { should belong_to(:vineyard) } 
-
   end
 end

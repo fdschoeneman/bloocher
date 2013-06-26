@@ -38,8 +38,6 @@ gem 'carrierwave'
 
 
 group :assets do
-  gem 'parallel_tests'
-  gem 'zeus-parallel_tests'  
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
@@ -67,28 +65,34 @@ group :test do
   gem 'database_cleaner', '0.9.1'
   gem 'launchy', '2.1.2'
   gem 'headless', '0.3.1'
+  # gem 'phantomjs'
 end
 
 group :test, :development do
   
-  gem "jasminerice" #, :git => 'https://github.com/bradphelan/jasminerice.git' 
-  gem "therubyracer", ">= 0.11.0", :platform => :ruby, :require => "v8"
+  gem 'parallel_tests'
+  gem 'zeus-parallel_tests'  
+  # gem "jasminerice" #, :git => 'https://github.com/bradphelan/jasminerice.git' 
+  gem 'therubyracer', ">= 0.11.0", :platform => :ruby, :require => "v8"
   gem 'rspec-rails'
   gem 'rspec-given', '2.2.0'
   gem 'factory_girl_rails'
+  gem 'teaspoon'
+  gem 'guard-teaspoon'
   gem 'rb-inotify'
+  gem 'rb-fsevent'
   gem 'debugger'
   gem 'pry'
 
   # Guards
   gem 'guard'
-  gem 'guard-spork'
+  # gem 'guard-zeus_server'
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-rails'
   gem 'guard-sass', require: false
-  gem 'guard-jasmine'
+  # gem 'guard-jasmine'
 end
 
 group :production do

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :website,
     :remember_me, :bio, :phone, :address_1, :address_2, :city, :state, :zip 
 
+  has_many :positions
   has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
   has_many :producers, through: :ownerships
   has_many :winemaker_oeuvres, foreign_key: :winemaker_id

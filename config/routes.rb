@@ -1,5 +1,8 @@
 Bloocher::Application.routes.draw do
 
+  resources :positions
+
+
   resources :certifications do 
     resources :vineyards
     resources :wineries 

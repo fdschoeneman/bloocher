@@ -47,3 +47,17 @@ group 'tests' do
     watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
   end
 end
+
+guard 'rails' do
+  watch('Gemfile.lock')
+  watch(%r{^(config|lib)/.*})
+end
+
+
+guard :teaspoon do
+  # Implementation files
+  watch(%r{app/assets/javascripts/(.+).js}) { |m| "#{m[1]}_spec" }
+
+  # Specs / Helpers
+  watch(%r{spec/javascripts/(.*)})
+end

@@ -22,6 +22,6 @@ class Vineyard < ActiveRecord::Base
   acts_as_gmappable
 
   def gmaps4rails_address
-    # "281 41st street, oakland, ca 94611"
+    "281 41st street, oakland, ca 94611"
   end
 end
