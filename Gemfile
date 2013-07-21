@@ -1,27 +1,54 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
 
-gem 'rails', '3.2.13'
+ruby '2.0.0'
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0'
+
+# Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use SCSS for stylesheets
+gem 'sass-rails'# , '~> 4.0.0'
+gem "bootstrap-sass"
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails'# , '~> 4.0.0'
+
+# server
+gem "thin", ">= 1.5.0"
+
+# javascripts to be included in application.js
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "thin", ">= 1.5.0"
+gem 'best_in_place'
+
+# view template engine
 gem "haml"
-gem "bootstrap-sass"
+
+# mail
 gem "sendgrid", ">= 1.0.1"
 
 # authentication
-gem "devise", ">= 2.1.2"
-gem 'devise_invitable', '~> 1.1.0'
+gem "devise", '3.0.0'
+gem 'devise_invitable', 
+    github: 'scambra/devise_invitable', 
+    branch: 'rails4'
 gem "cancan"
 gem "rolify"
-gem "simple_form", ">= 2.0.4"
+gem "simple_form", '3.0.0.rc'
 # gem "jquery-validation-rails"
 
 # gem "client_side_validations"
 # gem "client_side_validations-simple_form"
-gem "figaro", ">= 0.5.0"
+
+# environment variables
+gem "figaro"
+
 gem 'font-awesome-rails'
 gem 'google-webfonts'
 gem 'sextant'
@@ -31,17 +58,17 @@ gem 'kaminari'
 gem 'ledermann-rails-settings', :require => 'rails-settings'
 # gem 'meta-tags', :require => 'meta_tags'
 gem 'gmaps4rails'
-gem 'twitter-bootstrap-markup-rails', '0.3.2.2'
+# gem 'twitter-bootstrap-markup-rails', '0.3.2.2'
 gem 'best_in_place'
 
+# photo upload, resizing, rendering and storage
 gem 'carrierwave'
 
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
+
 
 group :development do 
   gem 'travis-lint'
@@ -54,8 +81,8 @@ end
 
 group :test do 
   
-  gem 'spork', '>= 1.0.0rc3'
-  gem 'spork-rails'
+  # gem 'spork', '>= 1.0.0rc3'
+  # gem 'spork-rails'
   gem 'turnip', '1.0.0'
   gem 'email_spec'
   gem 'shoulda-matchers'
@@ -70,15 +97,15 @@ end
 
 group :test, :development do
   
-  gem 'parallel_tests'
-  gem 'zeus-parallel_tests'  
+  # gem 'parallel_tests'
+  # gem 'zeus-parallel_tests'  
   # gem "jasminerice" #, :git => 'https://github.com/bradphelan/jasminerice.git' 
-  gem 'therubyracer', ">= 0.11.0", :platform => :ruby, :require => "v8"
-  gem 'rspec-rails'
-  gem 'rspec-given', '2.2.0'
+  # gem 'therubyracer', ">= 0.11.0", :platform => :ruby, :require => "v8"
+  # gem 'rspec-rails'
+  # gem 'rspec-given', '2.2.0'
   gem 'factory_girl_rails'
-  gem 'teaspoon'
-  gem 'guard-teaspoon'
+  # gem 'teaspoon'
+  # gem 'guard-teaspoon'
   gem 'rb-inotify'
   gem 'rb-fsevent'
   gem 'debugger'
@@ -87,14 +114,32 @@ group :test, :development do
   # Guards
   gem 'guard'
   # gem 'guard-zeus_server'
-  gem 'guard-rspec'
+  # gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-rails'
-  gem 'guard-sass', require: false
+  # gem 'guard-sass', require: false
   # gem 'guard-jasmine'
 end
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
 
-group :production do
-  # gem 'pg'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]

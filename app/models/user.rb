@@ -6,10 +6,6 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable
 
-  attr_accessible :role_ids, as: :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :website,
-    :remember_me, :bio, :phone, :address_1, :address_2, :city, :state, :zip 
-
   has_many :positions
   has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
   has_many :producers, through: :ownerships
