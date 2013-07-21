@@ -1,5 +1,4 @@
 class WinemakerOeuvre < ActiveRecord::Base
-  attr_accessible :wine_id, :winemaker_id
 
   validates :wine_id, :winemaker_id, presence: true
 
