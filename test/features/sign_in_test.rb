@@ -4,6 +4,6 @@ require "test_helper"
 feature "SignIn Feature Test" do
   scenario "the test is sound" do
     visit root_path
-    asser page.has_selector 'title', text: /bloocher/
+    asser page.has_selector? 'title', text: /bloocher/
   end
 end
