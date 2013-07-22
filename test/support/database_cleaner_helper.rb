@@ -1,4 +1,4 @@
-require 'database_cleaner'
+# require 'database_cleaner'
 
 # DatabaseCleaner.strategy = :transaction
 # DatabaseCleaner[:active_record].clean_with :transaction

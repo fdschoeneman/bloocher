@@ -23,8 +23,9 @@ gem "thin", ">= 1.5.0"
 # javascript 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'best_in_place'
-
+gem 'best_in_place',
+    github: 'bernat/best_in_place', 
+    branch: 'rails-4'
 # fonts
 gem 'font-awesome-rails'
 gem 'google-webfonts'
@@ -68,7 +69,6 @@ gem 'gmaps4rails'
 
 # common helpers for use with bootstrap
 # gem 'twitter-bootstrap-markup-rails'
-gem 'best_in_place'
 
 # photo upload, resizing, rendering and storage
 gem 'carrierwave'
@@ -87,31 +87,26 @@ end
 
 group :test do 
   
-  gem 'turnip', '1.0.0'
-  gem 'email_spec'
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
-  gem 'database_cleaner', '0.9.1'
-  gem 'headless', '0.3.1'
-  # gem 'phantomjs'
+  gem 'minitest-rails-shoulda', '~> 0.4.1'
+  gem 'minitest-capybara', '0.1'
+  gem 'minitest-rails-capybara'
+  gem 'wrong'
+  gem 'minitest-given'
+  gem 'minitest'
+
+  # pretty test output
+  gem 'ansi'
+  gem 'turn'
+
+  # capybara save_and_open dependency
+  gem 'launchy'
 end
 
 group :test, :development do
   
   # minitest
-  gem 'minitest-rails'
-  gem 'minitest-rails-shoulda'
-  gem 'minitest-given'
-  gem 'wrong'
-  
-  # pretty test output
-  gem 'turn'
-  gem 'ansi'
-
-  # capybara save_and_open dependency
-  gem 'launchy'
-  
+  gem 'minitest-rails', '0.5.2'
+    
   # preloads rails app for faster test and development tasks
   gem 'zeus'
 
@@ -126,14 +121,22 @@ group :test, :development do
   gem 'debugger'
   gem 'pry'
 
-  # gem 'teaspoon'
-
-
   # Guards
   gem 'guard'
+  gem 'guard-zeus'
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-minitest'
+
+  # gem 'teaspoon'
+  # gem 'turnip', '1.0.0'
+  # gem 'email_spec'
+  # gem 'capybara'
+  # gem 'capybara-webkit'
+  # gem 'selenium-webdriver'
+  # gem 'database_cleaner', '0.9.1'
+  # gem 'headless', '0.3.1'
+  # gem 'phantomjs'
   # gem 'guard-teaspoon'
 end
 

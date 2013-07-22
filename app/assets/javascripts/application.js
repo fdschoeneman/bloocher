@@ -17,5 +17,6 @@
 //= require reviews
 //= require jquery.validate
 //= require jquery.validate.functions
+//= require best_in_place
 //= require_tree .
 
