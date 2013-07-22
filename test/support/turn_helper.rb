@@ -7,7 +7,7 @@ Turn.config do |c|
   
   c.natural = true
   c.ansi = true
-  c.format = :cue
+  c.format = :pretty
 end
 
 # format options: :pretty, :dot, :cue, :marshal, :outline, :progress). Default: :pretty

@@ -92,7 +92,6 @@ group :test do
   gem 'minitest-rails-capybara'
   gem 'wrong'
   gem 'minitest-given'
-  gem 'minitest'
 
   # pretty test output
   gem 'ansi'
@@ -123,7 +122,6 @@ group :test, :development do
 
   # Guards
   gem 'guard'
-  gem 'guard-zeus'
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-minitest'
@@ -135,7 +133,7 @@ group :test, :development do
   # gem 'capybara-webkit'
   # gem 'selenium-webdriver'
   # gem 'database_cleaner', '0.9.1'
-  # gem 'headless', '0.3.1'
+  gem 'headless', '0.3.1'
   # gem 'phantomjs'
   # gem 'guard-teaspoon'
 end

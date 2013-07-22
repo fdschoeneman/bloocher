@@ -141,9 +141,6 @@ GEM
     guard-minitest (1.0.0)
       guard (>= 1.8)
       minitest (>= 2.1)
-    guard-zeus (0.0.1)
-      guard
-      zeus
     haml (3.1.8)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -151,6 +148,7 @@ GEM
       haml (~> 3.1)
       railties (>= 3.1, < 4.1)
     hashr (0.0.22)
+    headless (0.3.1)
     hike (1.2.3)
     hpricot (0.8.6)
     http_parser.rb (0.5.3)
@@ -343,9 +341,9 @@ DEPENDENCIES
   guard-bundler
   guard-livereload
   guard-minitest
-  guard-zeus
   haml
   haml-rails (= 0.3.5)
+  headless (= 0.3.1)
   hpricot (= 0.8.6)
   jbuilder (~> 1.2)
   jquery-rails
@@ -354,7 +352,6 @@ DEPENDENCIES
   launchy
   ledermann-rails-settings
   meta-tags
-  minitest
   minitest-capybara (= 0.1)
   minitest-given
   minitest-rails (= 0.5.2)
