@@ -352,6 +352,7 @@ DEPENDENCIES
   launchy
   ledermann-rails-settings
   meta-tags
+  minitest
   minitest-capybara (= 0.1)
   minitest-given
   minitest-rails (= 0.5.2)

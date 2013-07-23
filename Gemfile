@@ -104,10 +104,13 @@ end
 group :test, :development do
   
   # minitest
+  gem 'minitest'
   gem 'minitest-rails', '0.5.2'
     
   # preloads rails app for faster test and development tasks
-  gem 'zeus'
+  gem 'zeus'#, 
+    # github: 'burke/zeus', 
+    # branch: 'master'
 
   # test factories  
   gem 'factory_girl_rails'
