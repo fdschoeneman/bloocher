@@ -29,7 +29,8 @@ gem 'best_in_place',
 # fonts
 gem 'font-awesome-rails'
 gem 'google-webfonts'
-
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc6.2'
 # view template engine
 gem "haml"
 gem 'haml-rails', '0.3.5'

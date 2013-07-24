@@ -18,5 +18,14 @@
 //= require jquery.validate
 //= require jquery.validate.functions
 //= require best_in_place
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require bloocher
+
+// for more details see: http://emberjs.com/guides/application/
+Bloocher = Ember.Application.create();
+
 //= require_tree .
 
