@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130724054952) do
+ActiveRecord::Schema.define(version: 20130724063931) do
 
   create_table "appellations", force: true do |t|
     t.string   "name"
@@ -143,6 +143,14 @@ ActiveRecord::Schema.define(version: 20130724054952) do
     t.string   "name"
     t.text     "description"
     t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "showcases_wines", force: true do |t|
+    t.integer  "showcase_id"
+    t.integer  "wine_id"
+    t.integer  "blurb_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

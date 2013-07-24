@@ -16,4 +16,10 @@ class ShowcaseTest < ActiveSupport::TestCase
       it { must have_db_column(:version).of_type(:datetime) }
     end
   end
+
+  describe "associations" do 
+
+    it { must have_many(:showcases_wines) }
+
+  end
 end

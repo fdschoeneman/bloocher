@@ -2,18 +2,21 @@ require "test_helper"
 
 describe ShowcasesController do
 
-  Given!(:showcase) { FactoryGirl.create(:showcase) }
+  Given(:admin) { create(:admin) }
+    Given { sign_in admin }
 
+  Given!(:showcase) { FactoryGirl.build(:showcase) }
+  
   describe "must get index" do
 
-    When { get :index }
+    Given { get :index }
     Then { assert_response :success }
-    And { assert_not_nil assigns(:showcases) }
+    And { assert_not_nil assigns(:showcases) } 
   end
 
-  it "must get new" do
-    get :new
-    assert_response :success
+  context "must get new" do
+    When { get :new }
+    Then { assert_response :success }
   end
 
   # it "must create showcase" do
