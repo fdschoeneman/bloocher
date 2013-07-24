@@ -33,7 +33,9 @@ gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc6.2'
 # view template engine
 gem "haml"
-gem 'haml-rails', '0.3.5'
+gem 'haml-rails', 
+    github: 'indirect/haml-rails',
+    branch: 'master'
 
 # mail
 gem "sendgrid", ">= 1.0.1"

@@ -1,0 +1,29 @@
+%h1 Listing showcases
+
+%table
+  %tr
+    %th Showcaseable
+    %th Showcaseable type
+    %th Version
+    %th Name
+    %th Description
+    %th Published
+    %th
+    %th
+    %th
+
+  - @showcases.each do |showcase|
+    %tr
+      %td= showcase.showcaseable_id
+      %td= showcase.showcaseable_type
+      %td= showcase.version
+      %td= showcase.name
+      %td= showcase.description
+      %td= showcase.published
+      %td= link_to 'Show', showcase
+      %td= link_to 'Edit', edit_showcase_path(showcase)
+      %td= link_to 'Destroy', showcase, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Showcase', new_showcase_path

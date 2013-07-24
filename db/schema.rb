@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130624063532) do
+ActiveRecord::Schema.define(version: 20130724054952) do
 
   create_table "appellations", force: true do |t|
     t.string   "name"
@@ -135,6 +135,17 @@ ActiveRecord::Schema.define(version: 20130624063532) do
   end
 
   add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
+
+  create_table "showcases", force: true do |t|
+    t.integer  "showcaseable_id"
+    t.string   "showcaseable_type"
+    t.datetime "version"
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                             default: "", null: false
