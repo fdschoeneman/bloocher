@@ -2,9 +2,9 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase 
   
-  subject { FactoryGirl.create(:user) }
-  
-  describe "database" do
+  subject { User.new }
+
+  describe "db" do 
 
     describe "columns and types" do
       
@@ -34,18 +34,14 @@ class UserTest < ActiveSupport::TestCase
     it { must have_many(:positions) }
   end
   
-  Given(:existing_user) { create(:user) }
-  Given(:hacker) {  attributes_for(:user, email: existing_user.email) }
-  # Given(:hacker) { FactoryGirl.attributes_for(:user) }
-
   describe "validations" do 
-    
-    Given { existing_user }
+
+    Given(:existing_user) { create(:user) }
+    Given(:hacker) {  User.new(attributes_for(:user, email: existing_user.email)) }
     
     describe "must be the only user with a given email" do
 
-      When { @hacker = User.new(hacker) }
-      Then { @hacker.valid?.must_equal false }
+      # Then { hacker.wont_be valid }
     end
   end
 end

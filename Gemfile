@@ -135,7 +135,7 @@ group :test, :development do
   # gem 'capybara'
   # gem 'capybara-webkit'
   # gem 'selenium-webdriver'
-  # gem 'database_cleaner', '0.9.1'
+  gem 'database_cleaner'
   gem 'headless', '0.3.1'
   # gem 'phantomjs'
   # gem 'guard-teaspoon'
