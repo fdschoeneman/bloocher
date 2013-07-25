@@ -37,8 +37,4 @@ class ReviewTest < ActiveSupport::TestCase
     it { must belong_to(:reviewer).class_name("User") }
     it { must have_many(:showcases_wines) }
   end
-
-
-
-
 end
