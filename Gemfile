@@ -91,7 +91,6 @@ end
 group :test do 
   
   gem 'minitest-rails-shoulda', '~> 0.4.1'
-  # gem 'minitest-capybara', '0.1'
   gem 'minitest-rails-capybara'
   gem 'wrong'
   gem 'minitest-given'
@@ -125,6 +124,7 @@ group :test, :development do
   # debugging
   gem 'debugger'
   gem 'pry'
+  gem 'awesome_print'
 
   # Guards
   gem 'guard'

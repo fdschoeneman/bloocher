@@ -8,15 +8,9 @@ class ReviewTest < ActiveSupport::TestCase
 
     describe "columns and types" do 
 
-      %w[reviewer_id wine_id rating].each do |attribute|
-        it { must have_db_column(attribute.to_sym).of_type(:integer) }
-      end
-
-      %w[created_at updated_at
-        ].each do |column|
-        it { must have_db_column(column.to_sym).of_type(:datetime) }
-      end
-
+      it { must have_db_column(:reviewer_id).of_type(:integer) }
+      it { must have_db_column(:wine_id).of_type(:integer) }
+      it { must have_db_column(:rating).of_type(:integer) }
       it { must have_db_column(:content).of_type(:text) }
     end
   end

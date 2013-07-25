@@ -43,10 +43,6 @@ namespace :db do
     make_reviews
     puts "#{green("==>")} Making producers"
     make_producers  
-    puts "#{green("==>")} Making ownerships"
-    make_ownerships
-    puts "#{green("==>")} Making winemaker oeuvres"
-    make_winemaker_oeuvres
     puts "#{green("==>")} Making vineyard parents"
     make_vineyard_parents
     puts "#{green("==>")} Making vineyard blocks"
@@ -66,7 +62,7 @@ end
 def make_user_roles
   
   YAML.load(ENV['ROLES']).each do |role|
-    Role.find_or_create_by_name({ :name => role }, :without_protection => true)
+    Role.find_or_create_by(name: role)
     puts "#{green("==>")} Making role: " << role
   end
 end
@@ -77,9 +73,9 @@ def make_user(email)
     email: email, 
     password: "password",
     password_confirmation: "password", 
-    bio: hipster_bio)
+    bio: hipster_bios.first)
   user.skip_confirmation!
-  user.save!
+  user.save
   user.confirm!
   user.add_role :VIP
 end
@@ -91,8 +87,8 @@ def make_admin_user
     email: "fred.schoeneman@gmail.com", 
     password: "password",
     password_confirmation: "password", 
-    bio: hipster_bio)
-  user.skip_confirmation!
+    bio: hipster_bios.first)
+
   user.save!
   user.confirm!
   user.add_role :admin
@@ -133,7 +129,7 @@ def make_wines
     lay_down_until_year = vintage + rand(1..4)
     drink_before_year = vintage + rand(10..20)
     new_french_oak = (rand(0..100).to_f)/100
-    Wine.create!( 
+    wine = Wine.new( 
       vintage: vintage,
       cases_produced: rand(2000..100000),
       name: "#{wine_types.sample} \- #{vineyard_names.sample} \- #{differentiators.sample}",
@@ -144,7 +140,7 @@ def make_wines
       bottled_on: "#{bottled_on_year}-#{rand(1..12)}-#{rand(1..30)}",
       released_on: "#{released_on_year}-#{rand(1..12)}-#{rand(1..30)}",
       category: wine_types.sample,
-      winemaker_notes: Faker::Lorem.paragraphs(5),
+      winemaker_notes: Faker::Lorem.paragraphs(5).to_s,
       ph: "#{(rand(665..755).to_f)/100}",
       residual_sugar: "#{(rand(1..5).to_f)/100}",
       alcohol: "#{(rand(125..175).to_f)/1000}",
@@ -157,6 +153,8 @@ def make_wines
       two_yr_old_american_oak: "#{(100 - new_french_oak)/7}",
       three_yr_old_american_oak: "#{(100 - new_french_oak)/7}"
     )
+
+    wine.save
   end
 end
 
@@ -186,26 +184,6 @@ def make_producers
       name: name,
       subdomain: subdomain,
       web_address: web_address
-    )
-  end
-end
-
-def make_ownerships
-
-  users = User.all
-  users.each do |owner|
-    Ownership.create(owner_id: owner.id, 
-      producer_id: rand(1..20)
-    )
-  end
-end
-
-def make_winemaker_oeuvres
- 
-  99.times do |n|
-    WinemakerOeuvre.create(
-      wine_id: rand(1..100),
-      winemaker_id: rand(1..10)
     )
   end
 end
@@ -311,11 +289,12 @@ end
 
 def make_certifications
   %w[organic usda biodynamic].each do |certification|
-    Certification.create!(
+    certification = Certification.new(
       name: certification, 
-      description: Faker::Lorem.paragraphs,
+      description: Faker::Lorem.paragraphs.to_s,
       url: Faker::Internet.domain_name
     )
+    certification.save
   end
 
   10.times do |cp|

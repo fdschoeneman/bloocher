@@ -1,6 +1,6 @@
 module MiscellaneousData
 
-	def hipster_bio
+	def hipster_bios
 		[
 			"Tousled fixie keytar odd future, flexitarian viral readymade. Marfa 
 			carles synth terry richardson stumptown, church-key pour-over. Vice 

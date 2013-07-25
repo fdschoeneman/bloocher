@@ -20,6 +20,5 @@ class ShowcaseTest < ActiveSupport::TestCase
   describe "associations" do 
 
     it { must have_many(:showcases_wines) }
-
   end
 end

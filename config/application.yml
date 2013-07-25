@@ -12,5 +12,5 @@ SENDGRID_PASSWORD: rfxvxkkg
 ADMIN_NAME: HMFIC
 ADMIN_EMAIL: fred.schoeneman@gmail.com
 ADMIN_PASSWORD: password 
-ROLES: [admin, user, VIP]
+ROLES: [admin, user]
 

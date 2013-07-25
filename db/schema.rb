@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.string   "type"
     t.text     "description"
     t.string   "map"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "appellations", ["name", "type"], name: "index_appellations_on_name_and_type", unique: true, using: :btree
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
   create_table "appellations_vineyards", force: true do |t|
     t.integer  "vineyard_id"
     t.integer  "appellation_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "appellations_vineyards", ["vineyard_id", "appellation_id"], name: "index_appellations_vineyards_on_vineyard_id_and_appellation_id", unique: true, using: :btree
@@ -37,16 +37,16 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.string   "name"
     t.text     "description"
     t.string   "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "certifications_producers", force: true do |t|
     t.integer  "producer_id"
     t.integer  "certification_id"
     t.date     "certified_since"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "fruit_lots", force: true do |t|
@@ -55,15 +55,15 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.date     "harvest_date"
     t.integer  "wine_id"
     t.integer  "vineyard_vintage_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ownerships", force: true do |t|
     t.integer  "owner_id"
     t.integer  "producer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "ownerships", ["owner_id", "producer_id"], name: "index_ownerships_on_owner_id_and_producer_id", unique: true, using: :btree
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.integer  "positionable_id"
     t.string   "positionable_type"
     t.string   "title"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "positions", ["title", "user_id"], name: "index_positions_on_title_and_user_id", using: :btree
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.string   "web_address"
     t.string   "public_email"
     t.string   "phone"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "producers", ["city"], name: "index_producers_on_city", using: :btree
@@ -106,8 +106,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.integer  "reviewer_id"
     t.integer  "wine_id"
     t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "reviews", ["rating"], name: "index_reviews_on_rating", using: :btree
@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.text     "value",       null: false
     t.integer  "target_id",   null: false
     t.string   "target_type", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
@@ -170,8 +170,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
     t.text     "bio"
     t.string   "phone"
@@ -212,8 +212,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.date     "last_frost"
     t.integer  "days_of_frost"
     t.decimal  "average_yearly_rel_hum"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vineyards", force: true do |t|
@@ -241,8 +241,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "vineyards", ["appellation_id"], name: "index_vineyards_on_appellation_id", using: :btree
@@ -252,15 +252,15 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.integer  "wine_id"
     t.integer  "fruit_lot_id"
     t.integer  "percent_of_wine"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "winemaker_oeuvres", force: true do |t|
     t.integer  "winemaker_id"
     t.integer  "wine_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "winemaker_oeuvres", ["wine_id"], name: "index_winemaker_oeuvres_on_wine_id", using: :btree
@@ -268,8 +268,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
   create_table "wineries", force: true do |t|
     t.string   "name"
     t.integer  "producer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "wineries", ["name"], name: "index_wineries_on_name", unique: true, using: :btree
@@ -297,8 +297,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.decimal  "one_yr_old_american_oak"
     t.decimal  "two_yr_old_american_oak"
     t.decimal  "three_yr_old_american_oak"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "category"
   end
 
