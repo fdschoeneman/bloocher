@@ -8,8 +8,8 @@ class Wine < ActiveRecord::Base
   belongs_to :winery
 
   has_many :reviews
-  has_many :winemaker_oeuvres
-  has_many :winemakers, through: :winemaker_oeuvres, class_name: "User"
+  has_many :showcases, through: :showcases_wines
+  has_many :showcases_wines
   has_many :wine_fruit_lots
   has_many :fruit_lots, through: :wine_fruit_lots
   has_many :vineyard_vintages, through: :fruit_lots

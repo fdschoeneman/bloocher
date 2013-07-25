@@ -1,11 +1,12 @@
 class Winery < ActiveRecord::Base
   resourcify
-  
 
   validates :name, presence: true, uniqueness: true
 
   has_many :wines
   has_many :reviews, through: :wines
+  has_many :showcases, through: :showcases_wines
+  has_many :showcases_wines, as: :showcaseable
   belongs_to :producer
 
   accepts_nested_attributes_for :producer

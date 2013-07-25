@@ -2,8 +2,6 @@
 
 FactoryGirl.define do
   factory :showcase do
-    showcaseable_id 1
-    showcaseable_type "MyString"
     version "2013-07-23 22:49:52"
     name "MyString"
     description "MyText"

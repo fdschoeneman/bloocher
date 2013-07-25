@@ -137,8 +137,6 @@ ActiveRecord::Schema.define(version: 20130724063931) do
   add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
 
   create_table "showcases", force: true do |t|
-    t.integer  "showcaseable_id"
-    t.string   "showcaseable_type"
     t.datetime "version"
     t.string   "name"
     t.text     "description"
@@ -148,6 +146,8 @@ ActiveRecord::Schema.define(version: 20130724063931) do
   end
 
   create_table "showcases_wines", force: true do |t|
+    t.integer  "showcaseable_id"
+    t.string   "showcaseable_type"
     t.integer  "showcase_id"
     t.integer  "wine_id"
     t.integer  "blurb_id"
