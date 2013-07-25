@@ -275,7 +275,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    rolify (3.2.0)
+    rolify (3.3.0.rc4)
     ruby2ruby (2.0.6)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
@@ -382,7 +382,6 @@ DEPENDENCIES
   ledermann-rails-settings
   meta-tags
   minitest
-  minitest-capybara (= 0.1)
   minitest-given
   minitest-rails (= 0.5.2)
   minitest-rails-capybara
@@ -394,7 +393,7 @@ DEPENDENCIES
   rails_12factor
   rb-fsevent
   rb-inotify
-  rolify
+  rolify (= 3.3.0.rc4)
   ruby_parser (= 3.1.1)
   sass-rails
   sdoc

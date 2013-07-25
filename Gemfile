@@ -46,7 +46,7 @@ gem 'devise_invitable',
     github: 'scambra/devise_invitable', 
     branch: 'rails4'
 gem 'cancan'
-gem 'rolify'
+gem 'rolify', '3.3.0.rc4'
 
 # forms
 gem 'simple_form', '3.0.0.rc'
@@ -91,7 +91,7 @@ end
 group :test do 
   
   gem 'minitest-rails-shoulda', '~> 0.4.1'
-  gem 'minitest-capybara', '0.1'
+  # gem 'minitest-capybara', '0.1'
   gem 'minitest-rails-capybara'
   gem 'wrong'
   gem 'minitest-given'
