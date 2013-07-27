@@ -8,9 +8,9 @@ class ReviewTest < ActiveSupport::TestCase
 
     describe "columns and types" do 
 
+      it { must have_db_column(:rating).of_type(:integer) }
       it { must have_db_column(:reviewer_id).of_type(:integer) }
       it { must have_db_column(:wine_id).of_type(:integer) }
-      it { must have_db_column(:rating).of_type(:integer) }
       it { must have_db_column(:content).of_type(:text) }
     end
   end

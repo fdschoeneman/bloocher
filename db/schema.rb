@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130724063931) do
+ActiveRecord::Schema.define(version: 20130726063221) do
+
+  create_table "addresses", force: true do |t|
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "public_phone"
+    t.string   "public_email"
+    t.string   "public_url"
+    t.string   "addressable_type"
+    t.integer  "addressable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "appellations", force: true do |t|
     t.string   "name"
@@ -59,17 +75,6 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.datetime "updated_at"
   end
 
-  create_table "ownerships", force: true do |t|
-    t.integer  "owner_id"
-    t.integer  "producer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ownerships", ["owner_id", "producer_id"], name: "index_ownerships_on_owner_id_and_producer_id", unique: true, using: :btree
-  add_index "ownerships", ["owner_id"], name: "index_ownerships_on_owner_id", using: :btree
-  add_index "ownerships", ["producer_id"], name: "index_ownerships_on_producer_id", using: :btree
-
   create_table "positions", force: true do |t|
     t.integer  "user_id"
     t.integer  "positionable_id"
@@ -82,24 +87,12 @@ ActiveRecord::Schema.define(version: 20130724063931) do
   add_index "positions", ["title", "user_id"], name: "index_positions_on_title_and_user_id", using: :btree
 
   create_table "producers", force: true do |t|
-    t.string   "address_1"
-    t.string   "address_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
     t.string   "name"
-    t.string   "subdomain"
-    t.string   "web_address"
-    t.string   "public_email"
-    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "producers", ["city"], name: "index_producers_on_city", using: :btree
   add_index "producers", ["name"], name: "index_producers_on_name", using: :btree
-  add_index "producers", ["state"], name: "index_producers_on_state", using: :btree
-  add_index "producers", ["subdomain"], name: "index_producers_on_subdomain", using: :btree
 
   create_table "reviews", force: true do |t|
     t.integer  "rating"
@@ -124,17 +117,6 @@ ActiveRecord::Schema.define(version: 20130724063931) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
-
-  create_table "settings", force: true do |t|
-    t.string   "var",         null: false
-    t.text     "value",       null: false
-    t.integer  "target_id",   null: false
-    t.string   "target_type", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
 
   create_table "showcases", force: true do |t|
     t.datetime "version"
@@ -174,13 +156,6 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.datetime "updated_at"
     t.string   "name"
     t.text     "bio"
-    t.string   "phone"
-    t.string   "address_1"
-    t.string   "address_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "website"
     t.string   "invitation_token",       limit: 60
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
@@ -193,6 +168,7 @@ ActiveRecord::Schema.define(version: 20130724063931) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: true do |t|
@@ -255,15 +231,6 @@ ActiveRecord::Schema.define(version: 20130724063931) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "winemaker_oeuvres", force: true do |t|
-    t.integer  "winemaker_id"
-    t.integer  "wine_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "winemaker_oeuvres", ["wine_id"], name: "index_winemaker_oeuvres_on_wine_id", using: :btree
 
   create_table "wineries", force: true do |t|
     t.string   "name"

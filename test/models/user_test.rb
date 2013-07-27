@@ -14,18 +14,14 @@ class UserTest < ActiveSupport::TestCase
       it { must have_db_column(:current_sign_in_ip).of_type(:string) }
       it { must have_db_column(:name).of_type(:string) }
       it { must have_db_column(:invited_by_type).of_type(:string) }
-      it { must have_db_column(:created_at).of_type(:datetime) }
-      it { must have_db_column(:updated_at).of_type(:datetime) }
       it { must have_db_column(:invitation_limit).of_type(:integer) }
       it { must have_db_column(:invited_by_id).of_type(:integer) }
-      it { must have_db_column(:updated_at).of_type(:datetime) }
     end
 
     describe "indexes" do
 
-      %w[email reset_password_token].each do |index|
-        it { must have_db_index(index.to_sym) }
-      end
+      it { must have_db_index(:email) }
+      it { must have_db_index(:name) }
     end
   end
 

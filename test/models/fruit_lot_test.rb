@@ -8,10 +8,11 @@ class FruitLotTest < ActiveSupport::TestCase
 
 		describe "columns and types" do 
 
+      it { must have_db_column(:brix).of_type(:decimal) }
+      it { must have_db_column(:weight).of_type(:decimal) }
+      it { must have_db_column(:harvest_date).of_type(:date) }
       it { must have_db_column(:wine_id).of_type(:integer) }
       it { must have_db_column(:vineyard_vintage_id).of_type(:integer) }
-      it { must have_db_column(:brix).of_type(:decimal) }
-      it { must have_db_column(:harvest_date).of_type(:date) }
 		end
 	end
 
