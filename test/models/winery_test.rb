@@ -29,6 +29,7 @@ class WineryTest < ActiveSupport::TestCase
   describe "associations" do
 
     it { must have_many(:wines) } 
+    it { must have_many(:images) } 
     it { must have_many(:reviews).through(:wines) }
     it { must accept_nested_attributes_for(:producer)}
     it { must belong_to(:producer) } 

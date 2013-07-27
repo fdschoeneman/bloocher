@@ -5,34 +5,6 @@
       %b Producer name:
       = @producer.name
 
-    %p
-      %b Address 1:
-      = @producer.address_1
-    %p
-      %b Address 2:
-      = @producer.address_2
-    %p
-      %b City:
-      = @producer.city
-    %p
-      %b State:
-      = @producer.state
-    %p
-      %b Zip:
-      = @producer.zip
-    %p
-      %b Name:
-      = @producer.name
-    %p
-      %b Subdomain:
-      = @producer.subdomain
-    %p
-      %b Web address:
-      = @producer.web_address
-    %p
-      %b Public email:
-      = @producer.public_email
-
     = link_to 'Edit', edit_producer_path(@producer)
     \|
     = link_to 'Back', producers_path

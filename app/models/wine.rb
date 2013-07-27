@@ -8,6 +8,7 @@ class Wine < ActiveRecord::Base
   belongs_to :winery
 
   has_many :reviews
+  has_many :images, as: :imageable
   has_many :showcases, through: :showcases_wines
   has_many :showcases_wines
   has_many :wine_fruit_lots

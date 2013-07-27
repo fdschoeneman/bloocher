@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :invitable
 
   has_many :positions
+  has_many :images, as: :imageable
   has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
   has_many :producers, through: :ownerships
   has_many :winemaker_oeuvres, foreign_key: :winemaker_id
@@ -14,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :wineries_owned, through: :producers, source: :wineries
   has_many :reviews, foreign_key: :reviewer_id
 
+  
   rolify
 
   # has_settings do |setting|

@@ -28,6 +28,9 @@ class UserTest < ActiveSupport::TestCase
   describe "associations" do
 
     it { must have_many(:positions) }
+    it { must have_many(:images) }
+    it { must accept_nested_attributes_for(:images) }
+
   end
   
   describe "validations" do 

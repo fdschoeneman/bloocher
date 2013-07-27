@@ -1,5 +1,7 @@
 Bloocher::Application.routes.draw do
 
+  resources :images
+
 resources :showcases
 
 resources :positions

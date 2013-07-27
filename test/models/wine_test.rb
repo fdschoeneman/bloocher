@@ -58,6 +58,7 @@ class WineTest < ActiveSupport::TestCase
   describe "associations" do 
     
     it { must belong_to(:winery) }
+    it { must have_many(:images) }
     it { must have_many(:reviews) }
     it { must have_many(:fruit_lots) }
     it { must have_many(:vineyard_vintages).through(:fruit_lots) }

@@ -16,37 +16,29 @@ class ProducersController < ApplicationController
     @vineyards = @producer.vineyards
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @producer }
     end
   end
 
-  # GET /producers/new
-  # GET /producers/new.json
   def new
     @producer = Producer.new
     @producer.wineries.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @producer }
     end
   end
 
-  # GET /producers/1/edit
   def edit
     @producer = Producer.find(params[:id])
   end
 
-  # POST /producers
-  # POST /producers.json
   def create
 
     @producer = Producer.new(params[:producer])
   
-    # @winery = @producer.wineries.build(params[:producer][:winery])
-
-
     respond_to do |format|
       if @producer.save
         format.html { redirect_to @producer, notice: 'Producer was successfully created.' }
@@ -58,8 +50,6 @@ class ProducersController < ApplicationController
     end
   end
 
-  # PUT /producers/1
-  # PUT /producers/1.json
   def update
 
     @producer = Producer.find(params[:id])
@@ -74,8 +64,6 @@ class ProducersController < ApplicationController
     end
   end
 
-  # DELETE /producers/1
-  # DELETE /producers/1.json
   def destroy
     @producer = Producer.find(params[:id])
     @producer.destroy

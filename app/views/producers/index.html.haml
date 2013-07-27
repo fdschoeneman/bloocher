@@ -1,38 +1,21 @@
-%h1 Listing producers
+.row
+  .span3.offset1
+    %h1 Listing producers
 
-%table
-  %tr
-    / %th Address 1
-    / %th Address 2
-    / %th City
-    / %th State
-    / %th Zip
-    / %th Name
-    / %th Subdomain
-    / %th Web address
-    / %th Public email
-    / %th
-    / %th
-    / %th
+      %table
+        %tr
+          %th Name
 
-  - @producers.each do |producer|
-    %tr
-      %td= producer.address_1
-      %td= producer.address_2
-      %td= producer.city
-      %td= producer.state
-      %td= producer.zip
-      %td= producer.name
-      %td= producer.subdomain
-      %td= producer.web_address
-      %td= producer.public_email
-      %td= link_to 'Show', producer
-      - if current_user && current_user.has_role?(:admin)
+      - @producers.each do |producer|
+        %tr
+          %td= producer.name
+          %td= link_to 'Show', producer
+          - if current_user && current_user.has_role?(:admin)
 
-        %td= link_to 'Edit', edit_producer_path(producer)
-        %td= link_to 'Destroy', producer, method: :delete, data: { confirm: 'Are you sure?' }
+            %td= link_to 'Edit', edit_producer_path(producer)
+            %td= link_to 'Destroy', producer, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-- if current_user && current_user.has_role?(:admin)
+    %br
+    - if current_user && current_user.has_role?(:admin)
 
-  = link_to 'New Producer', new_producer_path
+      = link_to 'New Producer', new_producer_path
