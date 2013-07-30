@@ -6,31 +6,31 @@
       %dd= link_to @winery.producer.name, producer_path(@winery.producer)
     %p
       %b Public email:
-      = @winery.producer.public_email
+      = @winery.addresses.first.public_email unless @winery.addresses.empty?
     %p
       %b Phone:
-      = @winery.producer.phone
+      / = @winery.producer.phone
     %p
       %b Address 1:
-      = @winery.producer.address_1
+      / = @winery.producer.address_1
     %p
       %b Address 2:
-      = @winery.producer.address_2
+      / = @winery.producer.address_2
     %p
       %b City:
-      = @winery.producer.city
+      / = @winery.producer.city
     %p
       %b State:
-      = @winery.producer.state
+      / = @winery.producer.state
     %p
       %b Zip:
-      = @winery.producer.zip
+      / = @winery.producer.zip
     %p
       %b Web address:
-      = link_to @winery.producer.web_address, url_for(@winery.producer.web_address) 
+      / = link_to @winery.producer.web_address, url_for(@winery.producer.web_address) 
     %p
       %b Subdomain:
-      = @winery.producer.subdomain
+      / = @winery.producer.subdomain
 
     = link_to 'Edit', edit_winery_path(@winery)
     \|

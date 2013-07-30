@@ -1,9 +1,7 @@
 class Vineyard < ActiveRecord::Base
   resourcify
-  
-  validates :name, :producer_id, presence: true
 
-
+  has_many :addresses, as: :addressable
   has_many :wines, through: :fruit_lots
   has_many :blocks, class_name: "Vineyard", foreign_key: :vineyard_parent_id
   has_many :vineyard_vintages
@@ -16,9 +14,10 @@ class Vineyard < ActiveRecord::Base
 
   accepts_nested_attributes_for :producer
 
-  acts_as_gmappable
+  validates :name, :producer_id, presence: true
+  # acts_as_gmappable
 
-  def gmaps4rails_address
-    "281 41st street, oakland, ca 94611"
-  end
+  # def gmaps4rails_address
+  #   "281 41st street, oakland, ca 94611"
+  # end
 end

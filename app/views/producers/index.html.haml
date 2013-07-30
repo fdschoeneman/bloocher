@@ -1,21 +1,19 @@
-.row
-  .span3.offset1
-    %h1 Listing producers
+%h3 Producers
+.span8
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th Name
+    - @producers.each do |producer|
+      %tr
+        %td= link_to producer.name, producer
+        %td= link_to 'Show', producer
+        - if can? :create, Producer
+          %td= link_to 'Edit', edit_producer_path(producer)
+        - if can? :destroy, Producer
+          %td= link_to 'Destroy', producer, method: :delete, data: { confirm: 'Are you sure?' }
 
-      %table
-        %tr
-          %th Name
+  %br
+  - if can? :create, Producer
 
-      - @producers.each do |producer|
-        %tr
-          %td= producer.name
-          %td= link_to 'Show', producer
-          - if current_user && current_user.has_role?(:admin)
-
-            %td= link_to 'Edit', edit_producer_path(producer)
-            %td= link_to 'Destroy', producer, method: :delete, data: { confirm: 'Are you sure?' }
-
-    %br
-    - if current_user && current_user.has_role?(:admin)
-
-      = link_to 'New Producer', new_producer_path
+    = link_to 'New Producer', new_producer_path

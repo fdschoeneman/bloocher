@@ -1,25 +1,19 @@
-%h1 Listing appellations
+%h3 Appellations
 
-%table
-  %tr
-    %th Name
-    %th Type
-    %th Description
-    %th Map
-    %th
-    %th
-    %th
+.span8
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th Name
 
-  - @appellations.each do |appellation|
-    %tr
-      %td= appellation.name
-      %td= appellation.type
-      %td= appellation.description
-      %td= appellation.map
-      %td= link_to 'Show', appellation
-      %td= link_to 'Edit', edit_appellation_path(appellation)
-      %td= link_to 'Destroy', appellation, method: :delete, data: { confirm: 'Are you sure?' }
+    - @appellations.each do |appellation|
+      %tr
+        %td= appellation.name
+        %td= appellation.description
+        %td= link_to 'Show', appellation
+        %td= link_to 'Edit', edit_appellation_path(appellation)
+        %td= link_to 'Destroy', appellation, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+  %br
 
-= link_to 'New Appellation', new_appellation_path
+  = link_to 'New Appellation', new_appellation_path

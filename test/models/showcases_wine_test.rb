@@ -9,8 +9,6 @@ class ShowcasesWineTest < ActiveSupport::TestCase
     describe "columns and types" do 
 
       it { must have_db_column(:showcase_id).of_type(:integer)}
-      it { must have_db_column(:showcaseable_id).of_type(:integer)}
-      it { must have_db_column(:showcaseable_type).of_type(:string)}
       it { must have_db_column(:wine_id).of_type(:integer)}
       it { must have_db_column(:blurb_id).of_type(:integer)}
     end 

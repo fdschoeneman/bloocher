@@ -21,10 +21,10 @@ def cyan(text);     colorize(text, 36); end
 namespace :db do
   desc "Fill database with sample data" 
   task populate: :environment do
-    # if Rails.env.development?
+    if Rails.env.development?
       puts "#{red("==>")} Clearing Current Data"
       Rake::Task['db:reset'].invoke
-    # end
+    end
     puts "#{green("==>")} Making sample users"
     make_users
     puts "#{green("==>")} Making user roles"
@@ -37,6 +37,8 @@ namespace :db do
     end
     puts "#{green("==>")} Making wineries"
     make_wineries    
+    puts "#{green("==>")} Making addresses"
+    make_addresses
     puts "#{green("==>")} Making wines"
     make_wines
     puts "#{green("==>")} Making reviews"
@@ -55,7 +57,11 @@ namespace :db do
     make_wine_fruit_lots
     puts "#{green("==>")} Making certifications"
     make_certifications
-
+    puts "#{green("==>")} Making appellations"
+    make_appellations
+    puts "#{green("==>")} Making showcases"
+    make_showcases
+    Rake::Task['db:test:prepare'].invoke
   end
 end
 
@@ -144,8 +150,8 @@ def make_wines
       ph: "#{(rand(665..755).to_f)/100}",
       residual_sugar: "#{(rand(1..5).to_f)/100}",
       alcohol: "#{(rand(125..175).to_f)/1000}",
-      new_french_oak: new_french_oak,
       one_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
+      new_french_oak: new_french_oak,
       two_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
       three_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
       new_american_oak: "#{(100 - new_french_oak)/7}",
@@ -176,14 +182,7 @@ def make_producers
     subdomain = name.gsub(" ", "-")
     web_address = "http://www." + subdomain + "." + Faker::Internet.domain_suffix
     Producer.create(
-      address_1: Faker::Address.street_address,
-      address_2: Faker::Address.secondary_address,
-      city: Faker::Address.city,
-      state: Faker::Address.state,
-      zip: Faker::Address.zip_code,
-      name: name,
-      subdomain: subdomain,
-      web_address: web_address
+      name: name
     )
   end
 end
@@ -227,7 +226,7 @@ end
 
 def make_vineyard_blocks
 
-  99.times do |block|
+  20.times do |block|
     make_vineyard
     block_name = %w[east west north southeast creekside river hillside 1A 2A].sample
     @vineyard.update_attributes(
@@ -241,7 +240,7 @@ end
 
 def make_vineyard_vintages
 
-  40.times do |vintage|
+  20.times do |vintage|
     day = rand(1..15)
     month = [4,5].sample
     year = rand(2009..2012)
@@ -264,7 +263,7 @@ end
 
 def make_fruit_lots
 
-  30.times do |fruit_lot|
+  20.times do |fruit_lot|
     random_day = rand(1..28)
     harvest_date = Date.new(2012, 8, random_day)
     FruitLot.create(
@@ -278,7 +277,7 @@ end
 
 def make_wine_fruit_lots
 
-  40.times do |wine_fruit_lot|
+  20.times do |wine_fruit_lot|
     WineFruitLot.create!(
       wine_id: rand(1..20),
       percent_of_wine: rand(20..100),
@@ -301,6 +300,50 @@ def make_certifications
     CertificationsProducer.create(
       certification_id: rand(1..10), 
       producer_id: rand(1..10)
+    )
+  end
+end
+
+def make_appellations
+
+  appellation_list.each do |appellation|
+    appellation = Appellation.new(name: appellation,
+      # type: ["country", "county", "state", "area"].sample,
+      description: Faker::Lorem.sentence
+      )
+    appellation.save!
+  end
+end
+
+def make_showcases
+
+  showcase = Showcase.new(
+    version: Time.now,
+    name: "Chez Panisse wine list",
+    description: Faker::Lorem.sentence
+  )
+  showcase.save!
+
+  10.times do 
+    ShowcasesWine.create(
+      wine_id: rand(1..100),
+      showcase_id: 1
+    )
+  end
+end
+
+def make_addresses
+  Winery.all do |winery|
+    winery.addresses.create!(
+      address_1: Faker::Address.street_address,
+      address_2: Faker::Address.secondary_address,
+      city: Faker::Address.city,
+      state: "CA",
+      zip: Faker::Address.zip_code,
+      country: "United States",
+      public_phone: Faker::PhoneNumber,
+      public_email: Faker::Internet.email,
+      public_url: Faker::Internet.domain_name
     )
   end
 end

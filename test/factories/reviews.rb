@@ -1,6 +1,6 @@
 FactoryGirl.define do
   
-  factory :review do
+  factory :review, aliases: [:blurb] do
     rating        89
     content       "MyText"
     reviewer_id   1

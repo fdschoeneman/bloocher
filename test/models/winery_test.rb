@@ -9,7 +9,6 @@ class WineryTest < ActiveSupport::TestCase
     describe "columns and types" do 
 
       it { must have_db_column(:name).of_type(:string) }
-
       it { must have_db_column(:producer_id).of_type(:integer) }
     end
 
@@ -21,20 +20,16 @@ class WineryTest < ActiveSupport::TestCase
 
   describe "validations" do
 
-    %w[name].each do |attribute|
-      it { must validate_presence_of(attribute.to_sym) }
-    end
+    it { must validate_presence_of(:name) }
   end
 
   describe "associations" do
 
+    it { must belong_to(:producer) } 
     it { must have_many(:wines) } 
+    it { must have_many(:addresses) } 
     it { must have_many(:images) } 
     it { must have_many(:reviews).through(:wines) }
-    it { must accept_nested_attributes_for(:producer)}
-    it { must belong_to(:producer) } 
-    it { must have_many(:showcases_wines)}
-    it { must have_many(:showcases) }
   end
 
   describe "methods" do 

@@ -4,8 +4,14 @@ class DropOwnershipsTable < ActiveRecord::Migration
     if table_exists?(:ownerships)
       drop_table(:ownerships)
     end
-    drop_table(:settings)
-    drop_table(:winemaker_oeuvres)
+
+    if table_exists?(:settings)
+      drop_table(:settings)
+    end
+
+    if table_exists?(:winemaker_oeuvres)
+      drop_table(:winemaker_oeuvres)
+    end
 
   end
 

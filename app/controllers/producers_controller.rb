@@ -1,5 +1,7 @@
 class ProducersController < ApplicationController
 
+  before_action :set_producer, only: [:show, :edit, :update, :destroy]
+
   def index
     @page_title = "Producers"
     @producers = Producer.all
@@ -37,7 +39,7 @@ class ProducersController < ApplicationController
 
   def create
 
-    @producer = Producer.new(params[:producer])
+    @producer = Producer.new(producer_params)
   
     respond_to do |format|
       if @producer.save
@@ -52,9 +54,8 @@ class ProducersController < ApplicationController
 
   def update
 
-    @producer = Producer.find(params[:id])
     respond_to do |format|
-      if @producer.update_attributes(params[:producer])
+      if @producer.update_attributes(producer_params)
         format.html { redirect_to @producer, notice: 'Producer was successfully updated.' }
         format.json { head :no_content }
       else
@@ -73,4 +74,14 @@ class ProducersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+
+  def set_producer
+    @producer = Producer.find(params[:id])
+  end
+
+  def producer_params
+    params.require(:producer).permit(:name)
+  end  
 end

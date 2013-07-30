@@ -6,7 +6,6 @@ module WineData
       "Kendall Jackson",  
       "Duckhorn",
       "Lede Wines"
-
     ]
   end
 
@@ -110,7 +109,7 @@ module WineData
     ]
   end
 
-  def appellations 
+  def appellation_list 
     [
       "Arroyo Grande Valley",
       "Arroyo Seco",

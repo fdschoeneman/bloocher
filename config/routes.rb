@@ -1,10 +1,18 @@
 Bloocher::Application.routes.draw do
 
+  get "showcases_wines/create"
+  get "showcases_wines/destroy"
+  resources :producers
+
   resources :images
 
-resources :showcases
+  resources :showcases 
 
-resources :positions
+  resources :showcases_wines, only: [:create, :destroy]
+
+  
+
+  resources :positions
 
 
   resources :certifications do 

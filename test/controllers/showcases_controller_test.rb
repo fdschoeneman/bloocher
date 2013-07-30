@@ -3,51 +3,78 @@ require "test_helper"
 describe ShowcasesController do
 
   Given(:admin) { create(:admin) }
-    Given { sign_in admin }
+  Given!(:showcase) { create(:showcase) }
+  # Given { sign_in admin }
 
-  Given!(:showcase) { FactoryGirl.build(:showcase) }
-  
-  describe "must get index" do
+  describe "index" do
 
     Given { get :index }
-    Then { assert_response :success }
-    And { assert_not_nil assigns(:showcases) } 
+    
+    describe "success" do 
+
+      Then { assert_response :success }
+      And { assert_not_nil assigns(:showcases) }
+    end 
   end
 
-  context "must get new" do
+  describe "new" do
+    
     When { get :new }
     Then { assert_response :success }
   end
 
-  # it "must create showcase" do
-  #   assert_difference('Showcase.count') do
-  #     post :create, showcase: {  }
-  #   end
+  describe "create" do
+    
+    describe "showcase and redirect to showcase" do
 
-  #   assert_redirected_to showcase_path(assigns(:showcase))
-  # end
+      When(:showcase_attrs) { attributes_for(:showcase) }
+      Then { 
+        assert_difference('Showcase.count') { 
+        post :create, showcase: showcase_attrs } 
+      }
+      And { assert_redirected_to showcase_path(assigns(:showcase)) }
+    end
+  end
 
-  # it "must show showcase" do
-  #   get :show, id: @showcase
-  #   assert_response :success
-  # end
+  describe "show" do
+    
+    describe "a showcase" do 
 
-  # it "must get edit" do
-  #   get :edit, id: @showcase
-  #   assert_response :success
-  # end
+      When { get :show, id: showcase.id }
+      Then { assert_response :success }
+    end
 
-  # it "must update showcase" do
-  #   put :update, id: @showcase, showcase: {  }
-  #   assert_redirected_to showcase_path(assigns(:showcase))
-  # end
+    describe "assigns the showcase's wines" do 
 
-  # it "must destroy showcase" do
-  #   assert_difference('Showcase.count', -1) do
-  #     delete :destroy, id: @showcase
-  #   end
+      # Given(:showcase_with_wines) { create(:showcase_with_wines) } 
+      # Given { get :show, id: showcase_with_wines.id }
+      # Then { assert_not_nil assigns(:showcase) }
+    end
+  end
 
-  #   assert_redirected_to showcases_path
-  # end
+  describe "edit" do
 
+    When { get :edit, id: showcase.id }
+    Then { assert_response :success }
+  end
+
+  describe "update" do
+    
+    # When(:desired_attrs) { showcase: { name: "new name" }}}  # When(:showcases_wine_attrs) { attributes_for(:showcases_wine) }
+    Given { put :update, id: showcase, showcase: { name: "new name" } }
+    Then { assert_redirected_to showcase }
+
+    describe "must create showcase wines" do 
+      Given(:wine) { create(:wine) }
+      Given { put :update, id: showcase, showcase: { wines_attributes: wine.id }  }
+      Then { }# Then { showcase.wines.must include wine }
+    end
+  end
+
+  describe "must destroy showcase" do
+
+    Then { assert_difference('Showcase.count', -1) {
+      delete :destroy, id: showcase.id } }
+    And { assert_redirected_to showcases_path }
+  end
 end

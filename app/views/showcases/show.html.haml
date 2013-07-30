@@ -1,19 +1,21 @@
-
-
-
-
-%p#notice= notice
-
-%p
-  %b Name:
-  = @showcase.name
-%p
-  %b Description:
+.span8
+  %h3= @showcase.name
   = @showcase.description
-%p
-  %b Published:
-  = @showcase.published
-
-= link_to 'Edit', edit_showcase_path(@showcase)
-\|
-= link_to 'Back', showcases_path
+  .badge= @wines.count
+  Wines
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th Name
+        %th Winery
+    - @wines.each do |wine|
+      %tr
+        %td
+          .badge= wine.reviews.count
+          = link_to wine.name, wine_path(wine)
+        %td
+          .badge= wine.winery.wines.count
+          = link_to wine.winery.name, winery_path(wine.winery)
+        %td
+          - if can? :update, ShowcasesWine
+            = link_to 'delete', showcase_remove_wine_path(showcase_id: @showcase.id, wine_id: wine.id), method: :delete

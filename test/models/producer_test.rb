@@ -7,7 +7,6 @@ class ProducerTest < ActiveSupport::TestCase
   describe "columns and types" do 
     
     it { must have_db_column(:name).of_type(:string) }
-    
   end
 
   describe "indexes" do

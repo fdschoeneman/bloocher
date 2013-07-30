@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 20130727044424) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "showcases", force: true do |t|
+    t.integer  "sommelier_id"
     t.datetime "version"
     t.string   "name"
     t.text     "description"
@@ -141,8 +142,6 @@ ActiveRecord::Schema.define(version: 20130727044424) do
   end
 
   create_table "showcases_wines", force: true do |t|
-    t.integer  "showcaseable_id"
-    t.string   "showcaseable_type"
     t.integer  "showcase_id"
     t.integer  "wine_id"
     t.integer  "blurb_id"

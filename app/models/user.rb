@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :invitable
 
   has_many :positions
+  has_many :showcases, foreign_key: :sommelier_id
+  has_many :addresses, as: :addressable
   has_many :images, as: :imageable
   has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
   has_many :producers, through: :ownerships
@@ -14,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :wines_made, through: :winemaker_oeuvres, source: :wine
   has_many :wineries_owned, through: :producers, source: :wineries
   has_many :reviews, foreign_key: :reviewer_id
+  
+  accepts_nested_attributes_for :images
 
   
   rolify
@@ -33,5 +37,9 @@ class User < ActiveRecord::Base
     self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
     self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
     password == password_confirmation && !password.blank?
+  end
+
+  def showcase!(showcase, wine)
+    showcases.showcase.showcases_wine.create!(wine)
   end
 end

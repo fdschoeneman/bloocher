@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :producer do
-    name                "Producer name"
+    name                "Breggo"
   end
 end
