@@ -1,3 +1,3 @@
 class ShowcaseSerializer < ActiveModel::Serializer
-  attributes :id, :version, :name, :description, :published
+  attributes :id, :sommelier_id, :version, :name, :description, :published
 end

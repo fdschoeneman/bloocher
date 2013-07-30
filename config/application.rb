@@ -18,7 +18,7 @@ module Bloocher
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
 
-      g.test_framework :mini_test, spec: true, fixture: false
+      g.test_framework :mini_test, spec: true
       g.fixture_replacement :factory_girl
     end
 
