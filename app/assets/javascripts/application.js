@@ -14,8 +14,9 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require bootstrap
-//= require reviews
 //= require jquery.validate
 //= require jquery.validate.functions
 //= require best_in_place
 //= require custom
+//= require controllers/controllers
+

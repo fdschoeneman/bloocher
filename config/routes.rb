@@ -1,6 +1,7 @@
 Bloocher::Application.routes.draw do
 
 
+  get "dashboard/show"
   resources :producers
 
   resources :images
