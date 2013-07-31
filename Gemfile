@@ -30,7 +30,7 @@ gem 'best_in_place',
 gem 'font-awesome-rails'
 gem 'google-webfonts'
 gem 'ember-rails'
-gem 'ember-source', '1.0.0.rc6.2'
+gem 'ember-source', '1.0.0.rc6.4'
 # view template engine
 gem "haml"
 gem 'haml-rails', 
