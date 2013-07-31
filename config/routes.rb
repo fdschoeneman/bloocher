@@ -1,6 +1,5 @@
 Bloocher::Application.routes.draw do
 
-  resources :showcases
 
   resources :producers
 
@@ -76,7 +75,7 @@ Bloocher::Application.routes.draw do
   #   root :to => 'static#home'
   # end
   
-  root :to => "static#home"
+  root :to => "static#index"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
