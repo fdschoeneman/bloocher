@@ -23,9 +23,5 @@
 //= require ember-data
 //= require_self
 //= require bloocher
-
-// for more details see: http://emberjs.com/guides/application/
 Bloocher = Ember.Application.create();
-
-//= require_tree .
 
