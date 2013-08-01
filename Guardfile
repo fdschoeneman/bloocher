@@ -4,7 +4,7 @@ end
 
 group :tests do 
 
-  guard :minitest, zeus: true, parallel: true, all_on_start: false, bundler: false do
+  guard :minitest, all_on_start: false, bundler: false do
 
     watch(%r{^test/factories/(.+)\.rb})                    { 'test/factories_test.rb' }
     watch(%r{^test/(.*)\/?test_(.*)\.rb})
