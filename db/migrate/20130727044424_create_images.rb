@@ -9,6 +9,8 @@ class CreateImages < ActiveRecord::Migration
       t.string :imageable_type
       t.boolean :active
       t.string :slug
+      t.integer :user_id
+      t.string :file_size
 
       t.timestamps
     end

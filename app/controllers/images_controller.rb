@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :edit, :update]
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,8 +17,11 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
 
+    @image = Image.new(image_params)
+    @image.user_id = current_user.id
+
+    # @image.imageable_type
     if @image.save
       redirect_to :back, notice: 'Image was successfully created.'
     else
@@ -45,6 +49,6 @@ private
 
   def image_params
     params.require(:image).permit(:image, :title, :description, :content_type, 
-      :active, :slug, :imageable_id, :imageable_type)
+      :active, :slug, :imageable_id, :imageable_type, :remote_image_url)
   end
 end

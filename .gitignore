@@ -46,3 +46,6 @@ libpeerconnection.log
 /tmp
 
 .zeus*
+
+# ignore any uploaded image files that aren't fixtures
+/public/uploads/**/*

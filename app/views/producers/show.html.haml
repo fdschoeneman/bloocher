@@ -15,16 +15,13 @@
       = simple_form_for :image, { url: :images } do |f|
         = f.error_notification
         .form-inputs
-          = f.file_field :image
           = f.hidden_field :imageable_type, value: params[:controller].classify
           = f.hidden_field :imageable_id, value: params[:id]
+          = f.file_field :image
+          = f.label :remote_image_url, "or image URL"
+          = f.text_field :remote_image_url
         .form-actions
           = f.button :submit, "add photo"
-     
-      - @producer.images.each do |image|
-        = image.title
-        = image_tag image.image_url.to_s
-
   .row
     .span6
       - if @wineries.empty?
@@ -41,3 +38,6 @@
       - @vineyards.each do |vineyard|
         %p
           = link_to vineyard.name, vineyard_path(vineyard)  
+.row
+  = render partial: "producer_carousel", locals: { resource: @producer }
+ 

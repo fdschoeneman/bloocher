@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 20130727044424) do
     t.string   "imageable_type"
     t.boolean  "active"
     t.string   "slug"
+    t.integer  "user_id"
+    t.string   "file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

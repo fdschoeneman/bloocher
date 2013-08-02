@@ -15,6 +15,17 @@ class ImageTest < ActiveSupport::TestCase
       it { must have_db_column(:imageable_type).of_type(:string) }
       it { must have_db_column(:active).of_type(:boolean) }
       it { must have_db_column(:slug).of_type(:string) }
+      it { must have_db_column(:user_id).of_type(:integer) }
     end
+  end
+
+  describe "associations" do
+
+    it { must belong_to(:user) }
+  end 
+
+  describe "validations" do 
+
+    it { must validate_presence_of(:user) }
   end
 end

@@ -17,6 +17,7 @@
 //= require jquery.validate
 //= require jquery.validate.functions
 //= require best_in_place
+//= require retina
 //= require custom
 //= require controllers/controllers
 

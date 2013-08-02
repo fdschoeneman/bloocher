@@ -57,8 +57,6 @@ gem 'simple_form', '3.0.0.rc'
 # environment variables
 gem 'figaro'
 
-gem 'faker'
-
 # pagination
 gem 'kaminari'
 
@@ -67,7 +65,7 @@ gem 'ledermann-rails-settings', :require => 'rails-settings'
 # Cleaner metatags
 gem 'meta-tags', :require => 'meta_tags'
 
-# For interacting with google maps on
+# For interacting with google maps on vineyards
 gem 'gmaps4rails'
 
 # common helpers for use with bootstrap
@@ -75,6 +73,12 @@ gem 'gmaps4rails'
 
 # photo upload, resizing, rendering and storage
 gem 'carrierwave'
+
+# generates retina versions of uploaded images
+gem 'retina_rails'
+
+# image resizing
+gem 'mini_magick'
 
 # pretty development data
 gem 'faker'

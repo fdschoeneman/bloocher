@@ -207,6 +207,8 @@ GEM
     metaclass (0.0.1)
     method_source (0.8.1)
     mime-types (1.23)
+    mini_magick (3.6.0)
+      subexec (~> 0.2.1)
     mini_portile (0.5.1)
     minitest (4.7.5)
     minitest-capybara (0.1.0)
@@ -273,6 +275,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    retina_rails (1.0.1)
+      rails (>= 3.0)
     rolify (3.3.0.rc4)
     ruby2ruby (2.0.6)
       ruby_parser (~> 3.1)
@@ -307,6 +311,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    subexec (0.2.3)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -379,6 +384,7 @@ DEPENDENCIES
   launchy
   ledermann-rails-settings
   meta-tags
+  mini_magick
   minitest
   minitest-given
   minitest-rails (= 0.5.2)
@@ -391,6 +397,7 @@ DEPENDENCIES
   rails_12factor
   rb-fsevent
   rb-inotify
+  retina_rails
   rolify (= 3.3.0.rc4)
   ruby_parser (= 3.1.1)
   sass-rails

@@ -1,7 +1,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
+
   factory :image do
+  
     image "MyString"
     title "MyString"
     description "MyText"
@@ -10,5 +12,6 @@ FactoryGirl.define do
     imageable_type "MyString"
     active "MyString"
     slug "MyString"
+    user
   end
 end
