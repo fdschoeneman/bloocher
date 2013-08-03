@@ -19,5 +19,5 @@
 //= require best_in_place
 //= require retina
 //= require custom
-//= require controllers/controllers
+//= require rails/controllers
 
