@@ -14,10 +14,9 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require bootstrap
+//= require jquery.localscroll-1.2.7-min
 //= require jquery.validate
 //= require jquery.validate.functions
-//= require best_in_place
 //= require retina
 //= require custom
-//= require rails/controllers
 
