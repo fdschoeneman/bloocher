@@ -26,6 +26,7 @@ class WineryTest < ActiveSupport::TestCase
   describe "associations" do
 
     it { must belong_to(:producer) } 
+    it { must have_many(:carousels) }
     it { must have_many(:wines) } 
     it { must have_many(:addresses) } 
     it { must have_many(:images) } 

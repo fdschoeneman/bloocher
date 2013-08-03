@@ -3,10 +3,11 @@ class Winery < ActiveRecord::Base
 
   belongs_to :producer
 
-  has_many :wines
   has_many :addresses, as: :addressable
+  has_many :carousels, as: :carousable
   has_many :images, as: :imageable
   has_many :reviews, through: :wines
+  has_many :wines
 
   # accepts_nested_attributes_for :producer
 

@@ -21,6 +21,7 @@ class ProducerTest < ActiveSupport::TestCase
 
   describe "associations" do
 
+    it { must have_many(:carousels) }
     it { must have_many(:wineries) }
     it { must have_many(:images) }
     it { must have_many(:addresses) }

@@ -1,0 +1,10 @@
+= simple_form_for(@carousel) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :carousable_type
+    = f.input :carousable_id
+    = f.input :image_id
+
+  .form-actions
+    = f.button :submit

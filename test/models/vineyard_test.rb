@@ -53,6 +53,7 @@ class VineyardTest < ActiveSupport::TestCase
     it { must have_many(:appellations_vineyards)}
     it { must have_many(:appellations).through(:appellations_vineyards) }
     it { must have_many(:blocks).class_name("Vineyard") } 
+    it { must have_many(:carousels) }
     it { must have_many(:fruit_lots).through(:vineyard_vintages) } 
     it { must have_many(:images) } 
     it { must have_many(:vineyard_vintages) } 

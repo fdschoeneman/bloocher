@@ -1,6 +1,8 @@
 Bloocher::Application.routes.draw do
 
 
+  resources :carousels
+
   get "dashboard/show"
   resources :producers
 

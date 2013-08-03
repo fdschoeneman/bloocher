@@ -4,7 +4,6 @@ describe ShowcasesController do
 
   Given(:admin) { create(:admin) }
   Given!(:showcase) { create(:showcase) }
-  # Given { sign_in admin }
 
   describe "index" do
 

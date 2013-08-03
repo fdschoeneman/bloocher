@@ -19,7 +19,8 @@ class ShowcaseTest < ActiveSupport::TestCase
   describe "associations" do 
 
     it { must belong_to(:sommelier).class_name("User") }
-    it { must have_many :showcases_wines }
+    it { must have_many(:carousels) }
+    it { must have_many(:showcases_wines) }
     it { must have_many(:wines).through(:showcases_wines) }
     it { must accept_nested_attributes_for(:images) }
   end

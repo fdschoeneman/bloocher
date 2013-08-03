@@ -2,11 +2,12 @@ class Showcase < ActiveRecord::Base
 
   belongs_to :showcaseable, polymorphic: true
   belongs_to :sommelier, class_name: "User"
-
+  
+  has_many :blurbs, through: :showcases_wines, class_name: "Review"
+  has_many :carousels, as: :carousable
+  has_many :images, as: :imageable
   has_many :showcases_wines
   has_many :wines, through: :showcases_wines
-  has_many :blurbs, through: :showcases_wines, class_name: "Review"
-  has_many :images, as: :imageable
 
 
   accepts_nested_attributes_for :images
