@@ -74,6 +74,9 @@ gem 'gmaps4rails'
 # photo upload, resizing, rendering and storage
 gem 'carrierwave'
 
+# store assets in the cloud
+gem 'fog'
+
 # generates retina versions of uploaded images
 gem 'retina_rails'
 

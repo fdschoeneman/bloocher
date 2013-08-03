@@ -49,3 +49,5 @@ libpeerconnection.log
 
 # ignore any uploaded image files that aren't fixtures
 /public/uploads/**/*
+# Ignore application configuration
+/config/application.yml
