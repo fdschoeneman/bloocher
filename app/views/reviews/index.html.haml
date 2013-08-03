@@ -1,29 +1,25 @@
-.row
-  .span12
-
-
-    %h1 Listing reviews
-
-    %table
+.span12
+  %h3 Blooches
+  %table.table.table-condensed
+    %thead
       %tr
         %th Wine name
-        %th Content
-        %th
-        %th
-        %th
+        %th Blooch
+        %th Bloocher
 
       - @reviews.each do |review|
         %tr
           %td= link_to "#{review.wine.vintage} #{review.wine.name.titleize}", wine_path(review.wine.id) 
           %td= review.content
-          - if current_user && current_user.has_role?(:admin)
+          %td= link_to review.reviewer.name, profile_path(review.reviewer.id)
+          - if can? :update, Review
 
             %td= link_to 'Edit', edit_review_path(review)
             %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
 
-    .pagination
-      = paginate @reviews
+  .pagination
+    = paginate @reviews
 
-    %br
+  %br
 
-    = link_to 'New Review', new_review_path
+  = link_to 'New Review', new_review_path

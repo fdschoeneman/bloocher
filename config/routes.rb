@@ -28,8 +28,9 @@ Bloocher::Application.routes.draw do
 
   devise_scope :user do 
     put "/confirm" => "confirmations#confirm"
-    resource :profile, only: [:show, :update]
   end
+
+  get 'profiles/:id', to: 'profiles#show', as: :profile
 
   resources :users do 
     resources :wines, :wineries, :vineyards, :reviews

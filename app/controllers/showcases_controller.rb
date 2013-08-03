@@ -6,6 +6,7 @@ class ShowcasesController < ApplicationController
   end
 
   def show
+    @showcases_wines = @showcase.showcases_wines
     @wines = @showcase.wines
   end
 

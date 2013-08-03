@@ -1,15 +1,12 @@
 .row
 	%h3 Name of this bloocher
 	%p= @user.name
-	%h3 Wines made
-	- @user.winemaker_oeuvres.each do |oeuvre|
+	%h3 Positions
+	- @user.positions.each do |position|
 		%p
-		.badge= oeuvre.wine.rating
-		= link_to("#{oeuvre.wine.vintage} #{oeuvre.wine.name}", wine_url(oeuvre.wine.id))
+		.badge= position
+		= link_to position.positionable.name
 	%h3 
 		Blooches
 		.badge.badge-info= @user.reviews.count
-	- @user.reviews.each do |review|
-		.badge= review.rating
-		= review.content
-
+	

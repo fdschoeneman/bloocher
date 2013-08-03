@@ -1,14 +1,12 @@
 class ProfilesController < ApplicationController
   
-  before_filter :authenticate_user!
-  before_filter :ensure_correct_user,   only: [:update]
-
+  before_action :authenticate_user!, only: [:show]
 
   respond_to :json, :html
 
   def show
 
-  	@user = current_user
+  	@user = User.find_by(id: params[:id])
   end
 
   def edit
@@ -30,9 +28,11 @@ class ProfilesController < ApplicationController
 
 private
 
-  def ensure_correct_user
-
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user == @user
+  def set_producer
+    @producer = Producer.find(params[:id])
   end
+
+  def producer_params
+    params.require(:producer).permit(:name)
+  end  
 end

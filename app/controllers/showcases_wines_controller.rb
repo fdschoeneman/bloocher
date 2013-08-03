@@ -1,7 +1,7 @@
 class ShowcasesWinesController < ApplicationController
-
-  before_action :set_showcase, only: [:show, :edit, :update, :destroy, :remove_wine]
   
+  before_action :set_showcases_wine, only: [:update, :destroy]
+
   def create
     @showcase = Showcase.find(params[:showcase])
     # if current_user == @showcase.sommelier
@@ -15,15 +15,20 @@ class ShowcasesWinesController < ApplicationController
 
   def destroy
 
+    @showcases_wine.destroy 
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+    end
   end
 
-  private
+private
 
   def set_showcases_wine
-
     @showcases_wine = ShowcasesWine.find(params[:id])
   end
-
+  
   def showcases_wine_params
     params.require(:showcases_wine).permit(:wine_id, :blurb_id, :showcase_id)
   end

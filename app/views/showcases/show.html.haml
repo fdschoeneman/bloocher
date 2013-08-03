@@ -8,14 +8,15 @@
       %tr
         %th Name
         %th Winery
-    - @wines.each do |wine|
+    - @showcases_wines.each do |showcases_wine|
       %tr
         %td
-          .badge= wine.reviews.count
-          = link_to wine.name, wine_path(wine)
+          .badge= showcases_wine.wine.reviews.count
+          = link_to showcases_wine.wine.name, wine_path(showcases_wine.wine)
         %td
-          .badge= wine.winery.wines.count
-          = link_to wine.winery.name, winery_path(wine.winery)
+          .badge= showcases_wine.wine.winery.wines.count
+          = link_to showcases_wine.wine.winery.name, winery_path(showcases_wine.wine.winery)
         %td
-          - if can? :update, ShowcasesWine
-            = link_to 'delete', showcase_remove_wine_path(showcase_id: @showcase.id, wine_id: wine.id), method: :delete
+          - if can? :destroy, ShowcasesWine
+            = button_to 'remove from list', showcases_wine_path(showcases_wine), class: "btn", method: :delete
+

@@ -53,12 +53,7 @@ class ShowcaseTest < ActiveSupport::TestCase
       # Then { showcase_with_wines.wines.size == 5 }
     end
 
-    describe "mus t "   do 
-    # And { showcase.must_respond_to :showcasing? }
-    # And { showcase.must_respond_to :showcase! }
-    # And { showcase.must_respond_to :unshowcase! }
-    
-    end
+   
        
 
     describe "on wine model" do

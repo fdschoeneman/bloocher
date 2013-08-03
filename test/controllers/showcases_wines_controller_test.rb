@@ -15,10 +15,16 @@ describe ShowcasesWinesController do
     }
   end
 
+  Given(:showcases_wine) { create(:showcases_wine) }
+  
+  describe "destroy" do 
 
-  # it "should get destroy" do
-  #   get :destroy
-  #   assert_response :success
-  # end
-
+    Given { request.env["HTTP_REFERER"] = showcases_path(showcases_wine.showcase.id) }
+    Then {
+      assert_difference('ShowcasesWine.count', -1) {
+        delete :destroy, id: showcases_wine.id
+      }
+    }
+    And { assert_redirected_to showcases_path(showcases_wine.showcase.id) } 
+  end
 end
