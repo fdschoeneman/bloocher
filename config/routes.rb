@@ -73,6 +73,7 @@ Bloocher::Application.routes.draw do
   get '/privacy',   to: 'static#privacy'
   get '/terms',     to: 'static#terms'
   get '/triq',      to: 'static#triq'
+  get '/todos',     to: 'static#index'
   get '/settings',  to: 'users#settings'
 
   # authenticated :user do

@@ -1,5 +1,6 @@
 class ShowcasesController < ApplicationController
   before_action :set_showcase, only: [:show, :edit, :update, :destroy, :remove_wine]
+  layout false 
 
   def index
     @showcases = Showcase.all
