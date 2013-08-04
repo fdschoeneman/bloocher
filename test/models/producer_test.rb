@@ -21,12 +21,13 @@ class ProducerTest < ActiveSupport::TestCase
 
   describe "associations" do
 
-    it { must have_many(:carousels) }
-    it { must have_many(:wineries) }
-    it { must have_many(:images) }
     it { must have_many(:addresses) }
-    it { must have_many(:vineyards) }
+    it { must have_many(:carousels) }
     it { must have_many(:certifications).through(:certifications_producers) }
+    it { must have_many(:images) }
+    it { must have_many(:positions) }
+    it { must have_many(:vineyards) }
+    it { must have_many(:wineries) }
     
     it { must accept_nested_attributes_for(:wineries) }
     it { must accept_nested_attributes_for(:vineyards) }

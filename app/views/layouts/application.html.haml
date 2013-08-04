@@ -11,5 +11,4 @@
 		= render 'footer'
 
 		- if Rails.env.development?
-			= debug(params) 
-			= current_user.email if current_user
+			%center= debug(params) 

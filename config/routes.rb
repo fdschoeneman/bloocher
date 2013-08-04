@@ -1,27 +1,5 @@
 Bloocher::Application.routes.draw do
 
-
-  resources :carousels
-
-  get "dashboard/show"
-  resources :producers
-
-  resources :images
-
-  resources :showcases 
-
-  resources :showcases_wines, only: [:create, :destroy]
-
-  resources :positions
-
-  resources :certifications do 
-    resources :vineyards
-    resources :wineries 
-  end
-
-  resources :appellations
-
-
   devise_for :users, controllers: { confirmations: 'confirmations', 
                                     registrations: 'registrations',
                                     invitations: 'users/invitations'}
@@ -30,55 +8,52 @@ Bloocher::Application.routes.draw do
     put "/confirm" => "confirmations#confirm"
   end
 
-  get 'profiles/:id', to: 'profiles#show', as: :profile
-
-  resources :users do 
-    resources :wines, :wineries, :vineyards, :reviews
-  end
-    
-  resources :fruit_lots
-  resources :vineyard_vintages
+  resources :appellations
   resources :blocks
-  resources :reviews
-  
+  resources :carousels
+  resources :certifications do 
+    resources :vineyards
+    resources :wineries 
+  end
+  resources :fruit_lots
+  resources :images
+  resources :positions
   resources :producers do 
     resources :wineries
     resources :vineyards
   end
-
+  resources :reviews
+  resources :showcases 
+  resources :showcases_wines, only: [:create, :destroy]
   resources :vineyards do
     resources :blocks 
     resources :vineyard_vintages
     resources :fruit_lots
     resources :certifications
   end
-
+  resources :vineyard_vintages
+  resources :wineries do 
+    resources :wines
+  end
   resources :wines do 
     resources :reviews
     resources :blocks
     resources :fruit_lots
   end
-
-  resources :producers do 
-    resources :wineries, :vineyards
+  resources :users do 
+    resources :wines, :wineries, :vineyards, :reviews
   end
 
-  resources :wineries do 
-    resources :wines
-  end
-
-  get '/about',     to: 'static#about'
-  get '/contact',   to: 'static#contact'
-  get '/help',      to: 'static#help'
-  get '/privacy',   to: 'static#privacy'
-  get '/terms',     to: 'static#terms'
-  get '/triq',      to: 'static#triq'
-  get '/todos',     to: 'static#index'
-  get '/settings',  to: 'users#settings'
-
-  # authenticated :user do
-  #   root :to => 'static#home'
-  # end
+  get '/about',         to: 'static#about'
+  get '/contact',       to: 'static#contact'
+  get '/help',          to: 'static#help'
+  get '/privacy',       to: 'static#privacy'
+  get '/terms',         to: 'static#terms'
+  get '/triq',          to: 'static#triq'
+  get '/todos',         to: 'static#index'
+  get '/settings',      to: 'users#settings'
+  get '/dashboard/:id', to: 'dashboard#show', as: :dashboard
+  get '/profiles/:id',  to: 'profiles#show',  as: :profile
   
   root :to => "static#home"
   

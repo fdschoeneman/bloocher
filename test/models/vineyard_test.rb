@@ -55,7 +55,9 @@ class VineyardTest < ActiveSupport::TestCase
     it { must have_many(:blocks).class_name("Vineyard") } 
     it { must have_many(:carousels) }
     it { must have_many(:fruit_lots).through(:vineyard_vintages) } 
-    it { must have_many(:images) } 
+    it { must have_many(:images) }
+    it { must have_many(:positions) }
+
     it { must have_many(:vineyard_vintages) } 
     it { must have_many(:wines).through(:fruit_lots) } 
     it { must accept_nested_attributes_for(:producer)}

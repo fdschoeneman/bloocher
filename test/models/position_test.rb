@@ -25,5 +25,4 @@ class PositionTest < ActiveSupport::TestCase
     it { must belong_to(:user) }
     it { must belong_to(:positionable) }
   end
-
 end

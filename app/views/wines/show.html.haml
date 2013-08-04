@@ -15,10 +15,10 @@
       %dd= @wine.cases_produced
       %dt Vintage
       %dd= @wine.vintage
-      %dt= @wine.winemakers.count > 1 ? "Winemakers" : "Winemaker" 
+      %dt= @wine.positions
       %dd
         %ul.inline
-          - @wine.winemakers.each do |winemaker|
+          - @wine.positions.each do |winemaker|
             %li= link_to winemaker.name, user_path(winemaker.id)
           = link_to "add winemaker", new_user_invitation_path
 
@@ -65,7 +65,7 @@
                 %dt planted:
                 %dd= link_to fl.fruit_lot.vineyard.planted_on, vineyard_path(fl.fruit_lot.vineyard.id)
 
-- if @wine.winemakers.include? current_user
+- if @wine.positions.include? current_user
   = link_to 'Edit', edit_wine_path(@wine)                                        
 .row
   .span6

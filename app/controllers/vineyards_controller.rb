@@ -1,6 +1,6 @@
 class VineyardsController < ApplicationController
   
-  @json = Vineyard.all.to_gmaps4rails
+  # @json = Vineyard.all.to_gmaps4rails
 
   def index
 
