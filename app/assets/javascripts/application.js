@@ -17,10 +17,7 @@
 //= require jquery.localscroll-1.2.7-min
 //= require jquery.validate
 //= require jquery.validate.functions
-//= require ember
-//= require ember-data
 //= require retina
 //= require custom
-//= require bloocher
-Bloocher = Ember.Application.create();
+
 

@@ -9,7 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require jquery.ui.datepicker
+ *= require jquery.ui.datepicker
+ *= require bootstrap_and_overrides
+ *= require custom
+ *= require bloocher 
+ *= require fonts
+ *= require font-awesome
  *= require_self
- *= require 'font-awesome'
 */
 
