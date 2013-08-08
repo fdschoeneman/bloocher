@@ -3,8 +3,8 @@ class CreateShowcases < ActiveRecord::Migration
     create_table :showcases do |t|
       
       t.integer :sommelier_id
-      t.datetime :version
-      t.string :name
+      t.string :version
+      t.string :title
       t.text :description
       t.boolean :published
 

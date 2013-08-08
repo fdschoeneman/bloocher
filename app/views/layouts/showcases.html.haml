@@ -1,7 +1,8 @@
 !!!
 %html{:lang => "en"}
   %head
-    / = stylesheet_link_tag "application"
+    = stylesheet_link_tag "application"
   %body
     = yield
     = javascript_include_tag "bloocher"
+    / = javascript_include_tag "store"

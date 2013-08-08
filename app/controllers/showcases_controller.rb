@@ -13,7 +13,7 @@ class ShowcasesController < ApplicationController
     @showcases_wines = @showcase.showcases_wines
     @wines = @showcase.wines
 
-    respond_with { Showcase.find(@showcase.id) }
+    respond_with @showcases_wines
   end
 
   def new

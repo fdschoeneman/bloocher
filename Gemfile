@@ -33,6 +33,7 @@ gem 'google-webfonts'
 # ember
 gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc6.4'
+gem 'emblem-rails'
 
 # view template engine
 gem "haml"
