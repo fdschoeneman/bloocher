@@ -1,9 +1,8 @@
 #= require jquery
 #= require jquery_ujs
-#= require jquery.localscroll-1.2.7-min
 #= require jquery.ui.datepicker
 #= require bootstrap
-#= require custom
+#= require jquery.localscroll-1.2.7-min
 #= require jquery.validate
 #= require jquery.validate.functions
 #= require handlebars
@@ -18,6 +17,7 @@
 #= require ./router
 #= require router
 #= require_self
+#= require custom
 
 Bloocher = Ember.Application.create(LOG_TRANSITIONS: true)
 

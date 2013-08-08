@@ -1,6 +1,6 @@
 class ShowcasesController < ApplicationController
   respond_to :json, :html
-  layout "showcases"
+  # layout "showcases"
   
   before_action :set_showcase, only: [:show, :edit, :update, :destroy, :remove_wine]
 

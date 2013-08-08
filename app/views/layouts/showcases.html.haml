@@ -3,14 +3,14 @@
   %head
     = stylesheet_link_tag "application"
     = stylesheet_link_tag "application/#{params[:controller]}"
+    = javascript_include_tag "bloocher"
 
-  %body
+  %body{:class => "#{controller_name} #{action_name}"}
     .container
       = render 'navigation'
       = render 'messages'
     .container
       = yield
     = render 'footer'
-    = javascript_include_tag "bloocher"
 
     
