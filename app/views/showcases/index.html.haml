@@ -1,4 +1,21 @@
-%header
-  %h1 showcase demo
 %script{:type => "text/x-handlebars"}
+  <div class="navbar">
+  <div class="navbar-inner">
+  <a class="brand" href="#">test</a>
+  <ul class="nav">
+  <li>
+  <li>{{#linkTo 'about'}}About{{/linkTo}}</li>
+  </li>
+  </ul>
+  </div>
+  </div>
   {{outlet}}
+
+%script#about{:type => "text/x-handlebars"}
+  <div class='about'>
+  <p>Justin Gordon wrote this: http://www.railsonmaui.com</p>
+  <p>Git Repository: </p>
+  </div>
+
+
+  

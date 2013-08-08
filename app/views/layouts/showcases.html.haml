@@ -2,7 +2,15 @@
 %html{:lang => "en"}
   %head
     = stylesheet_link_tag "application"
+    = stylesheet_link_tag "application/#{params[:controller]}"
+
   %body
-    = yield
+    .container
+      = render 'navigation'
+      = render 'messages'
+    .container
+      = yield
+    = render 'footer'
     = javascript_include_tag "bloocher"
-    / = javascript_include_tag "store"
+
+    

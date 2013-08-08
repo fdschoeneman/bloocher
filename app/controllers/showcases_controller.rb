@@ -7,6 +7,8 @@ class ShowcasesController < ApplicationController
   
   def index
     @showcases = Showcase.all
+
+    respond_with @showcases
   end
 
   def show

@@ -1,5 +1,13 @@
 <h1>Showcases</h1>
 
-<p>Your content here.</p>
+<p>make it show up!</p>
+<ul id="showcases-list">
+{{#each controller}}
+<li>
+<label>{{name}}</label>
+</li>
+{{/each}}
+</ul>
+
 
 {{outlet}}
