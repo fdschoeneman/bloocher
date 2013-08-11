@@ -1,5 +1,4 @@
-.getsome
-	%title= title
+%title= title
 / = display_meta_tags(default_meta_tags) 
 %meta{ charset: "utf-8" }
 %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport"}
@@ -8,7 +7,7 @@
 = csrf_meta_tags
 = stylesheet_link_tag "application", :media => "all"
 = stylesheet_link_tag "application/#{params[:controller]}"
-= javascript_include_tag "application"
 = favicon_link_tag
-%script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+= javascript_include_tag "application"
+/ %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
 = yield(:head)

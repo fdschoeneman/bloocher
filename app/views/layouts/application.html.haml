@@ -8,7 +8,9 @@
 			= render 'messages'
 		.container
 			= yield 
-		= render 'footer'
+		.container
+			= render 'footer'    
+
 
 		- if Rails.env.development?
 			%center= debug(params) 

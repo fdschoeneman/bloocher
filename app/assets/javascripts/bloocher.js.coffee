@@ -1,4 +1,14 @@
-Bloocher = Ember.Application.create(LOG_TRANSITIONS: true)
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_tree ./models
+//= require_tree ./controllers
+//= require_tree ./views
+//= require_tree ./helpers
+//= require_tree ./templates
+//= require_tree ./routes
+//= require ./router
+//= require ./store
 
 Bloocher.Store = DS.Store.extend(
   title: DS.attr('string')
@@ -11,11 +21,7 @@ Bloocher.Router.map ->
     @route "edit",
       path: "/:showcase_id"
 
-Bloocher.Showcase = DS.Model.extend(
-  
-  name: DS.attr("string")
-  description: DS.attr("string")
-)
+
 
 Bloocher.ShowcasesWine = DS.Model.extend(
   showcase: DS.belongsTo('Bloocher.Post')
