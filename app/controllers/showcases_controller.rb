@@ -1,21 +1,23 @@
 class ShowcasesController < ApplicationController
+
   respond_to :json, :html
-  # layout "showcases"
   
   before_action :set_showcase, only: [:show, :edit, :update, :destroy, :remove_wine]
-
   
   def index
-    @showcases = Showcase.all
 
+    @showcases = Showcase.all
     respond_with @showcases
   end
 
   def show
+
     @showcases_wines = @showcase.showcases_wines
     @wines = @showcase.wines
 
-    respond_with @showcases_wines
+    # respond_with @showcases_wines
+
+    # respond_with @showcases_wines
   end
 
   def new

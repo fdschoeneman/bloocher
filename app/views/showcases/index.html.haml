@@ -1,14 +1,8 @@
-.span8.row
-  %script{:type => "text/x-handlebars"}
-    <li>{{#linkTo 'about'}}About{{/linkTo}}</li>
-    </li>
-    {{outlet}}
-
-  %script#about{:type => "text/x-handlebars"}
-    <div class='about'>
-    <p>Justin Gordon wrote this: http://www.railsonmaui.com</p>
-    <p>Git Repository: </p>
-    </div>
+%script{:type => "text/x-handlebars"}
+  .container
+    .row-fluid
+      {{outlet}}
+    
 
 
     

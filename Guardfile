@@ -24,7 +24,7 @@ end
 guard 'livereload' do
 
   watch(%r{app/views/.+\.(erb|haml|slim)$})
-  watch(%r{app/assets/javascripts/.+\.(js|handlebars|hbs|)*$}) { |m| "assets/#{m[1]}" }
+  watch(%r{app/assets/javascripts/.+\.(js|handlebars|hbs|emblem|)*$}) { |m| "assets/#{m[1]}" }
   watch(%r{app/helpers/.+\.rb})
   watch(%r{public/.+\.(css|js|html)})
   watch(%r{config/locales/.+\.yml})

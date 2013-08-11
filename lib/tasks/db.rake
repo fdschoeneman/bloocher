@@ -317,12 +317,14 @@ end
 
 def make_showcases
 
-  showcase = Showcase.new(
-    version: Time.now,
-    name: "Chez Panisse wine list",
-    description: Faker::Lorem.sentence
-  )
-  showcase.save!
+  wine_lists = ["Chez Panisse wines", "Breggo Wines", "Vintage Berkeley"]
+  wine_lists.each do |list|
+    Showcase.create(
+      version: Time.now,
+      name: list,
+      description: Faker::Lorem.sentence
+    )
+  end
 
   10.times do 
     ShowcasesWine.create(
