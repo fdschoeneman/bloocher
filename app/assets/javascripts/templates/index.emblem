@@ -1,0 +1,11 @@
+li #{linkTo 'about' | About}
+h3 Showcases
+.span8
+  table.table.table-condensed
+    thead
+      tr
+        th name
+        th show
+      each controller
+        tr
+          td = name

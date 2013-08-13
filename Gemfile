@@ -90,6 +90,9 @@ gem 'mini_magick'
 # pretty development data
 gem 'faker'
 
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+
 group :development do 
   gem 'travis-lint'
   gem 'hpricot', '0.8.6'

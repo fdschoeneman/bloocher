@@ -1,5 +1,5 @@
-// Version: v0.13-90-g923c48d
-// Last commit: 923c48d (2013-08-02 19:06:11 -0700)
+// Version: v0.13-95-g4764b5d
+// Last commit: 4764b5d (2013-08-10 08:54:08 -0700)
 
 
 (function() {
@@ -52,10 +52,16 @@ var define, requireModule;
   @class DS
   @static
 */
-window.DS = Ember.Namespace.create({
-  VERSION: '0.13'
-});
 
+if ('undefined' === typeof DS) {
+  DS = Ember.Namespace.create({
+    VERSION: '0.13'
+  });
+
+  if ('undefined' !== typeof window) {
+    window.DS = DS;
+  }
+}
 })();
 
 
@@ -6766,7 +6772,7 @@ DS.Serializer = Ember.Object.extend({
     @method _addId
     @private
     @param {any} data the serialized representation that is being built
-    @param {Ember.Model subclass} type
+    @param {DS.Model subclass} type
     @param {any} id the materialized id from the record
   */
   _addId: function(hash, type, id) {
@@ -9431,6 +9437,44 @@ DS.rejectionHandler = function(reason) {
   }
   ```
 
+  ## Customization
+
+  ### Endpoint path customization
+
+  Endpoint paths can be prefixed with a `namespace` by setting the namespace
+  property on the adapter:
+
+  ```js
+  DS.RESTAdapter.reopen({
+    namespace: 'api/1'
+  });
+  ```
+  Requests for `App.Person` would now target `/api/1/people/1`.
+
+  ### Host customization
+
+  An adapter can target other hosts by setting the `url` property.
+
+  ```js
+  DS.RESTAdapter.reopen({
+    url: 'https://api.example.com'
+  });
+  ```
+
+  ### Headers customization
+
+  Some APIs require HTTP headers, eg to provide an API key. An array of
+  headers can be added to the adapter which are passed with every request:
+
+  ```js
+  DS.RESTAdapter.reopen({
+    headers: {
+      "API_KEY": "secret key",
+      "ANOTHER_HEADER": "asdsada"
+    }
+  });
+  ```
+
   @class RESTAdapter
   @constructor
   @namespace DS
@@ -9724,7 +9768,7 @@ DS.RESTAdapter = DS.Adapter.extend({
   */
   findQuery: function(store, type, query, recordArray) {
     var root = this.rootForType(type),
-    adapter = this;
+        adapter = this;
 
     return this.ajax(this.buildURL(root), "GET", {
       data: query
@@ -9809,6 +9853,15 @@ DS.RESTAdapter = DS.Adapter.extend({
       if (hash.data && type !== 'GET') {
         hash.contentType = 'application/json; charset=utf-8';
         hash.data = JSON.stringify(hash.data);
+      }
+
+      if (adapter.headers !== undefined) {
+        var headers = adapter.headers;
+        hash.beforeSend = function (xhr) {
+          Ember.keys(headers).forEach(function(key) {
+            xhr.setRequestHeader(key, headers[key]);
+          });
+        };
       }
 
       hash.success = function(json) {
