@@ -1,5 +1,5 @@
 li #{linkTo 'about' | About}
-h3 Showcases
+h3 Showcases index
 .span8
   table.table.table-condensed
     thead
@@ -8,5 +8,4 @@ h3 Showcases
         th show
       each showcase in showcases
         tr
-          td get some
-          td = showcase.name
+          td = name

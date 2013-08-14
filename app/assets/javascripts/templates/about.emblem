@@ -2,4 +2,4 @@ h1 About
 
 p about The Fred
 
-li #{linkTo 'showcases' | back to showcases}
+li = linkTo 'showcases' | back to showcases

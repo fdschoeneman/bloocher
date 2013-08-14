@@ -13,14 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
-//= require jquery.validate
-//= require jquery.validate.functions
-//= require jquery.scrollto-1.4.3.1-min
-//= require jquery.tagcanvas
 //= require best_in_place
 //= require bootstrap
-//= require jquery.tagcanvas
-//= require jquery-easing
-//= require quicksand
+//= require jquery.validate
+//= require jquery.validate.functions
 //= require custom
 
+//= require_tree .

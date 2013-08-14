@@ -1,5 +1,8 @@
 Bloocher.Router.map ->
   @route 'about'
-  @resource "showcases", _>
+  @resource "showcases", 
+    path: "/", ->
+    @route "showcase",
+      path: "/:showcase_id"
     @route "new"
-  @resource "showcase"
+
