@@ -1,6 +1,9 @@
 li #{linkTo 'about' | About}
 h3 Showcases
 .span8
+  ul
+    each showcase in showcases
+      li = linkTo 'showcase_id' showcase | name
   table.table.table-condensed
     thead
       tr
@@ -9,12 +12,14 @@ h3 Showcases
       each controller
         tr
           td = name
-    thead
-      tr
-        th name
-        th show
-      each controller
-        tr
-          td = name
+          td = linkTo 'showcase.index' showcase | name
+    / thead
+    /   tr
+    /     th name
+    /     th show
+    /   each controller
+    /     tr
+    /       td = name
+
           
 

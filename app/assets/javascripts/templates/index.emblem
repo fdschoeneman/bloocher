@@ -6,6 +6,7 @@ h3 Showcases
       tr
         th name
         th show
-      each controller
+      each showcase in showcases
         tr
-          td = name
+          td get some
+          td = showcase.name

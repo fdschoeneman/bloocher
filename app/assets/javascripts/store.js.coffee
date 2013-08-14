@@ -1,1 +1,3 @@
-Bloocher.Store = DS.Store.extend()
+Bloocher.Store = DS.Store.extend(
+  adapter: 'DS.RESTAdapter'
+)

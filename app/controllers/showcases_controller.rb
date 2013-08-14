@@ -12,8 +12,9 @@ class ShowcasesController < ApplicationController
 
   def show
 
-    @showcases_wines = @showcase.showcases_wines
-    @wines = @showcase.wines
+    respond_with @showcase
+    # @showcases_wines = @showcase.showcases_wines
+    # @wines = @showcase.wines
 
     # respond_with @showcases_wines
 
