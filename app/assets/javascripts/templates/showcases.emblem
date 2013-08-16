@@ -1,16 +1,21 @@
-li #{linkTo 'about' | About}
-h3 Showcases fuck yeah
-.span8
-  table.table.table-condensed
-    thead
-      tr
-        th name
-        th show
-      each controller
-        tr
-          td = name
-          td = linkTo 'showcase' showcase | {{name}}
-          / td {linkTo 'showcases.showcase' showcase}#{showcase.name}
+h2 Showcases
 
-          
+= linkTo "new_showcase" | New Showcase
+
+table.table.table-condensed
+  thead
+    tr
+      th name
+      th description
+      th version
+      th show
+  tbody
+    each showcase in controller
+      tr
+        td = showcase.name
+        td = showcase.description
+        td = showcase.version
+        td 
+          linkTo 'showcase' showcase | show 
+
 

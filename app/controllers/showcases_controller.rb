@@ -45,15 +45,18 @@ class ShowcasesController < ApplicationController
 
   def update
 
-    respond_to do |format|
-      if @showcase.update(showcase_params)
-        format.html { redirect_to @showcase, notice: 'Showcase was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @showcase.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with Showcase.update(params[:id], params[:showcase])
+
+
+    # respond_to do |format|
+    #   if @showcase.update(showcase_params)
+    #     format.html { redirect_to @showcase, notice: 'Showcase was successfully updated.' }
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render action: 'edit' }
+    #     format.json { render json: @showcase.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def destroy

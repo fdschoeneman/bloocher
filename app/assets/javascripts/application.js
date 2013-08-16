@@ -20,7 +20,6 @@
 //= require best_in_place
 //= require bootstrap
 //= require jquery.tagcanvas
-//= require jquery-easing
 //= require quicksand
 //= require custom
 
