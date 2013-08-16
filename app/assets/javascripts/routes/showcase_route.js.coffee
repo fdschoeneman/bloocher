@@ -1,5 +1,3 @@
-# For more information see: http://emberjs.com/guides/routing/
-
-Bloocher.ShowcaseRoute = Ember.Route.extend({
-
-})
+Bloocher.ShowcaseRoute = Ember.Route.extend(model: ->
+  Bloocher.Showcase.find(params.showcase_id)
+)

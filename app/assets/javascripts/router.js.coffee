@@ -1,8 +1,13 @@
-# For more information see: http://emberjs.com/guides/routing/
+Bloocher.Router.map ->
+  @route 'about'
+  @resource "showcases",
+    path: "/"
+  @resource "showcase",
+    path: "/:showcase_id"
 
-Bloocher.Router.map ()->
+  @route "edit_showcase",
+    path: "/:showcase_id/edit"
 
-  @route "showcases",
-    path: "/showcases"
-
+  @route "new_showcase",
+    path: "/new"    
 

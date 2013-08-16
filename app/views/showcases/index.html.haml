@@ -1,26 +1,10 @@
-%h3 Showcases
+- content_for :head do 
+  = javascript_include_tag "bloocher-showcase"
+%script{:type => "text/x-handlebars"}
+  .container
+    .row-fluid
+      {{outlet}}
+    
 
-.span8
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th Name
-        %th Description
-        %th Published
 
-    - @showcases.each do |showcase|
-      %tr
-        %td
-          .badge= showcase.wines.count
-          = link_to showcase.name, showcase
-        %td= showcase.description
-        %td= showcase.published
-        %td= link_to 'Show', showcase
-        - if can? :update, Showcase
-          %td= link_to 'edit', edit_showcase_path(showcase)
-        - if can? :destroy, Showcase 
-          %td= link_to 'delete', showcase, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
-  - if can? :create, Showcase
-    = link_to 'New Showcase', new_showcase_path
+    

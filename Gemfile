@@ -33,6 +33,7 @@ gem 'google-webfonts'
 # ember
 gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc6.4'
+gem 'emblem-rails'
 
 # view template engine
 gem "haml"
@@ -88,6 +89,9 @@ gem 'mini_magick'
 
 # pretty development data
 gem 'faker'
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 
 group :development do 
   gem 'travis-lint'

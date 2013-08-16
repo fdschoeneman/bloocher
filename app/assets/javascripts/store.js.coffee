@@ -1,6 +1,3 @@
-# http://emberjs.com/guides/models/defining-a-store/
-
-Bloocher.Store = DS.Store.extend
-  revision: 11
-  adapter: DS.RESTAdapter.create()
-
+Bloocher.Store = DS.Store.extend(
+  adapter: 'DS.RESTAdapter'
+)

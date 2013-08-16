@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130803081644) do
+ActiveRecord::Schema.define(version: 20130809064430) do
 
   create_table "addresses", force: true do |t|
     t.string   "address_1"
@@ -108,6 +108,13 @@ ActiveRecord::Schema.define(version: 20130803081644) do
   end
 
   add_index "positions", ["title", "user_id"], name: "index_positions_on_title_and_user_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "producers", force: true do |t|
     t.string   "name"

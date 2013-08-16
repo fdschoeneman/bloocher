@@ -20,13 +20,13 @@ jQuery(document).ready(function($) {
 		}
 	})
 
-  // Add animation to #anchors
-  $.localScroll();
+  // // Add animation to #anchors
+  // $.localScroll();
 
-  $('#toplink').on('click', function(e) {
-    e.preventDefault();
-    $.scrollTo('0px', 300);
-  })
+  // $('#toplink').on('click', function(e) {
+  //   e.preventDefault();
+  //   $.scrollTo('0px', 300);
+  // })
 
 
 });

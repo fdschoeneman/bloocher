@@ -1,14 +1,24 @@
 class ShowcasesController < ApplicationController
 
+  respond_to :json, :html
+  
   before_action :set_showcase, only: [:show, :edit, :update, :destroy, :remove_wine]
-
+  
   def index
+
     @showcases = Showcase.all
+    respond_with @showcases
   end
 
   def show
-    @showcases_wines = @showcase.showcases_wines
-    @wines = @showcase.wines
+
+    respond_with @showcase
+    # @showcases_wines = @showcase.showcases_wines
+    # @wines = @showcase.wines
+
+    # respond_with @showcases_wines
+
+    # respond_with @showcases_wines
   end
 
   def new
@@ -35,15 +45,18 @@ class ShowcasesController < ApplicationController
 
   def update
 
-    respond_to do |format|
-      if @showcase.update(showcase_params)
-        format.html { redirect_to @showcase, notice: 'Showcase was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @showcase.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with Showcase.update(params[:id], params[:showcase])
+
+
+    # respond_to do |format|
+    #   if @showcase.update(showcase_params)
+    #     format.html { redirect_to @showcase, notice: 'Showcase was successfully updated.' }
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render action: 'edit' }
+    #     format.json { render json: @showcase.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def destroy
