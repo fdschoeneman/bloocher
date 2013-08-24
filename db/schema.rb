@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130809064430) do
+ActiveRecord::Schema.define(version: 20130822032704) do
 
   create_table "addresses", force: true do |t|
     t.string   "address_1"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20130809064430) do
   end
 
   add_index "appellations_vineyards", ["vineyard_id", "appellation_id"], name: "index_appellations_vineyards_on_vineyard_id_and_appellation_id", unique: true, using: :btree
+
+  create_table "authentications", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carousels", force: true do |t|
     t.string   "carousable_type"
@@ -191,6 +199,8 @@ ActiveRecord::Schema.define(version: 20130809064430) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

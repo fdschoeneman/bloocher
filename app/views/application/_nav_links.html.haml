@@ -3,6 +3,8 @@
 = nav_link_to "wineries", wineries_path
 = nav_link_to "wines", wines_path
 = nav_link_to "vineyards", vineyards_path
+%li
+  = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
 - if user_signed_in?
   %li= link_to "Blooching as #{current_user.name.nil? ? current_user.email : current_user.name}", profile_path(current_user.id)
   %li= link_to "itch neem'r", destroy_user_session_path, method: 'delete'

@@ -7,6 +7,8 @@ class ImagesController < ApplicationController
   end
 
   def show
+    debugger
+    []
   end
 
   def new

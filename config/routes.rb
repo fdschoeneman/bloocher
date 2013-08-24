@@ -1,11 +1,18 @@
 Bloocher::Application.routes.draw do
 
+  # resources :authentications, only: [:index, :create]
+  # get '/auth/facebook/callback' => 'authentications#create' 
+
+  # devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
   devise_for :users, controllers: { confirmations: 'confirmations', 
-                                    registrations: 'registrations',
-                                    invitations: 'users/invitations'}
+                                    invitations: 'users/invitations',
+                                    omniauth_callbacks: 'omniauth_callbacks',
+                                    registrations: 'registrations'
+                                  }
 
   devise_scope :user do 
-    put "/confirm" => "confirmations#confirm"
+    patch "/confirm" => "confirmations#confirm"
   end
 
   resources :appellations
@@ -55,7 +62,7 @@ Bloocher::Application.routes.draw do
   get '/dashboard/:id', to: 'dashboard#show', as: :dashboard
   get '/profiles/:id',  to: 'profiles#show',  as: :profile
   
-  root :to => "static#home"
+  root to: "static#home"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
