@@ -60,14 +60,14 @@ describe ShowcasesController do
   describe "update" do
     
     # When(:desired_attrs) { showcase: { name: "new name" }}}  # When(:showcases_wine_attrs) { attributes_for(:showcases_wine) }
-    Given { put :update, id: showcase, showcase: { name: "new name" } }
-    Then { assert_redirected_to showcase }
+    # Given { put :update, id: showcase, showcase: { name: "new name" } }
+    # Then { assert_redirected_to showcase }
 
-    describe "must create showcase wines" do 
-      Given(:wine) { create(:wine) }
-      Given { put :update, id: showcase, showcase: { wines_attributes: wine.id }  }
-      Then { }# Then { showcase.wines.must include wine }
-    end
+    # describe "must create showcase wines" do 
+    #   Given(:wine) { create(:wine) }
+    #   Given { put :update, id: showcase, showcase: { wines_attributes: wine.id }  }
+    #   Then { }# Then { showcase.wines.must include wine }
+    # end
   end
 
   describe "must destroy showcase" do
