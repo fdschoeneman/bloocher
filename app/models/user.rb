@@ -1,25 +1,22 @@
 class User < ActiveRecord::Base
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable, :invitable
+  devise :confirmable, :database_authenticatable, :invitable, :omniauthable,
+         :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :positions
-  has_many :showcases, foreign_key: :sommelier_id
   has_many :addresses, as: :addressable
+  has_many :authentications, dependent: :destroy 
   has_many :images, as: :imageable
   has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
+  has_many :positions
   has_many :producers, through: :ownerships
-  has_many :winemaker_oeuvres, foreign_key: :winemaker_id
-  has_many :wines_made, through: :winemaker_oeuvres, source: :wine
-  has_many :wineries_owned, through: :producers, source: :wineries
   has_many :reviews, foreign_key: :reviewer_id
-  
-  accepts_nested_attributes_for :images
+  has_many :showcases, foreign_key: :sommelier_id
+  has_many :winemaker_oeuvres, foreign_key: :winemaker_id
+  has_many :wineries_owned, through: :producers, source: :wineries
+  has_many :wines_made, through: :winemaker_oeuvres, source: :wine
+   
+  accepts_nested_attributes_for :images, :authentications
 
-  
   rolify
 
   # has_settings do |setting|
@@ -41,5 +38,13 @@ class User < ActiveRecord::Base
 
   def showcase!(showcase, wine)
     showcases.showcase.showcases_wine.create!(wine)
+  end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
+    end
   end
 end

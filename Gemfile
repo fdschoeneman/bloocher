@@ -51,6 +51,9 @@ gem 'devise_invitable',
     branch: 'rails4'
 gem 'cancan'
 gem 'rolify', '3.3.0.rc4'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 
 # forms
 gem 'simple_form', '3.0.0.rc'
@@ -106,8 +109,8 @@ group :test do
   
   gem 'minitest-rails-shoulda', '~> 0.4.1'
   gem 'minitest-rails-capybara'
-  gem 'wrong'
   gem 'minitest-given'
+  gem 'wrong'
 
   # pretty test output
   gem 'ansi'
@@ -115,6 +118,10 @@ group :test do
 
   # capybara save_and_open dependency
   gem 'launchy'
+
+  # recording external responses for tests
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :test, :development do

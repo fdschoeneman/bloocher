@@ -27,6 +27,7 @@ class UserTest < ActiveSupport::TestCase
 
   describe "associations" do
 
+    it { must have_many(:authentications) }
     it { must have_many(:images) }
     it { must have_many(:addresses) }
     it { must have_many(:positions) }

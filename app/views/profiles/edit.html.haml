@@ -1,2 +1,9 @@
 %h1 Profile#edit
 %p Find me in app/views/profile/edit.html.haml
+
+/ - if f.object.encrypted_password.present?
+/   .field
+/     = f.label :current_password
+/     %i (we need your current password to confirm your changes)
+/     %br/
+/     = f.password_field :current_password
