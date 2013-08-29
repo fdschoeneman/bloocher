@@ -51,9 +51,11 @@ gem 'devise_invitable',
     branch: 'rails4'
 gem 'cancan'
 gem 'rolify', '3.3.0.rc4'
-gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-gplus'
+gem 'omniauth-instagram'
 gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
 
 # forms
 gem 'simple_form', '3.0.0.rc'

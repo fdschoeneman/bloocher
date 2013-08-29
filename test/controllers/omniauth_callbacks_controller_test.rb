@@ -47,12 +47,17 @@ describe OmniauthCallbacksController do
   
     describe "creates an authentication" do 
 
-      Then { Authentication.where(provider: hash[:provider], uid: hash[:uid]).wont_be_empty }
+      Then { Authentication.where(provider: hash[:provider], uid: hash[:uid])
+        .wont_be_empty }
     
     end
-  end
 
-  describe "when email is returned" do 
+    describe "when email is returned" do 
 
+      Then { User.where(email: hash[:info][:email]).wont_be_empty}
+
+
+
+    end
   end
 end

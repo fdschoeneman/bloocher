@@ -6,7 +6,6 @@
 # STRIPE_API_KEY: EdAvEPVEC3LuaTg5Q3z6WbDVqZlcBQ8Z
 # STRIPE_PUBLIC_KEY: pk_BRgD57O8fHja9HxduJUszhef6jCyS
 
-
 # Add account credentials and API keys here.
 # See http://railsapps.github.com/rails-environment-variables.html
 # This file should be listed in .gitignore to keep your settings secret!
@@ -23,6 +22,29 @@ ADMIN_EMAIL: fred.schoeneman@gmail.com
 ADMIN_PASSWORD: password 
 ROLES: [admin, user]
 
-  
+# facebook authentication
 FACEBOOK_APP_ID: 413345198769391
 FACEBOOK_APP_SECRET: be286757de06881b6d8eb6e2afe9378c
+
+# twitter authentication
+TWITTER_CONSUMER_KEY: WYcumlaM4s0X2WH4vPUBKQ
+TWITTER_CONSUMER_SECRET: 0CDtY2LwuobXN03ceaTePowzzBqFUJ4BsPdtRmt3ON4
+
+# linkedin authentication
+LINKEDIN_CONSUMER_KEY: 0VhJKsgv3q8Qu0FU
+LINKEDIN_CONSUMER_SECRET: 6c595d33-a563-4102-a352-6c0f0936c8f6
+# API Key:
+
+# gjkaytzs7we5
+
+# Secret Key:
+
+# 0VhJKsgv3q8Qu0FU
+
+# OAuth User Token:
+
+# 8c8a8ca4-bb9e-43b5-9872-3e6e8793d309
+
+# OAuth User Secret:
+
+# 6c595d33-a563-4102-a352-6c0f0936c8f6
