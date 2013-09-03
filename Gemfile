@@ -136,6 +136,7 @@ group :test, :development do
   gem 'zeus'#, 
     # github: 'burke/zeus', 
     # branch: 'master'
+  gem 'spring'
 
   # test factories  
   gem 'factory_girl_rails'

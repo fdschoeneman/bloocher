@@ -7,8 +7,8 @@ class ConfirmationsController < Devise::ConfirmationsController
   end
 
   def confirm
+
     self.resource = resource_class.find_by_confirmation_token(user_params[:confirmation_token])
-debugger
   
     if resource.update_attributes(user_params.except(:confirmation_token)) && resource.password_match?
       self.resource = resource_class.confirm_by_token(user_params[:confirmation_token])

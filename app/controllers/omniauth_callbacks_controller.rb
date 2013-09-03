@@ -28,6 +28,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   alias_method :facebook, :all
 
+private
   def password_required?
     super && provider.blank?
   end

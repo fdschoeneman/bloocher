@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+
   before_action :authenticate_user!, only: [:create, :edit, :update]
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
@@ -23,7 +24,6 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
     @image.user_id = current_user.id
 
-    # @image.imageable_type
     if @image.save
       redirect_to :back, notice: 'Image was successfully created.'
     else

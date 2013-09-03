@@ -1,45 +1,37 @@
 class VineyardVintagesController < ApplicationController
-  # GET /vineyard_vintages
-  # GET /vineyard_vintages.json
+
   def index
     @page_title = "Vineyard vintages"
     @vineyard_vintages = VineyardVintage.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @vineyard_vintages }
     end
   end
 
-  # GET /vineyard_vintages/1
-  # GET /vineyard_vintages/1.json
   def show
     @vineyard_vintage = VineyardVintage.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @vineyard_vintage }
     end
   end
 
-  # GET /vineyard_vintages/new
-  # GET /vineyard_vintages/new.json
   def new
     @vineyard_vintage = VineyardVintage.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.json { render json: @vineyard_vintage }
     end
   end
 
-  # GET /vineyard_vintages/1/edit
   def edit
     @vineyard_vintage = VineyardVintage.find(params[:id])
   end
 
-  # POST /vineyard_vintages
-  # POST /vineyard_vintages.json
   def create
     @vineyard_vintage = VineyardVintage.new(params[:vineyard_vintage])
 
@@ -54,8 +46,6 @@ class VineyardVintagesController < ApplicationController
     end
   end
 
-  # PUT /vineyard_vintages/1
-  # PUT /vineyard_vintages/1.json
   def update
     @vineyard_vintage = VineyardVintage.find(params[:id])
 
@@ -70,8 +60,6 @@ class VineyardVintagesController < ApplicationController
     end
   end
 
-  # DELETE /vineyard_vintages/1
-  # DELETE /vineyard_vintages/1.json
   def destroy
     @vineyard_vintage = VineyardVintage.find(params[:id])
     @vineyard_vintage.destroy

@@ -7,7 +7,7 @@ class ProducersController < ApplicationController
     @producers = Producer.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @producers }
     end
   end

@@ -1,31 +1,28 @@
 class BlocksController < ApplicationController
-  # GET /blocks
-  # GET /blocks.json
+
   def index
 
     @page_title = "Blocks"
     @blocks = Vineyard.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @blocks }
     end
   end
 
-  # GET /blocks/1
-  # GET /blocks/1.json
   def show
+
     @block = Vineyard.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @block }
     end
   end
 
-  # GET /blocks/new
-  # GET /blocks/new.json
   def new
+
     @block = Vineyard.new
 
     respond_to do |format|
@@ -34,14 +31,13 @@ class BlocksController < ApplicationController
     end
   end
 
-  # GET /blocks/1/edit
   def edit
+
     @block = Vineyard.find(params[:id])
   end
 
-  # POST /blocks
-  # POST /blocks.json
   def create
+
     @block = Vineyard.new(params[:block])
 
     respond_to do |format|
@@ -55,9 +51,8 @@ class BlocksController < ApplicationController
     end
   end
 
-  # PUT /blocks/1
-  # PUT /blocks/1.json
   def update
+
     @block = Vineyard.find(params[:id])
 
     respond_to do |format|
@@ -71,9 +66,8 @@ class BlocksController < ApplicationController
     end
   end
 
-  # DELETE /blocks/1
-  # DELETE /blocks/1.json
   def destroy
+
     @block = Vineyard.find(params[:id])
     @block.destroy
 

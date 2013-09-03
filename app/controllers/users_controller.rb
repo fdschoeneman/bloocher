@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
- def update
+  def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user], :as => :admin)
