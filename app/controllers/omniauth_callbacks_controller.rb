@@ -1,6 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
+    debugger
     hash = request.env["omniauth.auth"]
     extract_email_from(hash)
     user = User.where(email: @email).first_or_create
@@ -26,7 +27,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end    
   end
 
-  alias_method :facebook, :all
+  alias_method :facebook, :all 
+  alias_method :gplus, :all  
+  alias_method :linkedin, :all
+  alias_method :twitter, :all 
 
 private
   def password_required?

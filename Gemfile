@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 
 # server
-gem "thin", ">= 1.5.0"
+gem 'thin', '>= 1.5.0'
 
 # javascript 
 gem 'jquery-rails'
@@ -26,6 +26,7 @@ gem 'jquery-ui-rails'
 gem 'best_in_place',
     github: 'bernat/best_in_place', 
     branch: 'rails-4'
+
 # fonts
 gem 'font-awesome-rails'
 gem 'google-webfonts'
@@ -35,22 +36,27 @@ gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc6.4'
 gem 'emblem-rails'
 
-# view template engine
-gem "haml"
+# view templates
+gem 'haml'
 gem 'haml-rails', 
     github: 'indirect/haml-rails',
     branch: 'master'
 
 # mail
-gem "sendgrid", ">= 1.0.1"
+gem 'sendgrid', '>= 1.0.1'
 
 # authentication
 gem 'devise', '3.0.0'
 gem 'devise_invitable', 
     github: 'scambra/devise_invitable', 
     branch: 'rails4'
+# permissions
 gem 'cancan'
+
+# user roles
 gem 'rolify', '3.3.0.rc4'
+
+# omniauth
 gem 'omniauth-facebook'
 gem 'omniauth-gplus'
 gem 'omniauth-instagram'
