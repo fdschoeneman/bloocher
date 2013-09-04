@@ -60,6 +60,9 @@ gem 'omniauth-twitter'
 # forms
 gem 'simple_form', '3.0.0.rc'
 
+# qr codes
+gem 'google-api-client'
+
 # gem "client_side_validations"
 # gem "client_side_validations-simple_form"
 
