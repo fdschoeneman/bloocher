@@ -184,6 +184,10 @@ GEM
       multi_json (>= 1.0.0)
       signet (~> 0.4.5)
       uuidtools (>= 2.1.0)
+    google-api-rails (1.0.0)
+      activesupport (>= 3.1.0)
+      google-api-client
+      i18n
     google-webfonts (0.1.2)
       actionpack (>= 3.0.0)
     guard (1.8.2)
@@ -452,6 +456,7 @@ DEPENDENCIES
   font-awesome-rails
   gmaps4rails
   google-api-client
+  google-api-rails
   google-webfonts
   guard
   guard-bundler

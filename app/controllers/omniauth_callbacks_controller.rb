@@ -1,7 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
-    debugger
     hash = request.env["omniauth.auth"]
     extract_email_from(hash)
     user = User.where(email: @email).first_or_create

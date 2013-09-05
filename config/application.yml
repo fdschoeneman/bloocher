@@ -53,6 +53,6 @@ LINKEDIN_CONSUMER_SECRET: 6c595d33-a563-4102-a352-6c0f0936c8f6
 # VrHL2ZHhZtZqTZgfDy9p_InR
 # Redirect URIs:  https://localhost:3000/oauth2callback
 # JavaScript origins: https://localhost:3000
-
+GPLUS_CLIENT_ID: 16145563248.apps.googleusercontent.com
 GPLUS_KEY: 16145563248.apps.googleusercontent.com
 GPLUS_SECRET: VrHL2ZHhZtZqTZgfDy9p_InR
