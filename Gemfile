@@ -111,6 +111,7 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :test do 
