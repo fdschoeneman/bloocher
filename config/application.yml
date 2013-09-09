@@ -56,3 +56,22 @@ LINKEDIN_CONSUMER_SECRET: 6c595d33-a563-4102-a352-6c0f0936c8f6
 GPLUS_CLIENT_ID: 16145563248.apps.googleusercontent.com
 GPLUS_KEY: 16145563248.apps.googleusercontent.com
 GPLUS_SECRET: VrHL2ZHhZtZqTZgfDy9p_InR
+GPLUS_API_KEY: AIzaSyADVTXkWUzmyp7wfLd1SBRNGeWDbBqBO3U
+
+
+
+#  information
+# The following information is shown to users whenever you request access to their private data.
+# Product name: Bloocher
+# Google account: fred.schoeneman@gmail.com
+# Home page URL:  bloocher.com
+# Edit branding information...
+# Client ID for web applications
+# Client ID:  
+# 16145563248.apps.googleusercontent.com
+# Email address:  
+# 16145563248@developer.gserviceaccount.com
+# Client secret:  
+# VrHL2ZHhZtZqTZgfDy9p_InR
+# Redirect URIs:  http://localhost:3000/users/auth/gplus/callback
+# JavaScript origins: https://localhost:3000
