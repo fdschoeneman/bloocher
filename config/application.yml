@@ -1,3 +1,34 @@
+# sendgrid
+SENDGRID_USERNAME: app10941941@heroku.com
+SENDGRID_PASSWORD: rfxvxkkg
+ADMIN_NAME: HMFIC
+ADMIN_EMAIL: fred.schoeneman@gmail.com
+ADMIN_PASSWORD: password 
+ROLES: [admin, user]
+
+# facebook
+FACEBOOK_APP_ID: 413345198769391
+FACEBOOK_APP_SECRET: be286757de06881b6d8eb6e2afe9378c
+
+# twitter 
+TWITTER_CONSUMER_KEY: WYcumlaM4s0X2WH4vPUBKQ
+TWITTER_CONSUMER_SECRET: 0CDtY2LwuobXN03ceaTePowzzBqFUJ4BsPdtRmt3ON4
+
+# linkedin
+LINKEDIN_CONSUMER_KEY: 0VhJKsgv3q8Qu0FU
+LINKEDIN_CONSUMER_SECRET: 6c595d33-a563-4102-a352-6c0f0936c8f6
+
+# Gplus
+GPLUS_CLIENT_ID: 16145563248.apps.googleusercontent.com
+GPLUS_KEY: 16145563248.apps.googleusercontent.com
+GPLUS_SECRET: VrHL2ZHhZtZqTZgfDy9p_InR
+GPLUS_API_KEY: AIzaSyADVTXkWUzmyp7wfLd1SBRNGeWDbBqBO3U
+
+# Google api client
+GOOGLE_API_KEY: AIzaSyDu8IFCALXESDHzBKfkGQDEkDjTQC2HfLk
+
+
+
 # Add application configuration variables here, as shown below.
 #
 # PUSHER_APP_ID: "2954"
@@ -15,20 +46,7 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-SENDGRID_USERNAME: app10941941@heroku.com
-SENDGRID_PASSWORD: rfxvxkkg
-ADMIN_NAME: HMFIC
-ADMIN_EMAIL: fred.schoeneman@gmail.com
-ADMIN_PASSWORD: password 
-ROLES: [admin, user]
 
-# facebook authentication
-FACEBOOK_APP_ID: 413345198769391
-FACEBOOK_APP_SECRET: be286757de06881b6d8eb6e2afe9378c
-
-# twitter authentication
-TWITTER_CONSUMER_KEY: WYcumlaM4s0X2WH4vPUBKQ
-TWITTER_CONSUMER_SECRET: 0CDtY2LwuobXN03ceaTePowzzBqFUJ4BsPdtRmt3ON4
 
 # linkedin authentication
 # API Key:
@@ -40,8 +58,6 @@ TWITTER_CONSUMER_SECRET: 0CDtY2LwuobXN03ceaTePowzzBqFUJ4BsPdtRmt3ON4
 # OAuth User Secret:
 # 6c595d33-a563-4102-a352-6c0f0936c8f6
 
-LINKEDIN_CONSUMER_KEY: 0VhJKsgv3q8Qu0FU
-LINKEDIN_CONSUMER_SECRET: 6c595d33-a563-4102-a352-6c0f0936c8f6
 
 # gplus / google oauth2
 
@@ -53,10 +69,6 @@ LINKEDIN_CONSUMER_SECRET: 6c595d33-a563-4102-a352-6c0f0936c8f6
 # VrHL2ZHhZtZqTZgfDy9p_InR
 # Redirect URIs:  https://localhost:3000/oauth2callback
 # JavaScript origins: https://localhost:3000
-GPLUS_CLIENT_ID: 16145563248.apps.googleusercontent.com
-GPLUS_KEY: 16145563248.apps.googleusercontent.com
-GPLUS_SECRET: VrHL2ZHhZtZqTZgfDy9p_InR
-GPLUS_API_KEY: AIzaSyADVTXkWUzmyp7wfLd1SBRNGeWDbBqBO3U
 
 
 
