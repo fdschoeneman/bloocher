@@ -68,7 +68,7 @@ gem 'simple_form', '3.0.0.rc'
 
 # qr codes
 gem 'google-api-client'
-gem 'google-api-rails'
+gem 'rqrcode-rails3'
 
 
 # gem "client_side_validations"

@@ -25,6 +25,7 @@ class WineTest < ActiveSupport::TestCase
       end
 
       it { must have_db_column(:name).of_type(:string) }
+      it { must have_db_column(:short_url).of_type(:string) }
 
       it { must have_db_column(:winemaker_notes).of_type(:text) }
       
