@@ -1,5 +1,7 @@
 class WinesController < ApplicationController
 
+  # require 'google/api_client'
+
   def index
     @page_title = "Wines"
     @wines = Wine.order(:created_at).page params[:page]
@@ -95,7 +97,6 @@ private
   end
 
   def shorten_url!(url)
-    require 'google/api_client'
     client = Google::APIClient.new(
       :application_name => "Bloocher",
       :key => 'AIzaSyDu8IFCALXESDHzBKfkGQDEkDjTQC2HfLk',

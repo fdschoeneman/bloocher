@@ -19,7 +19,13 @@ def magenta(text);  colorize(text, 35); end
 def cyan(text);     colorize(text, 36); end
 
 namespace :db do
+
   desc "Fill database with sample data" 
+
+  namespace :populate do 
+
+  end
+
   task populate: :environment do
     if Rails.env.development?
       puts "#{red("==>")} Clearing Current Data"
@@ -27,41 +33,41 @@ namespace :db do
     end
     puts "#{green("==>")} Making sample users"
     make_users
-    puts "#{green("==>")} Making user roles"
-    make_user_roles
-    puts "#{green("==>")} Making admin user"
-    make_admin_user
-    ["hola.nicole@gmail.com"].each do |email|
-      puts "#{green("==>")} Making #{email}"
-      make_user(email)
-    end
-    puts "#{green("==>")} Making wineries"
-    make_wineries    
-    puts "#{green("==>")} Making addresses"
-    make_addresses
-    puts "#{green("==>")} Making wines"
-    make_wines
-    puts "#{green("==>")} Making reviews"
-    make_reviews
-    puts "#{green("==>")} Making producers"
-    make_producers  
-    puts "#{green("==>")} Making vineyard parents"
-    make_vineyard_parents
-    puts "#{green("==>")} Making vineyard blocks"
-    make_vineyard_blocks
-    puts "#{green("==>")} Making vineyard vintages"
-    make_vineyard_vintages
-    puts "#{green("==>")} Making fruit lots"
-    make_fruit_lots
-    puts "#{green("==>")} Making wine fruit lots"
-    make_wine_fruit_lots
-    puts "#{green("==>")} Making certifications"
-    make_certifications
-    puts "#{green("==>")} Making appellations"
-    make_appellations
-    puts "#{green("==>")} Making showcases"
-    make_showcases
-    Rake::Task['db:test:prepare'].invoke
+    # puts "#{green("==>")} Making user roles"
+    # make_user_roles
+    # puts "#{green("==>")} Making admin user"
+    # make_admin_user
+    # ["hola.nicole@gmail.com"].each do |email|
+    #   puts "#{green("==>")} Making #{email}"
+    #   make_user(email)
+    # end
+    # puts "#{green("==>")} Making wineries"
+    # make_wineries    
+    # puts "#{green("==>")} Making addresses"
+    # make_addresses
+    # puts "#{green("==>")} Making wines"
+    # make_wines
+    # puts "#{green("==>")} Making reviews"
+    # make_reviews
+    # puts "#{green("==>")} Making producers"
+    # make_producers  
+    # puts "#{green("==>")} Making vineyard parents"
+    # make_vineyard_parents
+    # puts "#{green("==>")} Making vineyard blocks"
+    # make_vineyard_blocks
+    # puts "#{green("==>")} Making vineyard vintages"
+    # make_vineyard_vintages
+    # puts "#{green("==>")} Making fruit lots"
+    # make_fruit_lots
+    # puts "#{green("==>")} Making wine fruit lots"
+    # make_wine_fruit_lots
+    # puts "#{green("==>")} Making certifications"
+    # make_certifications
+    # puts "#{green("==>")} Making appellations"
+    # make_appellations
+    # puts "#{green("==>")} Making showcases"
+    # make_showcases
+    # Rake::Task['db:test:prepare'].invoke
   end
 end
 
