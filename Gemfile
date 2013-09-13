@@ -140,7 +140,7 @@ group :test, :development do
   gem 'minitest-rails', '0.5.2'
     
   # preloads rails app for faster test and development tasks
-  gem 'zeus'#, 
+  # gem 'zeus'#, 
     # github: 'burke/zeus', 
     # branch: 'master'
   gem 'spring'
