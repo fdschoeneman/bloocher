@@ -1,4 +1,7 @@
 Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
+include WineData
+include ReviewData
+include MiscellaneousData
  
 def colorize(text, color_code)
  "\e[#{color_code}m#{text}\e[0m"
@@ -18,11 +21,11 @@ def big_notice(task)
 end
 
 def medium_notice(task)
-  puts green(" -->") + " Making " + task
+  puts green(" -->") + " " + task
 end
 
 def small_notice(subject)
-  puts green("  --") + " Making " + subject
+  puts green("    ~-") + " Making " + subject
 end
 # # def make_addresses
   
@@ -44,84 +47,12 @@ end
 # #   end
 # # end
 
-# # def make_user_roles
-  
-# #   YAML.load(ENV['ROLES']).each do |role|
-# #     Role.find_or_create_by(name: role)
-# #     puts "#{green("==>")} Making role: " << role
-# #   end
-# # end
 
 
-# # def make_wineries
 
-# #   boonville_wineries.each do |winery_name|
-# #     Winery.create(
-# #       name: winery_name, 
-# #       producer_id: rand(1..20)
-# #     )
-# #   end
-# # end
 
-# # def make_wines
-  
-# #   99.times do |n|
-# #     vintage = rand(2002..2011)
-# #     bottled_on_year = vintage + 1
-# #     released_on_year = vintage + rand(1..2)
-# #     lay_down_until_year = vintage + rand(1..4)
-# #     drink_before_year = vintage + rand(10..20)
-# #     new_french_oak = (rand(0..100).to_f)/100
-# #     wine = Wine.new( 
-# #       vintage: vintage,
-# #       cases_produced: rand(2000..100000),
-# #       name: "#{wine_types.sample} \- #{vineyard_names.sample} \- #{differentiators.sample}",
-# #       winery_id: rand(1..28),   
-# #       acid_added: rand(0..1),
-# #       new_french_oak: rand(1..100),
-# #       days_in_oak: rand(90..180),
-# #       bottled_on: "#{bottled_on_year}-#{rand(1..12)}-#{rand(1..30)}",
-# #       released_on: "#{released_on_year}-#{rand(1..12)}-#{rand(1..30)}",
-# #       category: wine_types.sample,
-# #       winemaker_notes: Faker::Lorem.sentence(8),
-# #       ph: "#{(rand(665..755).to_f)/100}",
-# #       residual_sugar: "#{(rand(1..5).to_f)/100}",
-# #       alcohol: "#{(rand(125..175).to_f)/1000}",
-# #       one_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
-# #       new_french_oak: new_french_oak,
-# #       two_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
-# #       three_yr_old_french_oak: "#{(100 - new_french_oak)/7}",
-# #       new_american_oak: "#{(100 - new_french_oak)/7}",
-# #       one_yr_old_american_oak: "#{(100 - new_french_oak)/7}",
-# #       two_yr_old_american_oak: "#{(100 - new_french_oak)/7}",
-# #       three_yr_old_american_oak: "#{(100 - new_french_oak)/7}"
-# #     )
-
-# #     wine.save
-# #   end
-# # end
-
-# # def make_reviews 
-# #   99.times do |n|
-# #     Review.create(
-# #       rating: rand(70..95),
-# #       reviewer_id: rand(1..99),
-# #       wine_id: rand(1..99),
-# #       # content: Faker::Lorem.paragraphs
-# #       content: hipster_review
-# #     )
-# #   end
-# # end
 
 # # def make_producers
-# #   20.times do |n|
-# #     name = boonville_producers.sample
-# #     subdomain = name.gsub(" ", "-")
-# #     web_address = "http://www." + subdomain + "." + Faker::Internet.domain_suffix
-# #     Producer.create(
-# #       name: name
-# #     )
-# #   end
 # # end
 
 # # def make_vineyard
