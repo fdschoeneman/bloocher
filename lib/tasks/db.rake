@@ -27,26 +27,6 @@ end
 def small_notice(subject)
   puts green("    ~-") + " Making " + subject
 end
-# # def make_addresses
-  
-# #   %w[producer user vineyard winery].each do |addressable_type|
-
-# #   Address.create(
-# #       address_1: Faker::Address.street_address,
-# #       address_2: Faker::Address.secondary_address,
-# #       city: Faker::Address.city,
-# #       state: "CA",
-# #       zip: Faker::Address.zip_code,
-# #       country: "United States",
-# #       public_phone: Faker::PhoneNumber,
-# #       public_email: Faker::Internet.email,
-# #       public_url: Faker::Internet.domain_name,
-# #       addressable_type: addressable_type.capitalize,
-# #       addressable_id: 1
-# #     )
-# #   end
-# # end
-
 
 
 
@@ -198,6 +178,26 @@ end
 # #     ShowcasesWine.create(
 # #       wine_id: rand(1..100),
 # #       showcase_id: 1
+# #     )
+# #   end
+# # end
+
+# # def make_addresses
+  
+# #   %w[producer user vineyard winery].each do |addressable_type|
+
+# #   Address.create(
+# #       address_1: Faker::Address.street_address,
+# #       address_2: Faker::Address.secondary_address,
+# #       city: Faker::Address.city,
+# #       state: "CA",
+# #       zip: Faker::Address.zip_code,
+# #       country: "United States",
+# #       public_phone: Faker::PhoneNumber,
+# #       public_email: Faker::Internet.email,
+# #       public_url: Faker::Internet.domain_name,
+# #       addressable_type: addressable_type.capitalize,
+# #       addressable_id: 1
 # #     )
 # #   end
 # # end
