@@ -18,15 +18,6 @@ GIT
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
 
-GIT
-  remote: git://github.com/scambra/devise_invitable.git
-  revision: 1c6a50bb29f8637b3bffb05c2ba32e927d105113
-  branch: rails4
-  specs:
-    devise_invitable (1.2.0.rc1)
-      actionmailer (>= 4.0.0.rc1)
-      railties (>= 4.0.0.rc1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -116,6 +107,9 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
+    devise_invitable (1.2.1)
+      actionmailer (>= 3.2.6, < 5)
+      devise (~> 3.0.0)
     diff-lcs (1.1.3)
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
@@ -425,7 +419,7 @@ DEPENDENCIES
   database_cleaner
   debugger
   devise (= 3.0.0)
-  devise_invitable!
+  devise_invitable
   ember-rails
   ember-source (= 1.0.0.rc6.4)
   emblem-rails
