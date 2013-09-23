@@ -1,8 +1,8 @@
 require "test_helper"
 
-class ImageTest < ActiveSupport::TestCase
+desceribe Image do 
 
-  subject { Image.new }
+  subjec { Image.new }
 
   describe "db" do 
 

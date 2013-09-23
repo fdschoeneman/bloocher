@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WineTest < ActiveSupport::TestCase 
+describe Wine do 
 
   subject { Wine.new }
 

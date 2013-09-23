@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase 
-  
+ describe User do 
+ 
   subject { User.new }
 
   describe "db" do 

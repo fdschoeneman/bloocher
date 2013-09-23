@@ -1,7 +1,6 @@
 require "test_helper"
 
-class AuthenticationTest < ActiveSupport::TestCase
-
+describe Authentication do 
   subject { Authentication.new }
 
   describe "db" do 

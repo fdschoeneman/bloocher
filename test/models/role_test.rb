@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RoleTest < ActiveSupport::TestCase 
+describe Role do 
 
   subject { Role.new }
 

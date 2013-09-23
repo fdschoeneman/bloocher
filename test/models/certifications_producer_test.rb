@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CertificationsProducerTest < ActiveSupport::TestCase 
+describe CertificationsProducer do 
 
   subject { CertificationsProducer.new }
 

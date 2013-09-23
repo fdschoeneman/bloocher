@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class VineyardTest < ActiveSupport::TestCase 
-
+describe Vineyard do
+ 
   subject { Vineyard.new }
 
   describe "db" do 

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AddressTest < ActiveSupport::TestCase
+describe Address do 
 
   subject { Address.new } 
 

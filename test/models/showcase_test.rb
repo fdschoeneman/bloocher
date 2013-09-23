@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ShowcaseTest < ActiveSupport::TestCase
+describe Showcase do
 
   subject { Showcase.new }
 

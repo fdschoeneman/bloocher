@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FruitLotTest < ActiveSupport::TestCase 
+describe FruitLot do 
 
   subject { FruitLot.new }
 
