@@ -18,7 +18,6 @@ describe Account do
 			it { must have_db_index(:subdomain).unique(true) }
 			it { must have_db_index(:accountable_id).unique(true) }
 			it { must have_db_index(:accountable_type).unique(true) }
-
 		end
 	end
 
