@@ -47,9 +47,9 @@ gem 'sendgrid', '>= 1.0.1'
 
 # authentication
 gem 'devise', '3.0.0'
-gem 'devise_invitable', 
-    github: 'scambra/devise_invitable', 
-    branch: 'rails4'
+gem 'devise_invitable'#, 
+    # github: 'scambra/devise_invitable', 
+    # branch: 'rails4'
 # permissions
 gem 'cancan'
 
@@ -145,9 +145,6 @@ group :test, :development do
   gem 'minitest-rails', '0.5.2'
     
   # preloads rails app for faster test and development tasks
-  gem 'zeus'#, 
-    # github: 'burke/zeus', 
-    # branch: 'master'
   gem 'spring'
 
   # test factories  

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ImageTest < ActiveSupport::TestCase
+describe Image do 
 
   subject { Image.new }
 

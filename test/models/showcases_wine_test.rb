@@ -1,7 +1,7 @@
 require "test_helper"
 
-class ShowcasesWineTest < ActiveSupport::TestCase 
-  
+ describe ShowcasesWine do 
+ 
   subject { ShowcasesWine.new }
 
   describe "db" do

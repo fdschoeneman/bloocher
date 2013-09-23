@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AppellationTest < ActiveSupport::TestCase 
+describe Appellation do 
 
   subject { Appellation.new }
 

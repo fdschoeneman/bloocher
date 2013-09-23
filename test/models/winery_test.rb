@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WineryTest < ActiveSupport::TestCase 
+describe Winery do  
 
   subject { Winery.new }
 

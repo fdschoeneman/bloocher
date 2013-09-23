@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProducerTest < ActiveSupport::TestCase 
+describe Producer do 
 
   subject { Producer.new }
 

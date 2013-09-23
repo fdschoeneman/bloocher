@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20130910222305) do
+=======
+ActiveRecord::Schema.define(version: 20130923015122) do
+
+  create_table "account_activations", force: true do |t|
+    t.integer  "account_id"
+    t.integer  "activation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "accounts", force: true do |t|
+    t.integer  "accountable_id"
+    t.string   "accountable_type"
+    t.string   "subdomain"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["accountable_id"], name: "index_accounts_on_accountable_id", unique: true, using: :btree
+  add_index "accounts", ["accountable_type", "accountable_id"], name: "index_accounts_on_accountable_type_and_accountable_id", unique: true, using: :btree
+  add_index "accounts", ["accountable_type"], name: "index_accounts_on_accountable_type", unique: true, using: :btree
+  add_index "accounts", ["subdomain"], name: "index_accounts_on_subdomain", unique: true, using: :btree
+
+  create_table "accounts_activations", force: true do |t|
+    t.integer  "account_id"
+    t.integer  "activation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "accounts_admins", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+>>>>>>> develop
 
   create_table "addresses", force: true do |t|
     t.string   "address_1"
@@ -117,13 +155,6 @@ ActiveRecord::Schema.define(version: 20130910222305) do
 
   add_index "positions", ["title", "user_id"], name: "index_positions_on_title_and_user_id", using: :btree
 
-  create_table "posts", force: true do |t|
-    t.string   "title"
-    t.string   "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "producers", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -158,8 +189,8 @@ ActiveRecord::Schema.define(version: 20130910222305) do
 
   create_table "showcases", force: true do |t|
     t.integer  "sommelier_id"
-    t.datetime "version"
-    t.string   "name"
+    t.string   "version"
+    t.string   "title"
     t.text     "description"
     t.boolean  "published"
     t.datetime "created_at"
@@ -205,7 +236,7 @@ ActiveRecord::Schema.define(version: 20130910222305) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
-  add_index "users", ["name"], name: "index_users_on_name", using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: true do |t|

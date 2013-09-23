@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CarouselTest < ActiveSupport::TestCase
+describe Carousel do 
 
   subject { Carousel.new }
 

@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class ReviewTest < ActiveSupport::TestCase 
-  
+ describe Review do 
+ 
   subject { Review.new }
 
   describe "db" do 

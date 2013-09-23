@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Accountable:
+  = @account.accountable_id
+%p
+  %b Accountable type:
+  = @account.accountable_type
+%p
+  %b Subdomain:
+  = @account.subdomain
+
+= link_to 'Edit', edit_account_path(@account)
+\|
+= link_to 'Back', accounts_path

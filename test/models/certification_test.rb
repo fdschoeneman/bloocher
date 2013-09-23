@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CertificationTest < ActiveSupport::TestCase 
+describe Certification do 
 
   subject { Certification.new }
 
