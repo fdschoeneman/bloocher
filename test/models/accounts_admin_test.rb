@@ -11,12 +11,11 @@ describe AccountsAdmin do
   		it { must have_db_column(:user_id).of_type(:integer) }
   		it { must have_db_column(:account_id).of_type(:integer) }
   	end
+  end
 
-  end# before do
-  #   @accounts_admin = AccountsAdmin.new
-  # end
+  describe "associations" do 
 
-  # it "must be valid" do
-  #   @accounts_admin.valid?.must_equal true
-  # end
+    it { must belong_to(:user) }
+    it { must belong_to(:account) }
+  end
 end

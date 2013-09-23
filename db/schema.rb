@@ -331,6 +331,7 @@ ActiveRecord::Schema.define(version: 20130923015122) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
+    t.string   "short_url"
   end
 
   add_index "wines", ["name"], name: "index_wines_on_name", using: :btree

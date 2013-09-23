@@ -15,7 +15,7 @@ describe AccountsActivation do
 
   describe "associations" do 
 
-    it { should belong_to(:account) }
-    it { should belong_to(:activation) } 
+    it { must belong_to(:account) }
+    it { must belong_to(:activation) } 
   end
 end
