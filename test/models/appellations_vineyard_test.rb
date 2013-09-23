@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe AppellationsVineyard
+describe AppellationsVineyard do 
 
   subject { AppellationsVineyard.new }
 

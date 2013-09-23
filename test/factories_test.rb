@@ -1,9 +1,12 @@
 require 'test_helper'
 
-FactoryGirl.factories.map(&:name).each do |factory_name|
-  describe "The #{factory_name} factory" do
-    it 'is valid' do
-      FactoryGirl.build(factory_name).valid?.must_equal true
-    end
-  end
+describe "Factories" do 
+
+	FactoryGirl.factories.map(&:name).each do |factory_name|
+	  describe "#{factory_name}" do
+	    it 'is valid' do
+	      FactoryGirl.build(factory_name).valid?.must_equal true
+	    end
+	  end
+	end
 end

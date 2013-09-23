@@ -1,8 +1,8 @@
 require "test_helper"
 
-desceribe Image do 
+describe Image do 
 
-  subjec { Image.new }
+  subject { Image.new }
 
   describe "db" do 
 
