@@ -1,4 +1,4 @@
-class WineFruitLot < ActiveRecord::Base
+class WinesFruitLot < ActiveRecord::Base
 
 
   belongs_to :fruit_lot

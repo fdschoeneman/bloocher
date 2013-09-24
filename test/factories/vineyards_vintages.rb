@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :vineyard_vintage do
+  factory :vineyards_vintage do
     vineyard_id 1
     growing_degree_days 1
     days_above_100 1

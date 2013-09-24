@@ -1,4 +1,4 @@
-class VineyardVintage < ActiveRecord::Base
+class VineyardsVintage < ActiveRecord::Base
   
 
   belongs_to :vineyard

@@ -13,7 +13,33 @@ def yellow(text);   colorize(text, 33); end
 def purple(text);   colorize(text, 34); end
 def magenta(text);  colorize(text, 35); end
 def cyan(text);     colorize(text, 36); end
-@users_count = 99
+
+# development variables
+@dev_accounts = 10
+@dev_accounts_activations = 20
+@dev_accounts_admins = 5
+@dev_addresses = 20
+@dev_appellations = 20
+@dev_appellations_vineyards = 20
+@dev_authentications = 5
+@dev_carousels = 5
+@dev_certifications = 5 
+@dev_certifications_producers = 20
+@dev_fruit_lots = 20
+@dev_images = 20
+@dev_positions = 20
+@dev_producers = 5
+@dev_reviews = 20
+@dev_roles = 3
+@dev_showcases = 5 
+@dev_showcases_wines = 20
+@dev_users = 39
+@dev_vineyards = 5 
+@dev_vineyards_vintages = 20 
+@dev_wines = 20
+@dev_wines_fruit_lots = 20
+@dev_wineries = 5
+
 def inflect(method); method.gsub("make", "making"); end
 
 def big_notice(task)

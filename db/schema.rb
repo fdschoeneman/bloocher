@@ -11,19 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923015122) do
-
-  create_table "account_activations", force: true do |t|
-    t.integer  "account_id"
-    t.integer  "activation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20130923013659) do
 
   create_table "accounts", force: true do |t|
     t.integer  "accountable_id"
     t.string   "accountable_type"
     t.string   "subdomain"
+    t.integer  "activation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,7 +114,7 @@ ActiveRecord::Schema.define(version: 20130923015122) do
     t.decimal  "weight"
     t.date     "harvest_date"
     t.integer  "wine_id"
-    t.integer  "vineyard_vintage_id"
+    t.integer  "vineyards_vintage_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -242,20 +236,6 @@ ActiveRecord::Schema.define(version: 20130923015122) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
-  create_table "vineyard_vintages", force: true do |t|
-    t.integer  "vineyard_id"
-    t.integer  "growing_degree_days"
-    t.integer  "days_above_100"
-    t.date     "bud_break"
-    t.date     "bloom_date"
-    t.date     "veraison"
-    t.date     "last_frost"
-    t.integer  "days_of_frost"
-    t.decimal  "average_yearly_rel_hum"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "vineyards", force: true do |t|
     t.integer  "producer_id"
     t.integer  "vineyard_parent_id"
@@ -288,10 +268,16 @@ ActiveRecord::Schema.define(version: 20130923015122) do
   add_index "vineyards", ["appellation_id"], name: "index_vineyards_on_appellation_id", using: :btree
   add_index "vineyards", ["name"], name: "index_vineyards_on_name", using: :btree
 
-  create_table "wine_fruit_lots", force: true do |t|
-    t.integer  "wine_id"
-    t.integer  "fruit_lot_id"
-    t.integer  "percent_of_wine"
+  create_table "vineyards_vintages", force: true do |t|
+    t.integer  "vineyard_id"
+    t.integer  "growing_degree_days"
+    t.integer  "days_above_100"
+    t.date     "bud_break"
+    t.date     "bloom_date"
+    t.date     "veraison"
+    t.date     "last_frost"
+    t.integer  "days_of_frost"
+    t.decimal  "average_yearly_rel_hum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -336,5 +322,13 @@ ActiveRecord::Schema.define(version: 20130923015122) do
 
   add_index "wines", ["name"], name: "index_wines_on_name", using: :btree
   add_index "wines", ["vintage"], name: "index_wines_on_vintage", using: :btree
+
+  create_table "wines_fruit_lots", force: true do |t|
+    t.integer  "wine_id"
+    t.integer  "fruit_lot_id"
+    t.integer  "percent_of_wine"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

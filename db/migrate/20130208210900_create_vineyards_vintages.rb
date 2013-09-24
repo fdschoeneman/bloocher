@@ -1,6 +1,6 @@
-class CreateVineyardVintages < ActiveRecord::Migration
+class CreateVineyardsVintages < ActiveRecord::Migration
   def change
-    create_table :vineyard_vintages do |t|
+    create_table :vineyards_vintages do |t|
       t.integer :vineyard_id
       t.integer :growing_degree_days
       t.integer :days_above_100

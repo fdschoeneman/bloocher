@@ -65,8 +65,8 @@ describe Wine do
     it { must have_many(:fruit_lots) }
     it { must have_many(:reviews) }
     it { must have_many(:showcases).through(:showcases_wines)}
-    it { must have_many(:vineyard_vintages).through(:fruit_lots) }
-    it { must have_many(:vineyards).through(:vineyard_vintages) }
+    it { must have_many(:vineyards_vintages).through(:fruit_lots) }
+    it { must have_many(:vineyards).through(:vineyards_vintages) }
   end
 
   describe "vineyards method" do 
@@ -86,8 +86,8 @@ describe Wine do
         ) 
       end
       
-      When(:wine_fruit_lot) do 
-        FactoryGirl.create(:wine_fruit_lot,
+      When(:wines_fruit_lot) do 
+        FactoryGirl.create(:wines_fruit_lot,
           fruit_lot_id: fruit_lot.id,
           wine_id: wine.id
         )

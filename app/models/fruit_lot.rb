@@ -1,16 +1,16 @@
 class FruitLot < ActiveRecord::Base
 
-  belongs_to :vineyard_vintage
+  belongs_to :vineyards_vintage
 
-  has_many :wine_fruit_lots
-  has_many :wines, through: :wine_fruit_lots
+  has_many :wines_fruit_lots
+  has_many :wines, through: :wines_fruit_lots
 
   def varietal
-  	self.vineyard_vintage.vineyard.varietal
+  	self.vineyards_vintage.vineyard.varietal
   end
 
   def vineyard
-  	self.vineyard_vintage.vineyard
+  	self.vineyards_vintage.vineyard
   end
   
 end

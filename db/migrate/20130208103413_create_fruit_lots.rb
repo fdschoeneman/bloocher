@@ -5,7 +5,7 @@ class CreateFruitLots < ActiveRecord::Migration
       t.decimal :weight
       t.date :harvest_date
       t.integer :wine_id
-      t.integer :vineyard_vintage_id
+      t.integer :vineyards_vintage_id
 
       t.timestamps
     end

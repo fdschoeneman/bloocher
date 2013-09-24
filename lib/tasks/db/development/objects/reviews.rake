@@ -5,8 +5,8 @@ namespace 'db:development' do
     99.times do |n|
       review = Review.new(
         rating: rand(70..95),
-        reviewer_id: rand(1..User.count),
-        wine_id: rand(1..@user_count),
+        reviewer_id: rand(1..@users_count),
+        wine_id: rand(1..5),
         content: hipster_review
       )
       review.save

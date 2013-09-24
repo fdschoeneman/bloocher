@@ -4,6 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :accountable_id
       t.string :accountable_type
       t.string :subdomain
+      t.integer :activation_id
 
       t.timestamps
     end
