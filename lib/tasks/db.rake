@@ -17,6 +17,7 @@ def cyan(text);     colorize(text, 36); end
 # development variables
 @dev_accounts = 10
 @dev_accounts_activations = 20
+@dev_activations = 5
 @dev_accounts_admins = 5
 @dev_addresses = 20
 @dev_appellations = 20
