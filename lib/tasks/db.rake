@@ -13,7 +13,7 @@ def yellow(text);   colorize(text, 33); end
 def purple(text);   colorize(text, 34); end
 def magenta(text);  colorize(text, 35); end
 def cyan(text);     colorize(text, 36); end
-
+@users_count = 99
 def inflect(method); method.gsub("make", "making"); end
 
 def big_notice(task)

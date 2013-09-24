@@ -6,7 +6,7 @@ namespace 'db:development' do
       review = Review.new(
         rating: rand(70..95),
         reviewer_id: rand(1..User.count),
-        wine_id: rand(1..99),
+        wine_id: rand(1..@user_count),
         content: hipster_review
       )
       review.save
