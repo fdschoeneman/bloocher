@@ -25,8 +25,8 @@
               = hidden_review_item(intmodifier)
               = fb.text_field 'adjective_2', placeholder: "another adjective"
               / - if wine.category
-                / = wine.category + "."
-                / = fb.hidden_field('wine_category', value: wine.category)
+              /  / = wine.category + "."
+              /  / = fb.hidden_field('wine_category', value: wine.category)
               - else
                 = fb.text_field 'wine_category', placeholder: "varietal or type"
                 = ".  "
