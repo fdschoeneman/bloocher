@@ -10,6 +10,5 @@ namespace 'db:development' do
 
       small_notice("producer: #{producer.name}")
     end
-
   end
 end
