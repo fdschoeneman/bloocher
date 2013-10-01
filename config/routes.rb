@@ -1,5 +1,7 @@
 Bloocher::Application.routes.draw do
 
+  resources :activations
+
   resources :accounts
 
   # resources :authentications, only: [:index, :create]

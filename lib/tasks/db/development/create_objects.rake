@@ -5,7 +5,7 @@ namespace 'db:development' do
 
 
     big_notice(task)
-    %w[roles users producers wineries wines reviews].each do |subtask|
+    %w[accounts accounts_activations accounts_admins activations addresses roles users producers wineries wines reviews].each do |subtask|
       medium_notice(subtask)
 
       Rake::Task["db:development:#{subtask}"].invoke

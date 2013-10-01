@@ -50,6 +50,7 @@ describe Vineyard do
     it { must belong_to(:vineyard_parent) } 
 
     it { must have_many(:addresses) }
+    it { must have_many(:accounts) }
     it { must have_many(:appellations_vineyards)}
     it { must have_many(:appellations).through(:appellations_vineyards) }
     it { must have_many(:blocks).class_name("Vineyard") } 

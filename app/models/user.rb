@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   devise :confirmable, :database_authenticatable, :invitable, :omniauthable,
          :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :accounts_admins, foreign_key: :admin_id, dependent: :destroy
+  has_many :accounts, through: :accounts_admins
   has_many :addresses, as: :addressable
   has_many :authentications, dependent: :destroy 
   has_many :images, as: :imageable

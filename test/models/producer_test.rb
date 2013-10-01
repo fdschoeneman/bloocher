@@ -21,6 +21,7 @@ describe Producer do
 
   describe "associations" do
 
+    it { must have_many(:accounts) }
     it { must have_many(:addresses) }
     it { must have_many(:carousels) }
     it { must have_many(:certifications).through(:certifications_producers) }

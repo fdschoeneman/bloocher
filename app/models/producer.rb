@@ -2,6 +2,7 @@ class Producer < ActiveRecord::Base
 
   resourcify
 
+  has_many :accounts, as: :accountable
   has_many :addresses, as: :addressable
   has_many :carousels, as: :carousable
   has_many :certifications_producers

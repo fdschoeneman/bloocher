@@ -16,8 +16,7 @@ describe Account do
 
 		describe "indexes" do 
 
-			it { must have_db_index(:accountable_id).unique(true) }
-			it { must have_db_index(:accountable_type).unique(true) }
+			it { must have_db_index([:accountable_id, :accountable_type]).unique(true) }
 			it { must have_db_index(:subdomain).unique(true) }
 		end
 	end
@@ -25,7 +24,7 @@ describe Account do
 	describe "associations" do 
 
 		it { must belong_to(:accountable) }
-		it { must belong_to(:activation) }
+		it { must have_many(:activations) }
 	end
 
 	describe "validations" do 

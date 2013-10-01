@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :accounts_admin do
-    user_id 1
-    account_id 1
+    # admin_id 1
+    # account_id 1
+    admin
+    account
   end
 end

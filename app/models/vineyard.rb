@@ -5,6 +5,7 @@ class Vineyard < ActiveRecord::Base
   belongs_to :producer
   belongs_to :vineyard_parent, class_name: "Vineyard"
 
+  has_many :accounts, as: :accountable
   has_many :addresses, as: :addressable
   has_many :appellations_vineyards
   has_many :appellations, through: :appellations_vineyards

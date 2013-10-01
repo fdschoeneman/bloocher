@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923013659) do
+ActiveRecord::Schema.define(version: 20130930034326) do
 
   create_table "accounts", force: true do |t|
     t.integer  "accountable_id"
@@ -22,9 +22,7 @@ ActiveRecord::Schema.define(version: 20130923013659) do
     t.datetime "updated_at"
   end
 
-  add_index "accounts", ["accountable_id"], name: "index_accounts_on_accountable_id", unique: true, using: :btree
-  add_index "accounts", ["accountable_type", "accountable_id"], name: "index_accounts_on_accountable_type_and_accountable_id", unique: true, using: :btree
-  add_index "accounts", ["accountable_type"], name: "index_accounts_on_accountable_type", unique: true, using: :btree
+  add_index "accounts", ["accountable_id", "accountable_type"], name: "index_accounts_on_accountable_id_and_accountable_type", unique: true, using: :btree
   add_index "accounts", ["subdomain"], name: "index_accounts_on_subdomain", unique: true, using: :btree
 
   create_table "accounts_activations", force: true do |t|
@@ -35,8 +33,14 @@ ActiveRecord::Schema.define(version: 20130923013659) do
   end
 
   create_table "accounts_admins", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "admin_id"
     t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "activations", force: true do |t|
+    t.string   "credit_card"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -10,8 +10,6 @@ class CreateAccounts < ActiveRecord::Migration
     end
 
     add_index :accounts, :subdomain, 														unique: true
-    add_index :accounts, :accountable_id, 											unique: true
-    add_index :accounts, :accountable_type, 										unique: true
-    add_index :accounts, [:accountable_type, :accountable_id],	unique: true
+    add_index :accounts, [:accountable_id, :accountable_type, ],	unique: true
   end
 end
