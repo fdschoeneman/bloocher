@@ -105,14 +105,6 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
-  create_table "certifications_producers", force: true do |t|
-    t.integer  "producer_id"
-    t.integer  "certification_id"
-    t.date     "certified_since"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "fruit_lots", force: true do |t|
     t.decimal  "brix"
     t.decimal  "weight"
