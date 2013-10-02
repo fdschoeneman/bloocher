@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130930034326) do
+ActiveRecord::Schema.define(version: 20131002043316) do
 
   create_table "accounts", force: true do |t|
     t.integer  "accountable_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20130930034326) do
   end
 
   add_index "accounts", ["accountable_id", "accountable_type"], name: "index_accounts_on_accountable_id_and_accountable_type", unique: true, using: :btree
+  add_index "accounts", ["activation_id"], name: "index_accounts_on_activation_id", using: :btree
   add_index "accounts", ["subdomain"], name: "index_accounts_on_subdomain", unique: true, using: :btree
 
   create_table "accounts_activations", force: true do |t|
@@ -32,12 +33,18 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
+  add_index "accounts_activations", ["account_id"], name: "index_accounts_activations_on_account_id", using: :btree
+  add_index "accounts_activations", ["activation_id"], name: "index_accounts_activations_on_activation_id", using: :btree
+
   create_table "accounts_admins", force: true do |t|
     t.integer  "admin_id"
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "accounts_admins", ["account_id"], name: "index_accounts_admins_on_account_id", using: :btree
+  add_index "accounts_admins", ["admin_id"], name: "index_accounts_admins_on_admin_id", using: :btree
 
   create_table "activations", force: true do |t|
     t.string   "credit_card"
@@ -60,6 +67,8 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type", using: :btree
 
   create_table "appellations", force: true do |t|
     t.string   "name"
@@ -89,6 +98,8 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
+  add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
+
   create_table "carousels", force: true do |t|
     t.string   "carousable_type"
     t.integer  "carousable_id"
@@ -97,6 +108,9 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
+  add_index "carousels", ["carousable_id", "carousable_type"], name: "index_carousels_on_carousable_id_and_carousable_type", using: :btree
+  add_index "carousels", ["image_id"], name: "index_carousels_on_image_id", using: :btree
+
   create_table "certifications", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -104,6 +118,17 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "certifications_holdables", force: true do |t|
+    t.integer  "holdable_id"
+    t.date     "inception"
+    t.string   "grade"
+    t.string   "holdable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "certifications_holdables", ["holdable_id", "holdable_type"], name: "index_certifications_holdables_on_holdable_id_and_holdable_type", using: :btree
 
   create_table "fruit_lots", force: true do |t|
     t.decimal  "brix"
@@ -114,6 +139,9 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "fruit_lots", ["vineyards_vintage_id"], name: "index_fruit_lots_on_vineyards_vintage_id", using: :btree
+  add_index "fruit_lots", ["wine_id"], name: "index_fruit_lots_on_wine_id", using: :btree
 
   create_table "images", force: true do |t|
     t.string   "image"
@@ -130,6 +158,9 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
+  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
+  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
+
   create_table "positions", force: true do |t|
     t.integer  "user_id"
     t.integer  "positionable_id"
@@ -139,6 +170,7 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
+  add_index "positions", ["positionable_id", "positionable_type"], name: "index_positions_on_positionable_id_and_positionable_type", using: :btree
   add_index "positions", ["title", "user_id"], name: "index_positions_on_title_and_user_id", using: :btree
 
   create_table "producers", force: true do |t|
@@ -183,6 +215,8 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
+  add_index "showcases", ["sommelier_id"], name: "index_showcases_on_sommelier_id", using: :btree
+
   create_table "showcases_wines", force: true do |t|
     t.integer  "showcase_id"
     t.integer  "wine_id"
@@ -190,6 +224,10 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "showcases_wines", ["blurb_id"], name: "index_showcases_wines_on_blurb_id", using: :btree
+  add_index "showcases_wines", ["showcase_id"], name: "index_showcases_wines_on_showcase_id", using: :btree
+  add_index "showcases_wines", ["wine_id"], name: "index_showcases_wines_on_wine_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                             default: "", null: false
@@ -221,6 +259,7 @@ ActiveRecord::Schema.define(version: 20130930034326) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invited_by_id", "invited_by_type"], name: "index_users_on_invited_by_id_and_invited_by_type", using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -263,6 +302,8 @@ ActiveRecord::Schema.define(version: 20130930034326) do
 
   add_index "vineyards", ["appellation_id"], name: "index_vineyards_on_appellation_id", using: :btree
   add_index "vineyards", ["name"], name: "index_vineyards_on_name", using: :btree
+  add_index "vineyards", ["producer_id"], name: "index_vineyards_on_producer_id", using: :btree
+  add_index "vineyards", ["vineyard_parent_id"], name: "index_vineyards_on_vineyard_parent_id", using: :btree
 
   create_table "vineyards_vintages", force: true do |t|
     t.integer  "vineyard_id"
@@ -278,6 +319,8 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "updated_at"
   end
 
+  add_index "vineyards_vintages", ["vineyard_id"], name: "index_vineyards_vintages_on_vineyard_id", using: :btree
+
   create_table "wineries", force: true do |t|
     t.string   "name"
     t.integer  "producer_id"
@@ -286,6 +329,7 @@ ActiveRecord::Schema.define(version: 20130930034326) do
   end
 
   add_index "wineries", ["name"], name: "index_wineries_on_name", unique: true, using: :btree
+  add_index "wineries", ["producer_id"], name: "index_wineries_on_producer_id", using: :btree
 
   create_table "wines", force: true do |t|
     t.integer  "vintage"
@@ -318,6 +362,7 @@ ActiveRecord::Schema.define(version: 20130930034326) do
 
   add_index "wines", ["name"], name: "index_wines_on_name", using: :btree
   add_index "wines", ["vintage"], name: "index_wines_on_vintage", using: :btree
+  add_index "wines", ["winery_id"], name: "index_wines_on_winery_id", using: :btree
 
   create_table "wines_fruit_lots", force: true do |t|
     t.integer  "wine_id"
@@ -326,5 +371,8 @@ ActiveRecord::Schema.define(version: 20130930034326) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "wines_fruit_lots", ["fruit_lot_id"], name: "index_wines_fruit_lots_on_fruit_lot_id", using: :btree
+  add_index "wines_fruit_lots", ["wine_id"], name: "index_wines_fruit_lots_on_wine_id", using: :btree
 
 end

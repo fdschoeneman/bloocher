@@ -12,6 +12,12 @@ describe Carousel do
       it { must have_db_column(:carousable_id).of_type(:integer) }
       it { must have_db_column(:image_id).of_type(:integer) }
     end
+
+    describe "indexes" do 
+
+      it { must have_db_index([:carousable_id, :carousable_type]) }
+      it { must have_db_index(:image_id) }
+    end
   end
 
   describe "associations" do 

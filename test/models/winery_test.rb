@@ -15,6 +15,7 @@ describe Winery do
     describe 'indexes' do 
 
       it { must have_db_index(:name).unique(true) }
+      it { must have_db_index(:producer_id) }
     end
   end
 

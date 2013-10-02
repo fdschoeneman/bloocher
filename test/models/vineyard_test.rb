@@ -35,6 +35,8 @@ describe Vineyard do
 
       it { must have_db_index(:name)}
       it { must have_db_index(:appellation_id) }
+      it { must have_db_index(:producer_id) }
+      it { must have_db_index(:vineyard_parent_id) }
     end
   end
 

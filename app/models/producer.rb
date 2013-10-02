@@ -5,8 +5,8 @@ class Producer < ActiveRecord::Base
   has_many :accounts, as: :accountable
   has_many :addresses, as: :addressable
   has_many :carousels, as: :carousable
-  has_many :certifications_producers
-  has_many :certifications, through: :certifications_producers
+  # has_many :certifications_producers
+  # has_many :certifications, through: :certifications_producers
   has_many :images, as: :imageable
   has_many :positions, as: :positionable
   has_many :vineyards

@@ -1,6 +1,6 @@
 namespace 'db:development' do 
 
-  task accounts: :environment do
+  task showcases: :environment do
   end
 
 end

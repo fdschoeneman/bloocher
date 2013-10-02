@@ -10,6 +10,11 @@ describe VineyardsVintage do
   
       it { must have_db_column(:vineyard_id).of_type(:integer) }
     end
+
+		describe "indexes" do
+
+      it { must have_db_index(:vineyard_id) }
+    end 
   end
 
   describe "associations" do 

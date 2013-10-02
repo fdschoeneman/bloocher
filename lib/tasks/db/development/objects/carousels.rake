@@ -1,6 +1,6 @@
 namespace 'db:development' do 
 
-  task accounts: :environment do
+  task carousels: :environment do
   end
 
 end

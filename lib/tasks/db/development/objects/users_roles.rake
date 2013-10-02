@@ -1,6 +1,6 @@
 namespace 'db:development' do 
 
-  task accounts: :environment do
+  task users_roles: :environment do
   end
 
 end

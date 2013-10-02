@@ -1,6 +1,6 @@
 namespace 'db:development' do 
 
-  task accounts: :environment do
+  task certifications: :environment do
 
   	certification_names = %w[organic biodynamic]
 
@@ -8,7 +8,7 @@ namespace 'db:development' do
   		Certification.create(
   			name: name,
   			description: Faker::Lorem.sentence,
-  			url: Faker::Company.url
+  			url: Faker::Internet.domain_name
   		)
   	end
   end

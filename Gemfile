@@ -110,6 +110,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
 group :development do 
+
   gem 'travis-lint'
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
@@ -117,6 +118,7 @@ group :development do
   gem 'quiet_assets'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'rails_best_practices'
 end
 
 group :test do 

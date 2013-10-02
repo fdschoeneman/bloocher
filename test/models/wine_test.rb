@@ -34,8 +34,9 @@ describe Wine do
 
     describe "indexes" do
 
-      it { must have_db_index(:vintage) }
       it { must have_db_index(:name) }
+      it { must have_db_index(:vintage) }
+      it { must have_db_index(:winery_id) }
     end
   end
 

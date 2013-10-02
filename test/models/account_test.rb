@@ -18,6 +18,7 @@ describe Account do
 
 			it { must have_db_index([:accountable_id, :accountable_type]).unique(true) }
 			it { must have_db_index(:subdomain).unique(true) }
+			it { must have_db_index(:activation_id) }
 		end
 	end
 

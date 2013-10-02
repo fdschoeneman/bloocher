@@ -14,6 +14,11 @@ describe Showcase do
       it { must have_db_column(:description).of_type(:text) }
       it { must have_db_column(:version).of_type(:string) }
     end
+
+     describe "indexes" do
+
+      it { must have_db_index(:sommelier_id) }
+    end
   end
 
   describe "associations" do 

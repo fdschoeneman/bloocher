@@ -1,6 +1,6 @@
 namespace 'db:development' do 
 
-  task accounts: :environment do
+  task wine_fruit_lots: :environment do
   end
 
 end

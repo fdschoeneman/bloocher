@@ -12,6 +12,13 @@ require "test_helper"
       it { must have_db_column(:wine_id).of_type(:integer)}
       it { must have_db_column(:blurb_id).of_type(:integer)}
     end 
+
+    describe "indexes" do
+
+      it { must have_db_index(:showcase_id) }
+      it { must have_db_index(:wine_id) }
+      it { must have_db_index(:blurb_id) }
+    end
   end
 
   describe "associations" do 

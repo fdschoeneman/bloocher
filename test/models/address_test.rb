@@ -23,6 +23,8 @@ describe Address do
 
     describe "indexes" do 
 
+      it { must have_db_index([:addressable_id, :addressable_type]) }
+
     end
   end
 

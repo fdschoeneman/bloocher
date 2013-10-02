@@ -11,6 +11,11 @@ describe AccountsAdmin do
   		it { must have_db_column(:admin_id).of_type(:integer) }
   		it { must have_db_column(:account_id).of_type(:integer) }
   	end
+
+    describe "indexes" do 
+      it { must have_db_column(:admin_id) }
+      it { must have_db_column(:account_id) }
+    end
   end
 
   describe "associations" do 

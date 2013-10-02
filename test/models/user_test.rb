@@ -21,6 +21,7 @@ require 'test_helper'
     describe "indexes" do
 
       it { must have_db_index(:email) }
+      it { must have_db_index([:invited_by_id, :invited_by_type]) }
       it { must have_db_index(:name) }
     end
   end

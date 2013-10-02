@@ -17,6 +17,12 @@ describe Image do
       it { must have_db_column(:slug).of_type(:string) }
       it { must have_db_column(:user_id).of_type(:integer) }
     end
+
+    describe "indexes" do 
+
+      it {must have_db_index([:imageable_id, :imageable_type]) }
+      it {must have_db_index(:user_id) }
+    end
   end
 
   describe "associations" do

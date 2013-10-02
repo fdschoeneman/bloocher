@@ -24,7 +24,7 @@ describe Producer do
     it { must have_many(:accounts) }
     it { must have_many(:addresses) }
     it { must have_many(:carousels) }
-    it { must have_many(:certifications).through(:certifications_producers) }
+    # it { must have_many(:certifications).through(:certifications_producers) }
     it { must have_many(:images) }
     it { must have_many(:positions) }
     it { must have_many(:vineyards) }
