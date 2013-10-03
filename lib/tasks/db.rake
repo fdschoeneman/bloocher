@@ -14,6 +14,11 @@ def purple(text);   colorize(text, 34); end
 def magenta(text);  colorize(text, 35); end
 def cyan(text);     colorize(text, 36); end
 
+def objects
+	[ 
+		{accounts:10}
+	]
+end
 # development variables
 @accounts = 10
 @accounts_activations = 20
