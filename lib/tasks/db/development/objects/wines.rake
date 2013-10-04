@@ -1,4 +1,4 @@
-namespace 'db:development' do 
+namespace 'db:development:create' do 
 
   task wines: :environment do 
     99.times do |n|

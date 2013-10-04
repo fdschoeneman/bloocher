@@ -1,21 +1,33 @@
 namespace 'db:development' do
 
   desc "Create working objects in development db"
-  task :create_objects do |task|
 
-    rakefiles = Dir[File.expand_path('lib/tasks/db/development/objects/*.rake')]
-    
-    big_notice(task)
-    %w[accounts accounts_activations accounts_admins activations addresses 
-      roles users producers wineries wines reviews].each do |subtask|
-      medium_notice(subtask)
-
-      debugger
-
-      Rake::Task["db:development:#{subtask}"].invoke
+  task :create_objects do
+    Rake.application.in_namespace('db:development:create') do |x| 
+      x.tasks.each{|t| t.invoke}
     end
-  end  
+  end
 end
+
+  # task :create_objects do
+  #   Rake.application.in_namespace('db:development') do |x| 
+  #     x.tasks.each{|t| t.invoke}
+  #   end
+    # big_notice(task)
+    # %w[accounts accounts_activations accounts_admins activations addresses 
+    #   roles users producers wineries wines reviews].each do |subtask|
+    #   medium_notice(subtask)
+
+    #   debugger
+
+    #   Rake::Task["db:development:#{subtask}"].invoke
+    # end
+  # end  
+
+  # task :db:development do
+  #   Rake.application.in_namespace(:db:development){|x| x.tasks.each{|t| t.invoke}}
+  # end
+# end
 
     # def make_addresses
     

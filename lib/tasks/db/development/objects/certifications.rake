@@ -1,4 +1,4 @@
-namespace 'db:development' do 
+namespace 'db:development:create' do 
 
   task certifications: :environment do
 

@@ -1,4 +1,4 @@
-namespace 'db:development' do 
+namespace 'db:development:create' do 
 
   task roles: :environment do |task| 
     YAML.load(ENV['ROLES']).each do |role|
