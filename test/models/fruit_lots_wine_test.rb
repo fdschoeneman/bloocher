@@ -1,8 +1,8 @@
 require 'test_helper'
 
-describe WinesFruitLot do 
+describe FruitLotsWine do 
 
-  subject { WinesFruitLot.new }
+  subject { FruitLotsWine.new }
 
   describe "db" do 
 

@@ -7,7 +7,8 @@ class Wine < ActiveRecord::Base
 
   belongs_to :winery
 
-  has_many :fruit_lots, through: :wines_fruit_lots
+  has_many :fruit_lots, through: :fruit_lots_wines
+  has_many :fruit_lots_wines
   has_many :images,     as: :imageable
   has_many :positions,  as: :positionable
   has_many :reviews
@@ -15,7 +16,6 @@ class Wine < ActiveRecord::Base
   has_many :showcases_wines
   has_many :vineyards_vintages, through: :fruit_lots
   has_many :vineyards, through: :vineyards_vintages
-  has_many :wines_fruit_lots
 
   def rating
     if self.reviews.count.zero?

@@ -1,27 +1,15 @@
 Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
+Dir[Rails.root.join("lib/tasks/support/*.rb")].each {|f| require f}
+
 include WineData
 include ReviewData
 include MiscellaneousData
- 
-def colorize(text, color_code)
- "\e[#{color_code}m#{text}\e[0m"
-end
+include RakeColorizer 
+include RakePrettifier
 
-def red(text);      colorize(text, 31); end
-def green(text);    colorize(text, 32); end
-def yellow(text);   colorize(text, 33); end
-def purple(text);   colorize(text, 34); end
-def magenta(text);  colorize(text, 35); end
-def cyan(text);     colorize(text, 36); end
+desc "alias for db:development:populate"
+task populate: ['db:development:populate', :environment] 
 
-def objects
-	%w[ 
-		accounts:10
-	]
-end
-
-
-# development variables
 @accounts = 10
 @accounts_activations = 20
 @accounts_admins = 20
@@ -48,48 +36,6 @@ end
 @wines = 20
 @wines_fruit_lots = 20
 @wineries = 5
-
-def inflect(method); method.gsub("make", "making"); end
-
-def big_notice(task)
-  puts green("==>") + " " + task.name
-end
-
-def medium_notice(task)
-  puts green(" -->") + " " + task
-end
-
-def small_notice(subject)
-  puts green("    ~-") + " Making " + subject
-end
-# # def make_addresses
-  
-# #   %w[producer user vineyard winery].each do |addressable_type|
-
-# #   Address.create(
-# #       address_1: Faker::Address.street_address,
-# #       address_2: Faker::Address.secondary_address,
-# #       city: Faker::Address.city,
-# #       state: "CA",
-# #       zip: Faker::Address.zip_code,
-# #       country: "United States",
-# #       public_phone: Faker::PhoneNumber,
-# #       public_email: Faker::Internet.email,
-# #       public_url: Faker::Internet.domain_name,
-# #       addressable_type: addressable_type.capitalize,
-# #       addressable_id: 1
-# #     )
-# #   end
-# # end
-
-
-
-
-
-
-# # def make_producers
-# # end
-
 # # def make_vineyard
 
 # #   block_planting_year = rand(1955..2010)

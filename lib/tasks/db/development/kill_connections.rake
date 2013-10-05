@@ -18,5 +18,5 @@ EOF
       puts `#{sh}`
     end
 
-    # task "db:drop" => :kill_connections
+    task "db:drop:all" => :kill_connections
 end

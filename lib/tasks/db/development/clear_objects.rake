@@ -7,14 +7,12 @@ namespace 'db:development' do
 
     if Rails.env.development?
 
-      puts "#{green("  -->")} dropping development database"
-      Rake::Task['db:drop'].invoke
-      puts "#{green("  -->")} creating development database"
+      puts "#{green("  -->")} dropping test & development db's"
+      Rake::Task['db:drop:all'].invoke
+      puts "#{green("  -->")} creating development db"
       Rake::Task['db:create'].invoke
-      puts "#{green("  -->")} loading schema into development database"
+      puts "#{green("  -->")} loading schema into development db"
       Rake::Task['db:schema:load'].invoke
     end
-
-
   end
 end

@@ -20,12 +20,12 @@ FactoryGirl.define do
     factory :wine_with_fruit_lots do 
 
       ignore do 
-        wines_fruit_lots_count 5
+        fruit_lots_wine_count 5
       end
 
       after(:create) do |wine, evaluator|
-        FactoryGirl.create_list(:wines_fruit_lot, 
-          evaluator.wines_fruit_lots_count, wine: wine
+        FactoryGirl.create_list(:fruit_lots_wine, 
+          evaluator.fruit_lots_wine_count, wine: wine
         )
       end
     end

@@ -143,6 +143,17 @@ ActiveRecord::Schema.define(version: 20131002043316) do
   add_index "fruit_lots", ["vineyards_vintage_id"], name: "index_fruit_lots_on_vineyards_vintage_id", using: :btree
   add_index "fruit_lots", ["wine_id"], name: "index_fruit_lots_on_wine_id", using: :btree
 
+  create_table "fruit_lots_wines", force: true do |t|
+    t.integer  "wine_id"
+    t.integer  "fruit_lot_id"
+    t.integer  "percent_of_wine"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fruit_lots_wines", ["fruit_lot_id"], name: "index_fruit_lots_wines_on_fruit_lot_id", using: :btree
+  add_index "fruit_lots_wines", ["wine_id"], name: "index_fruit_lots_wines_on_wine_id", using: :btree
+
   create_table "images", force: true do |t|
     t.string   "image"
     t.string   "title"
@@ -363,16 +374,5 @@ ActiveRecord::Schema.define(version: 20131002043316) do
   add_index "wines", ["name"], name: "index_wines_on_name", using: :btree
   add_index "wines", ["vintage"], name: "index_wines_on_vintage", using: :btree
   add_index "wines", ["winery_id"], name: "index_wines_on_winery_id", using: :btree
-
-  create_table "wines_fruit_lots", force: true do |t|
-    t.integer  "wine_id"
-    t.integer  "fruit_lot_id"
-    t.integer  "percent_of_wine"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "wines_fruit_lots", ["fruit_lot_id"], name: "index_wines_fruit_lots_on_fruit_lot_id", using: :btree
-  add_index "wines_fruit_lots", ["wine_id"], name: "index_wines_fruit_lots_on_wine_id", using: :btree
 
 end

@@ -10,7 +10,7 @@ namespace 'db:development:create' do
           accountable_id: i+1,
           accountable_type: model,
           subdomain: "#{model.downcase}-#{i+1}",
-          activation_id: rand(1..@activations)
+          activation_id: rand(1..@activations.to_i)
         )
         account.save
       end

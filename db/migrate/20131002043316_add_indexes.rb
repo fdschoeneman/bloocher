@@ -27,7 +27,7 @@ class AddIndexes < ActiveRecord::Migration
 		add_index :vineyards_vintages, 				[:vineyard_id]
 		add_index :wineries, 									[:producer_id]
 		add_index :wines, 										[:winery_id]
-		add_index :wines_fruit_lots, 					[:wine_id]
-		add_index :wines_fruit_lots, 					[:fruit_lot_id]
+		add_index :fruit_lots_wines, 					[:wine_id]
+		add_index :fruit_lots_wines, 					[:fruit_lot_id]
   end
 end
