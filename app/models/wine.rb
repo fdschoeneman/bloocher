@@ -7,6 +7,8 @@ class Wine < ActiveRecord::Base
 
   belongs_to :winery
 
+  has_many :certifications_holdable, as: :holdable
+  has_many :certifications, through: :certifications_holdable
   has_many :fruit_lots, through: :fruit_lots_wines
   has_many :fruit_lots_wines
   has_many :images,     as: :imageable

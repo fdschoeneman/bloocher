@@ -4,7 +4,10 @@ namespace 'db:development' do
 
   task :create_objects do
     Rake.application.in_namespace('db:development:create') do |x| 
-      x.tasks.each{|t| t.invoke}
+      x.tasks.each do |t| 
+        medium_notice(t.name)
+        t.invoke
+      end
     end
   end
 end

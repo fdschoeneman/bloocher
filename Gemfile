@@ -80,7 +80,7 @@ gem 'figaro'
 # pagination
 gem 'kaminari'
 
-gem 'ledermann-rails-settings', :require => 'rails-settings'
+# gem 'ledermann-rails-settings', :require => 'rails-settings'
 
 # Cleaner metatags
 gem 'meta-tags', :require => 'meta_tags'

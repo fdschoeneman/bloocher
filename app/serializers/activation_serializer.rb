@@ -1,3 +1,3 @@
 class ActivationSerializer < ActiveModel::Serializer
-  attributes :id, :credit_card
+  attributes :id, :activator_id
 end

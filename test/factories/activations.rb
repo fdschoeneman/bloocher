@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :activation do
-    credit_card "MyString"
+    activator
   end
 end

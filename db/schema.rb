@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20131002043316) do
   add_index "accounts_admins", ["admin_id"], name: "index_accounts_admins_on_admin_id", using: :btree
 
   create_table "activations", force: true do |t|
-    t.string   "credit_card"
+    t.integer  "activator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20131002043316) do
   end
 
   create_table "certifications_holdables", force: true do |t|
+    t.integer  "certification_id"
     t.integer  "holdable_id"
     t.date     "inception"
     t.string   "grade"
