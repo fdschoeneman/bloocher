@@ -29,6 +29,10 @@ require 'test_helper'
   describe "associations" do
 
     it { must have_many(:authentications) }
+    it { must have_many(:addresses_addressable) }
+    it { must have_many(:addresses).through(:addresses_addressable) }
+    it { must have_many(:certifications_holdable) }
+    it { must have_many(:certifications).through(:certifications_holdable) }
     it { must have_many(:images) }
     it { must have_many(:addresses) }
     it { must have_many(:positions) }

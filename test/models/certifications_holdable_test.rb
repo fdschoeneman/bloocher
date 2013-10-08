@@ -25,6 +25,5 @@ describe CertificationsHoldable do
 
 		it { must belong_to(:certification) }
 		it { must belong_to(:holdable) }
-
 	end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002043316) do
+ActiveRecord::Schema.define(version: 20131008043802) do
 
   create_table "accounts", force: true do |t|
     t.integer  "accountable_id"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(version: 20131002043316) do
   end
 
   add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type", using: :btree
+
+  create_table "addresses_addressables", force: true do |t|
+    t.integer  "address_id"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.boolean  "shipping"
+    t.boolean  "primary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "appellations", force: true do |t|
     t.string   "name"

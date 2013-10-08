@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
 
   has_many :accounts_admins, foreign_key: :admin_id, dependent: :destroy
   has_many :accounts, through: :accounts_admins
-  has_many :addresses, as: :addressable
+  has_many :addresses_addressable, as: :addressable
+  has_many :addresses, through: :addresses_addressable
   has_many :authentications, dependent: :destroy 
+  has_many :certifications_holdable, as: :holdable
+  has_many :certifications, through: :certifications_holdable
   has_many :images, as: :imageable
   has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
   has_many :positions

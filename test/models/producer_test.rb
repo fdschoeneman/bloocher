@@ -22,13 +22,16 @@ describe Producer do
   describe "associations" do
 
     it { must have_many(:accounts) }
-    it { must have_many(:addresses) }
+    it { must have_many(:addresses_addressable) }
+    it { must have_many(:addresses).through(:addresses_addressable) }
     it { must have_many(:carousels) }
-    # it { must have_many(:certifications).through(:certifications_producers) }
+    it { must have_many(:certifications_holdable) }
+    it { must have_many(:certifications).through(:certifications_holdable) }
     it { must have_many(:images) }
     it { must have_many(:positions) }
     it { must have_many(:vineyards) }
     it { must have_many(:wineries) }
+    it { must have_many(:wines).through(:wineries) }
     
     it { must accept_nested_attributes_for(:wineries) }
     it { must accept_nested_attributes_for(:vineyards) }
