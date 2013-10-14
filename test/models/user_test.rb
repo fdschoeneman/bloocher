@@ -8,14 +8,14 @@ require 'test_helper'
 
     describe "columns and types" do
       
+      it { must have_db_column(:current_sign_in_ip).of_type(:string) }
       it { must have_db_column(:email).of_type(:string) }
       it { must have_db_column(:encrypted_password).of_type(:string) }
-      it { must have_db_column(:reset_password_token).of_type(:string) }
-      it { must have_db_column(:current_sign_in_ip).of_type(:string) }
-      it { must have_db_column(:name).of_type(:string) }
       it { must have_db_column(:invited_by_type).of_type(:string) }
-      it { must have_db_column(:invitation_limit).of_type(:integer) }
       it { must have_db_column(:invited_by_id).of_type(:integer) }
+      it { must have_db_column(:invitation_limit).of_type(:integer) }
+      it { must have_db_column(:name).of_type(:string) }
+      it { must have_db_column(:reset_password_token).of_type(:string) }
     end
 
     describe "indexes" do
@@ -34,7 +34,6 @@ require 'test_helper'
     it { must have_many(:certifications_holdable) }
     it { must have_many(:certifications).through(:certifications_holdable) }
     it { must have_many(:images) }
-    it { must have_many(:addresses) }
     it { must have_many(:positions) }
     it { must have_many(:showcases) }
     it { must accept_nested_attributes_for(:images) }

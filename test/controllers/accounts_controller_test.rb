@@ -1,7 +1,9 @@
 require "test_helper"
 
 describe AccountsController do
-
+  def url_for_subdomain subdomain="www", path="/"
+    "http://#{subdomain}.127.0.0.1.xip.io:#{Capybara.server_port}#{path}"
+  end
   Given(:account) { create(:account) }
 
   describe "index" do 
@@ -11,7 +13,18 @@ describe AccountsController do
     # And { assert_not_nil assigns(:accounts) }
   end
 
-  # it "must get new" do
+  describe "accountable_redirects" do 
+    
+    Given(:account) { create(:account) }
+    Given { request.accept = 'application/json' }
+    Given { request.host = "#{account.subdomain}.127.0.0.1.xip.io"}    
+    # Given(:subdomain) { account.subdomain }
+    # Given { @request.host = "#{account.subdomain}.example.com" }
+    When { get :accountable_redirect }
+    # Then { assert_response :redirect }
+  end
+
+  # it "must get new" do 
   #   get :new
   #   assert_response :success
   # end

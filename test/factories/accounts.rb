@@ -3,8 +3,7 @@
 FactoryGirl.define do
   factory :account do
     accountable_id 1
-    # accountable
-    accountable_type "MyString"
-    subdomain "MyString"
+    accountable_type "Vineyard"
+    subdomain "vineyard-subdomain-1"
   end
 end
