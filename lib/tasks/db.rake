@@ -1,6 +1,4 @@
 Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
-Dir[Rails.root.join("lib/faker/*.rb")].each {|f| require f}
-# Dir[Rails.root.join("lib/faker_dea.rb")].each {|f| require f}
 Dir[Rails.root.join("lib/tasks/support/*.rb")].each {|f| require f}
 
 include WineData
@@ -8,7 +6,6 @@ include ReviewData
 include MiscellaneousData
 include RakeColorizer 
 include RakePrettifier
-# include Faker
 
 desc "alias for db:development:populate"
 task populate: ['db:development:populate', :environment] 

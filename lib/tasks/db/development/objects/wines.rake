@@ -1,5 +1,3 @@
-
-
 namespace 'db:development:create' do 
 
   task wines: :environment do 
@@ -22,7 +20,7 @@ namespace 'db:development:create' do
         released_on: "#{released_on_year}-#{rand(1..12)}-#{rand(1..30)}",
         category: wine_types.sample,
         # winemaker_notes: Faker::Lorem.sentence(8),
-        winemaker_notes: Faker::Stoked.bio,
+        winemaker_notes: Faker::Bloocher.review,
         ph: "#{(rand(665..755).to_f)/100}",
         residual_sugar: "#{(rand(1..5).to_f)/100}",
         alcohol: "#{(rand(125..175).to_f)/1000}",
