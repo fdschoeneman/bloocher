@@ -50,11 +50,16 @@ gem 'devise', '3.0.0'
 gem 'devise_invitable'#, 
     # github: 'scambra/devise_invitable', 
     # branch: 'rails4'
+
 # permissions
 gem 'cancan'
 
 # user roles
 gem 'rolify', '3.3.0.rc4'
+
+# payments
+gem "stripe"
+gem "stripe_event"
 
 # omniauth
 gem 'omniauth-facebook'
@@ -103,10 +108,11 @@ gem 'retina_rails'
 # image resizing
 gem 'mini_magick'
 
-# pretty development data
+# prettier development data
 gem 'faker'
 gem 'faker-bloocher'
 gem 'faker-stoked'
+
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
