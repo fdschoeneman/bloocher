@@ -4,7 +4,6 @@ SENDGRID_PASSWORD: rfxvxkkg
 ADMIN_NAME: HMFIC
 ADMIN_EMAIL: fred.schoeneman@gmail.com
 ADMIN_PASSWORD: password 
-ROLES: [admin, user]
 
 # facebook
 FACEBOOK_APP_ID: 413345198769391
@@ -27,26 +26,16 @@ GPLUS_API_KEY: AIzaSyADVTXkWUzmyp7wfLd1SBRNGeWDbBqBO3U
 # Google api client
 GOOGLE_API_KEY: AIzaSyDu8IFCALXESDHzBKfkGQDEkDjTQC2HfLk
 
+# roles for rolify (not sure they need to be here)
+ROLES: [admin, user, silver, gold, platinum, winery]
 
+# stripe test keys
+STRIPE_API_KEY_TEST: sk_test_raxRUHqGQrtOw2Zwd3FqasDq
+STRIPE_PUBLIC_KEY_TEST: pk_test_g7r7v1PCKFef8DEqhu45N1Mn
 
-# Add application configuration variables here, as shown below.
-#
-# PUSHER_APP_ID: "2954"
-# PUSHER_KEY: 7381a978f7dd7f9a1117
-# PUSHER_SECRET: abdc3b896a0ffb85d373
-# STRIPE_API_KEY: EdAvEPVEC3LuaTg5Q3z6WbDVqZlcBQ8Z
-# STRIPE_PUBLIC_KEY: pk_BRgD57O8fHja9HxduJUszhef6jCyS
-
-# Add account credentials and API keys here.
-# See http://railsapps.github.com/rails-environment-variables.html
-# This file should be listed in .gitignore to keep your settings secret!
-# Each entry sets a local environment variable and overrides ENV variables in the Unix shell.
-# For example, setting:
-# GMAIL_USERNAME: Your_Gmail_Username
-# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
-# Add application configuration variables here, as shown below.
-#
-
+# stripe live keys
+STRIPE_API_KEY: sk_live_M52LCiFWrvPjTBSVSPlFVJ2n
+STRIPE_PUBLIC_KEY: pk_live_KaCLbv37sQc5Ra9wJMEmqjAa
 
 # linkedin authentication
 # API Key:
