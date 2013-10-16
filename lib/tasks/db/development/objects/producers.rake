@@ -2,7 +2,7 @@ namespace 'db:development:create' do
 
   task producers: :environment do 
 
-    boonville_producers.each do |producer_name|
+    Faker::Bloocher.producers.each do |producer_name|
       producer = Producer.new(
         name: producer_name
       )

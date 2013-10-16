@@ -1,9 +1,6 @@
 Dir[Rails.root.join("lib/sample_data/*.rb")].each {|f| require f}
 Dir[Rails.root.join("lib/tasks/support/*.rb")].each {|f| require f}
 
-include WineData
-include ReviewData
-include MiscellaneousData
 include RakeColorizer 
 include RakePrettifier
 
