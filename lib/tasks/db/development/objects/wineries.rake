@@ -2,7 +2,7 @@ namespace 'db:development:create' do
 
   task wineries: :environment do 
 
-    boonville_wineries.each do |winery_name|
+    Faker::Bloocher.wineries.each do |winery_name|
 
       small_notice("winery: #{winery_name}")
       Winery.create(
