@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008070946) do
+ActiveRecord::Schema.define(version: 20131016055855) do
 
   create_table "accounts", force: true do |t|
     t.integer  "accountable_id"
@@ -283,6 +283,8 @@ ActiveRecord::Schema.define(version: 20131008070946) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "customer_id"
+    t.string   "last_4_digits"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

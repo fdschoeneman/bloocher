@@ -27,7 +27,7 @@ GPLUS_API_KEY: AIzaSyADVTXkWUzmyp7wfLd1SBRNGeWDbBqBO3U
 GOOGLE_API_KEY: AIzaSyDu8IFCALXESDHzBKfkGQDEkDjTQC2HfLk
 
 # roles for rolify (not sure they need to be here)
-ROLES: [admin, user, silver, gold, platinum, winery]
+ROLES: [admin, user, winery, artist, vineyard, silver, gold, platinum, winery]
 
 # stripe test keys
 STRIPE_API_KEY_TEST: sk_test_raxRUHqGQrtOw2Zwd3FqasDq
