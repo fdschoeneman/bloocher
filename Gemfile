@@ -106,6 +106,7 @@ gem 'mini_magick'
 # pretty development data
 gem 'faker'
 gem 'faker-bloocher'
+gem 'faker-stoked'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
