@@ -3,7 +3,7 @@ namespace 'db:development:create' do
   task users: :environment do
 
     small_notice("generic users")
-    @dev_accounts.to_i.times do |n|
+    @users.to_i.times do |n|
       name = Faker::Name.name 
       email = Faker::Internet.email
       password  = "password"
