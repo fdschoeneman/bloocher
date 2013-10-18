@@ -112,7 +112,10 @@ gem 'mini_magick'
 gem 'faker'
 gem 'faker-bloocher'
 gem 'faker-stoked'
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
