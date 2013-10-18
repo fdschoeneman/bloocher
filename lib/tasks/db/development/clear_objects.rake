@@ -8,7 +8,7 @@ namespace 'db:development' do
     if Rails.env.development?
 
       puts "#{green("  -->")} dropping test & development db's"
-      Rake::Task['db:drop:all'].invoke
+      Rake::Task['db:drop'].invoke
       puts "#{green("  -->")} creating development db"
       Rake::Task['db:create'].invoke
       puts "#{green("  -->")} loading schema into development db"
