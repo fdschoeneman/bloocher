@@ -7,7 +7,7 @@ namespace 'db:development:create' do
         rating: rand(70..95),
         reviewer_id: rand(1..@users.to_i),
         wine_id: rand(1..5),
-        content: Faker::Bloocher.review
+        content: Faker::bloocher.review
       )
       review.save
       small_notice("review: #{review.content.truncate(15)}")

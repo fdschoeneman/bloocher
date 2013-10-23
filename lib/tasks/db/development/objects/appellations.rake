@@ -13,3 +13,17 @@ namespace 'db:development:create' do
   	
   end
 end
+
+
+
+
+# # def make_appellations
+
+# #   appellation_list.each do |appellation|
+# #     appellation = Appellation.new(name: appellation,
+# #       # type: ["country", "county", "state", "area"].sample,
+# #       description: Faker::Lorem.sentence
+# #       )
+# #     appellation.save!
+# #   end
+# # end

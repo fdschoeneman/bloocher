@@ -12,3 +12,15 @@ namespace 'db:development:create' do
   	end
   end
 end
+
+
+# # def make_wine_fruit_lots
+
+# #   20.times do |wine_fruit_lot|
+# #     WineFruitLot.create!(
+# #       wine_id: rand(1..20),
+# #       percent_of_wine: rand(20..100),
+# #       fruit_lot_id: rand(1..20)
+# #     )
+# #   end
+# # end

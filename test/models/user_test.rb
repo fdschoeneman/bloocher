@@ -9,11 +9,13 @@ require 'test_helper'
     describe "columns and types" do
       
       it { must have_db_column(:current_sign_in_ip).of_type(:string) }
+      it { must have_db_column(:customer_id).of_type(:string) }
       it { must have_db_column(:email).of_type(:string) }
       it { must have_db_column(:encrypted_password).of_type(:string) }
       it { must have_db_column(:invited_by_type).of_type(:string) }
       it { must have_db_column(:invited_by_id).of_type(:integer) }
       it { must have_db_column(:invitation_limit).of_type(:integer) }
+      it { must have_db_column(:last_4_digits).of_type(:string) }
       it { must have_db_column(:name).of_type(:string) }
       it { must have_db_column(:reset_password_token).of_type(:string) }
     end
@@ -29,6 +31,7 @@ require 'test_helper'
   describe "associations" do
 
     it { must have_many(:authentications) }
+    it { must have_many(:activations) }
     it { must have_many(:addresses_addressable) }
     it { must have_many(:addresses).through(:addresses_addressable) }
     it { must have_many(:certifications_holdable) }

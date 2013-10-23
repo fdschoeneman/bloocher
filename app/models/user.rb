@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :accounts_admins, foreign_key: :admin_id, dependent: :destroy
   has_many :accounts, through: :accounts_admins
+  has_many :activations, as: :activator
   has_many :addresses_addressable, as: :addressable
   has_many :addresses, through: :addresses_addressable
   has_many :authentications, dependent: :destroy 
