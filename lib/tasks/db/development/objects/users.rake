@@ -10,7 +10,7 @@ namespace 'db:development:create' do
       user = User.new(name: name,
                       :email => email,
                       :password => password,
-                      bio: Faker::Company.bs)  
+                      bio: Faker::Stoked.bio)  
       user.skip_confirmation!
       user.save!
       user.confirm!
@@ -28,7 +28,7 @@ namespace 'db:development:create' do
         email: email, 
         password: "password",
         password_confirmation: "password", 
-        bio: hipster_bios.first
+        bio: Faker::Stoked.bio
       )
       user.skip_confirmation!
       user.save
