@@ -6,7 +6,8 @@ class Vineyard < ActiveRecord::Base
   belongs_to :vineyard_parent, class_name: "Vineyard"
 
   has_many :accounts, as: :accountable
-  has_many :addresses, as: :addressable
+  has_many :addresses_addressable, as: :addressable
+  has_many :addresses, through: :addresses_addressable
   has_many :appellations_vineyards
   has_many :appellations, through: :appellations_vineyards
   has_many :blocks, class_name: "Vineyard", foreign_key: :vineyard_parent_id

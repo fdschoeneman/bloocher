@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
+gem 'rails'
 
 # postgresql database
 gem 'pg'
@@ -38,15 +38,15 @@ gem 'emblem-rails'
 
 # view templates
 gem 'haml'
-gem 'haml-rails', 
-    github: 'indirect/haml-rails',
-    branch: 'master'
+gem 'haml-rails'#, 
+    # github: 'indirect/haml-rails',
+    # branch: 'master'
 
 # mail
 gem 'sendgrid', '>= 1.0.1'
 
 # authentication
-gem 'devise', '3.0.0'
+gem 'devise'#, '3.0.0'
 gem 'devise_invitable'#, 
     # github: 'scambra/devise_invitable', 
     # branch: 'rails4'
@@ -105,7 +105,8 @@ gem 'mini_magick'
 
 # pretty development data
 gem 'faker'
-
+gem 'faker-bloocher'
+gem 'faker-stoked'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
@@ -123,7 +124,7 @@ end
 
 group :test do 
   
-  gem 'minitest-rails-shoulda', '~> 0.4.1'
+  gem 'minitest-rails-shoulda'
   gem 'minitest-rails-capybara'
   gem 'minitest-given'
   gem 'wrong'
@@ -144,7 +145,7 @@ group :test, :development do
   
   # minitest
   gem 'minitest'
-  gem 'minitest-rails', '0.5.2'
+  gem 'minitest-rails'
     
   # preloads rails app for faster test and development tasks
   gem 'spring'

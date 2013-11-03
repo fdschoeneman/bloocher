@@ -1,8 +1,20 @@
+require 'subdomain'
+
 Bloocher::Application.routes.draw do
+
+
+  resources :artists
 
   resources :activations
 
   resources :accounts
+  
+  constraints(Subdomain) do
+    get '/' => 'accounts#accountable_redirect'
+  end  
+
+  # get '/' => 'accounts#show', :constraints => { :subdomain => /.+/ }
+
 
   # resources :authentications, only: [:index, :create]
   # get '/auth/facebook/callback' => 'authentications#create' 

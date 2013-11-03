@@ -26,11 +26,15 @@ describe Winery do
 
   describe "associations" do
 
-    it { must have_many(:addresses) } 
+    it { must belong_to(:producer) } 
+    
+    it { must have_many(:addresses_addressable) }
+    it { must have_many(:addresses).through(:addresses_addressable) }
     it { must have_many(:accounts) }
     it { must have_many(:carousels) }
+    it { must have_many(:certifications_holdable) }
+    it { must have_many(:certifications).through(:certifications_holdable) }
     it { must have_many(:images) } 
-    it { must belong_to(:producer) } 
     it { must have_many(:reviews).through(:wines) }
     it { must have_many(:wines) } 
   end
