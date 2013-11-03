@@ -46,7 +46,7 @@ def make_admin_user
     email: "fred.schoeneman@gmail.com", 
     password: "password",
     password_confirmation: "password", 
-    bio: hipster_bios.first)
+    bio: Faker::Stoked.bio)
 
   user.save!
   user.confirm!
