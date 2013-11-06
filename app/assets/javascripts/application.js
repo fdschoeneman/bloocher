@@ -17,6 +17,7 @@
 //= require jquery.validate.functions
 //= require jquery.scrollto-1.4.3.1-min
 //= require jquery.tagcanvas
+//= require jquery.stellar
 //= require best_in_place
 //= require bootstrap
 //= require jquery.tagcanvas
