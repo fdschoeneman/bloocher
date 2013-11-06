@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe "rake task to create" do 
 
-  @tables = ActiveRecord::Base.connection.tables #[1..2]
+  @tables = ActiveRecord::Base.connection.tables
   @tables.each do |table|
 
     describe "#{table} exists" do
