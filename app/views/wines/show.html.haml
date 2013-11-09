@@ -41,30 +41,30 @@
   / %dt= @vineyards.count > 1 ? "Vineyards" : "Vineyard"
   %dt fruit
   %dd#fl-accordion.accordion
-    - @wine_fruit_lots.each do |fl|
+    - @fruit_lots.each do |fl|
       .accordion-group
         .accordion-heading 
           %a.accordion-toggle{"data-parent" => "fl-accordion", "data-toggle" => "collapse", href: "#collapse#{fl.id}"}
             = number_to_percentage(fl.percent_of_wine, precision: 1)
-            - if fl.fruit_lot.vineyard.vineyard_parent_id.nil?
-              = fl.fruit_lot.vineyard.name
-            - else 
-              = fl.fruit_lot.vineyard.vineyard_parent.name
-              | block:
-              = fl.fruit_lot.vineyard.name
+            / - if fl.fruit_lot.vineyard.vineyard_parent_id.nil?
+            /   = fl.fruit_lot.vineyard.name
+            / - else 
+            /   = fl.fruit_lot.vineyard.vineyard_parent.name
+            /   | block:
+            /   = fl.fruit_lot.vineyard.name
 
         .accordion-body.collapse.in{ id: "collapse#{fl.id}" }
           .accordion-inner
             %ul.inline
               %dl
                 %dt varietal:
-                %dd= link_to fl.fruit_lot.vineyard.varietal, vineyard_path(fl.fruit_lot.vineyard.id)
+                / %dd= link_to fl.fruit_lot.vineyard.varietal, vineyard_path(fl.fruit_lot.vineyard.id)
                 %dt clone:
-                %dd= link_to fl.fruit_lot.vineyard.clone, vineyard_path(fl.fruit_lot.vineyard.id)
+                / %dd= link_to fl.fruit_lot.vineyard.clone, vineyard_path(fl.fruit_lot.vineyard.id)
                 %dt rootstock:
-                %dd= link_to fl.fruit_lot.vineyard.rootstock, vineyard_path(fl.fruit_lot.vineyard.id)
+                / %dd= link_to fl.fruit_lot.vineyard.rootstock, vineyard_path(fl.fruit_lot.vineyard.id)
                 %dt planted:
-                %dd= link_to fl.fruit_lot.vineyard.planted_on, vineyard_path(fl.fruit_lot.vineyard.id)
+                / %dd= link_to fl.fruit_lot.vineyard.planted_on, vineyard_path(fl.fruit_lot.vineyard.id)
 
 - if @wine.positions.include? current_user
   = link_to 'Edit', edit_wine_path(@wine)                                        

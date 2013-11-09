@@ -6,28 +6,22 @@ FactoryGirl.define do
     winemaker_notes   "MyText"
     winery
 
-    factory :wine_with_reviews do  
-      
-      ignore do
-        reviews_count 5
-      end
-
-      after(:create) do |wine, evaluator|
-        FactoryGirl.create_list(:review, evaluator.reviews_count, wine: wine)
-      end
+    ignore do
+      reviews_count 5
     end
 
-    factory :wine_with_fruit_lots do 
+    after(:create) do |wine, evaluator|
+      FactoryGirl.create_list(:review, evaluator.reviews_count, wine: wine)
+    end
 
-      ignore do 
-        fruit_lots_wine_count 5
-      end
+    ignore do 
+      fruit_lots_wine_count 5
+    end
 
-      after(:create) do |wine, evaluator|
-        FactoryGirl.create_list(:fruit_lots_wine, 
-          evaluator.fruit_lots_wine_count, wine: wine
-        )
-      end
+    after(:create) do |wine, evaluator|
+      FactoryGirl.create_list(:fruit_lots_wine, 
+        evaluator.fruit_lots_wine_count, wine: wine
+      )
     end
   end
 end

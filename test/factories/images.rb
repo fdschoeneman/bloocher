@@ -5,6 +5,7 @@ FactoryGirl.define do
   factory :image do
   
     image "MyString"
+    # image Rack::Test::UploadedFile.new(File.join(Rails.root, 'support', 'support', 'images', '1.jpg')) 
     title "MyString"
     description "MyText"
     content_type "MyString"

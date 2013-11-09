@@ -160,7 +160,8 @@ group :test, :development do
   # debugging
   gem 'debugger'
   gem 'pry'
-  gem 'awesome_print'
+  gem 'awesome_print', require: 'ap'
+
 
   # Guards
   gem 'guard'
