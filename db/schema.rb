@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008070946) do
+ActiveRecord::Schema.define(version: 20131110073242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,19 @@ ActiveRecord::Schema.define(version: 20131008070946) do
   end
 
   add_index "certifications_holdables", ["holdable_id", "holdable_type"], name: "index_certifications_holdables_on_holdable_id_and_holdable_type", using: :btree
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "fruit_lots", force: true do |t|
     t.decimal  "brix"
@@ -390,9 +403,11 @@ ActiveRecord::Schema.define(version: 20131008070946) do
     t.datetime "updated_at"
     t.string   "category"
     t.string   "short_url"
+    t.string   "slug"
   end
 
   add_index "wines", ["name"], name: "index_wines_on_name", using: :btree
+  add_index "wines", ["slug"], name: "index_wines_on_slug", using: :btree
   add_index "wines", ["vintage"], name: "index_wines_on_vintage", using: :btree
   add_index "wines", ["winery_id"], name: "index_wines_on_winery_id", using: :btree
 

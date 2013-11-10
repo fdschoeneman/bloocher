@@ -2,7 +2,7 @@ class Wine < ActiveRecord::Base
   
   extend FriendlyId
   
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :history]
   
   resourcify
   
