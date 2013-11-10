@@ -14,7 +14,7 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wine = Wine.find(params[:id])
+    # @wine = Wine.friendly.find(params[:id])
     @reviews = @wine.reviews
     @review = Review.new
     @fruit_lots = @wine.fruit_lots_wines.order("percent_of_wine")
@@ -115,7 +115,7 @@ private
 
   def set_wine
 
-    @wine = Wine.find(params[:id])
+    @wine = Wine.friendly.find(params[:id])
   end
 
   def wine_params

@@ -39,17 +39,22 @@ describe WinesController do
 
   describe "show" do
     
-    describe "a winery's wine" do 
+    describe "a winery's wine" do
 
-      Given { get :show, id: wine.id }
-      
-      Then { assert_response :success }
-      And { assert_not_nil assigns(:wine) }
-      And { assert_not_nil assigns(:reviews) }
-      And { assert_not_nil assigns(:winemakers) }
-      And { assert_not_nil assigns(:review) }
-      And { assert_not_nil assigns(:vineyards) }
+      %w[id].each do |attribute|
 
+        describe "by #{attribute}" do
+
+          Given { get :show, id: wine.id }
+          
+          Then { assert_response :success }
+          And { assert_not_nil assigns(:wine) }
+          And { assert_not_nil assigns(:reviews) }
+          And { assert_not_nil assigns(:winemakers) }
+          And { assert_not_nil assigns(:review) }
+          And { assert_not_nil assigns(:vineyards) }
+        end
+      end
     end
 
     describe "assigns the wine's fruit lots" do 

@@ -10,11 +10,14 @@ describe Winery do
 
       it { must have_db_column(:name).of_type(:string) }
       it { must have_db_column(:producer_id).of_type(:integer) }
+      it { must have_db_column(:slug).of_type(:string) }
+
     end
 
     describe 'indexes' do 
 
       it { must have_db_index(:name).unique(true) }
+      it { must have_db_index(:slug).unique(true) }
       it { must have_db_index(:producer_id) }
     end
   end

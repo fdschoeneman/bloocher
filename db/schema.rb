@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110073242) do
+ActiveRecord::Schema.define(version: 20131110214426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,7 +108,10 @@ ActiveRecord::Schema.define(version: 20131110073242) do
     t.string   "statement"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -222,9 +225,11 @@ ActiveRecord::Schema.define(version: 20131110073242) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "producers", ["name"], name: "index_producers_on_name", using: :btree
+  add_index "producers", ["slug"], name: "index_producers_on_slug", unique: true, using: :btree
 
   create_table "reviews", force: true do |t|
     t.integer  "rating"
@@ -258,8 +263,10 @@ ActiveRecord::Schema.define(version: 20131110073242) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
+  add_index "showcases", ["slug"], name: "index_showcases_on_slug", unique: true, using: :btree
   add_index "showcases", ["sommelier_id"], name: "index_showcases_on_sommelier_id", using: :btree
 
   create_table "showcases_wines", force: true do |t|
@@ -343,11 +350,13 @@ ActiveRecord::Schema.define(version: 20131110073242) do
     t.boolean  "gmaps"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "vineyards", ["appellation_id"], name: "index_vineyards_on_appellation_id", using: :btree
   add_index "vineyards", ["name"], name: "index_vineyards_on_name", using: :btree
   add_index "vineyards", ["producer_id"], name: "index_vineyards_on_producer_id", using: :btree
+  add_index "vineyards", ["slug"], name: "index_vineyards_on_slug", unique: true, using: :btree
   add_index "vineyards", ["vineyard_parent_id"], name: "index_vineyards_on_vineyard_parent_id", using: :btree
 
   create_table "vineyards_vintages", force: true do |t|
@@ -371,10 +380,12 @@ ActiveRecord::Schema.define(version: 20131110073242) do
     t.integer  "producer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "wineries", ["name"], name: "index_wineries_on_name", unique: true, using: :btree
   add_index "wineries", ["producer_id"], name: "index_wineries_on_producer_id", using: :btree
+  add_index "wineries", ["slug"], name: "index_wineries_on_slug", unique: true, using: :btree
 
   create_table "wines", force: true do |t|
     t.integer  "vintage"
@@ -407,7 +418,7 @@ ActiveRecord::Schema.define(version: 20131110073242) do
   end
 
   add_index "wines", ["name"], name: "index_wines_on_name", using: :btree
-  add_index "wines", ["slug"], name: "index_wines_on_slug", using: :btree
+  add_index "wines", ["slug"], name: "index_wines_on_slug", unique: true, using: :btree
   add_index "wines", ["vintage"], name: "index_wines_on_vintage", using: :btree
   add_index "wines", ["winery_id"], name: "index_wines_on_winery_id", using: :btree
 

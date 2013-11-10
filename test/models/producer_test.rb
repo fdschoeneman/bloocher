@@ -7,11 +7,13 @@ describe Producer do
   describe "columns and types" do 
     
     it { must have_db_column(:name).of_type(:string) }
+    it { must have_db_column(:slug).of_type(:string) }
   end
 
   describe "indexes" do
 
     it { must have_db_index(:name) }
+    it { must have_db_index(:slug) }
   end
 
   describe "validations" do

@@ -8,15 +8,17 @@ describe Wine do
 
     describe "columns and types" do 
     
-      it { must have_db_column(:vintage).of_type(:integer) }
+      it { must have_db_column(:bottled_on).of_type(:datetime) }
       it { must have_db_column(:cases_produced).of_type(:integer) }
-      it { must have_db_column(:winery_id).of_type(:integer) }
       it { must have_db_column(:days_in_oak).of_type(:integer) }
       it { must have_db_column(:drink_before).of_type(:integer) }
       it { must have_db_column(:lay_down_until).of_type(:integer) }
-
-      it { must have_db_column(:bottled_on).of_type(:datetime) }
       it { must have_db_column(:released_on).of_type(:datetime) }
+      it { must have_db_column(:slug).of_type(:string) }
+      it { must have_db_column(:vintage).of_type(:integer) }
+      it { must have_db_column(:winery_id).of_type(:integer) }
+
+
 
       %w[ph alcohol new_french_oak one_yr_old_french_oak two_yr_old_french_oak
         three_yr_old_french_oak new_american_oak one_yr_old_american_oak
@@ -25,6 +27,7 @@ describe Wine do
       end
 
       it { must have_db_column(:name).of_type(:string) }
+      it { must have_db_column(:slug).of_type(:string) }
       it { must have_db_column(:short_url).of_type(:string) }
 
       it { must have_db_column(:winemaker_notes).of_type(:text) }

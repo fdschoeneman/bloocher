@@ -7,17 +7,19 @@ describe Showcase do
   describe "db" do 
 
     describe "columns and types" do 
-
+  
+      it { must have_db_column(:description).of_type(:text) }
+      it { must have_db_column(:published).of_type(:boolean) }
+      it { must have_db_column(:slug).of_type(:string) }
       it { must have_db_column(:sommelier_id).of_type(:integer) }
       it { must have_db_column(:title).of_type(:string) }
-      it { must have_db_column(:published).of_type(:boolean) }
-      it { must have_db_column(:description).of_type(:text) }
       it { must have_db_column(:version).of_type(:string) }
     end
 
      describe "indexes" do
 
       it { must have_db_index(:sommelier_id) }
+      it { must have_db_index(:slug).unique(true) }
     end
   end
 
