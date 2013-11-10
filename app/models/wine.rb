@@ -1,6 +1,11 @@
 class Wine < ActiveRecord::Base
+  
+  extend FriendlyId
+  
+  friendly_id :name, use: :slugged
+  
   resourcify
-
+  
   validates :name, :vintage, presence: true
   validates :vintage, :cases_produced, numericality: true
   validates :vintage, length: { is: 4 }

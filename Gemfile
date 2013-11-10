@@ -50,6 +50,7 @@ gem 'devise'#, '3.0.0'
 gem 'devise_invitable'#, 
     # github: 'scambra/devise_invitable', 
     # branch: 'rails4'
+
 # permissions
 gem 'cancan'
 
@@ -66,11 +67,14 @@ gem 'omniauth-twitter'
 # forms
 gem 'simple_form', '3.0.0.rc'
 
-# qr codes
+# for google link shortener
 gem 'google-api-client'
+
+# qr codes
 gem 'rqrcode-rails3'
 
-
+# friendly ids
+gem 'friendly_id'
 # gem "client_side_validations"
 # gem "client_side_validations-simple_form"
 
