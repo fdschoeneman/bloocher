@@ -200,4 +200,5 @@ end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'execjs'
+gem 'therubyracer'
