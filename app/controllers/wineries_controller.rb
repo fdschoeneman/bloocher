@@ -43,13 +43,11 @@ class WineriesController < ApplicationController
 
   def edit
 
-    # @winery = Winery.find(params[:id])
   end
 
   def create
     
     @winery = Winery.new(winery_params)
-
 
     respond_to do |format|
       if @winery.save
@@ -64,8 +62,6 @@ class WineriesController < ApplicationController
 
   def update
 
-    # @winery = Winery.find(params[:id])
-
     respond_to do |format|
       if @winery.update_attributes(params[:winery])
         format.html { redirect_to @winery, notice: 'Winery was successfully updated.' }
@@ -78,7 +74,7 @@ class WineriesController < ApplicationController
   end
 
   def destroy
-    # @winery = Winery.find(params[:id])
+
     @winery.destroy
 
     respond_to do |format|
