@@ -16,9 +16,15 @@ describe Artist do
      describe "indexes" do
 
       it { must have_db_index(:slug) }
+      it { must have_db_index(:name) }
     end
   end
 
+  describe "associations" do 
+
+    it { must belong_to(:artist) }
+
+  end
 # oeuvre
 # gallery
 # carousel

@@ -13,7 +13,6 @@ class ProducersController < ApplicationController
   end
 
   def show
-    @producer = Producer.find(params[:id])
     @wineries = @producer.wineries
     @vineyards = @producer.vineyards
 
@@ -78,7 +77,7 @@ class ProducersController < ApplicationController
 private
 
   def set_producer
-    @producer = Producer.find(params[:id])
+    @producer = Producer.friendly.find(params[:id])
   end
 
   def producer_params

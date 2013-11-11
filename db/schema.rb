@@ -106,11 +106,13 @@ ActiveRecord::Schema.define(version: 20131110214426) do
   create_table "artists", force: true do |t|
     t.integer  "artist_id"
     t.string   "statement"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
   end
 
+  add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 
   create_table "authentications", force: true do |t|

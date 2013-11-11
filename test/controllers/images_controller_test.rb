@@ -49,7 +49,7 @@ describe ImagesController do
       }
       describe "from a producer page" do 
         
-        Given { request.env["HTTP_REFERER"] = producer_path(producer.id) }
+        Given { request.env["HTTP_REFERER"] = producer_path(producer) }
         Then { 
           assert_difference(['producer.images.count','Image.count']) { 
             post :create, image: producer_image_attrs
@@ -67,7 +67,7 @@ describe ImagesController do
 
       describe "from a winery page" do 
         
-        Given { request.env["HTTP_REFERER"] = winery_path(winery.id) }
+        Given { request.env["HTTP_REFERER"] = winery_path(winery) }
         Then { 
           assert_difference(['winery.images.count','Image.count']) { 
             post :create, image: winery_image_attrs
@@ -84,7 +84,7 @@ describe ImagesController do
       }
       describe "from a vineyard page" do 
         
-        Given { request.env["HTTP_REFERER"] = vineyard_path(vineyard.id) }
+        Given { request.env["HTTP_REFERER"] = vineyard_path(vineyard) }
         Then { 
           assert_difference(['vineyard.images.count','Image.count']) { 
             post :create, image: vineyard_image_attrs

@@ -1,4 +1,9 @@
 class Winery < ActiveRecord::Base
+
+  extend FriendlyId
+
+  friendly_id :name, use: [:slugged, :history]
+
   resourcify
 
   belongs_to :producer

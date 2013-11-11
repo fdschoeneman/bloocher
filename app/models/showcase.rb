@@ -1,5 +1,11 @@
 class Showcase < ActiveRecord::Base
 
+  extend FriendlyId
+  
+  friendly_id :title, use: [:slugged, :history]
+  
+  resourcify
+
   belongs_to :showcaseable, polymorphic: true
   belongs_to :sommelier, class_name: "User"
   

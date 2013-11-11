@@ -28,6 +28,7 @@ require 'test_helper'
 
   describe "associations" do
 
+    it { must have_many(:artists) }
     it { must have_many(:authentications) }
     it { must have_many(:addresses_addressable) }
     it { must have_many(:addresses).through(:addresses_addressable) }
