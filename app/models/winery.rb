@@ -2,7 +2,7 @@ class Winery < ActiveRecord::Base
 
   extend FriendlyId
 
-  friendly_id :name, use: [:slugged, :history]
+  friendly_id :name, use: :slugged
 
   resourcify
 
@@ -31,7 +31,7 @@ class Winery < ActiveRecord::Base
 
   def winery_tags
   	result = Hash.new(0)
-  	words = self.reviews.all.map(&:content).join.delete(".,").split(" ").map
+  	words = self.reviews.load.map(&:content).join.delete(".,").split(" ").map
   	words.each { |word| result[word] += 1 }
   	result.sort_by { |k,v| v}.reverse[0..20]
   end

@@ -13,7 +13,7 @@
       %tr
         %td
           .badge= winery.wines.count
-          = link_to winery.name, winery_path(winery.id)
+          = link_to winery.name, winery_path(winery)
         %td= link_to 'Show', winery
         - if can? :update, Winery
           %td= link_to 'Edit', edit_winery_path(winery)

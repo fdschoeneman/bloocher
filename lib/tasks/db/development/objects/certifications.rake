@@ -2,7 +2,7 @@ namespace 'db:development:create' do
 
   task certifications: :environment do
 
-  	certification_names = %w[organic biodynamic]
+  	certification_names = %w[organic usda biodynamic]
 
   	certification_names.each do |name|
   		Certification.create(

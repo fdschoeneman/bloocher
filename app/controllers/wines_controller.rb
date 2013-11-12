@@ -114,7 +114,7 @@ private
 
   def set_wine
 
-    @wine = Wine.find(params[:id])
+    @wine = Wine.friendly.find(params[:id])
   end
 
   def wine_params

@@ -7,9 +7,9 @@
         %th Name
     - @wines.each do |wine|
       %tr
-        %td= link_to wine.name.titleize, wine_path(wine.id)
+        %td= link_to wine.name.titleize, wine_path(wine)
         %td= wine.vintage
-        %td= link_to wine.winery.name, winery_path(wine.winery.id)
+        %td= link_to wine.winery.name, winery_path(wine.winery)
         %td= link_to 'Show', wine
         - if can? :update, Wine
           %td= link_to 'Edit', edit_wine_path(wine)

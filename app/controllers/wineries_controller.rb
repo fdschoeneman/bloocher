@@ -1,6 +1,6 @@
 class WineriesController < ApplicationController
 
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_winery, only: [:show, :edit, :update, :destroy]
 
   def index
     @page_title = "Wineries"
@@ -21,7 +21,7 @@ class WineriesController < ApplicationController
     @wines = Kaminari.paginate_array(@winery_wines).page(params[:page]).per(4)
     @review = Review.new
     @reviews = @winery.reviews
-    @winery.winery_rating
+    # @winery.winery_rating
 
     respond_to do |format|
       format.html 
@@ -33,8 +33,7 @@ class WineriesController < ApplicationController
   def new
 
     @producer = Producer.find_by_id(params[:producer_id])
-    @winery = @producer.wineries.build
-
+    @winery = Winery.new
     respond_to do |format|
       format.html
       format.json { render json: @winery }
@@ -86,10 +85,10 @@ class WineriesController < ApplicationController
 private
 
   def set_winery
-    @winery = Winery.find(params[:id])
+    @winery = Winery.friendly.find(params[:id])
   end
 
   def winery_params
-    params.require(:winery).permit(:name, :producer_id, :slug)
+    params.require(:winery).permit(:name, :producer_id)
   end
 end
