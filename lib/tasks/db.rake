@@ -14,7 +14,7 @@ task populate: ['db:development:populate', :environment]
 @accounts_admins = 5
 @addresses = 20
 @appellations = 20
-@appellations_vineyards = 20
+@appellations_vineyards = 60
 @artists = 5
 @authentications = 5
 @carousels = 5
