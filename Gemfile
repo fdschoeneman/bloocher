@@ -124,6 +124,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'rails_best_practices'
+  gem 'rails-erd'
+
 end
 
 group :test do 
@@ -153,6 +155,7 @@ group :test, :development do
     
   # preloads rails app for faster test and development tasks
   gem 'spring'
+
 
   # test factories  
   gem 'factory_girl_rails'

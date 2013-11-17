@@ -3,7 +3,11 @@ require "test_helper"
 describe ShowcasesWinesController do
   
   Given(:user) { create(:user) }
-  Given(:showcase) { create(:showcase, sommelier_id: user.id) }
+  Given(:winery) { create(:winery) }
+  Given(:vineyard) { create(:vineyard) }
+  Given(:producer) { create(:producer) }
+  Given(:showcase) { create(:showcase, 
+    showcaseable_id: user.id, showcaseable_type: user.class.name) }
   Given(:wine) { create(:wine) }
 
   describe "create" do 

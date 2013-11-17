@@ -60,7 +60,7 @@ describe Vineyard do
     it { must have_many(:fruit_lots).through(:vineyards_vintages) } 
     it { must have_many(:images) }
     it { must have_many(:positions) }
-
+    it { must have_many(:showcases) }
     it { must have_many(:vineyards_vintages) } 
     it { must have_many(:wines).through(:fruit_lots) } 
     it { must accept_nested_attributes_for(:producer)}

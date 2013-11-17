@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110214426) do
+ActiveRecord::Schema.define(version: 20131117212539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -258,7 +258,6 @@ ActiveRecord::Schema.define(version: 20131110214426) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "showcases", force: true do |t|
-    t.integer  "sommelier_id"
     t.string   "version"
     t.string   "title"
     t.text     "description"
@@ -266,10 +265,12 @@ ActiveRecord::Schema.define(version: 20131110214426) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "showcaseable_id"
+    t.string   "showcaseable_type"
   end
 
+  add_index "showcases", ["showcaseable_id", "showcaseable_type"], name: "index_showcases_on_showcaseable_id_and_showcaseable_type", using: :btree
   add_index "showcases", ["slug"], name: "index_showcases_on_slug", unique: true, using: :btree
-  add_index "showcases", ["sommelier_id"], name: "index_showcases_on_sommelier_id", using: :btree
 
   create_table "showcases_wines", force: true do |t|
     t.integer  "showcase_id"

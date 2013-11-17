@@ -31,6 +31,7 @@ describe Producer do
     it { must have_many(:certifications).through(:certifications_holdable) }
     it { must have_many(:images) }
     it { must have_many(:positions) }
+    it { must have_many(:showcases) }
     it { must have_many(:vineyards) }
     it { must have_many(:wineries) }
     it { must have_many(:wines).through(:wineries) }

@@ -14,6 +14,7 @@ class Producer < ActiveRecord::Base
   has_many :certifications, through: :certifications_holdable
   has_many :images, as: :imageable
   has_many :positions, as: :positionable
+  has_many :showcases, as: :showcaseable
   has_many :vineyards
   has_many :wineries
   has_many :wines, through: :wineries

@@ -20,6 +20,7 @@ class Vineyard < ActiveRecord::Base
   has_many :images,   as: :imageable
   has_many :positions, as: :positionable
   has_many :vineyards_vintages
+  has_many :showcases, as: :showcaseable
   has_many :wines, through: :fruit_lots
 
 

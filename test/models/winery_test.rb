@@ -39,6 +39,7 @@ describe Winery do
     it { must have_many(:certifications).through(:certifications_holdable) }
     it { must have_many(:images) } 
     it { must have_many(:reviews).through(:wines) }
+    it { must have_many(:showcases) }
     it { must have_many(:wines) } 
   end
 

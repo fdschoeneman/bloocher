@@ -11,21 +11,22 @@ describe Showcase do
       it { must have_db_column(:description).of_type(:text) }
       it { must have_db_column(:published).of_type(:boolean) }
       it { must have_db_column(:slug).of_type(:string) }
-      it { must have_db_column(:sommelier_id).of_type(:integer) }
+      it { must have_db_column(:showcaseable_id).of_type(:integer) }
+      it { must have_db_column(:showcaseable_type).of_type(:string) }
       it { must have_db_column(:title).of_type(:string) }
       it { must have_db_column(:version).of_type(:string) }
     end
 
      describe "indexes" do
 
-      it { must have_db_index(:sommelier_id) }
       it { must have_db_index(:slug).unique(true) }
+      it { must have_db_index([:showcaseable_id, :showcaseable_type]) }
     end
   end
 
   describe "associations" do 
 
-    it { must belong_to(:sommelier).class_name("User") }
+    it { must belong_to(:showcaseable) }
     it { must have_many(:carousels) }
     it { must have_many(:showcases_wines) }
     it { must have_many(:wines).through(:showcases_wines) }
