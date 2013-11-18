@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
 
   before_save :update_image_attributes
 
-  belongs_to :user
+  belongs_to :producer
 
   validates :user, presence: true
 

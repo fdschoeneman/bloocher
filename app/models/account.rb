@@ -5,7 +5,7 @@ class Account < ActiveRecord::Base
 	belongs_to :accountable, polymorphic: true
 	
 	has_many :accounts_activation
-	has_many :activations, through: :accounts_activations
+	has_many :activations, through: :accounts_activations, source_type: "Activation"
   
   forbidden_subdomains = %w( support blog www billing help api 
     merciboku privacy help legal terms blog )

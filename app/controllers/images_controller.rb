@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
 
     @image = Image.new(image_params)
     @image.user_id = current_user.id
-
+debugger
     if @image.save
       redirect_to :back, notice: 'Image was successfully created.'
     else

@@ -28,6 +28,11 @@ describe Image do
   describe "associations" do
 
     it { must belong_to(:user) }
+    it { must belong_to(:winery) }
+    it { must belong_to(:vineyard) }
+    it { must belong_to(:artist) }
+    it { must belong_to(:producer) }
+    it { must belong_to(:showcase) }
   end 
 
   describe "validations" do 

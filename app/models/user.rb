@@ -12,14 +12,9 @@ class User < ActiveRecord::Base
   has_many :certifications_holdable, as: :holdable
   has_many :certifications, through: :certifications_holdable
   has_many :images, as: :imageable
-  has_many :ownerships, foreign_key: :owner_id, dependent: :destroy
   has_many :positions
-  has_many :producers, through: :ownerships
   has_many :reviews, foreign_key: :reviewer_id
   has_many :showcases, as: :showcaseable
-  has_many :winemaker_oeuvres, foreign_key: :winemaker_id
-  has_many :wineries_owned, through: :producers, source: :wineries
-  has_many :wines_made, through: :winemaker_oeuvres, source: :wine
    
   accepts_nested_attributes_for :images, :authentications
 

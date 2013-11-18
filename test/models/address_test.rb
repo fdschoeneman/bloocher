@@ -30,6 +30,11 @@ describe Address do
 
   describe "associations" do 
 
-    it { must belong_to(:addressable) } 
+    it { must have_many(:addresses_addressables) }
+    it { must have_many(:artists).through(:addresses_addressables) }
+    it { must have_many(:producers).through(:addresses_addressables) }
+    it { must have_many(:vineyards).through(:addresses_addressables) }
+    it { must have_many(:wineries).through(:addresses_addressables) }
+    it { must have_many(:users).through(:addresses_addressables) }
   end
 end

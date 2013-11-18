@@ -17,6 +17,9 @@ describe Certification do
   describe "associations" do 
 
     it { must have_many(:certifications_holdables) }
-    it { must have_many(:holdables).through(:certifications_holdables) }
+    it { must have_many(:wines).through(:certifications_holdables) }
+    it { must have_many(:producers).through(:certifications_holdables) }
+    it { must have_many(:wineries).through(:certifications_holdables) }
+    it { must have_many(:vineyards).through(:certifications_holdables) }
   end
 end
