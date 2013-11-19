@@ -6,4 +6,6 @@ class Artist < ActiveRecord::Base
 
   belongs_to :artist, class_name: "User"
 
+  has_many :images, as: :imageable
+
 end

@@ -23,6 +23,7 @@ describe Artist do
   describe "associations" do 
 
     it { must belong_to(:artist) }
+    it { must have_many(:images) }
 
   end
 # oeuvre

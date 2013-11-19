@@ -19,9 +19,8 @@ class Winery < ActiveRecord::Base
   has_many :showcases, as: :showcaseable
   has_many :wines
 
-  # accepts_nested_attributes_for :producer
-
   validates :name, presence: true, uniqueness: true
+
   def winery_rating
   	if self.reviews.count.zero?
   		"n/a"

@@ -4,9 +4,17 @@ class Image < ActiveRecord::Base
 
   before_save :update_image_attributes
 
-  belongs_to :producer
-
+  belongs_to :artist, foreign_key: :imageable_id, foreign_type: "Artist"
+  belongs_to :imageable, polymorphic: true
+  belongs_to :producer, foreign_key: :imageable_id, foreign_type: "Producer"
+  belongs_to :showcase, foreign_key: :imageable_id, foreign_type: "Showcase"
+  belongs_to :vineyard, foreign_key: :imageable_id, foreign_type: "Vineyard"
+  belongs_to :winery, foreign_key: :imageable_id, foreign_type: "Winery"
+  belongs_to :user
+  
   validates :user, presence: true
+  validates :imageable_type, presence: true
+  validates :imageable_id, presence: true
 
 private
 

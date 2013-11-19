@@ -27,7 +27,9 @@ describe Image do
 
   describe "associations" do
 
+    it { must belong_to(:artist) }
     it { must belong_to(:user) }
+    it { must belong_to(:imageable) }
     it { must belong_to(:winery) }
     it { must belong_to(:vineyard) }
     it { must belong_to(:artist) }
@@ -38,5 +40,7 @@ describe Image do
   describe "validations" do 
 
     it { must validate_presence_of(:user) }
+    it { must validate_presence_of(:imageable_type) }
+    it { must validate_presence_of(:imageable_id) }
   end
 end

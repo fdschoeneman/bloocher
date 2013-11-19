@@ -1,4 +1,5 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+include ActionDispatch::TestProcess
 
 FactoryGirl.define do
 
@@ -16,3 +17,10 @@ FactoryGirl.define do
     user
   end
 end
+
+# FactoryGirl.define do
+#   factory :image do
+#     title "Example image"
+#     file { fixture_file_upload("files/example.jpg", "image/jpeg") }
+#   end
+# end
