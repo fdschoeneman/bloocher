@@ -2,42 +2,43 @@ require 'test_helper'
 
  describe User do 
  
-  subject { User.new }
+  subject { User.new}
 
   describe "db" do 
 
     describe "columns and types" do
       
-      it { must have_db_column(:current_sign_in_ip).of_type(:string) }
-      it { must have_db_column(:email).of_type(:string) }
-      it { must have_db_column(:encrypted_password).of_type(:string) }
-      it { must have_db_column(:invited_by_type).of_type(:string) }
-      it { must have_db_column(:invited_by_id).of_type(:integer) }
-      it { must have_db_column(:invitation_limit).of_type(:integer) }
-      it { must have_db_column(:name).of_type(:string) }
-      it { must have_db_column(:reset_password_token).of_type(:string) }
+      must { have_db_column(:name) }
+      must { have_db_column(:current_sign_in_ip).of_type(:string) }
+      must { have_db_column(:email).of_type(:string) }
+      must { have_db_column(:encrypted_password).of_type(:string) }
+      must { have_db_column(:invited_by_type).of_type(:string) }
+      must { have_db_column(:invited_by_id).of_type(:integer) }
+      must { have_db_column(:invitation_limit).of_type(:integer) }
+      must { have_db_column(:name).of_type(:string) }
+      must { have_db_column(:reset_password_token).of_type(:string) }
     end
 
     describe "indexes" do
 
-      it { must have_db_index(:email) }
-      it { must have_db_index([:invited_by_id, :invited_by_type]) }
-      it { must have_db_index(:name) }
+      must { have_db_index(:email) }
+      must { have_db_index([:invited_by_id, :invited_by_type]) }
+      must { have_db_index(:name) }
     end
   end
 
   describe "associations" do
 
-    it { must have_many(:artists) }
-    it { must have_many(:authentications) }
-    it { must have_many(:addresses_addressable) }
-    it { must have_many(:addresses).through(:addresses_addressable) }
-    it { must have_many(:certifications_holdable) }
-    it { must have_many(:certifications).through(:certifications_holdable) }
-    it { must have_many(:images) }
-    it { must have_many(:positions) }
-    it { must have_many(:showcases) }
-    it { must accept_nested_attributes_for(:images) }
+    must { have_many(:artists) }
+    must { have_many(:authentications) }
+    must { have_many(:addresses_addressable) }
+    must { have_many(:addresses).through(:addresses_addressable) }
+    must { have_many(:certifications_holdable) }
+    must { have_many(:certifications).through(:certifications_holdable) }
+    must { have_many(:images) }
+    must { have_many(:positions) }
+    must { have_many(:showcases) }
+    must { accept_nested_attributes_for(:images) }
   end
   
   describe "validations" do 

@@ -12,8 +12,7 @@
     .span6
       upload photos
       .badge= @producer.images.count
-      = simple_form_for :image, { url: :images } do |f|
-        = render 'image_uploader'
+      = render partial: 'image_uploader', locals: { imageable_id: @producer.id }
   .row
     .span6
       - if @wineries.empty?

@@ -8,39 +8,39 @@ describe Winery do
 
     describe "columns and types" do 
 
-      it { must have_db_column(:name).of_type(:string) }
-      it { must have_db_column(:producer_id).of_type(:integer) }
-      it { must have_db_column(:slug).of_type(:string) }
+      must { have_db_column(:name).of_type(:string) }
+      must { have_db_column(:producer_id).of_type(:integer) }
+      must { have_db_column(:slug).of_type(:string) }
 
     end
 
     describe 'indexes' do 
 
-      it { must have_db_index(:name).unique(true) }
-      it { must have_db_index(:slug).unique(true) }
-      it { must have_db_index(:producer_id) }
+      must { have_db_index(:name).unique(true) }
+      must { have_db_index(:slug).unique(true) }
+      must { have_db_index(:producer_id) }
     end
   end
 
   describe "validations" do
 
-    it { must validate_presence_of(:name) }
+    must { validate_presence_of(:name) }
   end
 
   describe "associations" do
 
-    it { must belong_to(:producer) } 
+    must { belong_to(:producer) } 
     
-    it { must have_many(:addresses_addressable) }
-    it { must have_many(:addresses).through(:addresses_addressable) }
-    it { must have_many(:accounts) }
-    it { must have_many(:carousels) }
-    it { must have_many(:certifications_holdable) }
-    it { must have_many(:certifications).through(:certifications_holdable) }
-    it { must have_many(:images) } 
-    it { must have_many(:reviews).through(:wines) }
-    it { must have_many(:showcases) }
-    it { must have_many(:wines) } 
+    must { have_many(:addresses_addressable) }
+    must { have_many(:addresses).through(:addresses_addressable) }
+    must { have_many(:accounts) }
+    must { have_many(:carousels) }
+    must { have_many(:certifications_holdable) }
+    must { have_many(:certifications).through(:certifications_holdable) }
+    must { have_many(:images) } 
+    must { have_many(:reviews).through(:wines) }
+    must { have_many(:showcases) }
+    must { have_many(:wines) } 
   end
 
   describe "methods" do 

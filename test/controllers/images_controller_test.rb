@@ -16,7 +16,8 @@ include Rails.application.routes.url_helpers
 
   describe "create" do 
 
-    %w[producer winery vineyard showcase wine artist].each do |model|
+    imageable_models = %w[producer] # winery vineyard showcase wine artist]
+    imageable_models.each do |model|
 
       Given(:resource) { create(model.to_sym) }
 
