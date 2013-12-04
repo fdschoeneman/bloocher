@@ -1,6 +1,6 @@
 require "test_helper"
 
-feature "Images::Uploading Feature Test" do
+feature "Imageable Upload Feature Test" do
 
   %w[producer vineyard winery wine artist].each do |imageable|
     

@@ -1,5 +1,6 @@
 class Carousel < ActiveRecord::Base 
 
-  belongs_to :image
+  has_many :carousels_images
+  has_many :images, through: :carousels_images
   belongs_to :carousable, polymorphic: true
 end

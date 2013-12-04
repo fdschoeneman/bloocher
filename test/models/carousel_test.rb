@@ -22,7 +22,9 @@ describe Carousel do
 
   describe "associations" do 
 
-    must { belong_to(:image) }
+    must { have_many(:images) }
+    must { have_many(:images).through(:carousels_images) }
+    must { have_many(:carousels_images) }
     must { belong_to(:carousable) }
   end
 end

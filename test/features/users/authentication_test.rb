@@ -1,6 +1,6 @@
 require "test_helper"
 
-feature "Users::Authentication Feature Test" do
+feature "Authentication Feature Test" do
 
   scenario "Sign up with devise" do
     visit new_user_registration_path
