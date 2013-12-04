@@ -25,7 +25,10 @@ describe Account do
 	describe "associations" do 
 
 		must { belong_to(:accountable) }
-		must { have_many(:activations) }
+    must { have_many(:accounts_activations) }
+    must { have_many(:activations) }
+    must { have_many(:admins).through(:accounts_admins) }
+		must { have_many(:accounts_admins) }
 	end
 
 	describe "validations" do 

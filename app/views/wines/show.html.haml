@@ -1,4 +1,4 @@
-= render 'image_uploader'
+= render partial: 'image_uploader', locals: { imageable_id: @wine.id }
 .row
   .span6
     %h4

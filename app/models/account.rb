@@ -4,8 +4,10 @@ class Account < ActiveRecord::Base
 
 	belongs_to :accountable, polymorphic: true
 	
-	has_many :accounts_activation
-	has_many :activations, through: :accounts_activations, source_type: "Activation"
+  has_many :accounts_activations
+	has_many :activations, through: :accounts_activations, foreign_key: "Activation"
+  has_many :accounts_admins
+  has_many :admins, through: :accounts_admins, foreign_key: :admin_id
   
   forbidden_subdomains = %w( support blog www billing help api 
     merciboku privacy help legal terms blog )
