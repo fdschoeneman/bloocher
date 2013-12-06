@@ -5,6 +5,14 @@
       %p
         %b Producer name:
         = @producer.name
+      %p
+        %b= @producer.name + "'s carousels"
+        = @producer.carousels.count
+
+
+        - @producer.carousels.each do |carousel|
+          |
+          = link_to carousel.id, carousel_path(carousel)
 
       = link_to 'Edit', edit_producer_path(@producer)
       \|
