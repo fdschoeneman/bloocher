@@ -24,7 +24,7 @@ describe Artist do
 
     must { belong_to(:artist) }
     must { have_many(:images) }
-
+    must { have_many(:carousels) }
   end
 # oeuvre
 # gallery

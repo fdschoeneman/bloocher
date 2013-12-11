@@ -17,7 +17,6 @@ namespace 'db:development:create' do
     end
     
     testers = [
-      ["hola.nicole@gmail.com", "VIP"], 
       ["fred.schoeneman@gmail.com", "Admin"]
     ]
     
@@ -28,7 +27,7 @@ namespace 'db:development:create' do
         email: email, 
         password: "password",
         password_confirmation: "password", 
-        bio: Faker::Stoked.bio
+        bio: Faker::Stoked.paragraph
       )
       user.skip_confirmation!
       user.save

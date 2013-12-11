@@ -1,3 +1,5 @@
+/ = render partial: 'carousel', locals: { imageable: @producer }
+= render partial: 'image_uploader', locals: { imageable: @producer}
 .span12
   .row
     .span6
@@ -5,22 +7,14 @@
       %p
         %b Producer name:
         = @producer.name
-      %p
-        %b= @producer.name + "'s carousels"
-        = @producer.carousels.count
-
-
-        - @producer.carousels.each do |carousel|
-          |
-          = link_to carousel.id, carousel_path(carousel)
 
       = link_to 'Edit', edit_producer_path(@producer)
       \|
       = link_to 'Back', producers_path
     .span6
-      upload photos
-      .badge= @producer.images.count
-      = render partial: 'image_uploader', locals: { imageable_id: @producer.id }
+      
+      = render partial: 'image_uploader', locals: { imageable: @producer}
+      / = render partial: 'carousel', locals: { imageable: @producer}
   .row
     .span6
       - if @wineries.empty?

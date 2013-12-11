@@ -1,4 +1,6 @@
-= render partial: 'image_uploader', locals: { imageable_id: @wine.id }
+/ = render partial: 'carousel', locals: { imageable: @wine }
+= render partial: 'image_uploader', locals: { imageable: @wine }
+
 .row
   .span6
     %h4

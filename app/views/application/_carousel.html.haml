@@ -1,0 +1,17 @@
+= imageable.images.first.image
+
+#myCarousel.carousel.slide.add-shadow.span10.offset1
+  / Carousel items
+  .carousel-inner
+    - imageable.images.each do |image|
+      - if image == imageable.images.first
+        .active.item
+          = image_tag(image.image_url)
+      - else 
+        .item
+          = image_tag(image.image_url)
+          / # .item= image_tag("slide-1.jpg", size: "970x450")
+          / # .item= image_tag("slide-2.jpg", size: "970x450")
+
+    %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+    %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;

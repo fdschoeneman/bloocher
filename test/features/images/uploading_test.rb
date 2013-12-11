@@ -2,7 +2,8 @@ require "test_helper"
 
 feature "Images::Uploading Feature Test" do
 
-  %w[producer vineyard winery wine artist].each do |imageable|
+  imageable_models = %w[producer winery wine vineyard artist]
+  imageable_models.each do |imageable|
     
     setup do
 

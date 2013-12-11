@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204040013) do
+ActiveRecord::Schema.define(version: 20131208045143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,13 +128,12 @@ ActiveRecord::Schema.define(version: 20131204040013) do
   create_table "carousels", force: true do |t|
     t.string   "carousable_type"
     t.integer  "carousable_id"
-    t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "carousels", ["carousable_id", "carousable_type"], name: "index_carousels_on_carousable_id_and_carousable_type", using: :btree
-  add_index "carousels", ["image_id"], name: "index_carousels_on_image_id", using: :btree
 
   create_table "carousels_images", force: true do |t|
     t.integer  "carousel_id"

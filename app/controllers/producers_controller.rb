@@ -52,7 +52,6 @@ class ProducersController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if @producer.update_attributes(producer_params)
         format.html { redirect_to @producer, notice: 'Producer was successfully updated.' }

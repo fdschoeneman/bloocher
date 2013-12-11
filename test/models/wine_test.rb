@@ -65,6 +65,7 @@ describe Wine do
     must { belong_to(:winery) }
 
     must { have_many(:images) }
+    must { have_many(:carousels) }
     must { have_many(:certifications_holdable) }
     must { have_many(:certifications).through(:certifications_holdable) }
     must { have_many(:positions) }

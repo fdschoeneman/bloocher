@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :carousel do
     carousable_type "MyString"
     carousable_id 1
-    image_id 1
+    name "awesome name"
   end
 end
