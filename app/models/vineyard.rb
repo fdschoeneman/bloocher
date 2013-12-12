@@ -1,4 +1,8 @@
 class Vineyard < ActiveRecord::Base
+  
+  extend FriendlyId
+  
+  friendly_id :name, use: [:slugged, :history]
 
   resourcify
 
@@ -12,10 +16,13 @@ class Vineyard < ActiveRecord::Base
   has_many :appellations, through: :appellations_vineyards
   has_many :blocks, class_name: "Vineyard", foreign_key: :vineyard_parent_id
   has_many :carousels, as: :carousable
+  has_many :certifications_holdable, as: :holdable
+  has_many :certifications, through: :certifications_holdable
   has_many :fruit_lots, through: :vineyards_vintages
   has_many :images,   as: :imageable
   has_many :positions, as: :positionable
   has_many :vineyards_vintages
+  has_many :showcases, as: :showcaseable
   has_many :wines, through: :fruit_lots
 
 

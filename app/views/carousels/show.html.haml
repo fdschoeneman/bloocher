@@ -1,14 +1,9 @@
 %p#notice= notice
 
 %p
-  %b Carousable type:
-  = @carousel.carousable_type
-%p
-  %b Carousable:
-  = @carousel.carousable_id
-%p
-  %b Image:
-  = @carousel.image_id
+  %b Carousable owner:
+  = link_to @carousel.carousable.name, polymorphic_url(@carousel.carousable)
+
 
 = link_to 'Edit', edit_carousel_path(@carousel)
 \|

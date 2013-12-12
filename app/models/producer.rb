@@ -1,5 +1,9 @@
 class Producer < ActiveRecord::Base
 
+  extend FriendlyId
+  
+  friendly_id :name, use: [:slugged, :history]
+
   resourcify
 
   has_many :accounts, as: :accountable
@@ -10,6 +14,7 @@ class Producer < ActiveRecord::Base
   has_many :certifications, through: :certifications_holdable
   has_many :images, as: :imageable
   has_many :positions, as: :positionable
+  has_many :showcases, as: :showcaseable
   has_many :vineyards
   has_many :wineries
   has_many :wines, through: :wineries

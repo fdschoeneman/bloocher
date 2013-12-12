@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :artist do
+    name "pablo picasso"
     artist_id 1
     statement "MyString"
   end

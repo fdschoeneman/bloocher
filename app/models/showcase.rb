@@ -1,5 +1,11 @@
 class Showcase < ActiveRecord::Base
 
+  extend FriendlyId
+  
+  friendly_id :title, use: [:slugged, :history]
+  
+  resourcify
+
   belongs_to :showcaseable, polymorphic: true
   belongs_to :sommelier, class_name: "User"
   
@@ -13,18 +19,14 @@ class Showcase < ActiveRecord::Base
   accepts_nested_attributes_for :images
 
   def showcasing?(wine)
-
     showcases_wines.find_by(wine_id: wine.id )
   end
 
   def showcase!(wine_id)
-
-
     showcases_wines.create!(wine_id: wine_id)
   end
 
   def unshowcase!(wine_id)
-
     showcases_wines.find_by(wine_id: wine_id).destroy
   end
 end

@@ -50,6 +50,7 @@ gem 'devise'#, '3.0.0'
 gem 'devise_invitable'#, 
     # github: 'scambra/devise_invitable', 
     # branch: 'rails4'
+
 # permissions
 gem 'cancan'
 
@@ -66,11 +67,14 @@ gem 'omniauth-twitter'
 # forms
 gem 'simple_form', '3.0.0.rc'
 
-# qr codes
+# for google link shortener
 gem 'google-api-client'
+
+# qr codes
 gem 'rqrcode-rails3'
 
-
+# friendly ids
+gem 'friendly_id'
 # gem "client_side_validations"
 # gem "client_side_validations-simple_form"
 
@@ -106,7 +110,7 @@ gem 'mini_magick'
 # pretty development data
 gem 'faker'
 gem 'faker-bloocher'
-gem 'faker-stoked'
+gem 'faker-stoked', github: 'fdschoeneman/faker-stoked', branch: 'master'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
@@ -120,6 +124,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'rails_best_practices'
+  gem 'rails-erd'
+
 end
 
 group :test do 
@@ -150,6 +156,7 @@ group :test, :development do
   # preloads rails app for faster test and development tasks
   gem 'spring'
 
+
   # test factories  
   gem 'factory_girl_rails'
   
@@ -160,7 +167,8 @@ group :test, :development do
   # debugging
   gem 'debugger'
   gem 'pry'
-  gem 'awesome_print'
+  gem 'awesome_print', require: 'ap'
+
 
   # Guards
   gem 'guard'
@@ -199,4 +207,5 @@ end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'execjs'
+gem 'therubyracer'

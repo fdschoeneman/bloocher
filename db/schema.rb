@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008070946) do
+ActiveRecord::Schema.define(version: 20131208045143) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "accounts", force: true do |t|
     t.integer  "accountable_id"
@@ -103,9 +106,14 @@ ActiveRecord::Schema.define(version: 20131008070946) do
   create_table "artists", force: true do |t|
     t.integer  "artist_id"
     t.string   "statement"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
+  add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -120,13 +128,23 @@ ActiveRecord::Schema.define(version: 20131008070946) do
   create_table "carousels", force: true do |t|
     t.string   "carousable_type"
     t.integer  "carousable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "carousels", ["carousable_id", "carousable_type"], name: "index_carousels_on_carousable_id_and_carousable_type", using: :btree
+
+  create_table "carousels_images", force: true do |t|
+    t.integer  "carousel_id"
     t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "carousels", ["carousable_id", "carousable_type"], name: "index_carousels_on_carousable_id_and_carousable_type", using: :btree
-  add_index "carousels", ["image_id"], name: "index_carousels_on_image_id", using: :btree
+  add_index "carousels_images", ["carousel_id", "image_id"], name: "index_carousels_images_on_carousel_id_and_image_id", unique: true, using: :btree
+  add_index "carousels_images", ["carousel_id"], name: "index_carousels_images_on_carousel_id", using: :btree
+  add_index "carousels_images", ["image_id"], name: "index_carousels_images_on_image_id", using: :btree
 
   create_table "certifications", force: true do |t|
     t.string   "name"
@@ -147,6 +165,19 @@ ActiveRecord::Schema.define(version: 20131008070946) do
   end
 
   add_index "certifications_holdables", ["holdable_id", "holdable_type"], name: "index_certifications_holdables_on_holdable_id_and_holdable_type", using: :btree
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "fruit_lots", force: true do |t|
     t.decimal  "brix"
@@ -206,9 +237,11 @@ ActiveRecord::Schema.define(version: 20131008070946) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "producers", ["name"], name: "index_producers_on_name", using: :btree
+  add_index "producers", ["slug"], name: "index_producers_on_slug", unique: true, using: :btree
 
   create_table "reviews", force: true do |t|
     t.integer  "rating"
@@ -235,16 +268,19 @@ ActiveRecord::Schema.define(version: 20131008070946) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "showcases", force: true do |t|
-    t.integer  "sommelier_id"
     t.string   "version"
     t.string   "title"
     t.text     "description"
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
+    t.integer  "showcaseable_id"
+    t.string   "showcaseable_type"
   end
 
-  add_index "showcases", ["sommelier_id"], name: "index_showcases_on_sommelier_id", using: :btree
+  add_index "showcases", ["showcaseable_id", "showcaseable_type"], name: "index_showcases_on_showcaseable_id_and_showcaseable_type", using: :btree
+  add_index "showcases", ["slug"], name: "index_showcases_on_slug", unique: true, using: :btree
 
   create_table "showcases_wines", force: true do |t|
     t.integer  "showcase_id"
@@ -327,11 +363,13 @@ ActiveRecord::Schema.define(version: 20131008070946) do
     t.boolean  "gmaps"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "vineyards", ["appellation_id"], name: "index_vineyards_on_appellation_id", using: :btree
   add_index "vineyards", ["name"], name: "index_vineyards_on_name", using: :btree
   add_index "vineyards", ["producer_id"], name: "index_vineyards_on_producer_id", using: :btree
+  add_index "vineyards", ["slug"], name: "index_vineyards_on_slug", unique: true, using: :btree
   add_index "vineyards", ["vineyard_parent_id"], name: "index_vineyards_on_vineyard_parent_id", using: :btree
 
   create_table "vineyards_vintages", force: true do |t|
@@ -355,10 +393,12 @@ ActiveRecord::Schema.define(version: 20131008070946) do
     t.integer  "producer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "wineries", ["name"], name: "index_wineries_on_name", unique: true, using: :btree
   add_index "wineries", ["producer_id"], name: "index_wineries_on_producer_id", using: :btree
+  add_index "wineries", ["slug"], name: "index_wineries_on_slug", unique: true, using: :btree
 
   create_table "wines", force: true do |t|
     t.integer  "vintage"
@@ -387,9 +427,11 @@ ActiveRecord::Schema.define(version: 20131008070946) do
     t.datetime "updated_at"
     t.string   "category"
     t.string   "short_url"
+    t.string   "slug"
   end
 
   add_index "wines", ["name"], name: "index_wines_on_name", using: :btree
+  add_index "wines", ["slug"], name: "index_wines_on_slug", unique: true, using: :btree
   add_index "wines", ["vintage"], name: "index_wines_on_vintage", using: :btree
   add_index "wines", ["winery_id"], name: "index_wines_on_winery_id", using: :btree
 

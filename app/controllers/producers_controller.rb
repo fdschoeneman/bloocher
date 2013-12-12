@@ -13,7 +13,6 @@ class ProducersController < ApplicationController
   end
 
   def show
-    @producer = Producer.find(params[:id])
     @wineries = @producer.wineries
     @vineyards = @producer.vineyards
 
@@ -53,7 +52,6 @@ class ProducersController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if @producer.update_attributes(producer_params)
         format.html { redirect_to @producer, notice: 'Producer was successfully updated.' }
@@ -78,7 +76,7 @@ class ProducersController < ApplicationController
 private
 
   def set_producer
-    @producer = Producer.find(params[:id])
+    @producer = Producer.friendly.find(params[:id])
   end
 
   def producer_params

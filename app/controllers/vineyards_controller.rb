@@ -1,5 +1,7 @@
 class VineyardsController < ApplicationController
   
+  before_action :set_vineyard, only: [:show, :edit, :update, :destroy]
+
   # @json = Vineyard.all.to_gmaps4rails
 
   def index
@@ -15,9 +17,9 @@ class VineyardsController < ApplicationController
   end
 
   def show
-    @vineyard = Vineyard.find(params[:id])
+    
+    @vineyard = Vineyard.friendly.find(params[:id])
     # @json = @vineyard.to_gmaps4rails
-
     respond_to do |format|
       format.html 
       format.json { render json: @vineyard }
@@ -77,4 +79,13 @@ class VineyardsController < ApplicationController
       format.json { head :no_content }
     end
   end
+private
+
+  def set_vineyard
+    @vineyard = Vineyard.friendly.find(params[:id])
+  end
+
+  def vineyard_params
+    params.require(:vineyard).permit(:name)
+  end  
 end

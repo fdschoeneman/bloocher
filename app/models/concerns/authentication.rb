@@ -1,11 +1,11 @@
-module Authentication
-  extend ActiveSupport::Concern
+# module Authentication
+#   extend ActiveSupport::Concern
 
-  included do 
+#   included do 
 
-  end
+#   end
 
-  module ClassMethods
+#   module ClassMethods
 
-  end
-end
+#   end
+# end

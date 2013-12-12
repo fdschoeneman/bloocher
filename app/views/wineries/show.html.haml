@@ -1,4 +1,6 @@
-= render 'image_uploader'
+/ = render partial: 'carousel', locals: { imageable: @winery }
+
+= render partial: 'image_uploader', locals: { imageable: @winery }
 
 .row
   .span6
@@ -57,7 +59,7 @@
   .span12
     %h3
       = "#{@winery_wines.count} Wines" 
-      - if current_user && current_user.has_role(:admin?)
+      - if current_user && current_user.has_role?(:admin)
         = link_to "Add a new wine", new_winery_wine_path(@winery)
 .row
   .span12

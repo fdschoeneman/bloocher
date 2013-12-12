@@ -2,14 +2,11 @@ namespace 'db:development:create' do
 
   task appellations: :environment do
 
-  	def appellations
-  		[
-  			"Anderson Valley",
-  			"Cole Ranch",
-  			"Redwood Valley"
-  				]
-  			end
-
-  	
+    @appellations.to_i.times do |n|
+      Appellation.create(
+        name: Faker::Bloocher.appellation,
+        description: Faker::Stoked.bio
+      )
+    end
   end
 end

@@ -1,3 +1,5 @@
+/ = render partial: 'carousel', locals: { imageable: @producer }
+= render partial: 'image_uploader', locals: { imageable: @producer}
 .span12
   .row
     .span6
@@ -10,10 +12,9 @@
       \|
       = link_to 'Back', producers_path
     .span6
-      upload photos
-      .badge= @producer.images.count
-      = simple_form_for :image, { url: :images } do |f|
-        = render 'image_uploader'
+      
+      = render partial: 'image_uploader', locals: { imageable: @producer}
+      / = render partial: 'carousel', locals: { imageable: @producer}
   .row
     .span6
       - if @wineries.empty?

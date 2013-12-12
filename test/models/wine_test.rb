@@ -8,68 +8,72 @@ describe Wine do
 
     describe "columns and types" do 
     
-      it { must have_db_column(:vintage).of_type(:integer) }
-      it { must have_db_column(:cases_produced).of_type(:integer) }
-      it { must have_db_column(:winery_id).of_type(:integer) }
-      it { must have_db_column(:days_in_oak).of_type(:integer) }
-      it { must have_db_column(:drink_before).of_type(:integer) }
-      it { must have_db_column(:lay_down_until).of_type(:integer) }
+      must { have_db_column(:bottled_on).of_type(:datetime) }
+      must { have_db_column(:cases_produced).of_type(:integer) }
+      must { have_db_column(:days_in_oak).of_type(:integer) }
+      must { have_db_column(:drink_before).of_type(:integer) }
+      must { have_db_column(:lay_down_until).of_type(:integer) }
+      must { have_db_column(:released_on).of_type(:datetime) }
+      must { have_db_column(:slug).of_type(:string) }
+      must { have_db_column(:vintage).of_type(:integer) }
+      must { have_db_column(:winery_id).of_type(:integer) }
 
-      it { must have_db_column(:bottled_on).of_type(:datetime) }
-      it { must have_db_column(:released_on).of_type(:datetime) }
+
 
       %w[ph alcohol new_french_oak one_yr_old_french_oak two_yr_old_french_oak
         three_yr_old_french_oak new_american_oak one_yr_old_american_oak
         two_yr_old_american_oak three_yr_old_american_oak].each do |column|
-        it { must have_db_column(column.to_sym).of_type(:decimal) }
+        must { have_db_column(column.to_sym).of_type(:decimal) }
       end
 
-      it { must have_db_column(:name).of_type(:string) }
-      it { must have_db_column(:short_url).of_type(:string) }
+      must { have_db_column(:name).of_type(:string) }
+      must { have_db_column(:slug).of_type(:string) }
+      must { have_db_column(:short_url).of_type(:string) }
 
-      it { must have_db_column(:winemaker_notes).of_type(:text) }
+      must { have_db_column(:winemaker_notes).of_type(:text) }
       
-      it { must have_db_column(:acid_added).of_type(:boolean) }
+      must { have_db_column(:acid_added).of_type(:boolean) }
     end
 
     describe "indexes" do
 
-      it { must have_db_index(:name) }
-      it { must have_db_index(:vintage) }
-      it { must have_db_index(:winery_id) }
+      must { have_db_index(:name) }
+      must { have_db_index(:vintage) }
+      must { have_db_index(:winery_id) }
     end
   end
 
   describe "validations" do
 
-    it { must validate_presence_of(:name) }
-    it { must validate_presence_of(:vintage) }
-    it { must validate_numericality_of(:vintage) }
-    it { must ensure_inclusion_of(:vintage).in_array(["1972", "2013"]) }
-    # it { must ensure_exclusion_of(:vintage).in_array([
+    must { validate_presence_of(:name) }
+    must { validate_presence_of(:vintage) }
+    must { validate_numericality_of(:vintage) }
+    must { ensure_inclusion_of(:vintage).in_array(["1972", "2013"]) }
+    # must { ensure_exclusion_of(:vintage).in_array([
     #   "sixty-two", "99999", "2", "last year", "20153"]).with_message(
     #   /must be a year/
     # ) }
 
     %w[vintage cases_produced].each do |attribute|
-      it { must validate_numericality_of(attribute.to_sym) }
+      must { validate_numericality_of(attribute.to_sym) }
     end
 
   end
 
   describe "associations" do 
     
-    it { must belong_to(:winery) }
+    must { belong_to(:winery) }
 
-    it { must have_many(:images) }
-    it { must have_many(:certifications_holdable) }
-    it { must have_many(:certifications).through(:certifications_holdable) }
-    it { must have_many(:positions) }
-    it { must have_many(:fruit_lots) }
-    it { must have_many(:reviews) }
-    it { must have_many(:showcases).through(:showcases_wines)}
-    it { must have_many(:vineyards_vintages).through(:fruit_lots) }
-    it { must have_many(:vineyards).through(:vineyards_vintages) }
+    must { have_many(:images) }
+    must { have_many(:carousels) }
+    must { have_many(:certifications_holdable) }
+    must { have_many(:certifications).through(:certifications_holdable) }
+    must { have_many(:positions) }
+    must { have_many(:fruit_lots) }
+    must { have_many(:reviews) }
+    must { have_many(:showcases).through(:showcases_wines)}
+    must { have_many(:vineyards_vintages).through(:fruit_lots) }
+    must { have_many(:vineyards).through(:vineyards_vintages) }
   end
 
   describe "vineyards method" do 

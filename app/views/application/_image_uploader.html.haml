@@ -1,10 +1,43 @@
+.badge= imageable.images.count 
+#myCarousel.carousel.slide.add-shadow.span10.offset1
+  .carousel-inner
+    - imageable.images.each do |image|
+      - if image == imageable.images.first
+        .active.item
+          = image_tag(image.image_url)
+      - else 
+        .item
+          = image_tag(image.image_url)
+          / # .item= image_tag("slide-1.jpg", size: "970x450")
+          / # .item= image_tag("slide-2.jpg", size: "970x450")
+
+    %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+    %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
+
+%br
 = simple_form_for :image, { url: :images } do |f|
   = f.error_notification
   .form-inputs
-    = f.hidden_field :imageable_type, value: params[:controller].classify
-    = f.hidden_field :imageable_id, value: params[:id]
+    = f.hidden_field :imageable_type, value: imageable.class
+    = f.hidden_field :imageable_id, value: imageable.id 
     = f.file_field :image
     = f.label :remote_image_url, "or image URL"
     = f.text_field :remote_image_url
   .form-actions
     = f.button :submit, "add photo"
+
+.badge= imageable.carousels.count 
+carousels for this #{imageable.class.to_s.downcase}
+%hr
+- imageable.carousels.each do |carousel|
+  - unless carousel == imageable.carousels.first
+    |
+  = link_to carousel.name, carousel_path(carousel)
+= simple_form_for :carousel, { url: :carousels } do |f|
+  = f.error_notification
+  .form-inputs
+    = f.hidden_field :imageable_type, value: imageable.class
+  .form-actions
+    = f.button :submit, "add carousel"
+
+

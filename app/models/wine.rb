@@ -1,12 +1,18 @@
 class Wine < ActiveRecord::Base
+  
+  extend FriendlyId
+  
+  friendly_id :name, use: [:slugged, :history]
+  
   resourcify
-
+  
   validates :name, :vintage, presence: true
   validates :vintage, :cases_produced, numericality: true
   validates :vintage, length: { is: 4 }
 
   belongs_to :winery
 
+  has_many :carousels, as: :carousable
   has_many :certifications_holdable, as: :holdable
   has_many :certifications, through: :certifications_holdable
   has_many :fruit_lots, through: :fruit_lots_wines

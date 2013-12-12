@@ -12,18 +12,17 @@ describe ProducersController do
     describe "success" do 
 
       Then { assert_response :success }
-    end
 
-    describe "assigns producers" do
-
-      Then { assert_not_nil assigns(:producers) }
+      And { assert_not_nil assigns(:producers) }
     end
   end
 
   describe "new" do
     
-    When { get :new }
+    Given { get :new }
+    
     Then { assert_response :success }
+    And { assert_not_nil assigns(:producer) }
   end
 
   describe "create" do
@@ -40,8 +39,17 @@ describe ProducersController do
   
   describe "show" do
    
-    When { get :show, id: producer.id }
-    Then { assert_response :success }
+    ["producer.slug", "producer.id"].each do |attribute| 
+    
+      describe "a winery's wine rom the #{attribute}" do
+
+        Given { get :show, id: eval(attribute) }
+        
+        Then { assert_response :success }
+        And { assert_not_nil assigns(:wineries) }
+        And { assert_not_nil assigns(:vineyards) }
+      end
+    end
   end
 
   describe "edit" do 

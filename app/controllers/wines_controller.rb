@@ -1,5 +1,8 @@
 class WinesController < ApplicationController
 
+  respond_to :json, :html
+  before_action :set_wine, only: [:show, :edit, :update, :destroy]
+  
   def index
     @page_title = "Wines"
     @wines = Wine.order(:created_at).page params[:page]
@@ -11,14 +14,11 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wine = Wine.find(params[:id])
-    @page_title = @wine.name
     @reviews = @wine.reviews
-    @fruit_lots = @wine.fruit_lots
-    @wine_fruit_lots = @wine.wine_fruit_lots.order("percent_of_wine")
+    @review = Review.new
+    @fruit_lots = @wine.fruit_lots_wines.order("percent_of_wine")
     @vineyards = @wine.vineyards
     @winemakers = @wine.positions
-    @review = Review.new
 
     respond_to do |format|
       format.html
@@ -31,6 +31,7 @@ class WinesController < ApplicationController
       format.gif  { render :qrcode => request.url }
       format.jpeg { render :qrcode => request.url }
     end
+    @page_title = @wine.name
   end
 
   def new
@@ -50,8 +51,7 @@ class WinesController < ApplicationController
 
   def create
 
-    @wine = Wine.new(params[:wine])
-    @wine.winery_id = params[:winery_id]
+    @wine = Wine.new(wine_params)
 
     respond_to do |format|
       if @wine.save
@@ -108,5 +108,17 @@ private
       :body_object => { 'longUrl' => url }
     )
     result.data.id
+  end
+
+private
+
+  def set_wine
+
+    @wine = Wine.friendly.find(params[:id])
+  end
+
+  def wine_params
+
+    params.require(:wine).permit(["winery_id", "vintage", "cases_produced", "days_in_oak", "winery_id", "lay_down_until", "drink_before", "acid_added", "bottled_on", "released_on", "name", "winemaker_notes", "ph", "residual_sugar", "alcohol", "new_french_oak", "one_yr_old_french_oak", "two_yr_old_french_oak", "three_yr_old_french_oak", "new_american_oak", "one_yr_old_american_oak", "two_yr_old_american_oak", "three_yr_old_american_oak", "created_at", "updated_at", "category", "short_url"])
   end
 end

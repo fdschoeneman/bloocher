@@ -7,27 +7,30 @@ describe Showcase do
   describe "db" do 
 
     describe "columns and types" do 
-
-      it { must have_db_column(:sommelier_id).of_type(:integer) }
-      it { must have_db_column(:title).of_type(:string) }
-      it { must have_db_column(:published).of_type(:boolean) }
-      it { must have_db_column(:description).of_type(:text) }
-      it { must have_db_column(:version).of_type(:string) }
+  
+      must { have_db_column(:description).of_type(:text) }
+      must { have_db_column(:published).of_type(:boolean) }
+      must { have_db_column(:slug).of_type(:string) }
+      must { have_db_column(:showcaseable_id).of_type(:integer) }
+      must { have_db_column(:showcaseable_type).of_type(:string) }
+      must { have_db_column(:title).of_type(:string) }
+      must { have_db_column(:version).of_type(:string) }
     end
 
      describe "indexes" do
 
-      it { must have_db_index(:sommelier_id) }
+      must { have_db_index(:slug).unique(true) }
+      must { have_db_index([:showcaseable_id, :showcaseable_type]) }
     end
   end
 
   describe "associations" do 
 
-    it { must belong_to(:sommelier).class_name("User") }
-    it { must have_many(:carousels) }
-    it { must have_many(:showcases_wines) }
-    it { must have_many(:wines).through(:showcases_wines) }
-    it { must accept_nested_attributes_for(:images) }
+    must { belong_to(:showcaseable) }
+    must { have_many(:carousels) }
+    must { have_many(:showcases_wines) }
+    must { have_many(:wines).through(:showcases_wines) }
+    must { accept_nested_attributes_for(:images) }
   end
   
   Given(:showcase) { build(:showcase) }

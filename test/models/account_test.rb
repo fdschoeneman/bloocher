@@ -8,31 +8,34 @@ describe Account do
 
 		describe "columns and types" do 
 
-			it { must have_db_column(:accountable_id).of_type(:integer) }
-			it { must have_db_column(:accountable_type).of_type(:string) }
-			it { must have_db_column(:activation_id).of_type(:integer) }
-			it { must have_db_column(:subdomain).of_type(:string) }
+			must { have_db_column(:accountable_id).of_type(:integer) }
+			must { have_db_column(:accountable_type).of_type(:string) }
+			must { have_db_column(:activation_id).of_type(:integer) }
+			must { have_db_column(:subdomain).of_type(:string) }
 		end
 
 		describe "indexes" do 
 
-			it { must have_db_index([:accountable_id, :accountable_type]).unique(true) }
-			it { must have_db_index(:activation_id) }
-			it { must have_db_index(:subdomain).unique(true) }
+			must { have_db_index([:accountable_id, :accountable_type]).unique(true) }
+			must { have_db_index(:activation_id) }
+			must { have_db_index(:subdomain).unique(true) }
 		end
 	end
 
 	describe "associations" do 
 
-		it { must belong_to(:accountable) }
-		it { must have_many(:activations) }
+		must { belong_to(:accountable) }
+    must { have_many(:accounts_activations) }
+    must { have_many(:activations) }
+    must { have_many(:admins).through(:accounts_admins) }
+		must { have_many(:accounts_admins) }
 	end
 
 	describe "validations" do 
 
-		it { must validate_uniqueness_of(:subdomain) }
-		it { must validate_presence_of(:subdomain) }
-		it { must ensure_length_of(:subdomain).is_at_least(4).is_at_most(40) }
+		must { validate_uniqueness_of(:subdomain) }
+		must { validate_presence_of(:subdomain) }
+		must { ensure_length_of(:subdomain).is_at_least(4).is_at_most(40) }
 		
 		describe "on subdomain" do 
 

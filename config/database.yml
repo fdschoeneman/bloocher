@@ -4,14 +4,14 @@ development:
   encoding: unicode
   database: bloocher_development
   pool: 5
-  username: 
-  password: tastywave
+  username: fred
+  password: 
 
 test:
   adapter: postgresql
   encoding: unicode
   database: bloocher_test
   pool: 5
-  username: 
-  password: tastywave
+  username: fred
+  password: 
 

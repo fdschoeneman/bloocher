@@ -1,0 +1,2 @@
+class CarouselsImagesController < ApplicationController
+end

@@ -8,23 +8,23 @@ require "test_helper"
 
     describe "columns and types" do 
 
-      it { must have_db_column(:showcase_id).of_type(:integer)}
-      it { must have_db_column(:wine_id).of_type(:integer)}
-      it { must have_db_column(:blurb_id).of_type(:integer)}
+      must { have_db_column(:showcase_id).of_type(:integer)}
+      must { have_db_column(:wine_id).of_type(:integer)}
+      must { have_db_column(:blurb_id).of_type(:integer)}
     end 
 
     describe "indexes" do
 
-      it { must have_db_index(:showcase_id) }
-      it { must have_db_index(:wine_id) }
-      it { must have_db_index(:blurb_id) }
+      must { have_db_index(:showcase_id) }
+      must { have_db_index(:wine_id) }
+      must { have_db_index(:blurb_id) }
     end
   end
 
   describe "associations" do 
 
-    it { must belong_to(:showcase) }
-    it { must belong_to(:wine) }
-    it { must belong_to(:blurb).class_name("Review") }
+    must { belong_to(:showcase) }
+    must { belong_to(:wine) }
+    must { belong_to(:blurb).class_name("Review") }
   end
 end

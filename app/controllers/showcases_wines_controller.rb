@@ -4,8 +4,9 @@ class ShowcasesWinesController < ApplicationController
 
   def create
     @showcase = Showcase.find(params[:showcase])
+    @wine = Wine.friendly.find(params[:wine])
     # if current_user == @showcase.sommelier
-      @showcase.showcase!(params[:wine])
+      @showcase.showcase!(@wine.id)
       respond_to do |format|
         format.html { redirect_to @showcase, notice: "wine added" }
         format.json 
