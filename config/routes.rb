@@ -70,7 +70,8 @@ Bloocher::Application.routes.draw do
   resources :users do 
     resources :accounts, :wines, :wineries, :vineyards, :producers, :reviews
   end
-
+  
+  get '/demo',          to: 'stellar#demo'
   get '/about',         to: 'static#about'
   get '/maps',          to: 'static#maps'
   get '/contact',       to: 'static#contact'
