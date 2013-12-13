@@ -2,18 +2,20 @@ namespace 'db:development:create' do
 
   task showcases: :environment do
 
-    %w[@vineyards @producers @wineries @users].each do |count|
+    showcaseable_models = %w[user winery user producer]
+    showcaseable_models.each do |showcaseable_model|
 
-      eval(count).times do |i|
-        model = count.gsub("@", " ").capitalize.singularize
-        showcase = Showcase.create(
-          showcaseable_id: i+1,
-          showcaseable_type: model,
-          version: Time.now,
-  			  title: %w[year appellation varietal].join(" ") + "s",
-  	      description: Faker::Stoked.bio
-        )
+      @showcases.to_i.times do |showcase|
+
+        objects = showcaseable_model.classify.constantize.all[0..@showcases.to_i]
+        objects.each do |object|
+          object.showcases.create(
+            version: Time.now,
+            name: %w[year appellation varietal].join(" ") + "s",
+            description: Faker::Stoked.sentence
+          )
+        end
       end
-  	end
+    end
   end
 end

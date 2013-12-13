@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :showcase do
     version "2013-07-23 22:49:52"
-    title "MyString"
+    name "my awesome showcase name"
     description "MyText"
     published false
   end

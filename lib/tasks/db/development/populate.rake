@@ -6,6 +6,7 @@ end
 
 def satisfy_dependencies(dependencies)
   dependencies.each do |model|
+
     if model.classify.constantize.count < 5
       puts "#{green("  -->")} satisfying #{model.downcase} dependency"
       Rake::Task["db:development:create:#{model.underscore.pluralize}"].invoke

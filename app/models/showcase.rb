@@ -2,7 +2,7 @@ class Showcase < ActiveRecord::Base
 
   extend FriendlyId
   
-  friendly_id :title, use: [:slugged, :history]
+  friendly_id :name, use: [:slugged, :history]
   
   resourcify
 
