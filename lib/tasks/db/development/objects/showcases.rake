@@ -2,16 +2,22 @@ namespace 'db:development:create' do
 
   task showcases: :environment do
 
+    return if Showcase.count > @showcases.to_i
+
     showcaseable_models = %w[user winery user producer]
     showcaseable_models.each do |showcaseable_model|
 
-      @showcases.to_i.times do |showcase|
+      count = (@showcases.to_i / showcaseable_models.size)
+      count.times do |showcase|
 
-        objects = showcaseable_model.classify.constantize.all[0..@showcases.to_i]
+        objects = showcaseable_model.classify.constantize.all[1..count]
         objects.each do |object|
+          year = rand(1980..2013)
+          appellation = Faker::Bloocher.appellation
+          varietal = Faker::Bloocher.varietal
           object.showcases.create(
             version: Time.now,
-            name: %w[year appellation varietal].join(" ") + "s",
+            name: [year, appellation, varietal].join(" ") + "s",
             description: Faker::Stoked.sentence
           )
         end

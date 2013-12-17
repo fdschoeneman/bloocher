@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  
+  rolify
 
   devise :confirmable, :database_authenticatable, :invitable, :omniauthable,
          :registerable, :recoverable, :rememberable, :trackable, :validatable
@@ -18,7 +20,6 @@ class User < ActiveRecord::Base
    
   accepts_nested_attributes_for :images, :authentications
 
-  rolify
 
   # has_settings do |setting|
   #   setting.key :email,   defaults: { share_on_review: 'true', share_on_follow: 'false' }

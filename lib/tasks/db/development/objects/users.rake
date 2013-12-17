@@ -16,38 +16,37 @@ namespace 'db:development:create' do
       user.confirm!
     end
     
+    tester_roles = Role.all.pluck(:name) << nil
+
     testers = [
-      ["fred.schoeneman@gmail.com", "Admin"]
+      "fred schoeneman",
+      "nicole henderson",
+      "kim miller",
+      "kurt schoeneman"
     ]
-    
-    testers.each do |email, role|
-      small_notice("user: #{role} account for #{email}")
-    
-      user = User.new(
-        email: email, 
-        password: "password",
-        password_confirmation: "password", 
-        bio: Faker::Stoked.paragraph
-      )
-      user.skip_confirmation!
-      user.save
-      user.confirm!
-      user.add_role role
+
+    testers.each do |fullname|
+      
+      tester_roles.each do |tester_role|
+        small_notice("user: #{tester_role} account for #{fullname}")
+        first = fullname.split.first
+        last_initial = fullname.split.last.chars.first
+        last = fullname.split.last
+        test_domain = "@bloocher.com"
+        if tester_role.nil?
+          email = first + "." + last_initial + test_domain
+        else
+          email = first + "." + last_initial + "." + tester_role.downcase + test_domain
+        end
+        user = User.create( 
+          name: fullname,
+          email: email,
+          password: "password",
+          bio: Faker::Stoked.bio
+        )
+
+        user.add_role tester_role
+      end
     end
   end
-end
-
-
-def make_admin_user
-
-  user = User.new(
-    name: "Fred Schoeneman", 
-    email: "fred.schoeneman@gmail.com", 
-    password: "password",
-    password_confirmation: "password", 
-    bio: Faker::Stoked.bio)
-
-  user.save!
-  user.confirm!
-  user.add_role :admin
 end

@@ -2,11 +2,14 @@ namespace 'db:development:create' do
 
   task showcases_wines: :environment do
 
-	  100.times do 
-	    ShowcasesWine.create(
-	      wine_id: rand(1..@wine.to_i),
-	      showcase_id: rand(1..@showcase.to_i)
-	    )
-	  end
+    satisfy_dependencies(["showcase", "review"])
+
+    Showcase.all.each do |showcase|
+
+      @showcases_wines.to_i.times do |sw|
+        blurb = Review.where(id: rand(1..Review.count)).first
+        showcase.showcase!(blurb.id)
+      end
+    end
   end
 end

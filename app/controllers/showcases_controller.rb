@@ -70,8 +70,7 @@ class ShowcasesController < ApplicationController
 private
 
   def set_showcase
-
-    @showcase = Showcase.find(params[:id])
+    @showcase = Showcase.friendly.find(params[:id])
   end
 
   def showcase_params

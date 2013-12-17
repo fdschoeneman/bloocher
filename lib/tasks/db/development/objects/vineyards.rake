@@ -38,7 +38,7 @@ namespace 'db:development:create' do
 	    @vineyard.save
 	  end
 
-	  @vineyards.to_i.times do |block|
+	  @blocks.to_i.times do |block|
 	    make_vineyard
 	    block_name = %w[east west north southeast creekside river hillside 1A 2A].sample
 	    @vineyard.update_attributes(

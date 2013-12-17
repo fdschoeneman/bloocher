@@ -2,12 +2,13 @@ namespace 'db:development:create' do
 
   task appellations_vineyards: :environment do
 
-  	@appellations_vineyards.to_i.times do |i|
+    satisfy_dependencies(["appellation", "vineyard"])
 
-  		AppellationsVineyard.create(
-  			appellation_id: rand(0..@appellations.to_i),
-  			vineyard_id: i+1
-  		)
+    Vineyard.all.each do |vineyard|
+
+      # vineyard.appellations.new(
+      #   appellation_id: rand(1..@appellations.to_i)
+      # )
   	end
   end
 end

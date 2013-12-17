@@ -33,9 +33,7 @@ describe Showcase do
     must { have_many(:wines).through(:showcases_wines) }
   end
   
-  Given(:showcase) { build(:showcase) }
-
-  describe "showcase methods" do
+  describe "showcasing wine methods" do
 
     Given(:showcase) { create(:showcase) }
     Given(:wine) { create(:wine) }
@@ -44,7 +42,11 @@ describe Showcase do
 
       Given { showcase.showcase!(wine.id) }
       Then { showcase.wines.must_include wine }
-      And { showcase.showcasing?(wine)}
+
+      describe "showcasing? wont return nil" do 
+
+        Then { showcase.showcasing?(wine).wont_equal nil}
+      end
     
     end
 
@@ -54,9 +56,16 @@ describe Showcase do
 
       Given { showcase.unshowcase!(wine.id) }
       Then { showcase.wines.wont_include wine }
+
+      describe "showcasing? will return nil" do 
+
+        Then { showcase.showcasing?(wine).must_equal nil }
+      end
     end
 
     describe "must return a list of wines" do
+
+
       
       # Then { showcase_with_wines.wines.size == 5 }
     end

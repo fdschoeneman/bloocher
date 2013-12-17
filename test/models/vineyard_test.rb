@@ -66,8 +66,32 @@ describe Vineyard do
     must { accept_nested_attributes_for(:producer)}
   end
 
-  describe "methods" do 
+  describe "appellation methods" do 
 
-    # xmust { respond_to(:vineyard_rating) }
+    Given(:vineyard) { create(:vineyard) }
+    Given(:appellation) { create(:appellation) }
+
+    describe "add_appellation!" do 
+
+      Given { vineyard.add_appellation!(appellation) }
+      Then { vineyard.appellations.must_include appellation }
+
+      describe "in_appellation? wont return nil" do 
+
+        Then { vineyard.in_appellation?(appellation).wont_equal nil }
+      end
+    end
+
+    describe "remove_appellation" do 
+
+      Given { AppellationsVineyard.create(appellation_id: appellation.id, vineyard_id: vineyard.id) }
+      Given { vineyard.remove_appellation!(appellation) }
+      Then { vineyard.appellations.wont_include appellation }
+    
+      describe "in_appellation? is false" do 
+        Then { vineyard.in_appellation?(appellation).must_equal nil }
+      end
+
+    end
   end
 end

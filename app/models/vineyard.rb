@@ -1,4 +1,6 @@
 class Vineyard < ActiveRecord::Base
+
+  rolify
   
   extend FriendlyId
   
@@ -29,9 +31,21 @@ class Vineyard < ActiveRecord::Base
   accepts_nested_attributes_for :producer
 
   validates :name, :producer_id, presence: true
+
+  def add_appellation!(appellation)
+    appellations_vineyards.create!(appellation_id: appellation.id)
+  end
+
+  def remove_appellation!(appellation)
+    appellations_vineyards.find_by(appellation_id: appellation.id).destroy
+  end
+
+  def in_appellation?(appellation)
+    appellations_vineyards.find_by(appellation_id: appellation.id)
+  end
+end
   # acts_as_gmappable
 
   # def gmaps4rails_address
   #   "281 41st street, oakland, ca 94611"
   # end
-end
