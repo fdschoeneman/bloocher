@@ -2,6 +2,7 @@ namespace 'db:development:create' do
 
   task users: :environment do
 
+    satisfy_dependencies(["role"])
     small_notice("generic users")
     @users.to_i.times do |n|
       name = Faker::Name.name 
@@ -16,13 +17,10 @@ namespace 'db:development:create' do
       user.confirm!
     end
     
-    tester_roles = Role.all.pluck(:name) << nil
+    tester_roles = Role.all.pluck(:name)
 
     testers = [
-      "fred schoeneman",
-      "nicole henderson",
-      "kim miller",
-      "kurt schoeneman"
+      "fred schoeneman"
     ]
 
     testers.each do |fullname|
@@ -39,13 +37,12 @@ namespace 'db:development:create' do
           email = first + "." + last_initial + "." + tester_role.downcase + test_domain
         end
         user = User.create( 
-          name: fullname,
+          name: fullname + tester_role,
           email: email,
           password: "password",
           bio: Faker::Stoked.bio
         )
-
-        user.add_role tester_role
+        user.add_role tester_role.to_sym
       end
     end
   end

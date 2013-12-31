@@ -9,7 +9,7 @@ namespace 'db:development' do
   @addresses_addressables = 1
   @artists = 5
   @appellations = 20
-  @appellations_vineyards = 60
+  @appellations_vineyards = 10
   @authentications = 5
   @carousels = 2
   @carousels_images = 2
@@ -25,8 +25,8 @@ namespace 'db:development' do
   @roles = 3
   @showcases = 5 
   @showcases_wines = 2
-  @users = 39
-  @vineyards = Faker::Bloocher.vineyards.count
+  @users = 10
+  @vineyards = 5
   @vineyards_vintages = 20 
   @blocks
   @wines = 20

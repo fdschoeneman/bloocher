@@ -3,7 +3,7 @@ namespace 'db:development:create' do
   task reviews: :environment do 
 
     satisfy_dependencies(["user", "wine"])
-    99.times do |n|
+    @reviews.to_i.times do |n|
       review = Review.new(
         rating: rand(70..95),
         reviewer_id: rand(1..@users.to_i),

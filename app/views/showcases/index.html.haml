@@ -5,25 +5,27 @@
 /     .row-fluid
 /       {{outlet}}
     
-%h3 Showcases
-.span8
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th Name
-    - @showcases.each do |showcase|
-      %tr
-        %td= link_to showcase.name, showcase
-        %td= link_to 'Show', showcase
-        - if can? :create, Showcase
-          %td= link_to 'Edit', edit_showcase_path(showcase)
-        - if can? :destroy, Showcase
-          %td= link_to 'Destroy', showcase, method: :delete, data: { confirm: 'Are you sure?' }
-
-  %br
+.span12
+  %h3 Showcases
+  .span8
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th Name
+      - @showcases.each do |showcase|
+        %tr
+          %td= link_to showcase.name, showcase
+          %td= link_to 'Show', showcase
+          - if can? :create, Showcase
+            %td= link_to 'Edit', edit_showcase_path(showcase)
+          - if can? :destroy, Showcase
+            %td= link_to 'Destroy', showcase, method: :delete, data: { confirm: 'Are you sure?' }
+  .pagination
+    = paginate @showcases        
+    %br
   - if can? :create, Showcase
 
     = link_to 'New Showcase', new_showcase_path
 
 
-    
+      

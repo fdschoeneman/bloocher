@@ -1,7 +1,7 @@
 namespace 'db:development:create' do 
 
   task wines: :environment do 
-    99.times do |n|
+    @wines.to_i.times do |n|
       vintage = rand(2002..2011)
       bottled_on_year = vintage + 1
       released_on_year = vintage + rand(1..2)
