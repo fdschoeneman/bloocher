@@ -89,6 +89,9 @@ gem 'kaminari'
 # Cleaner metatags
 gem 'meta-tags', :require => 'meta_tags'
 
+# mapipng addresses
+gem 'geocoder'
+
 # For interacting with google maps on vineyards
 gem 'gmaps4rails'
 
