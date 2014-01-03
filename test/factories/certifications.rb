@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :certification do
-    name "MyString"
+    certifying_body_id 1
     description "MyText"
-    url "MyString"
   end
 end

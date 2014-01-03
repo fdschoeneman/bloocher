@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212050248) do
+ActiveRecord::Schema.define(version: 20140103013855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,11 +147,11 @@ ActiveRecord::Schema.define(version: 20131212050248) do
   add_index "carousels_images", ["image_id"], name: "index_carousels_images_on_image_id", using: :btree
 
   create_table "certifications", force: true do |t|
-    t.string   "name"
     t.text     "description"
-    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "certifying_body_id"
+    t.string   "certification_type"
   end
 
   create_table "certifications_holdables", force: true do |t|
@@ -165,6 +165,14 @@ ActiveRecord::Schema.define(version: 20131212050248) do
   end
 
   add_index "certifications_holdables", ["holdable_id", "holdable_type"], name: "index_certifications_holdables_on_holdable_id_and_holdable_type", using: :btree
+
+  create_table "certifying_bodies", force: true do |t|
+    t.string   "name"
+    t.string   "mission"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

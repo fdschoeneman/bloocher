@@ -50,13 +50,17 @@ describe Vineyard do
 
     must { belong_to(:producer) }
     must { belong_to(:vineyard_parent) } 
+
+    must { have_many(:accounts) }
     must { have_many(:addresses_addressable) }
     must { have_many(:addresses).through(:addresses_addressable) }
-    must { have_many(:accounts) }
     must { have_many(:appellations_vineyards)}
     must { have_many(:appellations).through(:appellations_vineyards) }
     must { have_many(:blocks).class_name("Vineyard") } 
     must { have_many(:carousels) }
+    must { have_many(:certifications_holdables) }
+    must { have_many(:certifications).through(:certifications_holdables) }
+
     must { have_many(:fruit_lots).through(:vineyards_vintages) } 
     must { have_many(:images) }
     must { have_many(:positions) }

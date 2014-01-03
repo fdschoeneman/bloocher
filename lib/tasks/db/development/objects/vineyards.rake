@@ -1,13 +1,18 @@
 namespace 'db:development:create' do 
 
   task vineyards: :environment do
+
+  	satisfy_dependencies(["producer"])
 	
+		@vineyard_parents = ( @vineyards.to_i / 5 )
+		@blocks = ( @vineyards.to_i - @vineyard_parents.to_i ) 
+
 		def make_vineyard
 
 		  block_planting_year = rand(1955..2010)
 		  block_grafting_year = block_planting_year + rand(0..3)
 		  @vineyard = Vineyard.new(
-		  	producer_id: rand(1..@producer.to_i),
+		  	producer_id: rand(1..4),
 		    topo_aspect: Faker::Bloocher.topo_aspect,
 		    topo_slope: rand(1..50)/1000.to_f,
 		    topo_elevation: rand(10..8000),
@@ -28,11 +33,12 @@ namespace 'db:development:create' do
 		  )
 		end
 
-	  Faker::Bloocher.vineyards.each do |vineyard_name|
+
+	  Faker::Bloocher.vineyards[1..@vineyard_parents.to_i].each do |vineyard_name|
 	    make_vineyard
 	    @vineyard.update_attributes(
 	      name: vineyard_name,
-	      producer_id: rand(1..@producers.to_i)
+	      producer_id: rand(1..4)
 	    )
 	    
 	    @vineyard.save
@@ -43,7 +49,6 @@ namespace 'db:development:create' do
 	    block_name = %w[east west north southeast creekside river hillside 1A 2A].sample
 	    @vineyard.update_attributes(
 	      name: block_name, 
-	      producer_id: rand(1..@producers.to_i),
 	      vineyard_parent_id: rand(1..3)
 	    )
 	    @vineyard.save

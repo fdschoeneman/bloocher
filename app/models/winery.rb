@@ -11,8 +11,8 @@ class Winery < ActiveRecord::Base
   has_many :accounts, as: :accountable
   has_many :addresses_addressable, as: :addressable
   has_many :addresses, through: :addresses_addressable
-  has_many :certifications_holdable, as: :holdable
-  has_many :certifications, through: :certifications_holdable
+  has_many :certifications_holdables, as: :holdable
+  has_many :certifications, through: :certifications_holdables
   has_many :carousels, as: :carousable
   has_many :images, as: :imageable
   has_many :reviews, through: :wines

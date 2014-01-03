@@ -8,8 +8,9 @@ namespace 'db:development' do
         actual = task.name.split(":").last.classify.constantize.count 
         desired = eval("@"+ task.name.split(":").last)
         puts task.name
-        if desired > actual
-          medium_notice(task.name)
+
+        if desired.nil? || desired > actual
+          # medium_notice(task.name)
           task.invoke
         end
       end

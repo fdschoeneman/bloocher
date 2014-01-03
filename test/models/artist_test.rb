@@ -23,6 +23,9 @@ describe Artist do
   describe "associations" do 
 
     must { belong_to(:artist) }
+    must { have_many(:addresses_addressable) }
+    must { have_many(:addresses).through(:addresses_addressable) }
+    must { have_many(:accounts) }
     must { have_many(:images) }
     must { have_many(:carousels) }
   end

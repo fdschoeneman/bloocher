@@ -3,6 +3,8 @@ require 'subdomain'
 Bloocher::Application.routes.draw do
 
 
+  resources :certifying_bodies
+
   resources :carousels_images
 
   resources :artists

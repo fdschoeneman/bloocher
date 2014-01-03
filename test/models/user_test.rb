@@ -33,8 +33,8 @@ require 'test_helper'
     must { have_many(:authentications) }
     must { have_many(:addresses_addressable) }
     must { have_many(:addresses).through(:addresses_addressable) }
-    must { have_many(:certifications_holdable) }
-    must { have_many(:certifications).through(:certifications_holdable) }
+    must { have_many(:certifications_holdables) }
+    must { have_many(:certifications).through(:certifications_holdables) }
     must { have_many(:images) }
     must { have_many(:positions) }
     must { have_many(:showcases) }

@@ -7,13 +7,6 @@ GIT
       jquery-rails
       rails (~> 4)
 
-GIT
-  remote: git://github.com/fdschoeneman/faker-stoked.git
-  revision: 4c8d9750234da556229858f07bb05122ed06e622
-  branch: master
-  specs:
-    faker-stoked (0.2.5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -149,6 +142,7 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     faker-bloocher (0.1.2)
+    faker-stoked (0.2.6)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
@@ -170,6 +164,7 @@ GEM
     formatador (0.2.4)
     friendly_id (5.0.1)
       activerecord (~> 4.0.0)
+    geocoder (1.1.9)
     given_core (3.1.1)
       sorcerer (>= 0.3.7)
     gmaps4rails (1.5.6)
@@ -479,11 +474,12 @@ DEPENDENCIES
   factory_girl_rails
   faker
   faker-bloocher
-  faker-stoked!
+  faker-stoked
   figaro
   fog
   font-awesome-rails
   friendly_id
+  geocoder
   gmaps4rails
   google-api-client
   google-webfonts

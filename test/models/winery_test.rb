@@ -35,8 +35,8 @@ describe Winery do
     must { have_many(:addresses).through(:addresses_addressable) }
     must { have_many(:accounts) }
     must { have_many(:carousels) }
-    must { have_many(:certifications_holdable) }
-    must { have_many(:certifications).through(:certifications_holdable) }
+    must { have_many(:certifications_holdables) }
+    must { have_many(:certifications).through(:certifications_holdables) }
     must { have_many(:images) } 
     must { have_many(:reviews).through(:wines) }
     must { have_many(:showcases) }
