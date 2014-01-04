@@ -9,14 +9,15 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails' 
-gem 'bootstrap-sass'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
 
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+# foundation js & css framework
+gem 'zurb-foundation'
 # server
 gem 'thin', '>= 1.5.0'
 
@@ -93,7 +94,6 @@ gem 'meta-tags', :require => 'meta_tags'
 gem 'geocoder'
 
 # For interacting with google maps on vineyards
-gem 'gmaps4rails'
 
 # common helpers for use with bootstrap
 # gem 'twitter-bootstrap-markup-rails'

@@ -1,17 +1,10 @@
-!!!
-%html{:lang => "en"}
-	%head
-		= render 'head'
-	%body{:class => "#{controller_name} #{action_name}"}
-		.container
-			= render 'navigation'
-			= render 'messages'
-		.container
-			= yield 
-		.container
-			= render 'footer' 
-   
+= render 'head'
+%body{:class => "#{controller_name} #{action_name}"}
+  = render 'navigation'
+  = render 'messages'
+  = yield
+  = render 'footer'
+  = javascript_include_tag "application"
 
-
-	/ - if Rails.env.development?
-	/	/ = debug(params) 
+  - if Rails.env.development?
+    = debug(params) 

@@ -1,13 +1,24 @@
-%title= title
-/ = display_meta_tags(default_meta_tags) 
-%meta{ charset: "utf-8" }
-%meta{ content: "width=device-width, initial-scale=1.0", name: "viewport"}
-%meta{ content: "", name: "description"}
-%meta{ content: "Frederick D. Schoeneman (Fred.schoeneman@bloocher.com)", name:"author"}/    
-= csrf_meta_tags
-= stylesheet_link_tag "application", :media => "all"
-= stylesheet_link_tag "application/#{params[:controller]}"
-= favicon_link_tag
-= javascript_include_tag "application"
-/ %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
-= yield(:head)
+!!!
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7 ] <html class="ie6" lang="en">
+/[if IE 7 ] <html class="ie7" lang="en">
+/[if IE 8 ] <html class="ie8" lang="en">
+/[if IE 9 ] <html class="ie9" lang="en">
+/ [if (gt IE 9)|!(IE)]><!
+%html{lang: "en"}
+  / <![endif]
+  %head
+    %meta{ charset: "utf-8" }/
+    / Uncomment to make IE8 render like IE7
+    / <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    / Set the viewport width to device width for mobile
+    %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }/
+    %meta{ content: "The world's number one wine website.", name: "description"}
+    %meta{ content: "Frederick D. Schoeneman (Fred.schoeneman@bloocher.com)", name:"author"}/    
+    %title= title
+    = stylesheet_link_tag    "application"
+    / = stylesheet_link_tag "application/#{params[:controller]}"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tags
+    = favicon_link_tag
+    = yield(:head)
