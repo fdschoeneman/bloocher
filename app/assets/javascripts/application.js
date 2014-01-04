@@ -20,4 +20,5 @@
 //= require jquery.tagcanvas
 //= require jquery.tagcanvas
 //= require quicksand
-//= require foundation
+
+$(function(){ $(document).foundation(); });
