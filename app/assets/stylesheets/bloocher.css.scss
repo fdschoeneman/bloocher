@@ -1,7 +1,12 @@
-.name { 
+.name h1 { 
   font-family: "Yesteryear";
+  padding-left: 50px;
 }
 
-.top-bar-section a {
-  color: #777;
+.top-bar-section ul li > a {
+  font-family: "Open Sans Condensed",Helvetica,sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+
 }
