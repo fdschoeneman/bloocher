@@ -1,57 +1,38 @@
 .row
-  .large-8.columns
-  .large-4.columns
-
-  .background-light-grey
-    .container
-      .row-fluid
-        .featured
-          .span12
-            .excerpt
-              %h1.centered Democratizing wine since 2013 
-  .background-grey.strip
-    .container
-      .row
-        .span9
-          This is the most awesome wine review site you've ever seen.  For reals, sign up and start blooching.  You big bloocher.
-        .span3.pull-right
-          %a.btn.btn-info.btn-block.btn-large{"data-toggle" => "modal", :href => "#signup-modal"} Become a bahler
-  .container
-    .row.testimonials
-      .span3
-        %h3 Wine drinkers
-        %p Don't be a <text id="back-dated-chuck">back dated chuck</text>. Learn about fratis and the fruit that goes into them.  <text id="blooch">Blooch</text> about one or two or twenty of them, give them a rating even.  
-        = button_to "Read more", about_path(anchor: "well-coded"), html_options = { class: "btn btn-inverse btn-simple btn-block"}
-      .span3
-        %h3 Vineyardists
-        %p <text id="deek">Deek</text> what other farmers have been doing in their vineyards.  Let them deek what you're doing in yours.  See what the <text id="high-pockety">high pockety</text> folk are saying about fratis made with your fruit.  Join the <text id="tidrick">tidrick</text>.  
-        = button_to "Read more", about_path, html_options = { class: "btn btn-inverse btn-simple btn-block"}
-      .span3
-        %h3 Winemakers
-        %p See what the high pockety folk are saying about your fratis, maybe even find a few who are <text id="somersetting">somersetting</text> about your work.  Give them the <text id="bahl">bahlinest</text> info about where you source your fruit, which yeast you used, how long you left it in tanks, that sort of thing.  Be a <text id="bearman">bearman</text>. 
-
-        = button_to "Read more", about_path, html_options = { class: "btn btn-inverse btn-simple btn-block"}
-      .span3
-        %h3 Everyone else
-        %p <text id="oshtook">Oshtooks</text>, <text id="straight-neck">straight necks</text>, <text id="madge">Madges</text>, <text id="moldune">Moldunes</text>, <text id="applehead">Appleheads</text>, <text id="abaloneyite">Abaloneyites</text>, <text id="buck-inj">buck-inj's</text>, <text id="keishbook">keishbooks</text>, <text id="borch">borches</text>, <text id="skype">skypes</text>, and <text id="shoveltooth">Shoveltooths</text>, but no <text id="deeger">deegers</text>, <text id="deejy">deejy types</text>, <text id="tweed">tweeds</text>, or <text id="weese">weese</text>. 
-        %p 
-        = button_to "Read more", about_path, html_options = { class: "btn btn-inverse btn-simple btn-block"}
-    %h2.page-header Bonus:  Bahlin photos from local artists
+  .large-12.columns
+    %h1.text-center.uppercase.subheader
+      Be a bahler  
     .row
-      = render "home_slider"
-    %hr/
-    .info-centered
-      %p Where can you find us?
-      %a.icon-squared.color-facebook{:href => "#"}
-        %article
-          %span
-            %i.icon-facebook
-      %a.icon-squared.color-twitter{:href => "#"}
-        %article
-          %span
-            %i.icon-twitter
-      %a.icon-squared.color-pinterest{:href => "#"}
-        %article
-          %span
-            %i.icon-pinterest
-  
+      .large-3.medium-6.small-12.columns
+        %h2.text-center.uppercase.subheader Wine lovers
+        .oldstandardtt
+          %p Don't be a <text id="back-dated-chuck">back dated chuck</text>. Learn about fratis and the fruit that goes into them.  <text id="blooch">Blooch</text> about one or two or twenty of them, give them a rating even.  
+        %center
+          = link_to "Read more", wineries_path, html_options = { class: "button"}
+        = image_tag("glass_and_cork.jpg", height: '100')
+      .large-3.medium-6.small-12.columns
+        %h2.text-center.uppercase.subheader Vineyardists
+        = image_tag("slide-1.jpg")
+        %br
+        %br
+        .oldstandardtt
+          %p <text id="deek">Deek</text> what other farmers have been doing in their vineyards.  Let them deek what you're doing in yours.  See what the <text id="high-pockety">high pockety</text> folk are saying about fratis made with your fruit.  Join the <text id="tidrick">tidrick</text>.  
+        %center
+          = link_to "Read more", vineyards_path, html_options = { class: "button"}
+      .large-3.medium-6.small-12.columns
+        %h2.text-center.uppercase.subheader Winemakers
+        .oldstandardtt 
+          %p See what the high pockety folk are saying about your fratis, maybe even find a few who are <text id="somersetting">somersetting</text> about your work.  Give them the <text id="bahl">bahlinest</text> info about where you source your fruit, which yeast you used, how long you left it in tanks, that sort of thing.  Be a <text id="bearman">bearman</text>. 
+        %center
+          = link_to "Read more", wineries_path, html_options = { class: "button"}
+        = image_tag("slide-2.jpg")
+      .large-3.medium-6.small-12.columns
+        %h2.text-center.uppercase.subheader Everyone else
+        = image_tag("slide-5.jpg")
+        %br
+        %br
+        .oldstandardtt
+          %p <text id="oshtook">Oshtooks</text>, <text id="straight-neck">straight necks</text>, <text id="madge">Madges</text>, <text id="moldune">Moldunes</text>, <text id="applehead">Appleheads</text>, <text id="abaloneyite">Abaloneyites</text>, <text id="buck-inj">buck-inj's</text>, <text id="keishbook">keishbooks</text>, <text id="borch">borches</text>, <text id="skype">skypes</text>, and <text id="shoveltooth">Shoveltooths</text>, but no <text id="deeger">deegers</text>, <text id="deejy">deejy types</text>, <text id="tweed">tweeds</text>, or <text id="weese">weese</text>.  
+        %center
+          = button_to "Read more", about_path, html_options = { class: "button"}
+

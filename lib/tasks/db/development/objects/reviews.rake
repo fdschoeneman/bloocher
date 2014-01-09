@@ -6,7 +6,7 @@ namespace 'db:development:create' do
     @reviews.to_i.times do |n|
       review = Review.new(
         rating: rand(70..95),
-        reviewer_id: rand(1..@users.to_i),
+        reviewer_id: rand(3..@users.to_i),
         wine_id: rand(1..5),
         content: Faker::Bloocher.review
       )

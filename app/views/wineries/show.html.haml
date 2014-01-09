@@ -1,6 +1,23 @@
-/ = render partial: 'carousel', locals: { imageable: @winery }
+/ %ul.clearing-thumbs.clearing-feature{"data-clearing" => ""}
+/   .th= image_tag(@winery.images.first.image)
+/   %li
 
-= render partial: 'image_uploader', locals: { imageable: @winery }
+/     %a{href: "path/to/your/img"}
+/       %img{src: "path/to/your/img-th"}/
+/   %li.clearing-featured-img
+/     %a{href: "path/to/your/img"}
+/       %img{src: "path/to/your/img-th"}/
+/   %li
+/     %a{href: "path/to/your/img"}
+/       %img{src: "path/to/your/img-th"}/
+/ .row
+  
+
+vintages
+join mailing list
+buy
+
+/ = render partial: 'image_uploader', locals: { imageable: @winery }
 
 .row
   .span6

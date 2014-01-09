@@ -1,24 +1,56 @@
-.span12
-  %h3 Blooches
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th Wine name
-        %th Blooch
-        %th Bloocher
+%br
+.row
+  .large-12.columns
+    .panel
+      %h1 Blooches
+.row
+  .large-3.columns
+    .panel
+      = image_tag("corks.jpg")
+      %h5
+        = current_user.name if current_user
+      .section-container.vertical-nav{"data-options" => "deep_linking: false; one_up: true", "data-section" => ""}
+        %section.section
+          %h5.title
+            %a{href: "http://foundation.zurb.com/templates/feed.html#"} Section 1
+        %section.section
+          %h5.title
+            %a{href: "http://foundation.zurb.com/templates/feed.html#"} Section 2
+        %section.section
+          %h5.title
+            %a{href: "http://foundation.zurb.com/templates/feed.html#"} Section 3
+        %section.section
+          %h5.title
+            %a{href: "http://foundation.zurb.com/templates/feed.html#"} Section 4
+        %section.section
+          %h5.title
+            %a{href: "http://foundation.zurb.com/templates/feed.html#"} Section 5
+        %section.section
+          %h5.title
+            %a{href: "http://foundation.zurb.com/templates/feed.html#"} Section 6
 
+  .large-6.columns
+    / Feed Entry
+    .row
       - @reviews.each do |review|
-        %tr
-          %td= link_to "#{review.wine.vintage} #{review.wine.name.titleize}", wine_path(review.wine.id) 
-          %td= review.content
-          %td= link_to review.reviewer.name, profile_path(review.reviewer.id)
-          - if can? :update, Review
+        .large-2.columns.small-3
+          = image_tag("foundation/80x80&text=[img].gif")
+        .large-10.columns
+          %p
+            %strong= review.reviewer.name + " blooched on"
+            = link_to "#{review.wine.vintage} #{review.wine.name.titleize}:", wine_path(review.wine.id)
+            %blockquote= review.content
+            = time_ago_in_words(review.updated_at) + " ago."
+            / = review.updated_at.to_date
+      = paginate @reviews
+        
+  %aside.large-3.columns.hide-for-small
+    %p
+      = image_tag("foundation/300x440&text=[ad].gif")    
+    %p
+      = image_tag("foundation/300x440&text=[ad].gif")
+     
 
-            %td= link_to 'Edit', edit_review_path(review)
-            %td= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' }
-
-  .pagination
-    = paginate @reviews
 
   %br
 

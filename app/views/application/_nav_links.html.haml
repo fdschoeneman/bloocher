@@ -15,7 +15,5 @@
     - if current_user.has_role? :admin
       %li= link_to('admin', users_path)
   - else
-    %li
-      %a{ "data-toggle" => "modal", href: "#login-modal" } login
-    %li
-      %a{ "data-toggle" => "modal", href: "#signup-modal" } sign up
+    = nav_link_to "login", new_user_session_path
+    = nav_link_to "become a bahler", new_user_registration_path
