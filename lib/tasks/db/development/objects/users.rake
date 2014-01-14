@@ -30,6 +30,7 @@ namespace 'db:development:create' do
           password: "password",
           bio: Faker::Stoked.bio
         )
+        user.confirm!
         user.add_role tester_role.to_sym
       end
     end

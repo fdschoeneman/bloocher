@@ -43,16 +43,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
-  # end
-
-  version :thumb do
-    process :resize_to_limit => [200,200]
+  version :tiny_thumb do
+    process :resize_to_fit => [50, 50]
   end
 
-  version :carousel do 
+  version :medium_thumb do
+    process :resize_to_fit => [100, 100]
+  end
 
+  version :carousel do
+    process :resize_to_limit => [950,470]
   end
 
   version :twitter do 

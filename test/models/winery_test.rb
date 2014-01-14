@@ -8,6 +8,8 @@ describe Winery do
 
     describe "columns and types" do 
 
+      must { have_db_column(:history).of_type(:text) }
+      must { have_db_column(:mission).of_type(:text) }
       must { have_db_column(:name).of_type(:string) }
       must { have_db_column(:producer_id).of_type(:integer) }
       must { have_db_column(:slug).of_type(:string) }

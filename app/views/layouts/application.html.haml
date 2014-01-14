@@ -1,6 +1,6 @@
 = render 'head'
 %body{:class => "#{controller_name} #{action_name}"}
-  = render 'navigation'
+  = render 'navigation' unless controller_name == "wineries"
   = render 'messages'
   = yield
   = render 'footer'

@@ -9,6 +9,8 @@ describe Artist do
     describe "columns and types" do 
   
       must { have_db_column(:artist_id).of_type(:integer) }
+      must { have_db_column(:history).of_type(:text) }
+      must { have_db_column(:mission).of_type(:text) }
       must { have_db_column(:slug).of_type(:string) }
       must { have_db_column(:statement).of_type(:string) }
     end

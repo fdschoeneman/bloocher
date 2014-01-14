@@ -11,6 +11,9 @@ class Image < ActiveRecord::Base
   belongs_to :vineyard, foreign_key: :imageable_id, foreign_type: "Vineyard"
   belongs_to :winery, foreign_key: :imageable_id, foreign_type: "Winery"
   belongs_to :user
+
+  has_many :carousels_images
+  has_many :carousels, through: :carousels_images
   
   validates :user, presence: true
   validates :imageable_type, presence: true

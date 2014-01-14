@@ -1,20 +1,24 @@
-%h3 Wineries
-.span8
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th Name
+.row
+  .small-12.columns
+    %h3 Wineries
 
-    - @wineries.each do |winery|
-      %tr
-        %td
-          .badge= winery.wines.count
-          = link_to winery.name, winery_path(winery)
-        %td= link_to 'Show', winery
-        - if can? :update, Winery
-          %td= link_to 'Edit', edit_winery_path(winery)
-        - if can? :destroy, Winery
-          %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
+    %table
+      %thead
+        %tr
+          %th Name
+          %th
+
+      %tbody
+        - @wineries.each do |winery|
+          %tr
+            %td
+              .label= winery.wines.count
+              = link_to winery.name, winery_path(winery)
+            %td= link_to 'Show', winery
+            - if can? :update, Winery
+              %td= link_to 'Edit', edit_winery_path(winery)
+            - if can? :destroy, Winery
+              %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
 
 
   .paginate= paginate @wineries

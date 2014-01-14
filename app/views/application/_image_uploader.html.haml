@@ -1,42 +1,113 @@
-#myCarousel.carousel.slide.add-shadow
-  .carousel-inner
-    - imageable.images.each do |image|
-      - if image == imageable.images.first
-        .active.item
-          = image_tag(image.image_url)
-      - else 
-        .item
-          = image_tag(image.image_url)
-          / # .item= image_tag("slide-1.jpg", size: "970x450")
-          / # .item= image_tag("slide-2.jpg", size: "970x450")
+.row
+  .small-8.small-centered.columns
+    - if imageable.images.count > 0
+      %ul.orbit{ "data-orbit" => "", "data-options" => "animation:fade; swipe:true; timer:true; bullets:false; navigation_arrows:false; slide_number: false"}
 
-    %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
-    %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
+        - imageable.images.each do |image|
+          %li
+            = image_tag(image.image.url)
+            - unless image.title.blank? && image.description.blank?
+              .orbit-caption
+                = image.title
+                - unless image.description.blank?
+                  |
+                = image.description
 
-%br
-= simple_form_for :image, { url: :images } do |f|
-  = f.error_notification
-  .form-inputs
-    = f.hidden_field :imageable_type, value: imageable.class
-    = f.hidden_field :imageable_id, value: imageable.id 
-    = f.file_field :image
-    = f.label :remote_image_url, "or image URL"
-    = f.text_field :remote_image_url
-  .form-actions
-    = f.button :submit, "add photo"
+/   %li
+/     = image_tag("araujo/the-estate-gallery01-02.jpg")
+/     .orbit-caption
+/       Caption Two.
+/   %li
+/     = image_tag("araujo/the-estate-gallery01-03.jpg")
+/     .orbit-caption
+/       Caption Three.
 
-.badge= imageable.carousels.count 
-carousels for this #{imageable.class.to_s.downcase}
-%hr
-- imageable.carousels.each do |carousel|
-  - unless carousel == imageable.carousels.first
-    |
-  = link_to carousel.name, carousel_path(carousel)
-= simple_form_for :carousel, { url: :carousels } do |f|
-  = f.error_notification
-  .form-inputs
-    = f.hidden_field :imageable_type, value: imageable.class
-  .form-actions
-    = f.button :submit, "add carousel"
+/ %ul.example-orbit{"data-orbit" => ""}
+/   %li
+/     = image_tag("araujo/the-estate-gallery01-01.jpg")
+/     .orbit-caption
+/       Caption One.
+/   %li
+/     = image_tag("araujo/the-estate-gallery01-02.jpg")
+/     .orbit-caption
+/       Caption Two.
+/   %li
+/     = image_tag("araujo/the-estate-gallery01-03.jpg")
+/     .orbit-caption
+/       Caption Three.
+.row
+  %br
+  = simple_form_for :image, { url: :images } do |f|
+    = f.error_notification
+    .form-inputs
+      = f.hidden_field :imageable_type, value: imageable.class
+      = f.hidden_field :imageable_id, value: imageable.id 
+      = f.file_field :image
+      = f.label :remote_image_url, "or image URL"
+      = f.input :remote_image_url
+      = f.input :description
+      = f.input :title
+    .form-actions
+      = f.button :submit, "add photo"
+
+:javascript
+
+  $(document).foundation({
+    orbit: {
+      animation_speed: 500, 
+
+      animation: 'fade'
+    }
+  });
+
+/ %ul.example-orbit{"data-orbit" => ""}
+/   / = image_tag("slide-1.jpg", size: "970x450")
+
+/   - imageable.images.each do |image|
+/     %li
+/       / %img{alt: "slide 1", src: "../assets/img/examples/satelite-orbit.jpg"}/
+/       = image_tag(image.image_url)
+/       .orbit-caption
+/         = image.title
+/     / %li
+/     /   %img{alt: "slide 2", src: "../assets/img/examples/andromeda-orbit.jpg"}/
+/     /   .orbit-caption
+/     /     Caption Two.
+/     / %li
+/     /   %img{alt: "slide 3", src: "../assets/img/examples/launch-orbit.jpg"}/
+/     /   .orbit-caption
+/     /     Caption Three.
 
 
+/ #myCarousel.carousel.slide.add-shadow
+/   .carousel-inner
+/     - imageable.images.each do |image|
+/       - if image == imageable.images.first
+/         .active.item
+/           = image_tag(image.image_url)
+/       - else 
+/         .item
+/           = image_tag(image.image_url)
+/           / # .item= image_tag("slide-1.jpg", size: "970x450")
+/           / # .item= image_tag("slide-2.jpg", size: "970x450")
+
+/     %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+/     %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
+
+
+/ .badge= imageable.carousels.count 
+/ carousels for this #{imageable.class.to_s.downcase}
+/ %hr
+/ - imageable.carousels.each do |carousel|
+/   - unless carousel == imageable.carousels.first
+/     |
+/   = link_to carousel.name, carousel_path(carousel)
+/ = simple_form_for :carousel, { url: :carousels } do |f|
+/   = f.error_notification
+/   .form-inputs
+/     = f.hidden_field :imageable_type, value: imageable.class
+/   .form-actions
+/     = f.button :submit, "add carousel" 
+
+/ - if image == imageable.images.first
+/   .active.item

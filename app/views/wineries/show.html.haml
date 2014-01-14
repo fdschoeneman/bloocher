@@ -1,57 +1,49 @@
-/ %ul.clearing-thumbs.clearing-feature{"data-clearing" => ""}
-/   .th= image_tag(@winery.images.first.image)
-/   %li
 
-/     %a{href: "path/to/your/img"}
-/       %img{src: "path/to/your/img-th"}/
-/   %li.clearing-featured-img
-/     %a{href: "path/to/your/img"}
-/       %img{src: "path/to/your/img-th"}/
-/   %li
-/     %a{href: "path/to/your/img"}
-/       %img{src: "path/to/your/img-th"}/
-/ .row
-  
-
-vintages
-join mailing list
-buy
-
-/ = render partial: 'image_uploader', locals: { imageable: @winery }
+/ vintages
+/ join mailing list
+/ buy
 
 .row
-  .span6
-    %h1= @winery.name
-    %dl
-      %dt producer
-      %dd= link_to @winery.producer.name, producer_path(@winery.producer)
-    %p
-      %b Public email:
-      = @winery.addresses.first.public_email unless @winery.addresses.empty?
-    %p
-      %b Phone:
-      / = @winery.producer.phone
-    %p
-      %b Address 1:
-      / = @winery.producer.address_1
-    %p
-      %b Address 2:
-      / = @winery.producer.address_2
-    %p
-      %b City:
-      / = @winery.producer.city
-    %p
-      %b State:
-      / = @winery.producer.state
-    %p
-      %b Zip:
-      / = @winery.producer.zip
-    %p
-      %b Web address:
-      / = link_to @winery.producer.web_address, url_for(@winery.producer.web_address) 
-    %p
-      %b Subdomain:
-      / = @winery.producer.subdomain
+  .small-12.columns
+    %h1.text-center= @winery.name
+.row
+  .small-8.columns
+    = render partial: 'image_uploader', locals: { imageable: @winery }
+  .small-4.columns
+    - @winery.images.each do |image|
+      .th= image_tag image.image.tiny_thumb.url
+
+    / # = image_tag(@winery.images.first.image.thumb.url)
+    / %dl
+    /   %dt producer
+    /   %dd= link_to @winery.producer.name, producer_path(@winery.producer)
+    / %p
+    /   %b Public email:
+    /   = @winery.addresses.first.public_email unless @winery.addresses.empty?
+    / %p
+    /   %b Phone:
+    /   / = @winery.producer.phone
+    / %p
+    /   %b Address 1:
+    /   / = @winery.producer.address_1
+    / %p
+    /   %b Address 2:
+    /   / = @winery.producer.address_2
+    / %p
+    /   %b City:
+    /   / = @winery.producer.city
+    / %p
+    /   %b State:
+    /   / = @winery.producer.state
+    / %p
+    /   %b Zip:
+    /   / = @winery.producer.zip
+    / %p
+    /   %b Web address:
+    /   / = link_to @winery.producer.web_address, url_for(@winery.producer.web_address) 
+    / %p
+    /   %b Subdomain:
+    /   / = @winery.producer.subdomain
 
     = link_to 'Edit', edit_winery_path(@winery)
     \|

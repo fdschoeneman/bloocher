@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107033120) do
+ActiveRecord::Schema.define(version: 20140114070727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(version: 20140107033120) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "mission"
+    t.text     "history"
   end
 
   add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
@@ -373,6 +375,8 @@ ActiveRecord::Schema.define(version: 20140107033120) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "mission"
+    t.text     "history"
   end
 
   add_index "vineyards", ["appellation_id"], name: "index_vineyards_on_appellation_id", using: :btree
@@ -403,6 +407,8 @@ ActiveRecord::Schema.define(version: 20140107033120) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "mission"
+    t.text     "history"
   end
 
   add_index "wineries", ["name"], name: "index_wineries_on_name", unique: true, using: :btree
