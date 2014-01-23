@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
-//= require best_in_place
 //= require bootstrap
 //= require jquery.validate
 //= require jquery.validate.functions
