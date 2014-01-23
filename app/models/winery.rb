@@ -4,6 +4,7 @@ class Winery < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
+  # for cancan/rolify
   resourcify
 
   belongs_to :producer
@@ -20,6 +21,9 @@ class Winery < ActiveRecord::Base
   has_many :wines
 
   validates :name, presence: true, uniqueness: true
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
 
   def winery_rating
   	if self.reviews.count.zero?

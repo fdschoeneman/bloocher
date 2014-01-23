@@ -4,8 +4,12 @@ class WineriesController < ApplicationController
 
   def index
     @page_title = "Wineries"
-
-    @wineries = Winery.order(:created_at).page params[:page]
+    
+    if params[:query].present?
+      @wineries = Winery.search(params[:query], load: true)
+    else
+      @wineries = Winery.order(:created_at).page params[:page]
+    end
 
     respond_to do |format|
       format.html 

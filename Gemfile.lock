@@ -357,6 +357,8 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     require_all (1.3.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     retina_rails (1.0.1)
       rails (>= 3.0)
     rolify (3.3.0.rc4)
@@ -420,6 +422,14 @@ GEM
       atomic
     tilt (1.4.1)
     timers (1.1.0)
+    tire (0.6.2)
+      activemodel (>= 3.0)
+      activesupport
+      ansi
+      hashr (~> 0.0.19)
+      multi_json (~> 1.3)
+      rake
+      rest-client (~> 1.6)
     travis-lint (1.7.0)
       hashr (~> 0.0.22)
     treetop (1.4.15)
@@ -526,6 +536,7 @@ DEPENDENCIES
   sprockets-rails
   therubyracer
   thin (>= 1.5.0)
+  tire
   travis-lint
   turn
   uglifier (>= 1.3.0)

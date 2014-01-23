@@ -7,6 +7,9 @@ gem 'rails'
 # postgresql database
 gem 'pg'
 
+# Elastic search wrapper, eventurally to be replaced with elasticsearch-ruby when the documentation is better
+gem 'tire'
+
 # Use SCSS for stylesheets
 gem 'sass-rails' 
 

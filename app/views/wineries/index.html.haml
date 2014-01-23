@@ -1,3 +1,8 @@
+= form_tag wineries_path, method: :get do
+  %p
+    = text_field_tag :query, params[:query]
+    = submit_tag "Search", name: nil
+
 .row
   .small-12.columns
     %h3 Wineries
