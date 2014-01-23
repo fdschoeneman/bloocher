@@ -27,9 +27,9 @@ gem 'thin', '>= 1.5.0'
 # javascript 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'best_in_place',
-    github: 'bernat/best_in_place', 
-    branch: 'rails-4'
+# gem 'best_in_place',
+#     github: 'bernat/best_in_place', 
+#     branch: 'rails-4'
 
 # fonts
 gem 'font-awesome-rails'
@@ -69,7 +69,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
 # forms
-gem 'simple_form', '3.0.0.rc'
+gem 'simple_form'#, '3.0.0.rc'
 
 # for google link shortener
 gem 'google-api-client'
