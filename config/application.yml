@@ -27,6 +27,10 @@ GPLUS_API_KEY: AIzaSyADVTXkWUzmyp7wfLd1SBRNGeWDbBqBO3U
 # Google api client
 GOOGLE_API_KEY: AIzaSyDu8IFCALXESDHzBKfkGQDEkDjTQC2HfLk
 
+# Devise secret key
+DEVISE_SECRET: '8ddd1e55861aaeba3382101027759903bc6d8420b2b470779258c890eb27c3926b4a4f7d37d51f033c903fbac0e379eb7e5867d907c975b31ffc9e39b75b902b'
+
+
 
 
 # Add application configuration variables here, as shown below.
