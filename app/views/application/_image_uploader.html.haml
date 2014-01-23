@@ -35,20 +35,21 @@
 /     = image_tag("araujo/the-estate-gallery01-03.jpg")
 /     .orbit-caption
 /       Caption Three.
-.row
-  %br
-  = simple_form_for :image, { url: :images } do |f|
-    = f.error_notification
-    .form-inputs
-      = f.hidden_field :imageable_type, value: imageable.class
-      = f.hidden_field :imageable_id, value: imageable.id 
-      = f.file_field :image
-      = f.label :remote_image_url, "or image URL"
-      = f.input :remote_image_url
-      = f.input :description
-      = f.input :title
-    .form-actions
-      = f.button :submit, "add photo"
+- if can? :create, Image
+  .row
+    %br
+    = simple_form_for :image, { url: :images } do |f|
+      = f.error_notification
+      .form-inputs
+        = f.hidden_field :imageable_type, value: imageable.class
+        = f.hidden_field :imageable_id, value: imageable.id 
+        = f.file_field :image
+        = f.label :remote_image_url, "or image URL"
+        = f.input :remote_image_url
+        = f.input :description
+        = f.input :title
+      .form-actions
+        = f.button :submit, "add photo"
 
 :javascript
 
