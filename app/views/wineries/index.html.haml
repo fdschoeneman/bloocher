@@ -1,32 +1,33 @@
-%h1 Listing wineries
+= form_tag wineries_path, method: :get do
+  %p
+    = text_field_tag :query, params[:query]
+    = submit_tag "Search", name: nil
 
-%table
-  %tr
-    / %th 
-    / %th Name
-    / %th Public email
-    / %th Web address
-    / %th Subdomain
-    / %th
-    / %th
-    / %th
+.row
+  .small-12.columns
+    %h3 Wineries
 
-  - @wineries.each do |winery|
-    %tr
-      / winery.name
-      /%td.badge= winery.winery_rating
-      %td= link_to winery.name, winery_path(winery.id)
-      / %td= winery.producer.public_email
-      
-      / %td= link_to winery.producer.web_address, url_for(winery.producer.web_address)
-      / %td= winery.producer.subdomain
-      / %td= link_to 'Show', winery
-      / %td= link_to 'Edit', edit_winery_path(winery)
-      / %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
+    %table
+      %thead
+        %tr
+          %th Name
+          %th
+
+      %tbody
+        - @wineries.each do |winery|
+          %tr
+            %td
+              .label= winery.wines.count
+              = link_to winery.name, winery_path(winery)
+            %td= link_to 'Show', winery
+            - if can? :update, Winery
+              %td= link_to 'Edit', edit_winery_path(winery)
+            - if can? :destroy, Winery
+              %td= link_to 'Destroy', winery, method: :delete, data: { confirm: 'Are you sure?' }
 
 
-.paginate= paginate @wineries
-%br
-- if can? :create, @producer
-  = link_to 'New Winery', new_producer_path
+  .paginate= paginate @wineries
+  %br
+  - if can? :create, @producer
+    = link_to 'New Winery', new_producer_path
 

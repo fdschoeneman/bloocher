@@ -1,28 +1,23 @@
 class CertificationsController < ApplicationController
-  # GET /certifications
-  # GET /certifications.json
+
   def index
     @certifications = Certification.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @certifications }
     end
   end
 
-  # GET /certifications/1
-  # GET /certifications/1.json
   def show
     @certification = Certification.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @certification }
     end
   end
 
-  # GET /certifications/new
-  # GET /certifications/new.json
   def new
     @certification = Certification.new
 
@@ -32,13 +27,10 @@ class CertificationsController < ApplicationController
     end
   end
 
-  # GET /certifications/1/edit
   def edit
     @certification = Certification.find(params[:id])
   end
 
-  # POST /certifications
-  # POST /certifications.json
   def create
     @certification = Certification.new(params[:certification])
 
@@ -53,8 +45,6 @@ class CertificationsController < ApplicationController
     end
   end
 
-  # PUT /certifications/1
-  # PUT /certifications/1.json
   def update
     @certification = Certification.find(params[:id])
 
@@ -69,8 +59,6 @@ class CertificationsController < ApplicationController
     end
   end
 
-  # DELETE /certifications/1
-  # DELETE /certifications/1.json
   def destroy
     @certification = Certification.find(params[:id])
     @certification.destroy

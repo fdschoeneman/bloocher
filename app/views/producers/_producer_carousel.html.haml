@@ -1,0 +1,12 @@
+#myCarousel.carousel.slide.add-shadow.span10.offset1
+  .carousel-inner
+    - resource.images.first do |image|
+      .active.item
+        = image_tag image.image_url(:carousel).to_s
+    - resource.images.drop(1).each do |image|
+      .item
+        = image_tag image.image_url(:carousel).to_s
+
+
+      %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+      %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;

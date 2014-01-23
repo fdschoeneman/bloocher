@@ -1,0 +1,14 @@
+= render partial: 'image_uploader', locals: { imageable: @artist }
+
+%p#notice= notice
+
+%p
+  %b Artist:
+  = @artist.artist_id
+%p
+  %b Statement:
+  = @artist.statement
+
+= link_to 'Edit', edit_artist_path(@artist)
+\|
+= link_to 'Back', artists_path

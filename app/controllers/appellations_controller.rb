@@ -1,45 +1,42 @@
 class AppellationsController < ApplicationController
-  # GET /appellations
-  # GET /appellations.json
+
   def index
+
     @appellations = Appellation.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @appellations }
     end
   end
 
-  # GET /appellations/1
-  # GET /appellations/1.json
   def show
+
     @appellation = Appellation.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @appellation }
     end
   end
 
-  # GET /appellations/new
-  # GET /appellations/new.json
   def new
+
     @appellation = Appellation.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @appellation }
     end
   end
 
-  # GET /appellations/1/edit
   def edit
+
     @appellation = Appellation.find(params[:id])
   end
 
-  # POST /appellations
-  # POST /appellations.json
   def create
+
     @appellation = Appellation.new(params[:appellation])
 
     respond_to do |format|
@@ -53,9 +50,8 @@ class AppellationsController < ApplicationController
     end
   end
 
-  # PUT /appellations/1
-  # PUT /appellations/1.json
   def update
+
     @appellation = Appellation.find(params[:id])
 
     respond_to do |format|
@@ -69,9 +65,8 @@ class AppellationsController < ApplicationController
     end
   end
 
-  # DELETE /appellations/1
-  # DELETE /appellations/1.json
   def destroy
+
     @appellation = Appellation.find(params[:id])
     @appellation.destroy
 

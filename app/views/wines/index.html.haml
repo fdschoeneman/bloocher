@@ -1,32 +1,25 @@
-.row
-  .span12
-    %h1 Bloochable wines
+%h3 Wines
 
-    %table
+.span8
+  %table.table.table-condensed
+    %thead
       %tr
-        %th Wine Name
-        %th Vintage
-        %th Winery Name
-        %th Cases produced
-        %th 
-        %th
-        %th
-
-      - @wines.each do |wine|
-        %tr
-          %td= link_to wine.name.titleize, wine_path(wine.id)
-          %td= wine.vintage
-          %td= link_to wine.winery.name, winery_path(wine.winery.id)
-          %td= wine.cases_produced
-          %td= link_to 'Show', wine
-          - if current_user && current_user.has_role?(:admin)
-            %td= link_to 'Edit', edit_wine_path(wine)
-            %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
+        %th Name
+    - @wines.each do |wine|
+      %tr
+        %td= link_to wine.name.titleize, wine_path(wine)
+        %td= wine.vintage
+        %td= link_to wine.winery.name, winery_path(wine.winery)
+        %td= link_to 'Show', wine
+        - if can? :update, Wine
+          %td= link_to 'Edit', edit_wine_path(wine)
+        - if can? :destroy, Wine
+          %td= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' }
     
-    .paginate= paginate @wines
+  .paginate= paginate @wines
 
-    %br
+  %br
 
-- if current_user && current_user.has_role?(:admin)
+  - if can? :create, Wine
 
-  = link_to 'New Wine', new_wine_path
+    = link_to 'New Wine', new_wine_path

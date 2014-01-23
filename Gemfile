@@ -1,100 +1,217 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
 
-gem 'rails', '3.2.13'
+ruby '2.0.0'
+
+gem 'rails'
+
+# postgresql database
 gem 'pg'
 
+# Elastic search wrapper, eventurally to be replaced with elasticsearch-ruby when the documentation is better
+gem 'tire'
+
+# Use SCSS for stylesheets
+gem 'sass-rails' 
+
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+# foundation js & css framework
+gem 'zurb-foundation'
+# server
+gem 'thin', '>= 1.5.0'
+
+# javascript 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "thin", ">= 1.5.0"
-gem "haml"
-gem "bootstrap-sass"
-gem "sendgrid", ">= 1.0.1"
+gem 'best_in_place',
+    github: 'bernat/best_in_place', 
+    branch: 'rails-4'
 
-# authentication
-gem "devise", ">= 2.1.2"
-gem 'devise_invitable', '~> 1.1.0'
-gem "cancan"
-gem "rolify"
-gem "simple_form", ">= 2.0.4"
-# gem "jquery-validation-rails"
-
-# gem "client_side_validations"
-# gem "client_side_validations-simple_form"
-gem "figaro", ">= 0.5.0"
+# fonts
 gem 'font-awesome-rails'
 gem 'google-webfonts'
-gem 'sextant'
-gem 'libv8'
-gem 'faker'
-gem 'kaminari'
-gem 'ledermann-rails-settings', :require => 'rails-settings'
-# gem 'meta-tags', :require => 'meta_tags'
-gem 'gmaps4rails'
-gem 'twitter-bootstrap-markup-rails', '0.3.2.2'
-gem 'best_in_place'
 
+# ember
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc6.4'
+gem 'emblem-rails'
+
+# view templates
+gem 'haml'
+gem 'haml-rails'#, 
+    # github: 'indirect/haml-rails',
+    # branch: 'master'
+
+# mail
+gem 'sendgrid', '>= 1.0.1'
+
+# authentication
+gem 'devise'#, '3.0.0'
+gem 'devise_invitable'#, 
+    # github: 'scambra/devise_invitable', 
+    # branch: 'rails4'
+
+# permissions
+gem 'cancan'
+
+# user roles
+gem 'rolify', '3.3.0.rc4'
+
+# omniauth
+gem 'omniauth-facebook'
+gem 'omniauth-gplus'
+gem 'omniauth-instagram'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+
+# forms
+gem 'simple_form', '3.0.0.rc'
+
+# for google link shortener
+gem 'google-api-client'
+
+# qr codes
+gem 'rqrcode-rails3'
+
+# friendly ids
+gem 'friendly_id'
+# gem "client_side_validations"
+# gem "client_side_validations-simple_form"
+
+# environment variables
+gem 'figaro'
+
+# pagination
+gem 'kaminari'
+
+# gem 'ledermann-rails-settings', :require => 'rails-settings'
+
+# Cleaner metatags
+gem 'meta-tags', :require => 'meta_tags'
+
+# mapipng addresses
+gem 'geocoder'
+
+# For interacting with google maps on vineyards
+
+# common helpers for use with bootstrap
+# gem 'twitter-bootstrap-markup-rails'
+
+# photo upload, resizing, rendering and storage
 gem 'carrierwave'
 
+# store assets in the cloud
+gem 'fog'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
+# generates retina versions of uploaded images
+gem 'retina_rails'
+
+# image resizing
+gem 'mini_magick'
+
+# pretty development data
+gem 'faker'
+gem 'faker-bloocher'
+gem 'faker-stoked'#, github: 'fdschoeneman/faker-stoked', branch: 'master'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 
 group :development do 
+
   gem 'travis-lint'
-  # gem 'sqlite3'
-  gem 'haml-rails', '0.3.5'
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
-  # gem 'hub', '1.10.2', require: nil
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'rails_best_practices'
+  gem 'rails-erd'
+
 end
 
 group :test do 
   
-  gem 'spork', '>= 1.0.0rc3'
-  gem 'spork-rails'
-  gem 'turnip', '1.0.0'
-  gem 'email_spec'
-  gem 'shoulda-matchers'
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
-  gem 'database_cleaner', '0.9.1'
-  gem 'launchy', '2.1.2'
-  gem 'headless', '0.3.1'
-  # gem 'phantomjs'
+  gem 'minitest-rails-shoulda'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-given'
+  gem 'wrong'
+
+  # pretty test output
+  gem 'ansi'
+  gem 'turn'
+
+  # capybara save_and_open dependency
+  gem 'launchy'
+
+  # recording external responses for tests
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :test, :development do
   
-  gem 'parallel_tests'
-  gem 'zeus-parallel_tests'  
-  # gem "jasminerice" #, :git => 'https://github.com/bradphelan/jasminerice.git' 
-  gem 'therubyracer', ">= 0.11.0", :platform => :ruby, :require => "v8"
-  gem 'rspec-rails'
-  gem 'rspec-given', '2.2.0'
+  # minitest
+  gem 'minitest'
+  gem 'minitest-rails'
+    
+  # preloads rails app for faster test and development tasks
+  gem 'spring'
+
+
+  # test factories  
   gem 'factory_girl_rails'
-  gem 'teaspoon'
-  gem 'guard-teaspoon'
+  
+  # ubuntu notifications for test
   gem 'rb-inotify'
   gem 'rb-fsevent'
+  
+  # debugging
   gem 'debugger'
   gem 'pry'
+  gem 'awesome_print', require: 'ap'
+
 
   # Guards
   gem 'guard'
-  # gem 'guard-zeus_server'
-  gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-livereload'
-  gem 'guard-rails'
-  gem 'guard-sass', require: false
-  # gem 'guard-jasmine'
+  gem 'guard-minitest'
+
+  # gem 'teaspoon'
+  # gem 'turnip', '1.0.0'
+  # gem 'email_spec'
+  # gem 'capybara'
+  # gem 'capybara-webkit'
+  # gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'headless', '0.3.1'
+  # gem 'phantomjs'
+  # gem 'guard-teaspoon'
 end
 
-group :production do
-  # gem 'pg'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# gem 'jbuilder', '~> 1.2'
+
+group :production do 
+  
+  gem 'rails_12factor', group: :production
 end
+
+group :doc do
+
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# gem 'turbolinks'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+gem 'execjs'
+gem 'therubyracer'

@@ -1,52 +1,45 @@
 class ProducersController < ApplicationController
 
+  before_action :set_producer, only: [:show, :edit, :update, :destroy]
+
   def index
     @page_title = "Producers"
     @producers = Producer.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @producers }
     end
   end
 
   def show
-    @producer = Producer.find(params[:id])
     @wineries = @producer.wineries
     @vineyards = @producer.vineyards
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @producer }
     end
   end
 
-  # GET /producers/new
-  # GET /producers/new.json
   def new
     @producer = Producer.new
     @producer.wineries.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @producer }
     end
   end
 
-  # GET /producers/1/edit
   def edit
     @producer = Producer.find(params[:id])
   end
 
-  # POST /producers
-  # POST /producers.json
   def create
 
-    @producer = Producer.new(params[:producer])
+    @producer = Producer.new(producer_params)
   
-    # @winery = @producer.wineries.build(params[:producer][:winery])
-
-
     respond_to do |format|
       if @producer.save
         format.html { redirect_to @producer, notice: 'Producer was successfully created.' }
@@ -58,13 +51,9 @@ class ProducersController < ApplicationController
     end
   end
 
-  # PUT /producers/1
-  # PUT /producers/1.json
   def update
-
-    @producer = Producer.find(params[:id])
     respond_to do |format|
-      if @producer.update_attributes(params[:producer])
+      if @producer.update_attributes(producer_params)
         format.html { redirect_to @producer, notice: 'Producer was successfully updated.' }
         format.json { head :no_content }
       else
@@ -74,8 +63,6 @@ class ProducersController < ApplicationController
     end
   end
 
-  # DELETE /producers/1
-  # DELETE /producers/1.json
   def destroy
     @producer = Producer.find(params[:id])
     @producer.destroy
@@ -85,4 +72,14 @@ class ProducersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+
+  def set_producer
+    @producer = Producer.friendly.find(params[:id])
+  end
+
+  def producer_params
+    params.require(:producer).permit(:name)
+  end  
 end

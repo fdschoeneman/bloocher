@@ -1,0 +1,23 @@
+%h1 Listing carousels
+
+%table
+  %tr
+    %th Carousable type
+    %th Carousable
+    %th Image
+    %th
+    %th
+    %th
+
+  - @carousels.each do |carousel|
+    %tr
+      %td= carousel.carousable_type
+      %td= carousel.carousable_id
+      %td= carousel.image_id
+      %td= link_to 'Show', carousel
+      %td= link_to 'Edit', edit_carousel_path(carousel)
+      %td= link_to 'Destroy', carousel, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Carousel', new_carousel_path

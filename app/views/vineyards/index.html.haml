@@ -1,27 +1,24 @@
-%h1 Listing vineyards
+%h3 Vineyards
+.span8
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th Vineyard
+        %th Appellation
 
-%table
-  %tr
-    %th Vineyard
-    %th Appellation
-    %th
-    %th
-    %th
+      - @vineyards.each do |vineyard|
+        %tr
+          %td
+            .badge= vineyard.wines.count
+          %td= link_to vineyard.name, vineyard_path(vineyard)
+          - vineyard.appellations_vineyards.each do |av|
+            %td= av.appellation.name
+          %td= link_to 'Show', vineyard
+          - if current_user && current_user.has_role?(:admin)
+            %td= link_to 'Edit', edit_vineyard_path(vineyard)
+            %td= link_to 'Destroy', vineyard, method: :delete, data: { confirm: 'Are you sure?' }
 
-  - @vineyards.each do |vineyard|
-    %tr
-      %td= link_to vineyard.name, vineyard_path(vineyard.id)
-      - vineyard.appellations_vineyards.each do |av|
-        %td= av.appellation.name
-      %td= link_to 'Show', vineyard
-      - if current_user && current_user.has_role?(:admin)
-        %td= link_to 'Edit', edit_vineyard_path(vineyard)
-        %td= link_to 'Destroy', vineyard, method: :delete, data: { confirm: 'Are you sure?' }
-
-.pagination= paginate @vineyards
-%br
-
-
-- if can? :create, @producer
-
-  = link_to 'New Vineyard', new_producer_path
+  .pagination= paginate @vineyards
+  %br
+  - if can? :create, @producer
+    = link_to 'New Vineyard', new_producer_path

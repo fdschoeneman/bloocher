@@ -1,13 +1,19 @@
-= nav_link_to "wineries", wineries_path
-= nav_link_to "wines", wines_path
-= nav_link_to "vineyards", vineyards_path
-- if user_signed_in?
-  %li= link_to "Blooching as #{current_user.name.nil? ? current_user.email : current_user.name}", profile_path
-  %li= link_to "itch neem'r", destroy_user_session_path, method: 'delete'
-  - if current_user.has_role? :admin
-    %li= link_to('admin', users_path)
-- else
-  %li
-    %a{ "data-toggle" => "modal", href: "#login-modal" } login
-  %li
-    %a{ "data-toggle" => "modal", href: "#signup-modal" } sign up
+/ Right Nav Section
+%ul.right
+  %li.has-dropdown
+    %a{href: "#"} Join the harpin tidrick
+    %ul.dropdown
+      = nav_link_to "blooches", reviews_path
+      = nav_link_to "showcases", showcases_path
+      = nav_link_to "wineries", wineries_path
+      = nav_link_to "producers", producers_path
+      = nav_link_to "wines", wines_path
+      = nav_link_to "vineyards", vineyards_path
+  - if user_signed_in?
+    %li= link_to "Blooching as #{current_user.name.nil? ? current_user.email : current_user.name}", profile_path(current_user.id)
+    %li= link_to "itch neem'r", destroy_user_session_path, method: 'delete'
+    - if current_user.has_role? :admin
+      %li= link_to('admin', users_path)
+  - else
+    = nav_link_to "login", new_user_session_path
+    = nav_link_to "become a bahler", new_user_registration_path

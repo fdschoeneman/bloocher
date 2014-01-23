@@ -1,0 +1,10 @@
+%p#notice= notice
+
+%p
+  %b Carousable owner:
+  = link_to @carousel.carousable.name, polymorphic_url(@carousel.carousable)
+
+
+= link_to 'Edit', edit_carousel_path(@carousel)
+\|
+= link_to 'Back', carousels_path

@@ -1,0 +1,1 @@
+var NewShowcaseController = EditShowcaseController.extend();

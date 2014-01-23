@@ -2,27 +2,27 @@
   .row
     .span6
       %legend About:
-      = profile_bip(:bio, :textarea, "Blooch about you'self, bloocher!")
+      / = profile_bip(:bio, :textarea, "Blooch about you'self, bloocher!")
     .span6
       %legend
         Address
       %dl.dl-horizontal
         %dt Name:
-        %dd= profile_bip(:name, :input, "Your name") 
+        / %dd= profile_bip(:name, :input, "Your name") 
         %dt Address:
-        %dd= profile_bip(:address_1, :input, "")
-        %dd= profile_bip(:address_2, :input, "")
+        / %dd= profile_bip(:address_1, :input, "")
+        / %dd= profile_bip(:address_2, :input, "")
         %dd
-          = profile_bip(:city, :input, "") + ", "
-          = best_in_place @user, :state, path: profile_path(@user), type: :select, collection: us_states
-          = profile_bip(:zip, :input, "")
+          / = profile_bip(:city, :input, "") + ", "
+          / = best_in_place @user, :state, path: profile_path(@user), type: :select, collection: us_states
+          / = profile_bip(:zip, :input, "")
         %dt
           %abbr{title: "Phone"} P: 
-        %dd= profile_bip(:phone, :input, "your dijits")
+        / %dd= profile_bip(:phone, :input, "your dijits")
         %dt Website:
-        %dd= profile_bip(:website, :input, "")
+        / %dd= profile_bip(:website, :input, "")
         %dt Email:
-        %dd= @user.email
+        / %dd= @user.email
 
 
 

@@ -1,0 +1,23 @@
+%h1 Listing certifying_bodies
+
+%table
+  %tr
+    %th Name
+    %th Mission
+    %th Url
+    %th
+    %th
+    %th
+
+  - @certifying_bodies.each do |certifying_body|
+    %tr
+      %td= certifying_body.name
+      %td= certifying_body.mission
+      %td= certifying_body.url
+      %td= link_to 'Show', certifying_body
+      %td= link_to 'Edit', edit_certifying_body_path(certifying_body)
+      %td= link_to 'Destroy', certifying_body, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Certifying body', new_certifying_body_path

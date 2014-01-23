@@ -1,11 +1,10 @@
 class Review < ActiveRecord::Base
  
-  attr_accessible :content, :rating, :reviewer_id, :wine_id
-
   attr_accessor :blooch 
 
   belongs_to :wine
   belongs_to :reviewer, class_name: "User"
+  has_many :showcases_wines, as: :blurb
 
   validates :reviewer_id, :wine_id, :content, presence: true
   validates :content, length: { minimum: 6}

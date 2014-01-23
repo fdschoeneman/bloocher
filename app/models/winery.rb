@@ -1,15 +1,29 @@
 class Winery < ActiveRecord::Base
+
+  extend FriendlyId
+
+  friendly_id :name, use: :slugged
+
+  # for cancan/rolify
   resourcify
-  
-  attr_accessible :producer_id, :name
+
+  belongs_to :producer
+
+  has_many :accounts, as: :accountable
+  has_many :addresses_addressable, as: :addressable
+  has_many :addresses, through: :addresses_addressable
+  has_many :certifications_holdables, as: :holdable
+  has_many :certifications, through: :certifications_holdables
+  has_many :carousels, as: :carousable
+  has_many :images, as: :imageable
+  has_many :reviews, through: :wines
+  has_many :showcases, as: :showcaseable
+  has_many :wines
 
   validates :name, presence: true, uniqueness: true
 
-  has_many :wines
-  has_many :reviews, through: :wines
-  belongs_to :producer
-
-  accepts_nested_attributes_for :producer
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
 
   def winery_rating
   	if self.reviews.count.zero?
@@ -21,7 +35,7 @@ class Winery < ActiveRecord::Base
 
   def winery_tags
   	result = Hash.new(0)
-  	words = self.reviews.all.map(&:content).join.delete(".,").split(" ").map
+  	words = self.reviews.load.map(&:content).join.delete(".,").split(" ").map
   	words.each { |word| result[word] += 1 }
   	result.sort_by { |k,v| v}.reverse[0..20]
   end

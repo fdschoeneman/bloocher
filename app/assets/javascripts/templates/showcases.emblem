@@ -1,0 +1,21 @@
+h2 Showcases
+
+= linkTo "new_showcase" | New Showcase
+
+table.table.table-condensed
+  thead
+    tr
+      th title
+      th description
+      th version
+      th show
+  tbody
+    each showcase in controller
+      tr
+        td = showcase.title
+        td = showcase.description
+        td = showcase.version
+        td 
+          linkTo 'showcase' showcase | show 
+
+

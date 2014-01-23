@@ -12,13 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require jquery.ui.datepicker
-//= require best_in_place
-//= require bootstrap
-//= require reviews
 //= require jquery.validate
 //= require jquery.validate.functions
+//= require jquery.scrollto-1.4.3.1-min
+//= require jquery.tagcanvas
+//= require jquery.tagcanvas
+//= require quicksand
 
-//= require_tree .
-
-
+$(function(){ $(document).foundation(); });

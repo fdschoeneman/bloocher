@@ -1,0 +1,24 @@
+%h1 Listing accounts
+
+%table
+  %tr
+    %th Accountable
+    %th Accountable type
+    %th Subdomain
+    %th
+    %th
+    %th
+
+  - @accounts.each do |account|
+    %tr
+      %td= account.accountable_id
+      %td= account.accountable_type
+      %td= account.subdomain
+      %td= link_to 'Show', account
+      %td= link_to 'Edit', edit_account_path(account)
+      %td= link_to 'Destroy', account, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to root_url(:subdomain => account.subdomain), root_url(:subdomain => account.subdomain)
+
+%br
+
+= link_to 'New Account', new_account_path

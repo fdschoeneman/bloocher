@@ -1,0 +1,10 @@
+= simple_form_for(@certifying_body) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :mission
+    = f.input :url
+
+  .form-actions
+    = f.button :submit

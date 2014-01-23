@@ -1,6 +1,6 @@
 #login-modal.modal.hide.fade{"aria-hidden" => "false", "aria-labelledby" => "myModalLabel", :role => "dialog", tabindex: "-3"}
   .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button", tabindex: 5} ×
     %h3#myModalLabel.centered Join the harpin' tidrick
   .modal-body
     = simple_form_for( resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' } ) do |f|
@@ -13,6 +13,10 @@
           = f.button :submit, "Login and start blooching", class: 'btn-primary'
       .navbar
         %ul.nav
-          = nav_link_to "Sign in instead", new_session_path( resource_name )
+          = nav_link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) 
+          = nav_link_to "Twitter", user_omniauth_authorize_path(:twitter) 
+          = nav_link_to "LinkedIn", user_omniauth_authorize_path(:linkedin)
+          = nav_link_to "Google", user_omniauth_authorize_path(:gplus)
+          = nav_link_to "Instagram", user_omniauth_authorize_path(:facebook)
           = nav_link_to "Forgot your password?", new_password_path( resource_name )
           = nav_link_to "Didn't receive confirmation instructions?", new_confirmation_path( resource_name )

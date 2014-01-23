@@ -1,63 +1,33 @@
-require 'rbconfig'
-HOST_OS = RbConfig::CONFIG['host_os']
-  
-guard 'sass', :input => 'sass', :output => 'css'
-
 guard 'bundler' do
   watch('Gemfile')
 end
 
-group 'livereload' do
+group :tests do 
 
-  guard 'livereload' do
-    watch(%r{app/.+\.(erb|haml)})
-    watch(%r{app/views/.+\.(erb|haml|slim)$})
-    watch(%r{app/helpers/.+\.rb})
-    watch(%r{(public/|app/assets).+\.(css|js|html)})
-    watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
-    watch(%r{config/locales/.+\.yml})
+  guard :minitest, all_on_start: false, spring: true, bundler: false do
+
+    watch(%r{^test/factories/(.+)\.rb})                    { 'test/meta/factories_test.rb' }
+    watch(%r{^test/(.*)\/?_test(.*)\.rb})
+    watch(%r{^test/support/(.+)\.rb})      { 'test' }
+    watch(%r{^test/test_helper\.rb})      { 'test' }
+    watch(%r{^test/meta/.+_test\.rb})
+
+    watch(%r{^lib/(.*/)?([^/]+)\.rb})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
+    watch(%r{^app/(.+)\.rb})                               { |m| "test/#{m[1]}_test.rb" }
+    watch(%r{^app/controllers/application_controller\.rb}) { 'test' }
+    watch(%r{^app/controllers/(.+)_controller\.rb})        { |m| "test/features/#{m[1]}_test.rb" }
+    watch(%r{^app/views/(.+)_mailer/.+})                   { |m| "test/mailers/#{m[1]}_mailer_test.rb" }
+    watch(%r{^lib/(.+)\.rb})                               { |m| "test/lib/#{m[1]}_test.rb" }
   end
 end
 
-group 'tests' do 
+guard 'livereload' do
 
-  guard 'rspec', turnip: true, parallel: true, zeus: true, bundler: false, all_on_start: false, all_after_pass: false  do
-
-    # factories
-    watch(%r{^spec/factories/*}) { "spec/factories_spec.rb" }
-
-    # acceptance tests
-    watch(%r{^spec/acceptance/(.+)\.feature$})
-    watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
-    watch(%r{^spec/acceptance/steps/*/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
-
-    # model & controller tests
-    watch(%r{^spec/.+_spec\.rb$})
-    watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
-    watch('spec/spec_helper.rb')  { "spec" }
-    watch('spec/turnip_helper.rb')  { "spec/acceptance" }
-    watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
-    watch(%r{^app/(.*)(\.erb|\.haml)$})                 { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
-    watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
-    watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
-    watch('config/routes.rb')                           { "spec/routing" }
-    watch('app/controllers/application_controller.rb')  { "spec/controllers" }
-
-    # Capybara request specs
-    watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
-  end
+  watch(%r{app/views/.+\.(erb|haml|slim)$})
+  watch(%r{app/assets/javascripts/.+\.(js|handlebars|hbs|emblem|)*$}) { |m| "assets/#{m[1]}" }
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{public/.+\.(css|js|html)})
+  watch(%r{config/locales/.+\.yml})
+  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|scss|js|html))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard 'rails' do
-  watch('Gemfile.lock')
-  watch(%r{^(config|lib)/.*})
-end
-
-
-guard :teaspoon do
-  # Implementation files
-  watch(%r{app/assets/javascripts/(.+).js}) { |m| "#{m[1]}_spec" }
-
-  # Specs / Helpers
-  watch(%r{spec/javascripts/(.*)})
-end

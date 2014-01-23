@@ -1,20 +1,11 @@
-.form-horizontal
-  = simple_form_for([@producer], class: "form-horizontal") do |f|
-    = f.error_notification
+.row
+  .span3.offset1#signin
+    .well
+      = simple_form_for([@producer], html: { class: "form-horizontal" } ) do |f|
+        = f.error_notification
+        = f.input :name, label: "Producer name"
+        = f.simple_fields_for :image do |image_form|
+          = image_form.file_field :image, html: { icon: :search } 
+          
 
-    .form-inputs
-      = f.input :name, label: "Producer name"
-      / = f.simple_fields_for :wineries do |winery|
-      /  / = winery.input :name, label: "Winery name or label"
-      = f.input :address_1
-      = f.input :address_2
-      = f.input :city
-      = f.input :state
-      = f.input :zip
-      / = f.input :subdomain
-      = f.input :web_address
-      = f.input :public_email
-      / = f.simple_fields_for
-
-    .form-actions
-      = f.button :submit
+        = f.button :submit

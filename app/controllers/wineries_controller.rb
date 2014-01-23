@@ -1,9 +1,15 @@
 class WineriesController < ApplicationController
 
+  before_action :set_winery, only: [:show, :edit, :update, :destroy]
+
   def index
     @page_title = "Wineries"
-
-    @wineries = Winery.order(:created_at).page params[:page]
+    
+    if params[:query].present?
+      @wineries = Winery.search(params[:query], load: true)
+    else
+      @wineries = Winery.order(:created_at).page params[:page]
+    end
 
     respond_to do |format|
       format.html 
@@ -13,13 +19,13 @@ class WineriesController < ApplicationController
 
   def show
 
-    @winery = Winery.find(params[:id])
+    # @winery = Winery.find(params[:id])
     @page_title = @winery.name
     @winery_wines = @winery.wines
     @wines = Kaminari.paginate_array(@winery_wines).page(params[:page]).per(4)
     @review = Review.new
     @reviews = @winery.reviews
-    @winery.winery_rating
+    # @winery.winery_rating
 
     respond_to do |format|
       format.html 
@@ -31,8 +37,7 @@ class WineriesController < ApplicationController
   def new
 
     @producer = Producer.find_by_id(params[:producer_id])
-    @winery = @producer.wineries.build
-
+    @winery = Winery.new
     respond_to do |format|
       format.html
       format.json { render json: @winery }
@@ -41,13 +46,11 @@ class WineriesController < ApplicationController
 
   def edit
 
-    @winery = Winery.find(params[:id])
   end
 
   def create
     
-    @winery = Winery.new(name: params[:winery][:name], producer_id: params[:producer_id])
-
+    @winery = Winery.new(winery_params)
 
     respond_to do |format|
       if @winery.save
@@ -62,8 +65,6 @@ class WineriesController < ApplicationController
 
   def update
 
-    @winery = Winery.find(params[:id])
-
     respond_to do |format|
       if @winery.update_attributes(params[:winery])
         format.html { redirect_to @winery, notice: 'Winery was successfully updated.' }
@@ -76,12 +77,22 @@ class WineriesController < ApplicationController
   end
 
   def destroy
-    @winery = Winery.find(params[:id])
+
     @winery.destroy
 
     respond_to do |format|
       format.html { redirect_to wineries_url }
       format.json { head :no_content }
     end
+  end
+
+private
+
+  def set_winery
+    @winery = Winery.friendly.find(params[:id])
+  end
+
+  def winery_params
+    params.require(:winery).permit(:name, :producer_id)
   end
 end

@@ -1,7 +1,11 @@
-require 'zeus/parallel_tests'
+require 'zeus/rails'
 
-class CustomPlan < Zeus::ParallelTests::Rails
-  # Your custom methods go here
+class CustomPlan < Zeus::Rails
+  def test_environment
+    require 'minitest/unit'
+    MiniTest::Unit.class_variable_set('@@installed_at_exit', true)
+    super
+  end
 end
 
 Zeus.plan = CustomPlan.new

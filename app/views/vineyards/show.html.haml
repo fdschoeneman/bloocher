@@ -1,3 +1,5 @@
+= render partial: 'image_uploader', locals: { imageable: @vineyard }
+
 .row
   .span12
     .span6
@@ -8,7 +10,7 @@
         %h4= @vineyard.name
       %p
         %b Producer:
-        = @vineyard.producer.name
+        = @vineyard.name
       %p
         %h4 Appellation:
         - @vineyard.appellations_vineyards.each do |av|
