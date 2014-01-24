@@ -7,7 +7,7 @@ feature "Images::Uploading Feature Test" do
     
     setup do
 
-      user = FactoryGirl.create(:user)
+      user = FactoryGirl.create(:admin)
       login_as user
       @imageable = create(imageable.to_sym)
       @imageable_url = "/#{@imageable.class.name.downcase.pluralize}/#{@imageable.id}"
