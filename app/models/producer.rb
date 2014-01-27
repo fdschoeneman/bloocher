@@ -25,4 +25,5 @@ class Producer < ActiveRecord::Base
   accepts_nested_attributes_for :images
 
   validates :name, presence: true
+  validates :name, uniqueness: true
 end

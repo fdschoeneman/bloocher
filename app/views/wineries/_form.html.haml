@@ -1,10 +1,10 @@
 = simple_form_for([@producer, @winery]) do |f|
   = f.label :producer_name
-  = f.text_field :producer_name, placeholder: "Full legal name", data: {autocomplete_source: Producer.order(:name).map(&:name)}
-  = f.label :name
-  = f.text_field :name, placeholder: "What your wine says on each bottle", data: { autocomplete_source: Winery.order(:name).map(&:name)}
+  = f.text_field :producer_name, placeholder: "Full legal name of your Winery, please, in case people search for it.", data: {autocomplete_source: Producer.order(:name).map(&:name)}
+  = f.label :winery_name
+  = f.text_field :name, placeholder: "What your winery is called on the front of each bottle.  We need this because people don't always search by your full legal name.", data: { autocomplete_source: Winery.order(:name).map(&:name)}
   = f.input :mission, placeholder: "examples: \"Produce fine pinot noir\" ; \"Put the gewurz in gewurztraminer\" ; Or leave it blank and let your wines do your talking."
-  = f.input :history, placeholder: "People who love wine often love stories.  The best stories tend to be short, authentic, and entertaining."
+  = f.input :history, placeholder: "People who love wine often love stories.  The best stories tend to be short and entertaining and what they lack in authenticity they make up in versimilitude."
   / # = f.input :producer_name, data: { autocomplete_source: Producer.order(:name).map(&:name) }
   = f.button :submit  
 
