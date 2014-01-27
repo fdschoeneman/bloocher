@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery.ui.autocomplete
 //= require jquery.ui.datepicker
 //= require jquery.validate
 //= require jquery.validate.functions
@@ -20,5 +21,7 @@
 //= require jquery.tagcanvas
 //= require jquery.tagcanvas
 //= require quicksand
+//= require ./application/wineries
+
 
 $(function(){ $(document).foundation(); });

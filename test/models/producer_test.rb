@@ -19,6 +19,7 @@ describe Producer do
   describe "validations" do
 
     must { validate_presence_of(:name) }
+    must { validate_uniqueness_of(:name) }
   end
 
   describe "associations" do

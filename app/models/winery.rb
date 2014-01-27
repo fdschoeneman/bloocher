@@ -25,6 +25,15 @@ class Winery < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
+
+  def producer_name
+    producer.try(:name)
+  end
+  
+  def producer_name=(name)
+    self.producer = Producer.find_or_create_by_name(name) if name.present?
+  end
+
   def winery_rating
   	if self.reviews.count.zero?
   		"n/a"
@@ -39,5 +48,4 @@ class Winery < ActiveRecord::Base
   	words.each { |word| result[word] += 1 }
   	result.sort_by { |k,v| v}.reverse[0..20]
   end
-
 end

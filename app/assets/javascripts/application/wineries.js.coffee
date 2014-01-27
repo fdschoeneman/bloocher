@@ -2,7 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+
 $(document).ready ->
+
+  $('#winery_producer_name').autocomplete
+    source: $('#winery_producer_name').data('autocomplete-source')
+
+  $('#winery_name').autocomplete
+    source: $('#winery_name').data('autocomplete-source')
 
 	$("#myCanvasContainer").hide() unless $("#myCanvas").tagcanvas(
     textColour: "grey"
@@ -13,23 +20,3 @@ $(document).ready ->
     , wheelZoom: false
     , freezeActive: true
   	, "tags")
-
-	$('#frati').popover( { 
-		trigger: 'hover'
-		, placement: 'right' } )
-
-	$('.blooch').popover( { trigger: 'hover', placement: 'left'
-		, title: "definition: blooch"
-		, content: "To prattle on, to talk aimlessly."} )
-
-    
-  $("#review_user_email").validate
-    expression: "if(VAL != '') return true; else return false;"
-    message: "Bloocher will never spam you."
-    
-  $(".accordion-toggle").on "shown", ->
-    $(this).addClass "active"
-
-  $(".accordion-toggle").on "hidden", ->
-    $(this).removeClass "active"
-
