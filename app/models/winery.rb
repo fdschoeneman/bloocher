@@ -20,7 +20,8 @@ class Winery < ActiveRecord::Base
   has_many :showcases, as: :showcaseable
   has_many :wines
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
+  validates :name, uniqueness: true
 
   include Tire::Model::Search
   include Tire::Model::Callbacks
