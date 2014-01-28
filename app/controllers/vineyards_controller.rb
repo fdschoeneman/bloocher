@@ -29,7 +29,7 @@ class VineyardsController < ApplicationController
   def new
 
     @producer = Producer.find_by_id(params[:producer_id])
-    @vineyard = @producer.vineyards.build
+    @vineyard = Winery.new
 
     respond_to do |format|
       format.html 

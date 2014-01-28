@@ -2,9 +2,13 @@ require "test_helper"
 
 describe WineriesController do
 
+
+  Given(:user) { FactoryGirl.create(:user) }
+
 	describe "index" do
 
     Given(:winery) { create(:winery) }
+
     Given { get :index }
     
     Then { assert_response :success }
@@ -12,6 +16,9 @@ describe WineriesController do
   end
 
   describe "new" do
+
+    Given { sign_in user}
+    
     Given { get :new }
     
     Then { assert_response :success }

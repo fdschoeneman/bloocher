@@ -1,5 +1,6 @@
 class WineriesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new]
   before_action :set_winery, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -49,8 +50,11 @@ class WineriesController < ApplicationController
   end
 
   def create
-    
+
+    producer_name = winery_params[:producer_name]
+    @producer = Producer.where(name: producer_name).first_or_create
     @winery = Winery.new(winery_params)
+    
 
     respond_to do |format|
       if @winery.save
@@ -93,6 +97,6 @@ private
   end
 
   def winery_params
-    params.require(:winery).permit(:name, :producer_id)
+    params.require(:winery).permit(:name, :producer_id, :producer_name, :mission, :history)
   end
 end
