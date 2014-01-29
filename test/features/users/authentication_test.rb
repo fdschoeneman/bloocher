@@ -6,7 +6,7 @@ feature "Authentication Feature Test" do
     visit new_user_registration_path
     fill_in 'user_email', with: 'test@test.com'
     find_button('Sign up').click
-    page.must have_selector("#flash_notice", text: /link has been sent/)
+    page.must have_selector(".alert-box", text: /link has been sent/)
     User.where(email: "test@test.com").wont_be_nil
   end
 
@@ -31,7 +31,8 @@ feature "Authentication Feature Test" do
     # request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook] 
   
     visit user_omniauth_authorize_path(:facebook)
-    page.must have_selector("#flash_notice", text: /Signed in with Facebook/)
+
+    page.must have_selector(".alert-box", text: /Signed in with Facebook/)
   end
 
   scenario "sign up with twitter" do 

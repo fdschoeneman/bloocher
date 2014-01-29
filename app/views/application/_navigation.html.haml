@@ -1,12 +1,14 @@
-%nav.top-bar{"data-topbar" => ""}
-  %ul.title-area
-    %li.name
-      %h1.categories
-        / %a{href: "#"} Bloocher
-        = link_to "Bloocher", root_url, class: "categories"
-    %li.toggle-topbar.menu-icon
-      %a{href: "#"}
-        %span Menu
-  %section.top-bar-section
-    = render 'nav_links'
-    
+.row
+  %nav.top-bar{"data-topbar" => ""}
+    %ul.title-area
+      %li.name
+        %h1.categories
+          / %a{href: "#"} Bloocher
+          - unless controller.action_name == "home" 
+            = link_to "b l o o c h e r", root_url, class: "brand"
+      %li.toggle-topbar.menu-icon
+        %a{href: "#"}
+          %span Menu
+    %section.top-bar-section
+      = render 'nav_links'
+      

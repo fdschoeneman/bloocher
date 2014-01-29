@@ -1,7 +1,19 @@
+/ .row
+/   .small-12.columns
+
+/     %ul.inline-list.right
+/       = render 'resource_links'
+/       = render 'boilerplate_links'
+/       / = render 'authentication_links' 
 .row
-  %br
+  %nav.top-bar{"data-topbar" => ""}
+    %ul.title-area
+      %li.name
+      %li.toggle-topbar.menu-icon
+        %a{href: "#"} Menu
     %section.top-bar-section
-      %ul.inline-list.right
-        = render 'resource_links'
+      %ul.right
         = render 'boilerplate_links'
-        = render 'authentication_links' 
+      %ul.left
+        %li
+          %a{href: "#"} top

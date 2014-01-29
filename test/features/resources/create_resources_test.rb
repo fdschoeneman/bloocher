@@ -22,10 +22,10 @@ feature "Resources::Create Resource Feature Test" do
 
   scenario "create vineyard" do 
     visit new_vineyard_path
-    save_and_open_page
-    # fill_in 'winery_producer_name', with: 'Breggo, Inc.'
-    # fill_in 'winery_name', with: 'Breggo'
-    # fill_in 'winery_mission', with: Faker::Stoked.sentence
+    # save_and_open_page
+    # fill_in 'vineyard_producer_name', with: 'Breggo, Inc.'
+    # fill_in 'vineyard_name', with: 'Breggo'
+    # fill_in 'vineyard_mission', with: Faker::Stoked.sentence
     # fill_in 'winery_history', with: Faker::Stoked.paragraph
     # click_button 'Create Winery'
     # Winery.where(name: 'Breggo').count.must_equal 1
