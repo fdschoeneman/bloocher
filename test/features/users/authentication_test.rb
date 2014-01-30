@@ -3,8 +3,10 @@ require "test_helper"
 feature "Authentication Feature Test" do
 
   scenario "Sign up with devise" do
-    visit new_user_registration_path
-    fill_in 'user_email', with: 'test@test.com'
+    visit "/"
+    within "#signupModal" do 
+      fill_in 'user_email', with: 'test@test.com'
+    end
     find_button('Sign up').click
     page.must have_selector(".alert-box", text: /link has been sent/)
     User.where(email: "test@test.com").wont_be_nil
