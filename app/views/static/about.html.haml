@@ -1,84 +1,117 @@
-.container
-  %h1.page-header
-    About
-    %span.color-twitter Bloocher
-.container
-  .row#about-menu
-    %ul.ca-menu.unstyled
-      %li.about.span3
-        %a{ href: "#wine-lovers" }
-          %span#icon-heart.ca-icon
-            %i.icon-heart
-          .ca-content
-            %h2.ca-main.hidden-tablet Winelovers
-            %h2.ca-main-tablet.visible-tablet Winelovers
-            %h3.ca-sub Blooch about the bahlinest fratis
-      %li.about.span3
-        %a{ href: "#winemakers" }
-          %span#icon-beaker.ca-icon 
-            %i.icon-beaker
-          .ca-content
-            %h2.ca-main.hidden-tablet Winemakers
-            %h2.ca-main-tablet.visible-tablet Winemakers            
-            %h3.ca-sub Deek about your fratis
-      %li.about.span3
-        %a{ href: "#vineyardists" }
-          %span#icon-leaf.ca-icon
-            %i.icon-leaf
-          .ca-content
-            %h2.ca-main.hidden-tablet Vineyardists
-            %h2.ca-main-tablet.visible-tablet Vineyardists
-            %h3.ca-sub Deek about your fruit
-      %li.about.span3
-        %a{ href: "#artists" }
-          %span#icon-picture.ca-icon
-            %i.icon-picture 
-          .ca-content
-            %h2.ca-main.hidden-tablet Artists & Writers
-            %h2.ca-main-tablet.visible-tablet Artists & Writers
-            %h3.ca-sub Tell us a story
-  .clearfix
-#wine-lovers
-%hr/
 .row
-  .span6.testimonials
-    %h1 Wine lovers
-    %p There's definitely a place for point ratings in the wine industry; but points aren't really what Bloocher is about. Fundamentally Bloocher is about the wisdom of crowds: Are you getting quince in that gewurztraminer? Look at its cloud and see if other bloochers got quince too. If you decide you like gewurztraminers that show quince, click around some, and maybe we can find a few more. You can opt in to follow your favorite wineries, winemakers, and vineyards, and create your own list of wines and wineries that your friends can use to follow you. We don't like getting spammed any more than you do, so our #{link_to "privacy policy", privacy_path} treats your privacy the way we wish all websites would ours.   
+  %br
+  .small-12.columns
+    .darkpanel
+      %h1.text-center About
 
-    = link_to "back to top", "#", id: "toplink" 
-
-  .span6
-    = image_tag("glass_and_cork.jpg", class: "img-rounded pull-right") 
-.clearfix
-#winemakers
-%hr/
 .row
-  .span6
-    = image_tag("corks.jpg", class: "img-rounded")
-  .span6.testimonials
-    %h1 Winemakers
-    %p Because of marketing deadlines, many winemakers have to write out their tasting notes before the wines are out of their barrels. That's like trying to predict what musical instrument your daughter is going to play while she's still in the womb. If you're a real-deal winemaker, Bloocher is an effective tool to differentiate your work. The more details you tell about your wine's story &mdash; where you sourced your fruit, your wine log, which type of oak chips you used, how much tartaric acid you added, and which species of fish bladder you used for clarification &mdash; the more authentic your story will be. So own those details, even if you think they might scare off the weese. And while it's possible that another winemaker will look at your story and try to steal your secret sauce, it's much more likely that you'll gain the respect of someone who wants to learn. 
+  .large-12.columns
+    .row
+      %br
+      .large-6.columns
+        = image_tag "frederella.jpg"
+        %br/
 
-    = link_to "back to top", "#", id: "toplink" 
-#vineyardists
-%hr/
+        
+      .large-6.columns
+        
+        .darkpanel
+          %h4 Mission
+        %p Our mission at Bloocher is to connect wine lovers with their favorite winemakers and vineyardists, while simultaneously making aviator sunglasses look cool.
+        .darkpanel
+          %h4 Democratizing wine since 2013
+        %p Bloocher is a #{link_to "boontling", "http://en.wikipedia.org/wiki/Boontling"} word, one of the meanings of which is "bullshitter."  If we're honest as insiders, bullshit is a lot of what our industry is built on.  But somewhere underneath is one truth:  <em>We like some wines are better than others.</em>  
+
+        %p Some of wine quality is about the fruit, some is about winemaker skill, some is about what food its paired with.  But a lot has to do with the winelover, what mood she's in, how much she likes person she's drinking it with, what the weather is like, and how much she likes the view.  By giving wine lovers, winemakers, and vineyardists a place to share raw information, it is our view that some of this bullshit can be stripped away.  
+
+           
+             
 .row
-  .span6.testimonials
-    %h1 Farmers
-    %p Your reputation as a farmer is only as good as the reputation of wines made with your fruit. Help your winery and winemaker partners by providing up-to-the date information on your vineyard, blocks, and growing season. Make it easy for people who are interested in wines made from your fruit to find them. Share best practices with other farmers, and help wine lovers realize that 80% of what they like about a wine is determined by what you do with your dirt.
-
-    = link_to "back to top", "#", id: "toplink" 
-
-  .span6
-    = image_tag("glass_and_cork.jpg", class: "img-rounded pull-right") 
-  .clearfix
-#artists
-%hr/
-.row
-  .span6
-    = image_tag("doggy.jpg", class: "img-rounded")
-  .span6.testimonials
-    %h1 Artists & writers  
-    %p If you're an artist or writer with a connection to the Anderson Valley, and maybe even if you're just a talented brightlighter, we'd like to use Bloocher to showcase your work. If you're a visual artist we can put a few of your photos on the home page, with links to your gallery; and if you're a writer we can publish excerpts of your work and link someplace people can go if they're thirsty for more. Hit us up at #{mail_to "art@bloocher.com", "art@bloocher.com", encode: "javascript"}.
+  %br        
     
-    = link_to "back to top", "#", id: "toplink" 
+
+
+/ .container
+/   %h1.page-header
+/     About
+/     %span.color-twitter Bloocher
+/ .container
+/   .row#about-menu
+/     %ul.ca-menu.unstyled
+/       %li.about.span3
+/         %a{ href: "#wine-lovers" }
+/           %span#icon-heart.ca-icon
+/             %i.icon-heart
+/           .ca-content
+/             %h2.ca-main.hidden-tablet Winelovers
+/             %h2.ca-main-tablet.visible-tablet Winelovers
+/             %h3.ca-sub Blooch about the bahlinest fratis
+/       %li.about.span3
+/         %a{ href: "#winemakers" }
+/           %span#icon-beaker.ca-icon 
+/             %i.icon-beaker
+/           .ca-content
+/             %h2.ca-main.hidden-tablet Winemakers
+/             %h2.ca-main-tablet.visible-tablet Winemakers            
+/             %h3.ca-sub Deek about your fratis
+/       %li.about.span3
+/         %a{ href: "#vineyardists" }
+/           %span#icon-leaf.ca-icon
+/             %i.icon-leaf
+/           .ca-content
+/             %h2.ca-main.hidden-tablet Vineyardists
+/             %h2.ca-main-tablet.visible-tablet Vineyardists
+/             %h3.ca-sub Deek about your fruit
+/       %li.about.span3
+/         %a{ href: "#artists" }
+/           %span#icon-picture.ca-icon
+/             %i.icon-picture 
+/           .ca-content
+/             %h2.ca-main.hidden-tablet Artists & Writers
+/             %h2.ca-main-tablet.visible-tablet Artists & Writers
+/             %h3.ca-sub Tell us a story
+/   .clearfix
+/ #wine-lovers
+/ %hr/
+/ .row
+/   .span6.testimonials
+/     %h1 Wine lovers
+/     %p There's definitely a place for point ratings in the wine industry; but points aren't really what Bloocher is about. Fundamentally Bloocher is about the wisdom of crowds: Are you getting quince in that gewurztraminer? Look at its cloud and see if other bloochers got quince too. If you decide you like gewurztraminers that show quince, click around some, and maybe we can find a few more. You can opt in to follow your favorite wineries, winemakers, and vineyards, and create your own list of wines and wineries that your friends can use to follow you. We don't like getting spammed any more than you do, so our #{link_to "privacy policy", privacy_path} treats your privacy the way we wish all websites would ours.   
+
+/     = link_to "back to top", "#", id: "toplink" 
+
+/   .span6
+/     = image_tag("glass_and_cork.jpg", class: "img-rounded pull-right") 
+/ .clearfix
+/ #winemakers
+/ %hr/
+/ .row
+/   .span6
+/     = image_tag("corks.jpg", class: "img-rounded")
+/   .span6.testimonials
+/     %h1 Winemakers
+/     %p Because of marketing deadlines, many winemakers have to write out their tasting notes before the wines are out of their barrels. That's like trying to predict what musical instrument your daughter is going to play while she's still in the womb. If you're a real-deal winemaker, Bloocher is an effective tool to differentiate your work. The more details you tell about your wine's story &mdash; where you sourced your fruit, your wine log, which type of oak chips you used, how much tartaric acid you added, and which species of fish bladder you used for clarification &mdash; the more authentic your story will be. So own those details, even if you think they might scare off the weese. And while it's possible that another winemaker will look at your story and try to steal your secret sauce, it's much more likely that you'll gain the respect of someone who wants to learn. 
+
+/     = link_to "back to top", "#", id: "toplink" 
+/ #vineyardists
+/ %hr/
+/ .row
+/   .span6.testimonials
+/     %h1 Farmers
+/     %p Your reputation as a farmer is only as good as the reputation of wines made with your fruit. Help your winery and winemaker partners by providing up-to-the date information on your vineyard, blocks, and growing season. Make it easy for people who are interested in wines made from your fruit to find them. Share best practices with other farmers, and help wine lovers realize that 80% of what they like about a wine is determined by what you do with your dirt.
+
+/     = link_to "back to top", "#", id: "toplink" 
+
+/   .span6
+/     = image_tag("glass_and_cork.jpg", class: "img-rounded pull-right") 
+/   .clearfix
+/ #artists
+/ %hr/
+/ .row
+/   .span6
+/     = image_tag("doggy.jpg", class: "img-rounded")
+/   .span6.testimonials
+/     %h1 Artists & writers  
+/     %p If you're an artist or writer with a connection to the Anderson Valley, and maybe even if you're just a talented brightlighter, we'd like to use Bloocher to showcase your work. If you're a visual artist we can put a few of your photos on the home page, with links to your gallery; and if you're a writer we can publish excerpts of your work and link someplace people can go if they're thirsty for more. Hit us up at #{mail_to "art@bloocher.com", "art@bloocher.com", encode: "javascript"}.
+    
+/     = link_to "back to top", "#", id: "toplink" 
