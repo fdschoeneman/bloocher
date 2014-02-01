@@ -1,9 +1,8 @@
-= render 'head'
 %body{:class => "#{controller_name} #{action_name}"}
-  - unless ["sessions", "registrations"].include? controller_name
-    = render 'navigation'
+  = render 'head'
+  = render 'navigation'
   = render 'messages'
-  = yield
+  .row= yield
   = render 'footer'
 
   - if Rails.env.development?
