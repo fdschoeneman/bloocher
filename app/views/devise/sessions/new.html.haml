@@ -1,25 +1,44 @@
-.row  
-  %br
+.row
   .small-12.columns
-    .row
-      .small-6.columns
-        %h1 Sign in
-      .small-6.columns
-        %h1 Sign up
-  %hr
-  - simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => '' }) do |f|
-    = f.input :email, :autofocus => true
-    = f.input :password
-    = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-    = f.button :submit, "Sign in", :class => 'btn-primary'
+    .text-center
+      %h1.brand
+        Bloocher
+    %br
 
-  / .span3.offset1#signup
-  /   %legend
-  /     Sign up
-  /   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
-  /     = f.error_notification
-  /     = display_base_errors resource
-  /     = f.input :email, :required => true
-  /     = f.button :submit, 'Sign up', :class => 'btn-primary'
-  /   = render "devise/shared/forgot_or_confirm_links"
-  / .span2
+.row
+
+  .small-6.small-offset-3.columns
+    %br
+    .panel
+      .tabs{"data-section" => ""}
+        %br
+        %section.section.active
+          %h4.title
+            = link_to("Log in", '#loginTab')
+          %br   
+          .content{"data-slug" => "loginTab"}
+            = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => '' }) do |f|
+              = f.input :email, :autofocus => true
+              = f.input :password
+              = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+              = f.button :submit, "Log in", :class => 'button expand'
+        %section.section
+          %h4.title
+            = link_to "Sign up", '#signupTab'
+          %br
+          .content{"data-slug" => "signupTab"}
+            = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+              = f.error_notification
+              = display_base_errors resource
+              #signupemail= f.input :email, :required => true
+              - if f.object.password_required?
+                .field
+                  = f.label :password
+                  %br/
+                  = f.password_field :password
+                .field
+                  = f.label :password_confirmation
+                  %br/
+                  = f.password_field :password_confirmation
+
+              = f.button :submit, 'Sign up', :class => 'button expand', :id => 'getsome'

@@ -5,10 +5,11 @@
         %h1.categories
           / %a{href: "#"} Bloocher
           - unless controller.action_name == "home" 
-            = link_to "b l o o c h e r", root_url, class: "brand"
+            = link_to "bloocher", root_url, class: "brand"
       %li.toggle-topbar.menu-icon
         %a{href: "#"}
           %span Menu
     %section.top-bar-section
-      = render 'nav_links'
+      - unless ["sessions", "registrations"].include? controller_name
+        = render 'nav_links'
       
