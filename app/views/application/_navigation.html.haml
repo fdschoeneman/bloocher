@@ -9,6 +9,6 @@
         %a{href: "#"}
           %span Menu
     %section.top-bar-section
-      - unless ["sessions", "wineries"].include? controller_name
+      - unless ["sessions", "confirmations", "wineries"].include? controller_name
         = render 'nav_links'
       

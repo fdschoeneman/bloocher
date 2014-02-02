@@ -32,7 +32,7 @@ class Winery < ActiveRecord::Base
   end
   
   def producer_name=(name)
-    self.producer = Producer.find_or_create_by_name(name) if name.present?
+    self.producer = Producer.where(name: name).first_or_create if name.present?
   end
 
   def winery_rating

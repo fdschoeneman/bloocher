@@ -1,15 +1,23 @@
 require "test_helper"
+require "mail"
+
+include Capybara::Email::DSL
 
 feature "Authentication Feature Test" do
 
-  scenario "Sign up with devise" do
+  scenario "Sign up from nav modal" do
     visit "/"
     within "#signupModal" do 
       fill_in 'user_email', with: 'test@test.com'
-    end
+    end  
     find_button('Sign up').click
     page.must have_selector(".alert-box", text: /link has been sent/)
     User.where(email: "test@test.com").wont_be_nil
+    open_email('test@test.com')
+    current_email.click_link "Confirm my account"
+    fill_in 'user_password', with: 'password'
+    fill_in 'user_password_confirmation', with: 'password'
+    click_button 'Confirm that you are a bahler'
   end
 
   scenario "Sign up with facebook" do 

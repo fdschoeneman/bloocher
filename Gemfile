@@ -138,6 +138,7 @@ group :test do
   
   gem 'minitest-rails-shoulda'
   gem 'minitest-rails-capybara'
+  gem 'capybara-email'
   gem 'minitest-given'
   gem 'wrong'
 
