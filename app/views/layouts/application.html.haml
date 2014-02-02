@@ -4,6 +4,8 @@
   = render 'messages'
   .row= yield
   = render 'footer'
+  = javascript_include_tag "application"
+
 
   - if Rails.env.development?
     = debug(params) 

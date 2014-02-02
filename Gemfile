@@ -20,7 +20,8 @@ gem 'coffee-rails'
 gem 'uglifier', '>= 1.3.0'
 
 # foundation js & css framework
-gem 'zurb-foundation'
+gem 'foundation-rails'
+
 # server
 gem 'thin', '>= 1.5.0'
 
