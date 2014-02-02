@@ -2,7 +2,7 @@ namespace 'db:development:create' do
 
   task addresses: :environment do
 
-    addressable_models = %w[vineyard winery producer artist]
+    addressable_models = %w[vineyard winery producer artist user]
     satisfy_dependencies(addressable_models)
 
   	addressable_models.each do |model|

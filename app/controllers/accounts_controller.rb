@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
   end
 
   def accountable_redirect
-debugger
+
     controller = Account.find_by(subdomain: request.subdomain).accountable_type.downcase.pluralize
     redirect_to controller: controller
 

@@ -28,7 +28,7 @@ namespace 'db:development:create' do
           name: fullname + tester_role,
           email: email,
           password: "password",
-          bio: Faker::Stoked.bio
+          bio: Faker::Stoked.paragraphs(3)
         )
         user.confirm!
         user.add_role tester_role.to_sym

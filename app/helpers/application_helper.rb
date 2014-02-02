@@ -21,6 +21,18 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def pluralize_array(word, array)
+    case  
+    when array.count == 1
+      word
+    when array.count == 0
+      return
+    when array.count > 1
+      word.pluralize
+    end
+  end
+
+
   def default_meta_tags
     
     {

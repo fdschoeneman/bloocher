@@ -34,7 +34,7 @@ Bloocher::Application.routes.draw do
   devise_scope :user do 
     patch "/confirm" => "confirmations#confirm"
   end
-
+  resources :addresses
   resources :appellations
   resources :blocks
   resources :carousels

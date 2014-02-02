@@ -70,6 +70,7 @@ gem 'omniauth-twitter'
 
 # forms
 gem 'simple_form'
+gem 'country_select'
 
 # for google link shortener
 gem 'google-api-client'

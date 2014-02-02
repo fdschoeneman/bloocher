@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
   def show
 
   	@user = User.find_by(id: params[:id])
+    @address = Address.new
   end
 
   def edit

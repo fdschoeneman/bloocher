@@ -10,8 +10,7 @@
   .small-6.columns
     .panel.user-login
       %h1 Log in
-
-      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => '' }) do |f|
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { }) do |f|
         = f.input :email, :autofocus => true
         = f.input :password
         = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
@@ -20,17 +19,5 @@
     .user-signup
       %h1 Or sign up instead
       = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-        = f.error_notification
-        = display_base_errors resource
         = f.input :email, :required => true
-        - if f.object.password_required?
-          .field
-            = f.label :password
-            %br/
-            = f.password_field :password
-          .field
-            = f.label :password_confirmation
-            %br/
-            = f.password_field :password_confirmation
-
         = f.button :submit, 'Sign up', :class => 'button expand', :id => 'getsome'
