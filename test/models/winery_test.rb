@@ -43,6 +43,7 @@ describe Winery do
     must { have_many(:images) } 
     must { have_many(:reviews).through(:wines) }
     must { have_many(:showcases) }
+    must { have_many(:positions) }
     must { have_many(:wines) } 
   end
 

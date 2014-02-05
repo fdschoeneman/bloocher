@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127062414) do
+ActiveRecord::Schema.define(version: 20140204100943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -240,6 +240,8 @@ ActiveRecord::Schema.define(version: 20140127062414) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "tenure_start"
+    t.date     "tenure_end"
   end
 
   add_index "positions", ["positionable_id", "positionable_type"], name: "index_positions_on_positionable_id_and_positionable_type", using: :btree

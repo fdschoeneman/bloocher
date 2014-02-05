@@ -6,7 +6,9 @@ namespace 'db:development:create' do
       small_notice("winery: #{winery_name}")
       Winery.create(
         name: winery_name, 
-        producer_id: rand(1..4)
+        producer_id: rand(1..4),
+        mission: Faker::Stoked.sentence,
+        history: Faker::Stoked.paragraphs(3)
       )
     end
   end

@@ -1,8 +1,9 @@
 %body{:class => "#{controller_name} #{action_name}"}
   = render 'head'
-  = render 'navigation'
+  - unless controller_name == "wineries" && controller.action_name == "show"
+    = render 'navigation'
   = render 'messages'
-  .row= yield
+  = yield
   = render 'footer'
   = javascript_include_tag "application"
   /# = javascript_include_tag "modernizr"

@@ -14,13 +14,20 @@ namespace 'db:development:create' do
 
       pm.all[0..2].each do |object|
 
+        user_count = User.count
+
         5.times do 
 
+          begin_date = (Date.today - rand(1..1000).days)
+          end_date = (begin_date + rand(1..6).years)
           Position.create(
-            user_id: rand(0..@users.to_i),
+            user_id: rand(1..user_count),
             positionable_id: object.id,
             positionable_type: object.class.name,
-            title: titles.sample)
+            title: titles.sample,
+            tenure_start: begin_date,
+            tenure_end: end_date
+          )
         end
       end
     end

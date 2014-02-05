@@ -12,7 +12,7 @@ namespace 'db:development:create' do
         vintage: vintage,
         cases_produced: rand(2000..100000),
         name: "#{Faker::Bloocher.varietal} \- #{Faker::Bloocher.vineyard} \- #{Faker::Bloocher.differentiator}",
-        winery_id: rand(1..5),   
+        winery_id: 1,   
         acid_added: rand(0..1),
         new_french_oak: rand(1..100),
         days_in_oak: rand(90..180),

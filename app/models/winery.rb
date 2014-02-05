@@ -16,6 +16,7 @@ class Winery < ActiveRecord::Base
   has_many :certifications, through: :certifications_holdables
   has_many :carousels, as: :carousable
   has_many :images, as: :imageable
+  has_many :positions, as: :positionable
   has_many :reviews, through: :wines
   has_many :showcases, as: :showcaseable
   has_many :wines

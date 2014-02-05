@@ -1,17 +1,15 @@
-.row
-  .small-8.small-centered.columns
-    - if imageable.images.count > 0
-      %ul.orbit{ "data-orbit" => "", "data-options" => "animation:fade; swipe:true; timer:true; bullets:false; navigation_arrows:false; slide_number: false"}
+/ - if imageable.images.count > 0
+/   %ul.orbit{ "data-orbit" => "", "data-options" => "animation:fade; swipe:true; timer:true; bullets:false; navigation_arrows:false; slide_number: false"}
 
-        - imageable.images.each do |image|
-          %li
-            = image_tag(image.image.url)
-            - unless image.title.blank? && image.description.blank?
-              .orbit-caption
-                = image.title
-                - unless image.description.blank?
-                  |
-                = image.description
+/     - imageable.images.each do |image|
+/       %li
+/         = image_tag(image.image.url)
+/         - unless image.title.blank? && image.description.blank?
+/           .orbit-caption
+/             = image.title
+/             - unless image.description.blank?
+/               |
+/             = image.description
 
 /   %li
 /     = image_tag("araujo/the-estate-gallery01-02.jpg")
