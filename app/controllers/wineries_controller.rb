@@ -26,6 +26,7 @@ class WineriesController < ApplicationController
     @wines = Kaminari.paginate_array(@winery_wines).page(params[:page]).per(4)
     @review = Review.new
     @reviews = @winery.reviews
+    
     # @winery.winery_rating
 
     respond_to do |format|

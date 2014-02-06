@@ -50,4 +50,14 @@ class Winery < ActiveRecord::Base
   	words.each { |word| result[word] += 1 }
   	result.sort_by { |k,v| v}.reverse[0..20]
   end
+
+  def vintages
+    wines.pluck(:vintage).uniq.sort.reverse
+  end
+
+  def wines_in_vintage(vintage)
+    wines.where(vintage: vintage)
+  end
+
+
 end

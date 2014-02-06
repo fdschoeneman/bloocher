@@ -18,13 +18,15 @@
           = link_to 'Edit', edit_winery_path(@winery)
     .row
       .large-4.small-6.columns
-        %h4 Mission
+        .text-center
+          %h3 Mission
         = @winery.mission
         %hr
-        %h4 History
+        .text-center
+          %h4 History
         = @winery.history
         %hr
-        %h4 People
+        %h3 People
         - @winery.positions.each do |position|
           %p
             = position.title.titleize + ":"
@@ -39,6 +41,55 @@
               = position.tenure_start.year
               until
               = position.tenure_end.year
+      .large-4.small-6.columns
+        %h3 Showcases
+        / = @winery.showcases.count
+        - if can? :create, Showcase
+          .row
+            .large-1.column= link_to "create a showcase", new_showcase_path
+        %href
+        - @winery.showcases.each do |showcase|
+          = link_to showcase.name, showcase
+        %hr
+      .large-4.small-6.columns
+        %h3 Verticals
+          
+        %hr
+        %h3 Library
+        %hr
+        - @winery.wines.each do |wine|
+          %p
+            = link_to "#{wine.vintage} #{wine.name}", wine
+            %hr
+        .row
+          .large-1.column
+            %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
+          .large-9.columns
+            %h5
+              %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2012
+            %h6.subheader.show-for-small pinot noirs
+        %hr/
+        .hide-for-small
+          .row
+            .large-1.column
+              %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
+            .large-9.columns
+              %h5.subheader
+                %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2011
+          %hr/
+          .row
+            .large-1.column
+              %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
+            .large-9.columns
+              %h5.subheader
+                %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2010
+          %hr/
+          .row
+            .large-1.column
+              %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
+            .large-9.columns
+              %h5.subheader
+                %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2009
 
 
 
@@ -54,70 +105,7 @@
       .large-12.columns.show-for-small
         = image_tag("foundation/1200x700&text=Mobile Header")
     %br/
-    / End Mobile Header
-    .row
-      .large-12.columns
-        .row
-          / Shows
-          .large-4.small-6.columns
-            %h4 Showcases
-            %hr
-            .row
-              - if can? :create, Showcase
-                .large-1.column= link_to "create a showcase", new_showcase_path
-            %hr/
-            .row
-              .large-1.column
-                %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
-              .large-9.columns
-                %h5
-                  %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2012
-                %h6.subheader.show-for-small pinot noirs
-            %hr/
-            .hide-for-small
-              .row
-                .large-1.column
-                  %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
-                .large-9.columns
-                  %h5.subheader
-                    %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2011
-              %hr/
-              .row
-                .large-1.column
-                  %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
-                .large-9.columns
-                  %h5.subheader
-                    %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2010
-              %hr/
-              .row
-                .large-1.column
-                  %img{src: "./Foundation Template   Marketing_files/50x50&text=[img]"}/
-                .large-9.columns
-                  %h5.subheader
-                    %a{href: "./Foundation Template   Marketing_files/Foundation Template   Marketing.html"} 2009
-          / End Shows
-          / Image
-          .large-4.small-6.columns
-            = image_tag ("foundation/300x465&text=Image")
-          / End Image
-          / Feed
-          
-:javascript
-  document.write('<script src=js/vendor/' +
-  ('__proto__' in {} ? 'zepto' : 'jquery') +
-  '.js><\/script>')
-%script{src: "./Foundation Template   Marketing_files/zepto.js"}
-%script{src: "./Foundation Template   Marketing_files/foundation.min.js"}
-:javascript
-  $(document).foundation();
-/ End Footer
-%script{src: "./Foundation Template   Marketing_files/jquery.js"}
-%script{src: "./Foundation Template   Marketing_files/foundation.js"}
-/ :javascript
-/   $(document).foundation();
-
-/   var doc = document.documentElement;
-/   doc.setAttribute('data-useragent', navigator.userAgent);
+    
 
 
 / # = image_tag(@winery.images.first.image.thumb.url)

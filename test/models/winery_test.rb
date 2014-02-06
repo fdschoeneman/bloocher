@@ -47,9 +47,10 @@ describe Winery do
     must { have_many(:wines) } 
   end
 
-  describe "methods" do 
+  Given(:winery) { FactoryGirl.create(:winery) }
+  
+  describe "ratings" do 
 
-    Given(:winery) { FactoryGirl.create(:winery) }
     Given(:wine) { FactoryGirl.create(:wine, winery_id: winery.id) }
     Given(:second_wine) { FactoryGirl.create(:wine, winery_id: winery.id) }
 
@@ -73,5 +74,34 @@ describe Winery do
         # Then { assert_equal winery.winery_rating, 80 }
       end
     end
+  end
+
+  Given(:pinot_2012) { create(:wine, vintage: "2012", winery_id: winery.id) }
+  Given(:pinot_2013) { create(:wine, vintage: "2013", winery_id: winery.id) }
+  Given(:pinot_2014) { create(:wine, vintage: "2014", winery_id: winery.id) }
+  Given(:gewurz_2012) { 
+    create(
+      :wine, vintage: "2012", winery_id: winery.id, name: "ferrington gewurz"
+    ) 
+  }
+  Given(:gewurz_2013) { create(:wine, vintage: "2013", winery_id: winery.id, name: "ferrington gewurz") }
+  Given(:gewurz_2014) { create(:wine, vintage: "2014", winery_id: winery.id, name: "ferrington gewurz") }
+  
+  describe "vintages" do 
+    Given { 
+      pinot_2012 
+      pinot_2013
+      pinot_2014
+      gewurz_2012
+      gewurz_2013
+      gewurz_2014
+    }
+    
+    Then { winery.wines.count.must_equal 6 }
+    And { winery.vintages.count.must_equal 3 }
+  end
+
+  describe "verticals" do 
+
   end
 end
