@@ -1,0 +1,8 @@
+%h3 Showcases
+- if can? :create, Showcase
+  .row
+    .large-1.column= link_to "create a showcase", new_showcase_path
+%href
+- @winery.showcases.each do |showcase|
+  = link_to showcase.name, showcase
+%hr
