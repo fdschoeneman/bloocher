@@ -137,7 +137,7 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     faker-bloocher (0.1.2)
-    faker-stoked (0.2.6)
+    faker-stoked (0.2.7)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     ffi (1.9.3)

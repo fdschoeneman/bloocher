@@ -118,7 +118,7 @@ gem 'mini_magick'
 # pretty development data
 gem 'faker'
 gem 'faker-bloocher'
-gem 'faker-stoked'#, github: 'fdschoeneman/faker-stoked', branch: 'master'
+gem 'faker-stoked'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # debugger is in all environments, in case it is needed for heroku
