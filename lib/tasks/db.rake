@@ -1,5 +1,7 @@
 Dir[Rails.root.join("lib/tasks/support/*.rb")].each {|f| require f}
 
+require 'faker/stoked'
+
 include RakeColorizer 
 include RakePrettifier
 
