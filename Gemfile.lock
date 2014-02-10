@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/fdschoeneman/faker-stoked.git
-  revision: f48b39b4bf1eca8699df0e5e6b540fdf9112aab2
+  revision: 42734022beb86bb9eaa65d4a6d0d74eea51f35fc
   branch: master
   specs:
     faker-stoked (0.2.7)
