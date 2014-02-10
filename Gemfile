@@ -121,11 +121,11 @@ gem 'faker-bloocher'
 gem 'faker-stoked', github: 'fdschoeneman/faker-stoked', branch: 'master'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+  gem 'debugger'
 
 group :development do 
 
   # debugger is in all environments, in case it is needed for heroku
-  gem 'debugger'
   gem 'travis-lint'
   gem 'hpricot', '0.8.6'
   gem 'ruby_parser', '3.1.1'
