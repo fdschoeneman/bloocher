@@ -1,8 +1,9 @@
-.row
-  %section#hero1.hero
-    .inner
-      %h1= @winery.name
-      = render 'timeline'
+%section#hero1.hero
+  .inner  
+    .row
+      .small-12.columns
+        %h1= @winery.name
+        = render 'timeline'
 %section.content
   .inner
     .copy

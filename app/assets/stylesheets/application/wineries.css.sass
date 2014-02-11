@@ -49,12 +49,13 @@ h2
     border-left: 8px solid $white
   @else
     margin: 120px 0 0
-    padding: 0
+    //padding: 0
     //border-top: 8px solid $white
-    display: table
-    border-spacing: 30px 0
+    //display: table
+    border-spacing: 10px 0
   li
     @if $vertical
+      color: $white
       margin: 40px 0
       position: relative
     @else
@@ -78,6 +79,7 @@ h2
   font-size: 0.95em
   line-height: 20px
   position: absolute
+
 .circle
   @if $vertical
     margin-top: -10px
@@ -90,8 +92,8 @@ h2
     right: 0
   width: 10px
   height: 10px
-  background: $bg
-  border: 5px solid $white
+  background: $white
+  //border: 5px solid $white
   border-radius: 50%
   display: block
   position: absolute
@@ -102,7 +104,7 @@ h2
     padding: 50px 20px 0
     border-color: transparent
   @else
-    width: 200px
+    //width: 200px
     max-height: 0
     margin-top: 40px
     vertical-align: top
@@ -112,17 +114,22 @@ h2
   border-style: solid
   border-radius: 0.5em
   position: relative
+
+  a
+    color: $white
+
+
   &:before, &:after
-    content: ""
-    width: 0
-    height: 0
-    border: solid transparent
-    position: absolute
-    pointer-events: none
-    @if $vertical
-      right: 100%
-    @else
-      bottom: 100%
+    //content: ""
+    //width: 0
+    //height: 0
+    //border: solid transparent
+    //position: absolute
+    //pointer-events: none
+    //@if $vertical
+      //right: 100%
+    //@else
+      //bottom: 100%
   &:before
     @if $vertical
       border-right-color: inherit
@@ -165,13 +172,13 @@ label
     top: 20px
     transition: transform 0.2s linear
   @else
-    width: 200px
+    //width: 200px
     white-space: nowrap
     text-overflow: ellipsis
     overflow: hidden
     display: block
     top: 60px
-    //left: 15px
+    left: 15px
 
 .radio
   display: none
