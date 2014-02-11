@@ -3,8 +3,8 @@
     %li.work
       %input.radio.active{checked: "checked", name: "works", type: "radio", id: "timeline-#{vintage}"}/
       .relative
-        %label{for: "timeline-#{vintage}"}= vintage.to_s.split("20").last
-        %span.date= vintage
+        %label{for: "timeline-#{vintage}"}= vintage
+        %span.date= "'" + vintage.to_s.split("20").last
         %span.circle
       .content
         - @winery.wines_in_vintage(vintage).each do |wine|
