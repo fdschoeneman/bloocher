@@ -13,7 +13,7 @@ namespace 'db:development:create' do
         object.showcases.create(
           version: Time.now,
           name: [year, appellation, varietal].join(" ") + "s",
-          description: Faker::Stoked.sentence
+          description: Faker::Company.bs
         )
       end
     end

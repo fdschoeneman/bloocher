@@ -1,3 +1,32 @@
+.row
+  .large-12.columns
+    .showcase.text-center
+
+      .row
+        %h2.subheader= @showcase.name + " ( #{@showcase.wines.count} )"
+      .row
+        %p= @showcase.description
+      .row
+        - @showcase.showcases_wines.each do |sw|
+          %p
+            = link_to sw.wine.winery.name, winery_path(sw.wine.winery)
+            |
+            = link_to sw.wine.name, wine_path(sw.wine)
+          %p.text-left
+            = sw.wine.reviews.first.content
+            = sw.wine.reviews.count
+            more
+
+
+        - if can? :destroy, ShowcasesWine
+          = button_to 'remove from list', showcases_wine_path(showcases_wine), class: "btn", method: :delete
+    %br
+    %br
+    %br
+    %br
+    %br
+
+
 / %script{:type => "text/x-handlebars"}
 /   <div class="navbar">
 /   <div class="navbar-inner">
@@ -74,28 +103,4 @@
 /   <p>{{view Ember.TextField valueBinding='title' cols="30"}}</p>
 /   <p>{{view Ember.TextArea valueBinding='description' cols="50"}}</p>
 /   <p>{{view Ember.TextArea valueBinding='extended' cols="80" rows="10"}}</p>  
-
-.span8
-
-%h3= @showcase.name
-= @showcase.description
-%br
-.badge= @showcase.wines.count
-Wines
-%table.table.table-condensed
-  %thead
-    %tr
-      %th Name
-      %th Winery
-  - @showcase.wines.each do |wine|
-    %tr
-      %td
-        .badge= wine.reviews.count
-        = link_to wine.name, wine_path(wine)
-      %td
-        .badge= wine.winery.wines.count
-        = link_to wine.winery.name, winery_path(wine.winery)
-      %td
-        - if can? :destroy, ShowcasesWine
-          = button_to 'remove from list', showcases_wine_path(showcases_wine), class: "btn", method: :delete
 

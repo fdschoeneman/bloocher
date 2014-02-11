@@ -3,9 +3,18 @@
     %li.work
       %input.radio{checked: "checked", name: "works", type: "radio", id: "timeline-#{vintage}"}/
       .relative
-        %label{for: "timeline-#{vintage}"} Lorem ipsum dolor sit amet
+        %label{for: "timeline-#{vintage}"} Releases
         %span.date= vintage
         %span.circle
       .content
         - @winery.wines_in_vintage(vintage).each do |wine|
           %p= wine.name
+          %p filler
+          %p filler
+          %p filler
+          %p filler
+          %p filler
+          %p filler
+          %p filler
+          %p filler
+          %p filler

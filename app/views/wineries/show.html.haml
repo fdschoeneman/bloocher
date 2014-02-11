@@ -1,4 +1,27 @@
-%section.hero#hero1.text-center
+.row
+  %section#hero1.hero
+    .inner
+      %h1= @winery.name
+      = render 'timeline'
+%section.content
+  .inner
+    .copy
+      %h1 Amazing copy!
+      %p The words are like jumping out at me man!
+%section#hero2.hero
+  .inner
+    .copy
+      %h1 Dem some big ass caves
+      %p You could probably fit in there ;)
+%section.content
+  .inner
+    .copy
+      %h1 An inspiring quote
+      %p /-- file not found --/
+%link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700", rel: "stylesheet", type: "text/css"}/
+%link{href: "http://fonts.googleapis.com/css?family=Noto+Sans", rel: "stylesheet", type: "text/css"}/
+
+%section.hero.inner#hero1.text-center
   .row
     .large-12.columns
       .row

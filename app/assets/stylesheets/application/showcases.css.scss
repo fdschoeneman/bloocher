@@ -1,0 +1,46 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);
+
+div .showcase {
+  //width: 200px;
+  //height: 200px;
+  //padding: 10px;
+  border: 1px solid #ddd;
+  background-size: cover;
+  background-clip: content-box;
+  background-color: #f66f6f;
+  //background-color: #F0EAD6;
+  
+  //background-color: #f3f3ec;
+  box-sizing: border-box;
+  position: relative;
+  margin: auto;
+  top: 30px;
+  font: 400 2em / 180px "Oswald", sans-serif;
+  color: #fbfbfb;
+  text-indent: 40px;
+  
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border: 50px solid transparent;
+    border-bottom: 50px solid #fefefe;
+    bottom: -60px;
+    right: -65px;
+    box-shadow: 0px 7px 6px -9px black;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border: 50px solid transparent;
+    border-top: 50px solid #fefefe;
+    top: -60px;
+    left: -65px;
+    box-shadow: 0px -7px 6px -9px black;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+}
