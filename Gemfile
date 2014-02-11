@@ -22,6 +22,9 @@ gem 'uglifier', '>= 1.3.0'
 # foundation js & css framework
 gem 'foundation-rails'
 
+# makes sure foundation and some other assets load
+gem 'modernizr-rails'
+
 # server
 gem 'thin', '>= 1.5.0'
 
