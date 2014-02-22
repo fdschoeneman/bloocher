@@ -1,12 +1,19 @@
+/ .row
+/ %section#hero1
+/   .inner
+
 %section#hero1.hero
   .inner  
     .row
-      .small-12.columns
-        %h1= @winery.name
-        = render 'timeline'
-%section.content
+      / .small-12.columns
+      %h1= @winery.name
+      / # = render 'timetest'
+      = render 'timeline'
+.row
+  %section.content
   .inner
     .copy
+      = render 'summary'
       %h1 Amazing copy!
       %p The words are like jumping out at me man!
 %section#hero2.hero
@@ -19,12 +26,12 @@
     .copy
       %h1 An inspiring quote
       %p /-- file not found --/
-%link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700", rel: "stylesheet", type: "text/css"}/
-%link{href: "http://fonts.googleapis.com/css?family=Noto+Sans", rel: "stylesheet", type: "text/css"}/
+/ %link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700", rel: "stylesheet", type: "text/css"}/
+/ %link{href: "http://fonts.googleapis.com/css?family=Noto+Sans", rel: "stylesheet", type: "text/css"}/
 
 %section.hero.inner#hero1.text-center
   .row
-    .large-12.columns
+    .small-12.columns
       .row
         %h1= @winery.name
         - if can? :update, "Winery"
