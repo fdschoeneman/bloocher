@@ -9,76 +9,80 @@
       %h1= @winery.name
       / # = render 'timetest'
       = render 'timeline'
-.row
-  %section.content
-  .inner
-    .copy
-      = render 'summary'
-      %h1 Amazing copy!
-      %p The words are like jumping out at me man!
-%section#hero2.hero
-  .inner
-    .copy
-      %h1 Dem some big ass caves
-      %p You could probably fit in there ;)
-%section.content
-  .inner
-    .copy
-      %h1 An inspiring quote
-      %p /-- file not found --/
-/ %link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700", rel: "stylesheet", type: "text/css"}/
-/ %link{href: "http://fonts.googleapis.com/css?family=Noto+Sans", rel: "stylesheet", type: "text/css"}/
-
-%section.hero.inner#hero1.text-center
-  .row
-    .small-12.columns
-      .row
-        %h1= @winery.name
-        - if can? :update, "Winery"
-          = link_to 'Edit', edit_winery_path(@winery)
-          = render partial: 'image_uploader', locals: { imageable: @winery }
-        / %hr
-        /   .row
-        /   - @winery.images.each do |image|
-        /     .th= image_tag image.image.tiny_thumb.url
 
     .row
-      .large-4.small-6.columns
-        = render 'summary'
-      .large-4.small-6.columns
-        = render 'showcases'
-        = button_to "join our wine club", "#", class: "button"
-      .large-4.small-6.columns
-        = render 'timeline'
-      .large-4.small-6.columns
-
-        %h3 Verticals
-
-
-/   .span6
-/     #myCanvasContainer
-/       %canvas#myCanvas{:height => "400", :width => "500"}
-/     #tags
-/       %ul
-/         %li
-/           %a{:href => "http://www.google.com", :target => "_blank"} Google
-/         %li
-/           %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} Pinot noir 
-
-/         %li= link_to @winery.name
-/         - @winery.wines.each do |wine|
-/           = link_to wine.name
-/         - @winery.winery_tags.each do |tag|
-/           = link_to tag[0], html_options: { "data-weight" => tag[1] }
+      / = render 'timetest'
 / .row
-/   .span12
-/     %h3
-/       = "#{@winery_wines.count} Wines" 
-/       - if current_user && current_user.has_role?(:admin)
-/         = link_to "Add a new wine", new_winery_wine_path(@winery)
-/ .row
-/   .span12
-/     #accordion.accordion
-/       = render 'winery_wines'
-/     .paginate= paginate @wines
+/   %section.content
+/   .inner
+/     .copy
+/       = render 'summary'
+/       %h1 Amazing copy!
+/       %p The words are like jumping out at me man!
+/ %section#hero2.hero
+/   .inner
+/     .copy
+/       %h1 Dem some big ass caves
+/       %p You could probably fit in there ;)
+/ %section.content
+/   .inner
+/     .copy
+/       %h1 An inspiring quote
+/       %p /-- file not found --/
+/ / %link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700", rel: "stylesheet", type: "text/css"}/
+/ / %link{href: "http://fonts.googleapis.com/css?family=Noto+Sans", rel: "stylesheet", type: "text/css"}/
 
+/ %section.hero.inner#hero1.text-center
+/   .row
+/     .small-12.columns
+/       .row
+/         %h1= @winery.name
+/         - if can? :update, "Winery"
+/           = link_to 'Edit', edit_winery_path(@winery)
+/           = render partial: 'image_uploader', locals: { imageable: @winery }
+/         / %hr
+/         /   .row
+/         /   - @winery.images.each do |image|
+/         /     .th= image_tag image.image.tiny_thumb.url
+
+/     .row
+/       .large-4.small-6.columns
+/         = render 'summary'
+/       .large-4.small-6.columns
+/         = render 'showcases'
+/         = button_to "join our wine club", "#", class: "button"
+/       .large-4.small-6.columns
+/         = render 'timeline'
+/       .large-4.small-6.columns
+
+/         %h3 Verticals
+
+
+/ /   .span6
+/ /     #myCanvasContainer
+/ /       %canvas#myCanvas{:height => "400", :width => "500"}
+/ /     #tags
+/ /       %ul
+/ /         %li
+/ /           %a{:href => "http://www.google.com", :target => "_blank"} Google
+/ /         %li
+/ /           %a{"data-weight" => "22", :href => "http://www.merciboq.com", :style => "font-size: 4.58ex"} Pinot noir 
+
+/ /         %li= link_to @winery.name
+/ /         - @winery.wines.each do |wine|
+/ /           = link_to wine.name
+/ /         - @winery.winery_tags.each do |tag|
+/ /           = link_to tag[0], html_options: { "data-weight" => tag[1] }
+/ / .row
+/ /   .span12
+/ /     %h3
+/ /       = "#{@winery_wines.count} Wines" 
+/ /       - if current_user && current_user.has_role?(:admin)
+/ /         = link_to "Add a new wine", new_winery_wine_path(@winery)
+/ / .row
+/ /   .span12
+/ /     #accordion.accordion
+/ /       = render 'winery_wines'
+/ /     .paginate= paginate @wines
+
+/ / 

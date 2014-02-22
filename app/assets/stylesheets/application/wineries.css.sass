@@ -15,41 +15,40 @@ $red: #f98262
 
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans)
 
-//body
-  //@if $vertical
-    //max-width: 1200px
-    //margin: 0 auto
-  //@else
-    //margin: 0
-  //padding: 0 5%
-  //font-size: 100%
-  //font-family: 'Noto Sans', sans-serif
-  //color: $white
-  //background: $bg
+body
+  @if $vertical
+    max-width: 1200px
+    margin: 0 auto
+  @else
+    margin: 0
+  padding: 0 5%
+  font-size: 100%
+  font-family: 'Noto Sans', sans-serif
+  color: $white
+  background: $bg
 
-//h2
-  //margin: 3em 0 0 0
-  //font-size: 1.5em
-  //letter-spacing: 2px
-  //text-transform: uppercase
+h2
+  margin: 3em 0 0 0
+  font-size: 1.5em
+  letter-spacing: 2px
+  text-transform: uppercase
 
 /* -------------------------------------
  * timeline
  * ------------------------------------- */
 
 #timeline
-  //list-style: none
+  list-style: none
   @if $vertical
     margin: 50px 0 30px 120px
     padding-left: 30px
     border-left: 8px solid $white
   @else
-    //margin: 20px 0 0
-    //margin: auto
+    margin: 120px 0 0
     padding: 0
-    //border-top: 1px solid $white
-    //display: table
-    border-spacing: 10px 0
+    border-top: 8px solid $white
+    display: table
+    border-spacing: 30px 0
   li
     @if $vertical
       margin: 40px 0
@@ -62,36 +61,36 @@ $red: #f98262
   p
     margin: 0 0 15px
 
-//.date
-  //@if $vertical
-  //  margin-top: -10px
-  //  top: 50%
-  //  left: -158px
-  //@else
-    //text-align: center
-    //top: -55px
-    //left: 0
-    //right: 0
-  //font-size: 0.95em
-  //line-height: 20px
-  //position: absolute
-//.circle
-  //@if $vertical
-    //margin-top: -10px
-    //top: 50%
-    //left: -44px
-  //@else
-    //margin: 0 auto
-    //top: -14px
-    //left: 0
-    //right: 0
-  //width: 10px
-  //height: 10px
-  //background: $bg
-  //border: 5px solid $white
-  //border-radius: 50%
-  //display: block
-  //position: absolute
+.date
+  @if $vertical
+    margin-top: -10px
+    top: 50%
+    left: -158px
+  @else
+    text-align: center
+    top: -55px
+    left: 0
+    right: 0
+  font-size: 0.95em
+  line-height: 20px
+  position: absolute
+.circle
+  @if $vertical
+    margin-top: -10px
+    top: 50%
+    left: -44px
+  @else
+    margin: 0 auto
+    top: -14px
+    left: 0
+    right: 0
+  width: 10px
+  height: 10px
+  background: $bg
+  border: 5px solid $white
+  border-radius: 50%
+  display: block
+  position: absolute
 
 .content
   @if $vertical
@@ -99,15 +98,15 @@ $red: #f98262
     padding: 50px 20px 0
     border-color: transparent
   @else
-    width: 100px
+    width: 200px
     max-height: 0
     margin-top: 40px
     vertical-align: top
     padding: 50px 15px 15px
     transition: width 0.4s linear, max-height 0.4s linear
-  //border-width: 1px
-  //border-style: solid
-  //border-radius: 0.5em
+  border-width: 2px
+  border-style: solid
+  border-radius: 0.5em
   position: relative
   &:before, &:after
     content: ""
@@ -127,10 +126,10 @@ $red: #f98262
       top: 50%
       margin-top: -20px
     @else
-      // border-bottom-color: inherit
-      //border-width: 15px
-      //left: 50%
-      //margin-left: -15px
+      border-bottom-color: inherit
+      border-width: 15px
+      left: 50%
+      margin-left: -15px
   &:after
     @if $vertical
       border-right-color: $bg
@@ -138,11 +137,11 @@ $red: #f98262
       top: 50%
       margin-top: -17px
     @else
-      //border-bottom-color: $bg
-      //border-width: 12px
-      //left: 50%
-      //margin-left: -12px
-  p, a
+      border-bottom-color: $bg
+      border-width: 12px
+      left: 50%
+      margin-left: -12px
+  p
     max-height: 0
     color: transparent
     text-align: justify
@@ -150,17 +149,16 @@ $red: #f98262
     hyphens: auto
     overflow: hidden
 
-label 
+label
   font-size: 1.3em
   position: absolute
   z-index: 100
   cursor: pointer
-  text-color: $white
   @if $vertical
     top: 20px
     transition: transform 0.2s linear
   @else
-    width: 100px
+    width: 200px
     white-space: nowrap
     text-overflow: ellipsis
     overflow: hidden
@@ -170,10 +168,6 @@ label
 
 .radio
   display: none
-
-.vintage-label
-  color: $white
-
 .radio:checked
   & + .relative
     label
@@ -183,27 +177,21 @@ label
       @else
         width: 400px
         transition: width 0.3s linear 0.2s
-        opacity: 1
-    //.circle
-      //background: $red
-    .vintage-label
-      // color: transparent
-      opacity: .5
-      transition: color 0.7s linear 0.3s
+    .circle
+      background: $red
   & ~ .content
-    max-height: 800px
-    //border-color: $white
+    max-height: 180px
+    border-color: $white
     @if $vertical
       margin-right: 20px
       transform: translateX(20px)
       transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear
     @else
       width: 400px
-    p, a
+    p
       max-height: 200px
       color: $white
-      transition: color 0.7s linear 0.3s
-
+      transition: color 0.3s linear 0.3s
 
 /* -------------------------------------
  * mobile phones (vertical version only)

@@ -52,7 +52,7 @@ class Winery < ActiveRecord::Base
   end
 
   def vintages
-    wines.pluck(:vintage).uniq.sort.reverse
+    wines.pluck(:vintage).uniq.sort
   end
 
   def wines_in_vintage(vintage)

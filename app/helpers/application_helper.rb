@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def checked_status(vintage)
-    if vintage == @winery.vintages.first
+    if @winery.vintages.first == vintage 
       "checked"
     else
       ""

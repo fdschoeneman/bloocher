@@ -1,21 +1,35 @@
-%ul.small-block-grid-5#timeline
-  - @winery.vintages[0..4].each do |vintage|
-    
+%ul#timeline
+  - @winery.vintages[-4..-1].each do |vintage|
     %li.work
-      %input.radio.active{ checked: "#{checked_status(vintage)}", name: "works", type: "radio", id: "timeline-#{vintage}"}/
+      / %input#work5.radio{ checked: "#{checked_status(vintage)}", name: "works", type: "radio"}/
+      %input.radio{ checked: checked_status(vintage), name: "works", type: "radio", id: "timeline-#{vintage}"}
       .relative
-        %label.vintage-label{ for: "timeline-#{vintage}" }
-          //= "'" + vintage.to_s.split("20").last
-          %svg{height: "100", width: "100" }
-            %text{fill: "white", x: "45", y: "55" }= "'" + vintage.to_s.split("20").last
-            %circle{cx: "50", cy: "50", fill: "transparent", r: "20", stroke: "white", "stroke-width" => "3" }
-              / # %text{fill: "red", x: "60", y: "0"}= "'" + vintage.to_s.split("20").last
-            / %text{ x="60" y="20" fill="white"} blah
-
-          / %span.circle
+        / %label.vintage-label{ for: "timeline-#{vintage}" }
+        %label{ for: "timeline-#{vintage}" } Lorem ipsum dolor sit amet
+        %span.date
+          = vintage
+        %span.circle
       .content
-        - @winery.wines_in_vintage(vintage).each do |wine|
-          %p= link_to wine.name, wine
-          /# %p= Faker::Stoked.paragraph        
+        %p
+
+/ %ul#timeline
+/   - @winery.vintages[0..4].each do |vintage|
+    
+/     %li.work
+/       %input.radio.active{ checked: "#{checked_status(vintage)}", name: "works", type: "radio", id: "timeline-#{vintage}"}/
+/       .relative
+/         %label.vintage-label{ for: "timeline-#{vintage}" }
+/           //= "'" + vintage.to_s.split("20").last
+/           %svg{height: "100", width: "100" }
+/             %text{fill: "white", x: "45", y: "55" }= "'" + vintage.to_s.split("20").last
+/             %circle{cx: "50", cy: "50", fill: "transparent", r: "20", stroke: "white", "stroke-width" => "3" }
+/               / # %text{fill: "red", x: "60", y: "0"}= "'" + vintage.to_s.split("20").last
+/             / %text{ x="60" y="20" fill="white"} blah
+
+/           / %span.circle
+/       .content
+/         - @winery.wines_in_vintage(vintage).each do |wine|
+/           %p= link_to wine.name, wine
+/           /# %p= Faker::Stoked.paragraph        
 
           
