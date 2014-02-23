@@ -15,23 +15,23 @@ $red: #f98262
 
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans)
 
-body
-  @if $vertical
-    max-width: 1200px
-    margin: 0 auto
-  @else
-    margin: 0
-  padding: 0 5%
-  font-size: 100%
-  font-family: 'Noto Sans', sans-serif
-  color: $white
-  background: $bg
+// body
+//   @if $vertical
+//     max-width: 1200px
+//     margin: 0 auto
+//   @else
+//     margin: 0
+//   padding: 0 5%
+//   font-size: 100%
+//   font-family: 'Noto Sans', sans-serif
+//   color: $white
+//   background: $bg
 
-h2
-  margin: 3em 0 0 0
-  font-size: 1.5em
-  letter-spacing: 2px
-  text-transform: uppercase
+// h2
+//   margin: 3em 0 0 0
+//   font-size: 1.5em
+//   letter-spacing: 2px
+//   text-transform: uppercase
 
 /* -------------------------------------
  * timeline
@@ -46,7 +46,7 @@ h2
   @else
     margin: 120px 0 0
     padding: 0
-    border-top: 8px solid $white
+    // border-top: 8px solid $white
     display: table
     border-spacing: 30px 0
   li
@@ -61,36 +61,36 @@ h2
   p
     margin: 0 0 15px
 
-.date
-  @if $vertical
-    margin-top: -10px
-    top: 50%
-    left: -158px
-  @else
-    text-align: center
-    top: -55px
-    left: 0
-    right: 0
-  font-size: 0.95em
-  line-height: 20px
-  position: absolute
-.circle
-  @if $vertical
-    margin-top: -10px
-    top: 50%
-    left: -44px
-  @else
-    margin: 0 auto
-    top: -14px
-    left: 0
-    right: 0
-  width: 10px
-  height: 10px
-  background: $bg
-  border: 5px solid $white
-  border-radius: 50%
-  display: block
-  position: absolute
+// .date
+//   @if $vertical
+//     margin-top: -10px
+//     top: 50%
+//     left: -158px
+//   @else
+//     text-align: center
+//     top: -55px
+//     left: 0
+//     right: 0
+//   font-size: 0.95em
+//   line-height: 20px
+//   position: absolute
+// .circle
+//   @if $vertical
+//     margin-top: -10px
+//     top: 50%
+//     left: -44px
+//   @else
+//     margin: 0 auto
+//     top: -14px
+//     left: 0
+//     right: 0
+//   width: 10px
+//   height: 10px
+//   background: $bg
+//   border: 5px solid $white
+//   border-radius: 50%
+//   display: block
+//   position: absolute
 
 .content
   @if $vertical
@@ -141,7 +141,7 @@ h2
       border-width: 12px
       left: 50%
       margin-left: -12px
-  p
+  p, a
     max-height: 0
     color: transparent
     text-align: justify
@@ -163,11 +163,26 @@ label
     text-overflow: ellipsis
     overflow: hidden
     display: block
-    top: 60px
+    // top: 160px
     left: 15px
 
 .radio
   display: none
+  & + .relative
+    label
+      cursor: auto
+      @if $vertical
+        transform: translateX(42px)
+      @else
+        // width: 400px
+        transition: width 0.3s linear 0.2s
+      // .circle
+      //   background: $red
+      .vintage-label
+        color: transparent
+        opacity: .5
+        transition: color 0.7s linear 0.3s
+
 .radio:checked
   & + .relative
     label
@@ -177,10 +192,15 @@ label
       @else
         width: 400px
         transition: width 0.3s linear 0.2s
-    .circle
-      background: $red
+      .vintage-label
+        color: $red
+        opacity: 1
+        transition: color 0.7s linear 0.3s
+    // .circle
+    //   background: $red
+
   & ~ .content
-    max-height: 180px
+    max-height: 280px
     border-color: $white
     @if $vertical
       margin-right: 20px
@@ -188,7 +208,7 @@ label
       transition: max-height 0.4s linear, border-color 0.5s linear, transform 0.2s linear
     @else
       width: 400px
-    p
+    p, a
       max-height: 200px
       color: $white
       transition: color 0.3s linear 0.3s

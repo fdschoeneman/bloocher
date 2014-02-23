@@ -4,13 +4,11 @@
 
 %section#hero1.hero
   .inner  
-    .row
-      / .small-12.columns
-      %h1= @winery.name
-      / # = render 'timetest'
-      = render 'timeline'
+    .small-12.columns
+      .row
+        %h1= @winery.name
+        = render 'timeline'
 
-    .row
       / = render 'timetest'
 / .row
 /   %section.content

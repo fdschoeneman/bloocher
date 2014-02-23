@@ -1,16 +1,18 @@
 %ul#timeline
   - @winery.vintages[-4..-1].each do |vintage|
     %li.work
-      / %input#work5.radio{ checked: "#{checked_status(vintage)}", name: "works", type: "radio"}/
       %input.radio{ checked: checked_status(vintage), name: "works", type: "radio", id: "timeline-#{vintage}"}
       .relative
-        / %label.vintage-label{ for: "timeline-#{vintage}" }
-        %label{ for: "timeline-#{vintage}" } Lorem ipsum dolor sit amet
-        %span.date
-          = vintage
-        %span.circle
+        %label.vintage-label{ for: "timeline-#{vintage}" }
+          = @winery.wines_in_vintage(vintage).count
+          %svg{height: "100", width: "100" }
+            %text{ fill: "white", x: "18", y: "29" }
+              = "'" + vintage.to_s.split("20").last
+            %circle{ cx: "25", cy: "25", fill: "transparent", r: "20", stroke: "white", "stroke-width" => "3" }          
       .content
-        %p
+        - @winery.wines_in_vintage(vintage).each do |wine|
+          %p= link_to wine.name, wine
+          %p= Faker::Stoked.paragraph        
 
 / %ul#timeline
 /   - @winery.vintages[0..4].each do |vintage|
