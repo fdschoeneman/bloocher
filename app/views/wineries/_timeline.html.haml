@@ -1,18 +1,19 @@
 %ul#timeline
-  - @winery.vintages[-4..-1].each do |vintage|
+  - @winery.vintages[-4..-1].try(:each) do |vintage|
     %li.work
       %input.radio{ checked: checked_status(vintage), name: "works", type: "radio", id: "timeline-#{vintage}"}
       .relative
-        %label.vintage-label{ for: "timeline-#{vintage}" }
-          = @winery.wines_in_vintage(vintage).count
-          %svg{height: "100", width: "100" }
-            %text{ fill: "white", x: "18", y: "29" }
+        %label{ for: "timeline-#{vintage}" }
+          %svg{height: "200", width: "200" }
+            %text{ fill: "white", x: "33", y: "59" }
               = "'" + vintage.to_s.split("20").last
-            %circle{ cx: "25", cy: "25", fill: "transparent", r: "20", stroke: "white", "stroke-width" => "3" }          
+              \/
+              = @winery.wines_in_vintage(vintage).try(:count)
+            %circle{ cx: "50", cy: "50", fill: "transparent", r: "30", stroke: "white", "stroke-width" => "3" }          
       .content
         - @winery.wines_in_vintage(vintage).each do |wine|
           %p= link_to wine.name, wine
-          %p= Faker::Stoked.paragraph        
+        /   %p= Faker::Stoked.paragraph        
 
 / %ul#timeline
 /   - @winery.vintages[0..4].each do |vintage|

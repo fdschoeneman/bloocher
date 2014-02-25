@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.0'
 
 gem 'rails'
 
@@ -120,7 +120,6 @@ gem 'faker-bloocher'
 gem 'faker-stoked', github: 'fdschoeneman/faker-stoked', branch: 'master'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-  gem 'debugger'
 
 group :development do 
 
@@ -175,6 +174,7 @@ group :test, :development do
   gem 'rb-fsevent'
   
   # debugging
+  gem 'debugger'
   gem 'pry'
   gem 'awesome_print', require: 'ap'
 
