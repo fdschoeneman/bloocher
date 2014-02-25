@@ -5,11 +5,10 @@
       .relative
         %label{ for: "timeline-#{vintage}" }
           %svg{height: "200", width: "200" }
-            %text{ fill: "white", x: "33", y: "59" }
+            %text{ fill: "white", x: "25", y: "39" }
               = "'" + vintage.to_s.split("20").last
-              \/
-              = @winery.wines_in_vintage(vintage).try(:count)
-            %circle{ cx: "50", cy: "50", fill: "transparent", r: "30", stroke: "white", "stroke-width" => "3" }          
+              / \/(#{@winery.wines_in_vintage(vintage).try(:count)})
+            %circle{ cx: "30", cy: "30", fill: "transparent", r: "25", stroke: "white", "stroke-width" => "3" }          
       .content
         - @winery.wines_in_vintage(vintage).each do |wine|
           %p= link_to wine.name, wine
