@@ -8,6 +8,8 @@
     .small-12.columns
       .row
         %h1= @winery.name
+        - if can? :edit, :winery
+          %i= link_to "", edit_winery_path(@winery), :class => "fi-page-edit"
         = render 'timeline'
 
       / = render 'timetest'

@@ -21,6 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 
 # foundation js & css framework
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
+
 
 # makes sure foundation and some other assets load
 gem 'modernizr-rails'
