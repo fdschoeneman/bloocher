@@ -37,7 +37,6 @@ class WinesController < ApplicationController
   end
 
   def new
-    # debugger
     @winery = Winery.friendly.find(params[:winery_id])
     @wine = @winery.wines.build
 
@@ -54,10 +53,11 @@ class WinesController < ApplicationController
   def create
 
     @wine = Wine.new(wine_params)
-
+    # @winery = 
+# debugger
     respond_to do |format|
       if @wine.save
-        format.html { redirect_to @wine, notice: 'Wine was successfully created.' }
+        format.html { redirect_to @wine.winery, notice: 'Wine was successfully created.' }
         format.json { render json: @wine, status: :created, location: @wine }
       else
         format.html { render action: "new" }
