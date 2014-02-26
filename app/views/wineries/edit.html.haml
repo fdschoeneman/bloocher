@@ -1,7 +1,13 @@
-%h1 Editing winery
+.row
+  .small-offset-1.large-offset-2
+    .small-10.columns
+      .text-right
+        %h1 
+          = @winery.name
+          | edit
+      .row
+      = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @winery
-\|
-= link_to 'Back', wineries_path
+      = link_to 'Show', @winery
+      \|
+      = link_to 'Back', wineries_path

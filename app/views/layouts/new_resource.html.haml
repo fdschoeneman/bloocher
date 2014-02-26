@@ -1,0 +1,14 @@
+%body{:class => "#{controller_name} #{action_name}"}
+  = render 'head'
+  - unless controller_name == "wineries" && controller.action_name == "show"
+    = render 'navigation'
+  = render 'messages'
+  .row
+    .small-10.large-8.columns.small-offset-1.large-offset-2
+      = yield 
+  = render 'footer'
+  = javascript_include_tag "application"
+  = javascript_include_tag "modernizr"
+
+  - if Rails.env.development?
+    = debug(params) 

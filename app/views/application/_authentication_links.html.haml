@@ -8,8 +8,6 @@
   %ul
     %li= link_to "login", '#', data: {:'reveal-id' => 'loginModal'}
     %li= link_to "become a bahler", '#', data: {:'reveal-id' => 'signupModal'}
-    / %li= link_to "login", new_user_session_path
-    / # = nav_link_to "become a bahler", new_user_registration_path
 
 #loginModal.reveal-modal.tiny{"data-reveal" => ""}
   %h2 Login with your email address
@@ -28,5 +26,4 @@
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => '', id: '' }) do |f|
     = f.input :email, :required => true, placeholder: "charlie.ball@gmail.com"
     = f.button :submit, 'Sign up', :class => 'button expand'
-  /# = render "devise/shared/links"
-/ %a{"data-reveal" => "", "data-reveal-id" => "myModal", href: "#"} Click Me For A Modal
+  / = render "devise/shared/links"

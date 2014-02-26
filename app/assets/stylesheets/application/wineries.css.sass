@@ -100,9 +100,9 @@ $red: #f98262
   @else
     width: 200px
     max-height: 0
-    margin-top: 40px
+    // margin-top: 40px
     vertical-align: top
-    padding: 50px 15px 15px
+    // padding: 50px 15px 15px
     transition: width 0.4s linear, max-height 0.4s linear
   // border-width: 2px
   // border-style: solid
@@ -149,22 +149,23 @@ $red: #f98262
     hyphens: auto
     overflow: hidden
 
-label
-  font-size: 1.3em
-  position: absolute
-  z-index: 100
-  cursor: pointer
-  @if $vertical
-    top: 20px
-    transition: transform 0.2s linear
-  @else
-    width: 200px
-    white-space: nowrap
-    text-overflow: ellipsis
-    overflow: hidden
-    display: block
-    // top: 160px
-    left: 15px
+label 
+  .horizontal-timeline
+    font-size: 1.3em
+    position: absolute
+    z-index: 100
+    cursor: pointer
+    @if $vertical
+      top: 20px
+      transition: transform 0.2s linear
+    @else
+      width: 200px
+      white-space: nowrap
+      text-overflow: ellipsis
+      overflow: hidden
+      display: block
+      // top: 160px
+      left: 15px
 
 .radio
   display: none
@@ -185,19 +186,20 @@ label
 
 .radio:checked
   & + .relative
-    label
-      cursor: auto
-      @if $vertical
-        transform: translateX(42px)
-      @else
-        width: 400px
-        transition: width 0.3s linear 0.2s
-      // .vintage-label
-      //   color: $red
-      //   opacity: 1
-      //   transition: color 0.7s linear 0.3s
-    // .circle
-    //   background: $red
+    label 
+      .horizontal-timeline
+        cursor: auto
+        @if $vertical
+          transform: translateX(42px)
+        @else
+          width: 400px
+          transition: width 0.3s linear 0.2s
+        // .vintage-label
+        //   color: $red
+        //   opacity: 1
+        //   transition: color 0.7s linear 0.3s
+      // .circle
+      //   background: $red
 
   & ~ .content
     max-height: 280px

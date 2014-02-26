@@ -3,8 +3,8 @@
     %li.work
       %input.radio{ checked: checked_status(vintage), name: "works", type: "radio", id: "timeline-#{vintage}"}
       .relative
-        %label{ for: "timeline-#{vintage}" }
-          %svg{height: "200", width: "200" }
+        %label.horizontal-timeline{ for: "timeline-#{vintage}" }
+          %svg{height: "60", width: "100" }
             %text{ fill: "white", x: "25", y: "39" }
               = "'" + vintage.to_s.split("20").last
               / \/(#{@winery.wines_in_vintage(vintage).try(:count)})
@@ -12,3 +12,5 @@
       .content
         - @winery.wines_in_vintage(vintage).each do |wine|
           %p= link_to wine.name, wine
+        - if can? :edit, :winery
+          %i= link_to "", new_winery_wine_path(winery_id: @winery.id), :class => "fi-plus"

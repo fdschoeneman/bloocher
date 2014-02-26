@@ -1,5 +1,14 @@
-.row-fluid
-  %h3 Add a new wine for #{@winery.name}
+.row
+  %br
+  .text-right
+    %h2
+      = @winery.name
+      | 
+      Add a wine
+  %hr
   = render 'form'
 
-  = link_to 'Back', wines_path
+/ = link_to 'Show', @winery
+/ \|
+/ = link_to 'Back', wineries_path
+

@@ -3,6 +3,8 @@ class WineriesController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :set_winery, only: [:show, :edit, :update, :destroy]
 
+  layout "new_resource", only: [:new, :edit]
+
   def index
     @page_title = "Wineries"
     

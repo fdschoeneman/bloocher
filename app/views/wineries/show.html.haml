@@ -5,6 +5,9 @@
 %section.hero#hero1{ :style => "background-image: url(#{"/assets/cage-top-section.jpg"})" }
 
   .inner  
+    - if can? :edit, :winery
+      .text-left
+        %i= link_to "", edit_winery_path(@winery), :class => "fi-upload"
     .small-12.columns
       .row
         %h1= @winery.name
