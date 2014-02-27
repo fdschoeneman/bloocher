@@ -11,6 +11,6 @@
             %circle{ cx: "30", cy: "30", fill: "transparent", r: "25", stroke: "white", "stroke-width" => "3" }          
       .content
         - @winery.wines_in_vintage(vintage).each do |wine|
-          %p= link_to wine.name, wine
+          %p= link_to wine.name, [wine.winery, wine]
         - if can? :edit, :winery
-          %i= link_to "", new_winery_wine_path(winery_id: @winery.id), :class => "fi-plus"
+          %i= link_to "", new_winery_wine_path(@winery), :class => "fi-plus"

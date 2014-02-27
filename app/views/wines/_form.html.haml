@@ -16,37 +16,72 @@
 /         .small-9.columns
 /           %input#right-label{placeholder: "Inline Text Input", type: "text"}/
 
-= simple_form_for([@winery, @wine]) do |f|
-  .row
-    = f.error_notification
+/ %form{"data-abide" => ""}
+/   .name-field
+/     %label.right.inline
+/       Your name
+/       %small required
+/     %input{pattern: "[a-zA-Z]+", required: "", type: "text"}/
+/     %small.error Name is required and must be a string.
+/   .email-field
+/     %label
+/       Email
+/       %small required
+/       %input{required: "", type: "email"}/
+/     %small.error An email address is required.
+= form_for [@winery, @wine], html: {"data-abide" => ''} do |f|
   .row
     .small-2.columns
-      %label.right.inline{for: "right-label"}
+      .right.inline
         = f.label :name
+        %small required
     .small-10.columns
-      = f.text_field :name
+      = f.text_field :name, placeholder: "The wine's name or title", :required => '', type: "text", html_options: { pattern: "alpha_numeric" }
+      = content_tag(:small, "We need this.", class: "error")
   .row
     .small-2.columns
-      %label.right.inline= f.label :vintage
+      = f.label :vintage, class: "right inline"
+    .small-3.columns
+      .row.collapse
+        .small-9.columns
+          = f.text_field :vintage, :required => '' 
+          = content_tag(:small, "We need this.", class: "error")
+        .small-3.columns
+          %span.postfix
+            ce
+    .small-1.columns
+      = f.label :alcohol, class: "right inline"
     .small-2.columns
-      = f.text_field :vintage 
+      .row.collapse
+        .small-9.columns
+          = f.text_field :alcohol
+        .small-3.columns
+          %span.postfix
+            \%
     .small-2.columns
-      %label.right.inline= f.label :alcohol
+      = f.label :ph, class: "right inline"
     .small-2.columns
-      = f.text_field :alcohol
-    .small-2.columns
-      %label.right.inline= f.label :ph, "pH"
-    .small-2.columns
-      = f.text_field :ph
+      .row.collapse
+        .small-9.columns
+          = f.text_field :ph
+        .small-3.columns
+          %span.postfix
+            \%  
   .row
     .small-2.columns
-      %label.right.inline= f.label :bottled_on
-    .small-4.columns
+      .right.inline
+        = f.label :bottled_on, class: "right inline"
+    .small-3.columns
       = f.date_field :bottled_on
-    .small-2.columns
-      %label.right.inline= f.label :released_on
-    .small-4.columns
+    .small-2.small-offset-2.columns
+      .right.inline= f.label :released_on, class: "right inline"
+    .small-3.columns
       = f.date_field :released_on
   .row
     .small-10.small-offset-2.columns
       = f.button :submit, class: "button expand"
+
+
+/     = f.text_field :name, html_options: {pattern: "[a-zA-Z]+", required: "", type: "text" }
+/     %small.error Name is required and must be a string.
+/   %button{type: "submit"} Submit

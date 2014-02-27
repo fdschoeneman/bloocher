@@ -14,7 +14,7 @@ feature "Resources::Create Resource Feature Test" do
     fill_in 'winery_name', with: 'Breggo'
     fill_in 'winery_mission', with: Faker::Stoked.sentence
     fill_in 'winery_history', with: Faker::Stoked.paragraph
-    click_button 'Create Winery'
+    click_button 'Submit Winery'
     Winery.where(name: 'Breggo').count.must_equal 1
     Producer.where(name: 'Breggo, Inc.').count.must_equal 1
     URI.parse(current_url).request_uri.must_equal "/wineries/breggo"
@@ -33,7 +33,7 @@ feature "Resources::Create Resource Feature Test" do
     fill_in 'winery_name', with: 'Breggo'
     fill_in 'winery_mission', with: Faker::Stoked.sentence
     fill_in 'winery_history', with: Faker::Stoked.paragraph
-    click_button 'Create Winery'
+    click_button 'Submit Winery'
     Winery.where(name: 'Breggo').count.must_equal 1
     Producer.where(name: 'Breggo, Inc.').count.must_equal 1
     URI.parse(current_url).request_uri.must_equal "/wineries/breggo"

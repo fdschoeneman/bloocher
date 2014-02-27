@@ -33,9 +33,10 @@ describe WinesController do
         assert_difference('Wine.count') { 
         post :create, wine: wine_attrs } 
       }
-      And { assert_redirected_to wine_path(assigns(:wine)) }
+      And { assert_redirected_to([winery, winery.wines.last]) }
     end
   end
+
 
   describe "show" do
     
