@@ -7,7 +7,8 @@ class Wine < ActiveRecord::Base
   resourcify
   
   validates :name, :vintage, presence: true
-  validates :vintage, :cases_produced, numericality: true
+  validates :vintage, numericality: true
+  validates :cases_produced, numericality: true, allow_blank: true
   validates :vintage, length: { is: 4 }
 
   belongs_to :winery

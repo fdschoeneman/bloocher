@@ -20,3 +20,6 @@ $(document).ready ->
     , wheelZoom: false
     , freezeActive: true
   	, "tags")
+
+
+  $('.alert-box').hide().delay(800).fadeIn(800).delay(4000).fadeOut(800)

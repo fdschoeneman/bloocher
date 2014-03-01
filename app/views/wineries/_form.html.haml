@@ -1,4 +1,4 @@
-.row%form{"data-abide" => ""}
+.row
   .name-field
     %label
       Your name
@@ -14,7 +14,7 @@
   %button{type: "submit"} Submit
 
 .row
-      = form_for([@producer, @winery]) do |f|
+  = form_for([@producer, @winery]) do |f|
     = f.label :producer_name
     = f.text_field :producer_name, placeholder: "Full legal name of your Winery, please, in case people search for it.", data: {autocomplete_source: Producer.order(:name).map(&:name)}
     = f.label :winery_name

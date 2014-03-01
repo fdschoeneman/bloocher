@@ -55,6 +55,10 @@ feature "Resources::Create Resource Feature Test" do
     URI.parse(current_url).request_uri.must_equal "/wineries/new"
   end
 
+  scenario "create a wine from a winery page" do 
+
+  end
+
   scenario "create vineyard" do 
     # visit new_vineyard_path
     # save_and_open_page

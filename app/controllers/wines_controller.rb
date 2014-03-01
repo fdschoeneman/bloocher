@@ -52,12 +52,13 @@ class WinesController < ApplicationController
   end
 
   def create
-    @winery = Winery.friendly.find(params[:winery_id])
+
     @wine = Wine.new(wine_params)
+    @wine.winery = Winery.friendly.find(params[:winery_id])
 
     respond_to do |format|
       if @wine.save
-        format.html { redirect_to [@wine.winery, @wine], notice: 'Wine was successfully created.' }
+        format.html { redirect_to @wine.winery, notice: 'Wine was successfully created.' }
         format.json { render json: @wine, status: :created, location: @wine }
       else
         format.html { render action: "new" }
@@ -120,7 +121,6 @@ private
   end
 
   def wine_params
-
     params.require(:wine).permit(["winery_id", "vintage", "cases_produced", "days_in_oak", "winery_id", "lay_down_until", "drink_before", "acid_added", "bottled_on", "released_on", "name", "winemaker_notes", "ph", "residual_sugar", "alcohol", "new_french_oak", "one_yr_old_french_oak", "two_yr_old_french_oak", "three_yr_old_french_oak", "new_american_oak", "one_yr_old_american_oak", "two_yr_old_american_oak", "three_yr_old_american_oak", "created_at", "updated_at", "category", "short_url"])
   end
 end

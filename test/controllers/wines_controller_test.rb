@@ -28,12 +28,14 @@ describe WinesController do
     
     describe "wine and redirect to parent winery" do
 
-      When(:wine_attrs) { attributes_for(:wine, winery_id: winery.id) }
+      When(:wine_attrs) { attributes_for(:wine) }
       Then { 
         assert_difference('Wine.count') { 
-        post :create, wine: wine_attrs } 
+          post :create, { 
+            wine: wine_attrs, winery_id: winery.id }
+        }
       }
-      And { assert_redirected_to([winery, winery.wines.last]) }
+      And { assert_redirected_to(winery) }
     end
   end
 
