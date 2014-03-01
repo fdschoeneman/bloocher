@@ -1,4 +1,4 @@
-%ul#timeline
+%ol#timeline
   - @winery.vintages[-4..-1].try(:each) do |vintage|
     %li.work
       %input.radio{ checked: checked_status(vintage), name: "works", type: "radio", id: "timeline-#{vintage}"}
@@ -6,11 +6,11 @@
         %label.horizontal-timeline{ for: "timeline-#{vintage}" }
           %svg{height: "60", width: "100" }
             %text{ fill: "white", x: "25", y: "39" }
-              = "'" + vintage.to_s.split("20").last
+              = oughtify(vintage)
               / \/(#{@winery.wines_in_vintage(vintage).try(:count)})
             %circle{ cx: "30", cy: "30", fill: "transparent", r: "25", stroke: "white", "stroke-width" => "3" }          
       .content
         - @winery.wines_in_vintage(vintage).each do |wine|
-          %p= link_to wine.name, [wine.winery, wine]
+          %p= link_to "#{oughtify(vintage)} #{wine.name}", [wine.winery, wine]
         - if can? :edit, :winery
-          %i= link_to "", new_winery_wine_path(@winery), :class => "fi-plus"
+          %i= link_to("", new_winery_wine_path(@winery, vintage: vintage), :class => "fi-plus" )

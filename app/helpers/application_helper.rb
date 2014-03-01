@@ -71,4 +71,10 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def oughtify(year)
+
+    "'" + year.to_s.split("20").last
+  end
+
 end

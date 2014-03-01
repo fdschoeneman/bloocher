@@ -1,14 +1,9 @@
-.row
-  %br
-  .text-right
-    %h2
-      = @winery.name
-      | 
-      Add a wine
-  %hr
-  = render 'form'
+.text-right
+  %h2
+    = @winery.name
+    | 
+    Add a wine
+%hr
+= render partial: 'form', locals: { button_label: "create your awesome winery", back_to: @winery }
 
-/ = link_to 'Show', @winery
-/ \|
-/ = link_to 'Back', wineries_path
 

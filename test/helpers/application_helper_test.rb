@@ -29,4 +29,14 @@ describe ApplicationHelper do
   describe "link helpers" do 
 
   end
+
+  describe "oughtify" do 
+
+    it "should turn a 4 digit year into the ought form" do
+
+      oughtify("2008").must_equal "'08"
+    end
+
+
+  end
 end

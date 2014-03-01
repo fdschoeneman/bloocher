@@ -1,13 +1,8 @@
+.text-right
+  %h1 
+    = @winery.name
+    | edit 
 .row
-  .small-offset-1.large-offset-2
-    .small-10.columns
-      .text-right
-        %h1 
-          = @winery.name
-          | edit
-      .row
-      = render 'form'
+%hr
+= render partial: 'form', locals: { button_label: "Update", back_to: @winery}
 
-      = link_to 'Show', @winery
-      \|
-      = link_to 'Back', wineries_path

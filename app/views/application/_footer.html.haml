@@ -1,22 +1,16 @@
-/ .row
-/   .small-12.columns
-
-/     %ul.inline-list.right
-/       = render 'resource_links'
-/       = render 'boilerplate_links'
-/       / = render 'authentication_links' 
-.row
-  %nav.top-bar{"data-topbar" => ""}
-    %ul.title-area
-      %li.name
-      %li.toggle-topbar.menu-icon
-        %a{href: "#"} Menu
-    %section.top-bar-section
-      %ul.right
-        = render 'boilerplate_links'
-      %ul.left
-        %li
-          %a{href: "#"} top
+%footer
+  .row
+    %nav.top-bar{"data-topbar" => ""}
+      %ul.title-area
+        %li.name
+        %li.toggle-topbar.menu-icon
+          %a{href: "#"} Menu
+      %section.top-bar-section
+        %ul.right
+          = render 'boilerplate_links'
+        %ul.left
+          %li
+            %a{href: "#"} top
 
 = javascript_include_tag "application"
 

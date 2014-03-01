@@ -3,7 +3,7 @@ class WinesController < ApplicationController
   respond_to :json, :html
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
 
-  layout "new_resource", only: [:new, :edit]
+  layout "form", only: [:new, :edit]
   
   def index
     @page_title = "Wines"
@@ -38,8 +38,9 @@ class WinesController < ApplicationController
   end
 
   def new
+    
     @winery = Winery.friendly.find(params[:winery_id])
-    @wine = @winery.wines.build
+    @wine = @winery.wines.build(vintage: params[:vintage])
 
     respond_to do |format|
       format.html 

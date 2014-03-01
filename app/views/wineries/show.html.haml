@@ -8,10 +8,20 @@
       .row
         %h1= @winery.name
         - if can? :edit, :winery
-          %i= link_to "", edit_winery_path(@winery), :class => "fi-page-edit"
+          %span.has-tip{"data-tooltip" => "", "data-width" => "210", title: "edit this winery"}
+            %i= link_to "", edit_winery_path(@winery), :class => "fi-page-edit"
+          |
+          %span.has-tip{"data-tooltip" => "", "data-width" => "210", title: "add a wine to this winery"}
+            %i= link_to "", new_winery_wine_path(@winery), :class => "fi-plus"    
         = render 'timeline'
+.row
+  %section.content
+    .inner
+      %hr
+      %h1 Amazing copy!
+      %p The words are like jumping out at me man!
 
-      / = render 'timetest'
+/ = render 'timetest'
 / .row
 /   %section.content
 /   .inner

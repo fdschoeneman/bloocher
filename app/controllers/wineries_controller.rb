@@ -3,7 +3,7 @@ class WineriesController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :set_winery, only: [:show, :edit, :update, :destroy]
 
-  layout "new_resource", only: [:new, :edit]
+  layout "form", only: [:new, :edit]
 
   def index
     @page_title = "Wineries"
@@ -73,7 +73,7 @@ class WineriesController < ApplicationController
   def update
 
     respond_to do |format|
-      if @winery.update_attributes(params[:winery])
+      if @winery.update_attributes(winery_params)
         format.html { redirect_to @winery, notice: 'Winery was successfully updated.' }
         format.json { head :no_content }
       else
