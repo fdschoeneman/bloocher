@@ -1,0 +1,23 @@
+.row
+  .small-12.columns
+    .text-center
+      %h1 People
+    %ul.small-block-grid-6
+      - @winery.positions.each do |position|
+        %li
+          %p
+            - unless position.user.images.first.nil?
+              .th= image_tag(position.user.images.first.image.url)
+
+            = link_to position.user.name, user_path(position.user)
+            = position.title.titleize + ":"
+
+
+            - if position.tenure_end > Date.today
+              since
+              = position.tenure_start.year 
+            - else
+              from 
+              = position.tenure_start.year
+              until
+              = position.tenure_end.year

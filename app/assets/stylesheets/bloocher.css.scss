@@ -121,7 +121,7 @@ header a{
 }
 
 #hero1 {
-  background-image: image-url("cage-top-section.jpg");
+  background-image: image-url("slide-2.jpg");
   background-size:cover;
   background-position:center center;
   background-attachment:fixed;
@@ -165,5 +165,9 @@ footer {
   padding-top: 100px;
 }
 
-
+.newspaper {
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count:2;
+}
 

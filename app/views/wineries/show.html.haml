@@ -1,28 +1,10 @@
-%section.hero#hero1
-
-  .inner  
-    - if can? :edit, :winery
-      .text-left
-        %i= link_to "", edit_winery_path(@winery), :class => "fi-upload"
-    .small-12.columns
-      .row
-        %h1= @winery.name
-        - if can? :edit, :winery
-          %span.has-tip{"data-tooltip" => "", "data-width" => "210", title: "edit this winery"}
-            %i= link_to "", edit_winery_path(@winery), :class => "fi-page-edit"
-          |
-          %span.has-tip{"data-tooltip" => "", "data-width" => "210", title: "add a wine to this winery"}
-            %i= link_to "", new_winery_wine_path(@winery), :class => "fi-plus"    
-        = render 'timeline'
-.row
-  .small-12.columns
-    %hr
-/ = render 'timetest'
+= render 'timeline'
+= render 'summary'
+= render 'credits'
 / .row
 /   %section.content
 /   .inner
 /     .copy
-/       = render 'summary'
 /       %h1 Amazing copy!
 /       %p The words are like jumping out at me man!
 / %section#hero2.hero

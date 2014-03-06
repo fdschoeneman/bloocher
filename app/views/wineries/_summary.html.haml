@@ -1,25 +1,11 @@
 .row
-  .large-4.small-6.columns
-    .text-center
-      %h3 Mission
-      = @winery.mission
-  %hr
-  .text-center
-    %h4 History
-= @winery.history
-%hr
-%h3 People
-- @winery.positions.each do |position|
-  %p
-    = position.title.titleize + ":"
-    = link_to position.user.name, user_path(position.user)
-
-
-    - if position.tenure_end > Date.today
-      since
-      = position.tenure_start.year 
-    - else
-      from 
-      = position.tenure_start.year
-      until
-      = position.tenure_end.year
+  .small-12.large-8.large-offset-2.columns
+    %br
+    %h1.text-center Mission
+    = @winery.mission
+.row
+  .small-12.large-8.large-offset-2.columns
+    %hr
+    .newspaper
+      %h1 History
+      = @winery.history

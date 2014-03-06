@@ -2,8 +2,8 @@ namespace 'db:development:create' do
 
   task images: :environment do
 
-    imageable_models = %w[producer winery vineyard wine artist showcase]
-    satisfy_dependencies(imageable_models + ["user"])
+    imageable_models = %w[producer winery vineyard wine artist showcase user] 
+    satisfy_dependencies(imageable_models)
 
     imageable_models.each do |imageable_model|
 
@@ -26,11 +26,13 @@ namespace 'db:development:create' do
           )
         end
 
-        object.carousels.create(name: Faker::Stoked.adjective)
-        object.images.each do |image|
-          object.carousels.last.carousels_images.create(
-            image_id: image.id
-          )
+        unless imageable_model == "user"
+            object.carousels.create(name: Faker::Stoked.adjective)
+          object.images.each do |image|
+            object.carousels.last.carousels_images.create(
+              image_id: image.id
+            )
+          end
         end
       end
     end
