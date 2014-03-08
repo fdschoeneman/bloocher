@@ -3,7 +3,7 @@
     .text-center
       %h1 People
     %ul.small-block-grid-2.medium-block-grid-4
-      - positionable.positions.each do |position|
+      - positions.each do |position|
         %li
           %br
           %br
@@ -25,6 +25,3 @@
                 = position.tenure_start.year
                 until
                 = position.tenure_end.year
-    - if can? :edit, :positionable
-      .text-left
-        %i= link_to "", edit_winery_path(@winery), :class => "fi-upload"

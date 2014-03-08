@@ -1324,12 +1324,10 @@ $topbar-divider-border-top: solid 1px darken($topbar-bg-color, 10%);
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
 
+@import 'foundation';
 textarea { 
   height: auto; 
-  min-height: 100px; 
 }
-
-@import 'foundation';
 
 @include exports("global") {
   @import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
