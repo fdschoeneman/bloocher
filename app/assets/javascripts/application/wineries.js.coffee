@@ -1,6 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+# # Place all the behaviors and hooks related to the matching controller here.
+# # All this logic will automatically be available in application.js.
+# # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
 $(document).ready ->
@@ -23,3 +23,10 @@ $(document).ready ->
 
 
   $('.alert-box').hide().delay(800).fadeIn(800).delay(4000).fadeOut(800)
+  # $('.alert-box').hide().fadeIn(800).delay(4000).fadeOut(800)
+# $(document).foundation({
+#   alert: {
+#     animation_speed: 500,
+#     animation: 'fadeOut'
+#   }
+# });

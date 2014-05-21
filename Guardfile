@@ -4,7 +4,7 @@ end
 
 group :tests do 
 
-  guard :minitest, all_on_start: false, spring: true, bundler: false do
+  guard :minitest, all_on_start: false, spring: 'rake test', bundler: false do
 
     watch(%r{^test/factories/(.+)\.rb})                    { 'test/meta/factories_test.rb' }
     watch(%r{^test/(.*)\/?_test(.*)\.rb})

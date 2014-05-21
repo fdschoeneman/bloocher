@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.0'
 
-gem 'rails'
+gem 'rails', '4.0.4'
 
 # postgresql database
 gem 'pg'
@@ -11,7 +11,7 @@ gem 'pg'
 gem 'tire'
 
 # Use SCSS for stylesheets
-gem 'sass-rails' 
+gem 'sass-rails', '~> 4.0.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
@@ -122,6 +122,8 @@ gem 'faker-bloocher'
 gem 'faker-stoked', github: 'fdschoeneman/faker-stoked', branch: 'master'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+# colors
+gem 'colorize'
 
 group :development do 
 
@@ -167,7 +169,6 @@ group :test, :development do
   # preloads rails app for faster test and development tasks
   gem 'spring'
 
-
   # test factories  
   gem 'factory_girl_rails'
   
@@ -179,7 +180,6 @@ group :test, :development do
   gem 'debugger'
   gem 'pry'
   gem 'awesome_print', require: 'ap'
-
 
   # Guards
   gem 'guard'

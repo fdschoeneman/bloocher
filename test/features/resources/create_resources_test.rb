@@ -39,21 +39,21 @@ feature "Resources::Create Resource Feature Test" do
     URI.parse(current_url).request_uri.must_equal "/wineries/breggo"
   end
 
-  scenario "create winery as unregistered user" do 
-    visit new_winery_path
-    within '.user-signup' do 
-      fill_in 'user_email', with: 'test@test.com'
-      find_button('Sign up').click
-    end
-    page.must have_selector(".alert-box", text: /link has been sent/)
-    User.where(email: "test@test.com").wont_be_nil
-    open_email('test@test.com')
-    current_email.click_link "Confirm my account"
-    fill_in 'user_password', with: 'password'
-    fill_in 'user_password_confirmation', with: 'password'
-    click_button 'Confirm that you are a bahler'
-    URI.parse(current_url).request_uri.must_equal "/wineries/new"
-  end
+  # scenario "create winery as unregistered user" do 
+  #   visit new_winery_path
+  #   within '.user-signup' do 
+  #     fill_in 'user_email', with: 'test@test.com'
+  #     find_button('Sign up').click
+  #   end
+  #   page.must have_selector(".alert-box", text: /link has been sent/)
+  #   User.where(email: "test@test.com").wont_be_nil
+  #   open_email('test@test.com')
+  #   current_email.click_link "Confirm my account"
+  #   fill_in 'user_password', with: 'password'
+  #   fill_in 'user_password_confirmation', with: 'password'
+  #   click_button 'Confirm that you are a bahler'
+  #   URI.parse(current_url).request_uri.must_equal "/wineries/new"
+  # end
 
   scenario "create a wine from a winery page" do 
 

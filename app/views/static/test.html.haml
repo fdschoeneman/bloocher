@@ -1,0 +1,51 @@
+!!!
+%html
+  %head
+    %meta{charset: "utf-8"}/
+    %title Dave Gamache
+    %meta{content: "Personal site of designer Dave Gamache.", name: "description"}/
+    %meta{content: "Dave Gamache | @dhg", name: "author"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %link{href: "css/main.css", rel: "stylesheet"}/
+    %link{href: "favicon.png", rel: "shortcut icon", type: "image/x-icon"}/
+    %script{src: "//use.typekit.net/rws3een.js", type: "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+  %body
+.container
+  .container-inner
+    .background
+    %section#intro.wrapper
+      %h1.name Parallax Demo
+      %h2.byline An experiment by Dave Gamache
+    %section#explosion.wrapper
+      %p.explosion-byline Here's an example of 16 elements scaling, fading and moving at once.
+      %ul#domExplosionList
+        %li.dom-explosion-item.dei-1
+        %li.dom-explosion-item.dei-2
+        %li.dom-explosion-item.dei-3
+        %li.dom-explosion-item.dei-4
+        %li.dom-explosion-item.dei-5
+        %li.dom-explosion-item.dei-6
+        %li.dom-explosion-item.dei-7
+        %li.dom-explosion-item.dei-8
+        %li.dom-explosion-item.dei-9
+        %li.dom-explosion-item.dei-10
+        %li.dom-explosion-item.dei-11
+        %li.dom-explosion-item.dei-12
+        %li.dom-explosion-item.dei-13
+        %li.dom-explosion-item.dei-14
+        %li.dom-explosion-item.dei-15
+        %li.dom-explosion-item.dei-16
+    %section#images.wrapper
+      %p.images-byline Or better yet, a realistic example of showcasing some design work.
+      %p.images-byline-2 Really, anything is possible …
+      %img#mediumHomepage.raw-page{src: "img/oversized-raw-homepage.jpg"}/
+      .iphone
+        %img.iphone-frame{src: "img/iphoneframe.png"}/
+        .iphone-viewport
+          %img#medium-profile-iphone.iphone-content{src: "img/medium-profile-iphone-fullsize.jpg"}/
+          %img#davegamache-dot-com.iphone-content{src: "img/davegamache-rotated.jpg"}/
+    %section#links
+      %p.links-byline Learn how to make your parallax site smooth like this one.
+      %a.btn{href: "https://medium.com/@dhg/82ced812e61c"} Read about it on Medium

@@ -1,6 +1,6 @@
 .row
   - flash.each do |name, msg|
     - if msg.is_a?(String)
-      %div{class: "alert-box radius #{name == :notice ? "success" : "alert"}", "data-alert" => ""}
+      %div{class: "custom-alert-box", "data-alert" => "", "data-options" => "animation_speed:500;"}
         = content_tag :div, msg
         %a.close{href: "#"} ×

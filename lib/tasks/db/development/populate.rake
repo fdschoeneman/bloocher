@@ -25,7 +25,6 @@ namespace 'db:development' do
 
   task verify_object_counts: :environment do 
 
-
     Rake.application.in_namespace('db:development:create') do |x|
 
       x.tasks.each do |task|
@@ -37,16 +36,16 @@ namespace 'db:development' do
         
         unless @objects.nil?
           if objects_in_db == @objects
-            puts green("#{count} count of (#{@objects.to_i}) matches objects in db")
+            puts "#{count} count of (#{@objects.to_i}) matches objects in db".green
           else
-            puts yellow("#{count} count of (#{@objects.to_i}) does not match objects in db (#{objects_in_db})")
+            puts "#{count} count of (#{@objects.to_i}) does not match objects in db (#{objects_in_db})".red
           end
         end
         if @objects.nil?
           if objects_in_db > 0
-            puts green("#{database_table} table has (#{objects_in_db}) objects")
+            puts "#{database_table} table has (#{objects_in_db}) objects".magenta
           else
-            puts red("#{database_table} table has no objects")
+            puts "#{database_table} table has no objects".magenta
           end
         end
       end
@@ -60,7 +59,7 @@ def satisfy_dependencies(dependencies)
     desired_count = eval("@" + model.pluralize) 
     actual_count = model.classify.constantize.count
     unless desired_count.nil? || actual_count >= desired_count
-      puts "#{green("  -->")} satisfying #{model.downcase} dependency"
+      puts "satisfying #{model.downcase} dependency".light_green
       Rake::Task["db:development:create:#{model.underscore.pluralize}"].invoke
     end
   end
