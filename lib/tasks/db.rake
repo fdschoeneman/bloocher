@@ -1,6 +1,7 @@
 Dir[Rails.root.join("lib/tasks/support/*.rb")].each {|f| require f}
 
-include RakeColorizer 
+require 'faker/stoked'
+
 include RakePrettifier
 
 desc "alias for db:development:populate"

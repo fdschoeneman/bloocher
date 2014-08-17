@@ -1,8 +1,6 @@
 FactoryGirl.define do
   factory :winery do
-    sequence :name do |n|
-      "Ernest & Julio #{n}Gallo, Inc."
-    end
+    sequence(:name) { |n| "E&J Gallo#{n}" }
 
     association         :producer
 

@@ -3,7 +3,8 @@ require "test_helper"
 
 describe ImagesController do 
 
-include Rails.application.routes.url_helpers
+  include Rails.application.routes.url_helpers
+  
   Given(:user) { create(:user) }
   Given(:producer) { create(:producer) }
   Given(:winery) { create(:winery) }

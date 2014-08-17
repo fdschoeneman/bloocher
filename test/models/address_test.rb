@@ -8,6 +8,7 @@ describe Address do
 
     describe "columns and types" do 
 
+      must { have_db_column(:name).of_type(:string) }
       must { have_db_column(:address_1).of_type(:string) }
       must { have_db_column(:address_2).of_type(:string) }
       must { have_db_column(:city).of_type(:string) }

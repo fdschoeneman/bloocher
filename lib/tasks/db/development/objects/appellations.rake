@@ -2,11 +2,17 @@ namespace 'db:development:create' do
 
   task appellations: :environment do
 
-    @appellations.to_i.times do |n|
+    satisfy_dependencies(["vineyard"])
+
+    Faker::Bloocher.appellations.each do |appellation_name|
       Appellation.create(
-        name: Faker::Bloocher.appellation,
-        description: Faker::Stoked.bio
+        name: appellation_name,
+        description: Faker::Stoked.paragraph
       )
+    end
+
+    Vineyard.all.each do |vineyard|
+      vineyard.appellations_vineyards.create(appellation_id: rand(1..Appellation.count))
     end
   end
 end

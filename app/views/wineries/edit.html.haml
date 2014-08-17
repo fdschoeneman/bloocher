@@ -1,7 +1,8 @@
-%h1 Editing winery
+.text-right
+  %h1 
+    = @winery.name
+    | edit 
+.row
+%hr
+= render partial: 'form', locals: { button_label: "Update", back_to: @winery}
 
-= render 'form'
-
-= link_to 'Show', @winery
-\|
-= link_to 'Back', wineries_path

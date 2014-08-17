@@ -29,9 +29,7 @@ describe Wine do
       must { have_db_column(:name).of_type(:string) }
       must { have_db_column(:slug).of_type(:string) }
       must { have_db_column(:short_url).of_type(:string) }
-
       must { have_db_column(:winemaker_notes).of_type(:text) }
-      
       must { have_db_column(:acid_added).of_type(:boolean) }
     end
 
@@ -66,8 +64,8 @@ describe Wine do
 
     must { have_many(:images) }
     must { have_many(:carousels) }
-    must { have_many(:certifications_holdable) }
-    must { have_many(:certifications).through(:certifications_holdable) }
+    must { have_many(:certifications_holdables) }
+    must { have_many(:certifications).through(:certifications_holdables) }
     must { have_many(:positions) }
     must { have_many(:fruit_lots) }
     must { have_many(:reviews) }

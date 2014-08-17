@@ -8,9 +8,9 @@ describe Certification do
 
     describe "columns and types" do 
 
-  		must { have_db_column(:name).of_type(:string) }
-  		must { have_db_column(:url).of_type(:string) }
-  		must { have_db_column(:description).of_type(:text) }
+  		must { have_db_column(:certifying_body_id).of_type(:integer) }
+      must { have_db_column(:description).of_type(:text) }
+  		must { have_db_column(:certification_type).of_type(:string) }
   	end
   end
 

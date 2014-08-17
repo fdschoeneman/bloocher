@@ -6,8 +6,13 @@ class ShowcasesController < ApplicationController
   
   def index
 
-    @showcases = Showcase.all
-    respond_with @showcases
+    @page_title = "Showcases"
+
+    @showcases = Showcase.order(:name).page params[:page]
+    respond_to do |format|
+      format.html
+      format.json { render json: @showcases }
+    end
   end
 
   def show

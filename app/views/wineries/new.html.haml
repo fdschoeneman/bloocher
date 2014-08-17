@@ -1,4 +1,6 @@
-%h2 New winery
-= render 'form'
+.text-right
+  %h2 New winery
+%hr
+= render partial: 'form', locals: { button_label: "Submit Winery", back_to: wineries_path }
 
-= link_to 'Back', wineries_path
+

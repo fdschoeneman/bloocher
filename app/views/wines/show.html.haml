@@ -18,12 +18,13 @@
       %dd= @wine.cases_produced
       %dt Vintage
       %dd= @wine.vintage
-      %dt= @wine.positions
+      %dt Credits
       %dd
         %ul.inline
-          - @wine.positions.each do |winemaker|
-            %li= link_to winemaker.name, user_path(winemaker.id)
-          = link_to "add winemaker", new_user_invitation_path
+          / - @wine.positions.each do |winemaker|
+          /   %li= link_to "#{winemaker.title}: #{winemaker.user.name}", user_path(winemaker.user.id)
+          /   |  
+          / = link_to "add winemaker", new_user_invitation_path
 
   .span6  
     #myCanvasContainer

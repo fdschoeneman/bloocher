@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :producer do
-    name                "Breggo"
+      
+    sequence(:name) { |n| "Testy McTesterton#{n}" }
+
   end
 end

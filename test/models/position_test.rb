@@ -12,6 +12,8 @@ describe Position do
       must { have_db_column(:positionable_id).of_type(:integer) }
       must { have_db_column(:positionable_type).of_type(:string) }
       must { have_db_column(:title).of_type(:string) }
+      must { have_db_column(:tenure_start).of_type(:date) }
+      must { have_db_column(:tenure_end).of_type(:date) }
     end
 
     describe "indexes" do

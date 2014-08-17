@@ -1,33 +1,17 @@
 namespace 'db:development' do 
 
-  @accounts = 5
   @accounts_activations = 20
   @accounts_admins = 20
   @activations = 5
   @accounts_admins = 5
-  @addresses = 20
-  @addresses_addressables = 1
   @artists = 5
-  @appellations = 20
-  @appellations_vineyards = 60
-  @authentications = 5
-  @carousels = 2
-  @carousels_images = 2
-  @certifications = 5 
-  @certifications_holdables = 20
+  @authentications = 3
   @certifications_producers = 20
-  @fruit_lots = 20
   @fruit_lots_wines = 20
-  @images = 2
-  @positions = 20
-  @producers = 5
   @reviews = 20
   @roles = 3
-  @showcases = 5 
-  @showcases_wines = 2
-  @users = 39
-  @vineyards = Faker::Bloocher.vineyards.count
-  @vineyards_vintages = 20 
+  @users = 10
+  @vineyards = 20
   @blocks
   @wines = 20
   @wines_fruit_lots = 20
@@ -41,19 +25,28 @@ namespace 'db:development' do
 
   task verify_object_counts: :environment do 
 
-
     Rake.application.in_namespace('db:development:create') do |x|
 
       x.tasks.each do |task|
 
+        database_table = task.name.split(":").last.classify
         objects_in_db = task.name.split(":").last.classify.constantize.count
         count = "@#{task.name.split(":").last}"
         @objects = eval(count)
         
-        if objects_in_db == @objects
-          puts green("#{count} count of (#{@objects.to_i}) matches objects in db")
-        else
-          puts cyan("#{count} count of (#{@objects.to_i}) does not match objects in db (#{objects_in_db})")
+        unless @objects.nil?
+          if objects_in_db == @objects
+            puts "#{count} count of (#{@objects.to_i}) matches objects in db".green
+          else
+            puts "#{count} count of (#{@objects.to_i}) does not match objects in db (#{objects_in_db})".red
+          end
+        end
+        if @objects.nil?
+          if objects_in_db > 0
+            puts "#{database_table} table has (#{objects_in_db}) objects".magenta
+          else
+            puts "#{database_table} table has no objects".magenta
+          end
         end
       end
     end
@@ -61,10 +54,12 @@ namespace 'db:development' do
 end
 
 def satisfy_dependencies(dependencies)
-  dependencies.each do |model|
 
-    if model.classify.constantize.count < eval("@" + model.pluralize)
-      puts "#{green("  -->")} satisfying #{model.downcase} dependency"
+  dependencies.each do |model|
+    desired_count = eval("@" + model.pluralize) 
+    actual_count = model.classify.constantize.count
+    unless desired_count.nil? || actual_count >= desired_count
+      puts "satisfying #{model.downcase} dependency".light_green
       Rake::Task["db:development:create:#{model.underscore.pluralize}"].invoke
     end
   end

@@ -1,21 +1,23 @@
 .row
-  .span3.offset1#signin
-    .well
-      %legend
-        Sign in
-      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
+  .small-12.columns
+    .text-center
+      %h1.brand
+        Join the harpin tidrick
+    %br
+
+.row
+
+  .small-6.columns
+    .panel.user-login
+      %h1 Log in
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { }) do |f|
         = f.input :email, :autofocus => true
         = f.input :password
         = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-        = f.button :submit, "Sign in", :class => 'btn-primary'
-
-  .span3.offset1#signup
-    %legend
-      Sign up
-    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
-      = f.error_notification
-      = display_base_errors resource
-      = f.input :email, :required => true
-      = f.button :submit, 'Sign up', :class => 'btn-primary'
-    = render "devise/shared/forgot_or_confirm_links"
-  .span2
+        = f.button :submit, "Log in", :class => 'button expand', method: 'get'
+  .small-6.columns
+    .user-signup
+      %h1 Or sign up instead
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        = f.input :email, :required => true
+        = f.button :submit, 'Sign up', :class => 'button expand', :id => 'getsome'

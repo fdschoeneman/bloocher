@@ -4,7 +4,7 @@ namespace 'db:development' do
   if Rails.env.development?
     task kill_connections: :environment
       
-      puts "#{green("==>")} killing development db connections"
+      puts "killing development db connections"
       
       db_name = "#{File.basename(Rails.root)}_#{Rails.env}"
       sh = <<EOF

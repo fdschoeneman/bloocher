@@ -7,14 +7,15 @@ class Wine < ActiveRecord::Base
   resourcify
   
   validates :name, :vintage, presence: true
-  validates :vintage, :cases_produced, numericality: true
+  validates :vintage, numericality: true
+  validates :cases_produced, numericality: true, allow_blank: true
   validates :vintage, length: { is: 4 }
 
   belongs_to :winery
 
   has_many :carousels, as: :carousable
-  has_many :certifications_holdable, as: :holdable
-  has_many :certifications, through: :certifications_holdable
+  has_many :certifications_holdables, as: :holdable
+  has_many :certifications, through: :certifications_holdables
   has_many :fruit_lots, through: :fruit_lots_wines
   has_many :fruit_lots_wines
   has_many :images,     as: :imageable

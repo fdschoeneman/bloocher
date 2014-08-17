@@ -1,5 +1,9 @@
-.row-fluid
-  %h3 Add a new wine for #{@winery.name}
-  = render 'form'
+.text-right
+  %h2
+    = @winery.name
+    | 
+    Add a wine
+%hr
+= render partial: 'form', locals: { button_label: "Add to the #{@winery.name} library", back_to: @winery }
 
-  = link_to 'Back', wines_path
+

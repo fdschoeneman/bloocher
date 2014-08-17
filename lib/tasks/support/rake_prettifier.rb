@@ -5,14 +5,14 @@ module RakePrettifier
 	end
 
 	def big_notice(task)
-	  puts green("==>") + " " + task.name
+	  puts ("==> " + task.name).green
 	end
 
 	def medium_notice(task)
-	  puts green("  -->") + " " + task
+	  puts "  --> " + task.light_green
 	end
 
 	def small_notice(subject)
-	  puts green("    ~-") + " Making " + subject
+	  puts ("    ~- Making " + subject).yellow
 	end
 end

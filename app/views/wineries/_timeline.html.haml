@@ -1,0 +1,35 @@
+.small-12.columns
+  %section.hero#hero1
+    .inner
+      - if can? :edit, :winery
+        .text-left
+          %i= link_to "", edit_winery_path(@winery), :class => "fi-upload"
+      .row
+        %h1= @winery.name
+        - if can? :edit, :winery
+          %span.has-tip{"data-tooltip" => "", "data-width" => "210", title: "edit this winery"}
+            %i= link_to "", edit_winery_path(@winery), :class => "fi-page-edit"
+          |
+          %span.has-tip{"data-tooltip" => "", "data-width" => "210", title: "add a wine to this winery"}
+            %i= link_to "", new_winery_wine_path(@winery), :class => "fi-plus"
+
+
+      .row
+        .small-9.offset-2.columns
+          %ol#timeline.center
+            - @winery.vintages[-3..-1].try(:each) do |vintage|
+              %li.work
+                %input.radio{ checked: checked_status(vintage), name: "works", type: "radio", id: "timeline-#{vintage}"}
+                .relative
+                  %label.horizontal-timeline{ for: "timeline-#{vintage}" }
+                    %svg{height: "60", width: "100" }
+                      %text{ fill: "white", x: "25", y: "39" }
+                        = oughtify(vintage)
+                        / \/(#{@winery.wines_in_vintage(vintage).try(:count)})
+                      %circle{ cx: "30", cy: "30", fill: "transparent", r: "25", stroke: "white", "stroke-width" => "3" }
+                %br
+                .content
+                  - @winery.wines_in_vintage(vintage).each do |wine|
+                    %p= link_to "#{oughtify(vintage)} #{wine.name}", [wine.winery, wine]
+                  - if can? :edit, :winery
+                    %i= link_to("", new_winery_wine_path(@winery, vintage: vintage), :class => "fi-plus" )

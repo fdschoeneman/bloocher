@@ -1,12 +1,12 @@
 .row
-	%h3 Name of this bloocher
+	%h3 Name
 	%p= @user.name
 	%h3 Positions
 	- @user.positions.each do |position|
 		%p
-		.badge= position
+		.label= position.title
 		= link_to position.positionable.name
 	%h3 
 		Blooches
-		.badge.badge-info= @user.reviews.count
+		= @user.reviews.count
 	

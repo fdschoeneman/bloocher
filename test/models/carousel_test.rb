@@ -11,6 +11,7 @@ describe Carousel do
       must { have_db_column(:carousable_type).of_type(:string) }
       must { have_db_column(:carousable_id).of_type(:integer) }
       must { have_db_column(:name).of_type(:string) }
+      must { have_db_column(:position).of_type(:integer) }
     end
 
     describe "indexes" do 

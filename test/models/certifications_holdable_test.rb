@@ -25,5 +25,7 @@ describe CertificationsHoldable do
 
 		must { belong_to(:certification) }
 		must { belong_to(:holdable) }
+		must { belong_to(:vineyard) }
+
 	end
 end

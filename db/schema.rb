@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212050248) do
+ActiveRecord::Schema.define(version: 20140204100943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20131212050248) do
     t.integer  "addressable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "addresses", ["addressable_id", "addressable_type"], name: "index_addresses_on_addressable_id_and_addressable_type", using: :btree
@@ -110,6 +111,8 @@ ActiveRecord::Schema.define(version: 20131212050248) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "mission"
+    t.text     "history"
   end
 
   add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
@@ -131,6 +134,7 @@ ActiveRecord::Schema.define(version: 20131212050248) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "position"
   end
 
   add_index "carousels", ["carousable_id", "carousable_type"], name: "index_carousels_on_carousable_id_and_carousable_type", using: :btree
@@ -147,11 +151,11 @@ ActiveRecord::Schema.define(version: 20131212050248) do
   add_index "carousels_images", ["image_id"], name: "index_carousels_images_on_image_id", using: :btree
 
   create_table "certifications", force: true do |t|
-    t.string   "name"
     t.text     "description"
-    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "certifying_body_id"
+    t.string   "certification_type"
   end
 
   create_table "certifications_holdables", force: true do |t|
@@ -165,6 +169,14 @@ ActiveRecord::Schema.define(version: 20131212050248) do
   end
 
   add_index "certifications_holdables", ["holdable_id", "holdable_type"], name: "index_certifications_holdables_on_holdable_id_and_holdable_type", using: :btree
+
+  create_table "certifying_bodies", force: true do |t|
+    t.string   "name"
+    t.string   "mission"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -228,6 +240,8 @@ ActiveRecord::Schema.define(version: 20131212050248) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "tenure_start"
+    t.date     "tenure_end"
   end
 
   add_index "positions", ["positionable_id", "positionable_type"], name: "index_positions_on_positionable_id_and_positionable_type", using: :btree
@@ -364,6 +378,8 @@ ActiveRecord::Schema.define(version: 20131212050248) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "mission"
+    t.text     "history"
   end
 
   add_index "vineyards", ["appellation_id"], name: "index_vineyards_on_appellation_id", using: :btree
@@ -394,6 +410,8 @@ ActiveRecord::Schema.define(version: 20131212050248) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.text     "mission"
+    t.text     "history"
   end
 
   add_index "wineries", ["name"], name: "index_wineries_on_name", unique: true, using: :btree

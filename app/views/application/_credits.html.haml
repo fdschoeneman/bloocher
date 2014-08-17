@@ -1,0 +1,27 @@
+.row
+  .small-8.small-offset-2.columns
+    .text-center
+      %h1 People
+    %ul.small-block-grid-2.medium-block-grid-4
+      - positions.each do |position|
+        %li
+          %br
+          %br
+          - if position.user.images.first
+            .th= image_tag(position.user.images.first.image.url)
+          - else
+            .th= image_tag("connery.jpg")
+          .text-center
+            = link_to position.user.name, user_path(position.user)
+            %small
+              = position.title.titleize 
+
+
+              - if position.tenure_end > Date.today
+                since
+                = position.tenure_start.year 
+              - else
+                from 
+                = position.tenure_start.year
+                until
+                = position.tenure_end.year

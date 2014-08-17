@@ -1,7 +1,7 @@
 namespace 'db:development:create' do 
 
   task wines: :environment do 
-    99.times do |n|
+    @wines.to_i.times do |n|
       vintage = rand(2002..2011)
       bottled_on_year = vintage + 1
       released_on_year = vintage + rand(1..2)
@@ -12,7 +12,7 @@ namespace 'db:development:create' do
         vintage: vintage,
         cases_produced: rand(2000..100000),
         name: "#{Faker::Bloocher.varietal} \- #{Faker::Bloocher.vineyard} \- #{Faker::Bloocher.differentiator}",
-        winery_id: rand(1..5),   
+        winery_id: 1,   
         acid_added: rand(0..1),
         new_french_oak: rand(1..100),
         days_in_oak: rand(90..180),

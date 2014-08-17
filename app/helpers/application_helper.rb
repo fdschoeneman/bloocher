@@ -9,6 +9,14 @@ module ApplicationHelper
     end
   end
 
+  def checked_status(vintage)
+    if @winery.vintages.first == vintage 
+      "checked"
+    else
+      ""
+    end
+  end
+
   def display_base_errors resource
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join
@@ -20,6 +28,18 @@ module ApplicationHelper
     HTML
     html.html_safe
   end
+
+  def pluralize_array(word, array)
+    case  
+    when array.count == 1
+      word
+    when array.count == 0
+      return
+    when array.count > 1
+      word.pluralize
+    end
+  end
+
 
   def default_meta_tags
     
@@ -51,4 +71,10 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def oughtify(year)
+
+    "'" + year.to_s.split("20").last
+  end
+
 end

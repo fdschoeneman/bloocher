@@ -4,6 +4,7 @@ class Winery < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
+  # for cancan/rolify
   resourcify
 
   belongs_to :producer
@@ -11,15 +12,29 @@ class Winery < ActiveRecord::Base
   has_many :accounts, as: :accountable
   has_many :addresses_addressable, as: :addressable
   has_many :addresses, through: :addresses_addressable
-  has_many :certifications_holdable, as: :holdable
-  has_many :certifications, through: :certifications_holdable
+  has_many :certifications_holdables, as: :holdable
+  has_many :certifications, through: :certifications_holdables
   has_many :carousels, as: :carousable
   has_many :images, as: :imageable
+  has_many :positions, as: :positionable
   has_many :reviews, through: :wines
   has_many :showcases, as: :showcaseable
   has_many :wines
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
+
+  def producer_name
+    producer.try(:name)
+  end
+  
+  def producer_name=(name)
+    self.producer = Producer.where(name: name).first_or_create if name.present?
+  end
 
   def winery_rating
   	if self.reviews.count.zero?
@@ -35,5 +50,14 @@ class Winery < ActiveRecord::Base
   	words.each { |word| result[word] += 1 }
   	result.sort_by { |k,v| v}.reverse[0..20]
   end
+
+  def vintages
+    wines.pluck(:vintage).uniq.sort
+  end
+
+  def wines_in_vintage(vintage)
+    wines.where(vintage: vintage)
+  end
+
 
 end

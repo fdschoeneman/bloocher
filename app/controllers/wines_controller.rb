@@ -2,6 +2,8 @@ class WinesController < ApplicationController
 
   respond_to :json, :html
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
+
+  layout "form", only: [:new, :edit]
   
   def index
     @page_title = "Wines"
@@ -14,6 +16,7 @@ class WinesController < ApplicationController
   end
 
   def show
+
     @reviews = @wine.reviews
     @review = Review.new
     @fruit_lots = @wine.fruit_lots_wines.order("percent_of_wine")
@@ -36,8 +39,8 @@ class WinesController < ApplicationController
 
   def new
     
-    @winery = Winery.find(params[:winery_id])
-    @wine = @winery.wines.build
+    @winery = Winery.friendly.find(params[:winery_id])
+    @wine = @winery.wines.build(vintage: params[:vintage])
 
     respond_to do |format|
       format.html 
@@ -52,10 +55,11 @@ class WinesController < ApplicationController
   def create
 
     @wine = Wine.new(wine_params)
+    @wine.winery = Winery.friendly.find(params[:winery_id])
 
     respond_to do |format|
       if @wine.save
-        format.html { redirect_to @wine, notice: 'Wine was successfully created.' }
+        format.html { redirect_to @wine.winery, notice: 'Wine was successfully created.' }
         format.json { render json: @wine, status: :created, location: @wine }
       else
         format.html { render action: "new" }
@@ -118,7 +122,6 @@ private
   end
 
   def wine_params
-
     params.require(:wine).permit(["winery_id", "vintage", "cases_produced", "days_in_oak", "winery_id", "lay_down_until", "drink_before", "acid_added", "bottled_on", "released_on", "name", "winemaker_notes", "ph", "residual_sugar", "alcohol", "new_french_oak", "one_yr_old_french_oak", "two_yr_old_french_oak", "three_yr_old_french_oak", "new_american_oak", "one_yr_old_american_oak", "two_yr_old_american_oak", "three_yr_old_american_oak", "created_at", "updated_at", "category", "short_url"])
   end
 end

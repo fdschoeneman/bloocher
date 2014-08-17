@@ -1,1 +1,103 @@
-contact
+.row
+  %br
+  .small-12.columns
+    .darkpanel
+      %h1.text-center Contact
+
+.row
+  .large-9.columns
+    %p
+      We'd love to hear from you, whether you're having trouble figuring something out on this site or just want to blooch.  
+    .section-container.tabs{"data-section" => ""}
+      %section.section.active
+        %h5.title
+          %a{href: "http://foundation.zurb.com/templates/contact.html#panel1"} Blooch something to us at Bloocher
+        .content{"data-slug" => "panel1"}
+          %form
+            .row.collapse
+              .large-2.columns
+                %label.inline Your Name
+              .large-10.columns
+                %input#yourName{placeholder: "Jay Esser", type: "text"}/
+            .row.collapse
+              .large-2.columns
+                %label.inline Your Email
+              .large-10.columns
+                %input#yourEmail{placeholder: "jay.esser@litigious.com", type: "text"}/
+            %label What's up?
+            %textarea{rows: "4"}
+            %button.radius.button{type: "submit"} Submit
+  /     %section.section
+  /       %h5.title
+  /         %a{href: "http://foundation.zurb.com/templates/contact.html#panel2"} Specific Person
+  /       .content{"data-slug" => "panel2"}
+  /         %ul.large-block-grid-5
+  /           %li
+  /             %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=mal@serenity.bc.reb", target: "_blank"}
+  /               %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /               Frederick D. Schoeneman
+  /           %li
+  /             %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=zoe@serenity.bc.reb", target: "_blank"}
+  /               %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /               Zoe Washburne
+  /           / %li
+  /           /   %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=jayne@serenity.bc.reb", target: "_blank"}
+  /           /     %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /           /     Jayne Cobb
+  /           / %li
+  /           /   %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=doc@serenity.bc.reb", target: "_blank"}
+  /           /     %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /           /     Simon Tam
+  /           / %li
+  /           /   %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=killyouwithmymind@serenity.bc.reb", target: "_blank"}
+  /           /     %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /           /     River Tam
+  /           / %li
+  /           /   %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=leafonthewind@serenity.bc.reb", target: "_blank"}
+  /           /     %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /           /     Hoban Washburne
+  /           / %li
+  /           /   %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=book@serenity.bc.reb", target: "_blank"}
+  /           /     %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /           /     Shepherd Book
+  /           / %li
+  /           /   %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=klee@serenity.bc.reb", target: "_blank"}
+  /           /     %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /           /     Kaywinnet Lee Fry
+  /           / %li
+  /           /   %a{href: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=inara@guild.comp.all", target: "_blank"}
+  /           /     %img{src: "./Foundation Template   Contact_files/200x200&text=[person]"}>/
+  /           /     Inarra Serra
+  / / End Contact Details
+  / / Sidebar
+  .large-3.columns
+    / %h5 Map
+    / / Clicking this placeholder fires the mapModal Reveal modal
+    %p
+    /   %a{"data-reveal-id" => "mapModal", href: ""}
+    /     %img{src: "./Foundation Template   Contact_files/400x280"}/
+    /   %br/
+    /   %a{"data-reveal-id" => "mapModal", href: ""} View Map
+    %ul.vcard
+      %li.fn Bloocher
+      %li.street-address 281 41st Street #33
+      %li.locality Oakland, CA  94611
+      %li.phone 510.207.3450
+
+  / End Sidebar
+/ End Main Content and Sidebar
+/ Footer
+
+#mapModal.reveal-modal
+  %h4 Where We Are
+  %p
+    %img{src: "./Foundation Template   Contact_files/800x600"}/
+  / Any anchor with this class will close the modal. This also inherits certain styles, which can be overriden.
+  %a.close-reveal-modal{href: "http://foundation.zurb.com/templates/contact.html#"} ×
+%script{src: "./Foundation Template   Contact_files/jquery.js"}
+%script{src: "./Foundation Template   Contact_files/foundation.js"}
+:javascript
+  $(document).foundation();
+
+  var doc = document.documentElement;
+  doc.setAttribute('data-useragent', navigator.userAgent);

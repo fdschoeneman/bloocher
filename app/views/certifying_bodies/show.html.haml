@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @certifying_body.name
+%p
+  %b Mission:
+  = @certifying_body.mission
+%p
+  %b Url:
+  = @certifying_body.url
+
+= link_to 'Edit', edit_certifying_body_path(@certifying_body)
+\|
+= link_to 'Back', certifying_bodies_path

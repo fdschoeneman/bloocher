@@ -4,12 +4,12 @@ namespace 'db:development:create' do
 
     satisfy_dependencies(["showcase", "review"])
 
-    Showcase.all.each do |showcase|
+    reviews = Review.all
 
-      @showcases_wines.to_i.times do |sw|
-        blurb = Review.where(id: rand(1..Review.count)).first
-        showcase.showcase!(blurb.id)
-      end
+    Showcase.all.each do |showcase|
+      reviews.each do |review|
+        showcase.showcase!(review.wine.id)
+      end 
     end
   end
 end

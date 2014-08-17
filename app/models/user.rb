@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   has_many :addresses, through: :addresses_addressable
   has_many :artists, foreign_key: :artist_id
   has_many :authentications, dependent: :destroy 
-  has_many :certifications_holdable, as: :holdable
-  has_many :certifications, through: :certifications_holdable
+  has_many :certifications_holdables, as: :holdable
+  has_many :certifications, through: :certifications_holdables
   has_many :images, as: :imageable
   has_many :positions
   has_many :reviews, foreign_key: :reviewer_id
