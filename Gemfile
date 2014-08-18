@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.2'
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.4'
 
 # postgresql database
 gem 'pg'
@@ -11,18 +11,17 @@ gem 'pg'
 gem 'tire'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+# gem 'sass-rails'#, '~> 4.0.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'#, '>= 1.3.0'
 
 # foundation js & css framework
 gem 'foundation-rails'
-gem 'foundation-icons-sass-rails'
-
+# gem 'foundation-icons-sass-rails'
 
 # makes sure foundation and some other assets load
 gem 'modernizr-rails'
@@ -71,7 +70,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
 # forms
-gem 'simple_form'
+# gem 'simple_form'
 gem 'country_select'
 
 # for google link shortener
@@ -80,10 +79,8 @@ gem 'google-api-client'
 # qr codes
 gem 'rqrcode-rails3'
 
-# friendly ids
+# friendly ids in urls /authors/noam-chomsky
 gem 'friendly_id'
-# gem "client_side_validations"
-# gem "client_side_validations-simple_form"
 
 # environment variables
 gem 'figaro'
@@ -91,18 +88,8 @@ gem 'figaro'
 # pagination
 gem 'kaminari'
 
-# gem 'ledermann-rails-settings', :require => 'rails-settings'
-
-# Cleaner metatags
-gem 'meta-tags', :require => 'meta_tags'
-
 # mapipng addresses
 gem 'geocoder'
-
-# For interacting with google maps on vineyards
-
-# common helpers for use with bootstrap
-# gem 'twitter-bootstrap-markup-rails'
 
 # photo upload, resizing, rendering and storage
 gem 'carrierwave'
@@ -142,9 +129,8 @@ end
 
 group :test do 
   
-  gem 'minitest-rails-shoulda'
-  gem 'minitest-rails-capybara'
-  gem 'capybara-email'
+  # gem 'minitest-rails-capybara'
+  # gem 'capybara-email'
   gem 'minitest-given'
   gem 'wrong'
 
@@ -154,10 +140,6 @@ group :test do
 
   # capybara save_and_open dependency
   gem 'launchy'
-
-  # recording external responses for tests
-  # gem 'vcr'
-  # gem 'webmock'
 end
 
 group :test, :development do
@@ -177,7 +159,6 @@ group :test, :development do
   gem 'rb-fsevent'
   
   # debugging
-  gem 'debugger'
   gem 'pry'
   gem 'awesome_print', require: 'ap'
 
@@ -187,20 +168,9 @@ group :test, :development do
   gem 'guard-livereload'
   gem 'guard-minitest'
 
-  # gem 'teaspoon'
-  # gem 'turnip', '1.0.0'
-  # gem 'email_spec'
-  # gem 'capybara'
-  # gem 'capybara-webkit'
-  # gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'headless', '0.3.1'
-  # gem 'phantomjs'
-  # gem 'guard-teaspoon'
 end
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 1.2'
 
 group :production do 
   
