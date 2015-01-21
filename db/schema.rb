@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204100943) do
+ActiveRecord::Schema.define(version: 20150121001447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,37 @@ ActiveRecord::Schema.define(version: 20140204100943) do
   end
 
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
+
+  create_table "buttafly_legends", force: true do |t|
+    t.integer  "cartographer_id"
+    t.json     "data"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "buttafly_mappings", force: true do |t|
+    t.integer  "legend_id"
+    t.integer  "originable_id"
+    t.string   "originable_type"
+    t.string   "targetable_model"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "buttafly_spreadsheets", force: true do |t|
+    t.json     "data"
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "imported_at"
+    t.datetime "processed_at"
+    t.string   "aasm_state"
+    t.integer  "source_row_count"
+    t.integer  "mtime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "flat_file"
+  end
 
   create_table "carousels", force: true do |t|
     t.string   "carousable_type"

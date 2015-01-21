@@ -2,7 +2,8 @@ require 'subdomain'
 
 Bloocher::Application.routes.draw do
 
-
+  mount Buttafly::Engine, at: "/buttafly"
+  
   resources :certifying_bodies
 
   resources :carousels_images

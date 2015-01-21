@@ -106,7 +106,7 @@ gem 'mini_magick'
 # pretty development data
 gem 'faker'
 gem 'faker-bloocher'
-gem 'faker-stoked', github: 'fdschoeneman/faker-stoked', branch: 'master'
+gem 'faker-stoked', github: 'schadenfred/faker-stoked', branch: 'master'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # colors
@@ -125,6 +125,7 @@ group :development do
   gem 'rails_best_practices'
   gem 'rails-erd'
 
+  gem 'buttafly', path: "../opensource/buttafly"
 end
 
 group :test do 
